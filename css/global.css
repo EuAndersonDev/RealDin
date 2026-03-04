@@ -6,10 +6,33 @@
     /* Atribuição das fontes às variáveis para facilitar o uso */
     --font-text: 'Inter', sans-serif;
     --font-title: 'Inter', sans-serif;
+    --font-subtitle: 'Inter', sans-serif;
+    --font-smallText: 'Inter', sans-serif;
     
     /* Variáveis de cores do Figma */
-    --primary-color: #2D31FA;
+    --primary-color: #177F72;
+    --secondary-color: #19AED9;
+    --third-color: #00674F;
+    --accent-color: #FAE007;
+
+    /* Gradiente tipo 1 com mais verde */
+    --gradient-start: #00674F;
+    --gradient-end: #19AED9;
+
+    /* Gradiente tipo 2 com mais azul */
+    --gradient2-start: #7957EA;
+    --gradient2-end: #1AA7D5;
+
+    /* Fundo mais branco mais escuro */
+    --backgroudDark: #E9E9E9;
     --background-dark: #121212;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    bottom: 0;
 }
 
 body {
