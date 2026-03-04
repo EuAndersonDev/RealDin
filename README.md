@@ -46,9 +46,12 @@ Mantemos uma estrutura organizada para facilitar a escalabilidade e manutenção
 │   ├── 📄 components.css       # Header, Footer e UI Patterns
 │   └── 📁 pages/               # Estilos específicos por módulo
 │
-├── 📁 js/                      # Lógica da Aplicação (Sprint 2)
-│   ├── 📄 main.js              # Lógica global
-│   └── 📁 services/            # Manipulação de dados e simuladores
+├── 📁 js/
+│   ├── 📁 components/          # 🆕 NOVO: Lógica dos componentes reutilizáveis
+│   │   ├── 📄 header.js        # Web Component do Menu
+│   │   └── 📄 footer.js        # Web Component do Rodapé
+│   ├── 📁 services/            # Futura lógica de LocalStorage/Cálculos
+│   └── 📄 main.js              # Inicialização global
 │
 ├── 📁 pages/                   # Telas da Aplicação
 │   ├── 📄 login.html
