@@ -1,4 +1,4 @@
-class Header extends HTMLElement {
+class CardCta extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <div class="cardcta">
@@ -15,4 +15,4 @@ class Header extends HTMLElement {
     }
 }
 
-customElements.define('header-component', Header);
+customElements.define('cardcta-component', CardCta);
