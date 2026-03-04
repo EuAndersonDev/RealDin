@@ -38,8 +38,9 @@ Mantemos uma estrutura organizada para facilitar a escalabilidade e manutenção
 ```text
 📁 RealDin/
 │
-├── 📁 assets/                  # Ícones, ilustrações e logos (SVG/PNG)
-│
+├── 📁 assets/ # Ícones, ilustrações e logos (SVG/PNG)
+│    └── 📁 imgs/               # Imagens do projeto em PNG
+│    └── 📁 icons/              # Icones em SvG
 ├── 📁 css/                     # Estilização Modular
 │   ├── 📄 global.css           # Reset, Variáveis e Tipografia
 │   ├── 📄 components.css       # Header, Footer e UI Patterns
