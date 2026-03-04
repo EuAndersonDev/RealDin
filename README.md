@@ -43,7 +43,9 @@ Mantemos uma estrutura organizada para facilitar a escalabilidade e manutenção
 │    └── 📁 icons/              # Icones em SvG
 ├── 📁 css/                     # Estilização Modular
 │   ├── 📄 global.css           # Reset, Variáveis e Tipografia
-│   ├── 📄 components.css       # Header, Footer e UI Patterns
+│   ├── 📁 components/          # Css dos componentes
+│   │   ├── 📄 header.js        # CSS Component do Menu
+│   │   └── 📄 footer.js        # CSS Component do Rodapé
 │   └── 📁 pages/               # Estilos específicos por módulo
 │
 ├── 📁 js/
