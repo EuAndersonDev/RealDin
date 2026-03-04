@@ -1,58 +1,59 @@
 class Footer extends HTMLElement {
-    connectedCallback() {
-        
-        this.innerHTML = `
-        <div id="fundo">
+  connectedCallback() {
+    this.innerHTML = `
+      <div class="rd-footer-wrap">
+        <footer class="rd-footer">
+          <div class="rd-footer-top">
+            <div class="rd-logo">RealDin</div>
+            <div class="rd-country">Brazil</div>
+          </div>
 
-      <footer>
+          <div class="rd-divider" aria-hidden="true"></div>
 
-            <div id="bloco">RealDin</div>
-            <div id="borda"> Brazil</div>
-            <div id="traco"> </div>
-           
+          <div class="rd-footer-columns">
+            <section class="rd-footer-col">
+              <h4>SOBRE NOS</h4>
+              <a href="#">Nossa empresa</a>
+              <a href="#">Imprensa</a>
+              <a href="#">Historia</a>
+            </section>
 
-      </footer>
+            <section class="rd-footer-col">
+              <h4>PRECISA DE AJUDA</h4>
+              <a href="#">Perguntas frequentes</a>
+              <a href="#">Contate-nos</a>
+            </section>
 
-      <div id="sobre"> SOBRE NÓS </div>
-      <div id="ajuda"> PRECISA DE AJUDA </div>
-      <div id="legal"> LEGAL </div>
+            <section class="rd-footer-col">
+              <h4>LEGAL</h4>
+              <a href="#">Termos de uso</a>
+            </section>
+          </div>
 
-      <div id="empresa"> 
-        
-        <p> Nossa empresa</p>
-        <br>
-        <p> Imprensa</p>
-        <br>
-        <p> História</p>
+          <div class="rd-divider" aria-hidden="true"></div>
+
+          <div class="rd-footer-bottom">
+            <p>© 2026 RealDin. Todos os direitos reservados.</p>
+
+            <div class="rd-socials">
+              <a class="rd-social" href="#" aria-label="Rede social 1">
+                <img src="assets/icons/Vector.svg" alt="" />
+              </a>
+              <a class="rd-social" href="#" aria-label="Rede social 2">
+                <img src="assets/icons/Vector (1).svg" alt="" />
+              </a>
+              <a class="rd-social" href="#" aria-label="Rede social 3">
+                <img src="assets/icons/Vector (2).svg" alt="" />
+              </a>
+              <a class="rd-social" href="#" aria-label="Rede social 4">
+                <img src="assets/icons/Vector (3).svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </footer>
       </div>
-
-      <div id="perguntas">
-        <p>Perguntas frequentes</p>
-        <br>
-        <p>Contate-nos</p>
-      </div>
-
-      <div id="termos">Termos de uso</div>
-
-      <div id="traco2"></div>
-
-      <div id="imagem"> <img  src="assets/icons/Vector.svg" alt=""> </div> 
-      <div id="imagem2"> <img src="assets/icons/Vector (1).svg" alt=""></div>
-      <div id="imagem3"> <img src="assets/icons/Vector (2).svg" alt=""></div>
-      <div id="imagem4"> <img src="assets/icons/Vector (3).svg" alt=""></div>
-
-      <p id="direitos">
-        © 2026 RealDin. Todos os direitos reservados.
-      </p>
-
-      
-    
-    </div>
-      
-     
-           
-         `;
-    }
+    `;
+  }
 }
 
 customElements.define('footer-componente', Footer);
