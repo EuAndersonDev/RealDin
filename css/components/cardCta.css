@@ -1,0 +1,61 @@
+
+/* Card CTA */
+.cardcta {
+width: 100%;
+height: 320px;
+position: relative;
+box-shadow: 8px 12px 4px rgba(0, 0, 0, 0.25);
+border-radius: 24px;
+background: linear-gradient(112.62deg, #00674f, #19aed9);
+overflow: hidden;
+text-align: center;
+font-size: 38px;
+color: #fff;
+font-family: Inter;
+}
+.heading-2 {
+position: absolute;
+top: 64px;
+left: calc(50% - 197px);
+line-height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 393.9px;
+height: 40px;
+}
+.clique-no-boto {
+position: absolute;
+top: 148px;
+left: calc(50% - 252px);
+font-size: 20px;
+line-height: 24px;
+color: rgba(255, 255, 255, 0.8);
+display: flex;
+align-items: center;
+justify-content: center;
+width: 503.8px;
+height: 41px;
+}
+.link {
+position: absolute;
+top: 232px;
+left: calc(50% - 122px);
+border-radius: 9999px;
+background-color: #fae007;
+width: 244.9px;
+height: 56px;
+font-size: 18px;
+color: #171a26;
+}
+.iniciar-quiz-agora {
+position: absolute;
+top: calc(50% - 10px);
+left: calc(50% - 79.98px);
+line-height: 28px;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 159px;
+height: 20px;
+}
