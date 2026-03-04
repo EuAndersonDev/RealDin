@@ -24,8 +24,10 @@
     --gradient2-end: #1AA7D5;
 
     /* Fundo mais branco mais escuro */
-    --backgroudDark: #E9E9E9;
-    --background-dark: #121212;
+    --background-dark: #9da4ac;
+
+    /* Fundo padrão da pagina */
+    --background: #F8F9FA;
 }
 
 *{
