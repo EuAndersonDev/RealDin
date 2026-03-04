@@ -39,9 +39,13 @@
 
 body {
     font-family: var(--font-text);
-    background-color: var(--background-dark);
+    background-color: var(--background);
 }
 
 h1, h2, h3 {
     font-family: var(--font-title);
+}
+
+p {
+    font-family: var(--font-text);
 }
