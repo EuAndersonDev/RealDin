@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* css/global.css */
+
+:root {
+    /* Atribuição das fontes às variáveis para facilitar o uso */
+    --font-text: 'Inter', sans-serif;
+    --font-title: 'Inter', sans-serif;
+    
+    /* Variáveis de cores do Figma */
+    --primary-color: #2D31FA;
+    --background-dark: #121212;
+}
+
+body {
+    font-family: var(--font-text);
+    background-color: var(--background-dark);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+}
