@@ -1,0 +1,13 @@
+[1mdiff --git a/pages/juros.html b/pages/juros.html[m
+[1mindex f295cfe..918de80 100644[m
+[1m--- a/pages/juros.html[m
+[1m+++ b/pages/juros.html[m
+[36m@@ -13,7 +13,6 @@[m
+ </head>[m
+ <body>[m
+     <header-componente></header-componente>[m
+[31m-    [m
+     <footer-componente></footer-componente>[m
+ </body>[m
+ </html>[m
+\ No newline at end of file[m
