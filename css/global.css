@@ -1,50 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 /* css/global.css */
 
 :root {
-    /* Atribuição das fontes às variáveis para facilitar o uso */
-    --font-text: 'Inter', sans-serif;
-    --font-title: 'Inter', sans-serif;
-    --font-subtitle: 'Inter', sans-serif;
-    --font-smallText: 'Inter', sans-serif;
-    
-    /* Variáveis de cores do Figma */
-    --primary-color: #177F72;
-    --secondary-color: #19AED9;
-    --third-color: #00674F;
-    --accent-color: #FAE007;
+  /* Atribuição das fontes às variáveis para facilitar o uso */
+  --font-text: "Inter", sans-serif;
+  --font-title: "Inter", sans-serif;
+  --font-subtitle: "Inter", sans-serif;
+  --font-smallText: "Inter", sans-serif;
 
-    /* Gradiente tipo 1 com mais verde */
-    --gradient-start: #00674F;
-    --gradient-end: #19AED9;
+  /* Variáveis de cores do Figma */
+  --primary-color: #177f72;
+  --secondary-color: #19aed9;
+  --third-color: #00674f;
+  --accent-color: #fae007;
 
-    /* Gradiente tipo 2 com mais azul */
-    --gradient2-start: #7957EA;
-    --gradient2-end: #1AA7D5;
+  /* Gradiente tipo 1 com mais verde */
+  --gradient-start: #00674f;
+  --gradient-end: #19aed9;
 
-    /* Fundo mais branco mais escuro */
-    --background-dark: #9da4ac;
+  /* Gradiente tipo 2 com mais azul */
+  --gradient2-start: #7957ea;
+  --gradient2-end: #1aa7d5;
 
-    /* Fundo padrão da pagina */
-    --background: #F8F9FA;
+  /* Fundo mais branco mais escuro */
+  --background-dark: #d3dde7;
+
+  /* Fundo padrão da pagina */
+  --background: #f8f9fa;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Isso faz com que a navegação por âncoras (clicar em um link e a página descer) deslize suavemente */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* Um pouco mais fina fica mais elegante e menos intrusiva */
+}
+
+/* O fundo (track) quase transparente */
+::-webkit-scrollbar-track {
+  /* Um fundo super sutil (ajuste a opacidade se precisar) */
+  background: rgba(0, 0, 0, 0.03);
+  /* Nota: Se o seu site for escuro, use rgba(255, 255, 255, 0.03) */
+}
+
+/* A barrinha que se move (thumb) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 10px;
+
+  /* Cria um espaço "transparente" ao redor da barrinha para ela não grudar nas pontas da tela */
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Hover da barrinha */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+}
+
+/* SUPORTE PARA FIREFOX */
+/* O Firefox não aceita -webkit, então usamos o padrão web aqui */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) transparent;
+}
+
+/* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
 }
 
 body {
-    font-family: var(--font-text);
-    background-color: var(--background);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-text);
+  background-color: var(--background);
 }
 
-h1, h2, h3 {
-    font-family: var(--font-title);
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
 }
 
 p {
-    font-family: var(--font-text);
+  font-family: var(--font-text);
 }

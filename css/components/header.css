@@ -1,9 +1,9 @@
 header {
     border-radius: 30px;
-    background: #FFF; 
+    background: #FFF;
     display: flex;
     justify-content: center;
-    color: var(--second-text-color, #737373);
+    color: var(--second-text-color);
 }
 
 #topo {
@@ -41,6 +41,7 @@ header {
     flex-direction: row;
     gap: 21px;
     justify-content: center;
+
 }
 
 #botoes {
@@ -48,15 +49,15 @@ header {
     padding: 15px 25px;
     align-items: center;
     gap: 15px;
-    
+
 }
 
 .botao-login {
     width: 120px;
     height: 52px;
     border-radius: 37px;
-    border: #59BDA3 2px solid;
-    background: #59BDA3;
+    background: var(--primary-color);
+    border: none;
     color: white;
 }
 
@@ -64,12 +65,36 @@ header {
     width: 152px;
     height: 52px;
     border-radius: 37px;
-    border: #59BDA3 2px solid;
-    background: #59BDA3;
+    border: none;
+    background: var(--primary-color);
     color: white;
 }
 
 a {
    color: var(--second-text-color, #737373);
    text-decoration: none;
+   transition: all 0.3s ease;
+   transform: translateY(0) translateX(0);
+}
+
+a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px) translateX(2px);
+    transition: all 0.3s ease;
+}
+
+button {
+    transition: all 0.3s ease;
+    transform: translateY(0) translateX(0);
+}
+
+button:hover {
+    transform: translateY(-3px) translateX(3px);
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+    background-color: var(--accent-color);
+    border: none;
+    font-size: larger;
+    font-weight: 600;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
