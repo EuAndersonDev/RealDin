@@ -1,0 +1,82 @@
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero {
+    width: 100%;
+    height: 1024px;
+    background: linear-gradient(100deg, #177F72 0%, #1AA7D5 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero h1 {
+    color: #FAE007;
+    text-align: center;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 68.966% */
+    margin: 20px;
+}
+
+#hero p {
+    color: #FAFAFA;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 120% */
+    margin-bottom: 30px;
+}
+
+#calculadora {
+    width: 40%;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#secao-grafico {
+    background-color: #fff;
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+}
+
+#alerta {
+    background: rgba(220, 40, 40, 0.10);
+    width: 60%;
+    height: 100px;
+    border-radius: 12px;
+    border: 2px solid rgba(220, 40, 40, 0.30);
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#alerta p {
+    color: #DC2828;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 90.909% */
+}
