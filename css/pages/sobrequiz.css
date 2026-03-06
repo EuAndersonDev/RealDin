@@ -1,0 +1,243 @@
+main {
+    --header-offset: 120px;
+    background-color: #E9E9E9;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: var(--header-offset);
+    font-family: Inter;
+    display: flex;
+    flex-direction: column;
+}
+
+#hero {
+    background-color: #E9E9E9;
+    width: 100%;
+    min-height: calc(100vh - var(--header-offset));
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero img {
+    width: 200px;
+    height: auto;
+}
+
+#titulo-hero {
+    color: #212529;
+    text-align: center;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 3.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 4.5rem; /* 124.138% */
+    letter-spacing: -0.1125rem;
+}
+
+.fonte-amarelo {
+    color: #FAE007;
+    font-family: Inter;
+    font-size: 3.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 4.5rem;
+    letter-spacing: -0.1125rem;
+}
+
+span {
+    background: linear-gradient(107deg, #7957EA 0%, #19AED9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Inter;
+    font-size: 3.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 4.5rem;
+    letter-spacing: -0.1125rem;
+}
+
+#paragrafo-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p{
+    padding: 5px;
+}
+
+#descer-mais {
+    background: #59BDA3;
+    display: flex;
+    width: 200px;
+    height: 96px;
+    color: #fff;
+    margin: 30px;
+    padding: 0.75rem 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.2em;
+    border-radius: 624.9375rem;
+    border: none;
+    font-size: 1rem;
+    line-height: 1.1;
+    text-align: center;
+    font-family: Inter, sans-serif;
+
+}
+
+#descer-mais .texto-descer {
+    display: block;
+}
+
+#descer-mais img {
+    width: 1.1em;
+    height: auto;
+}
+
+#CTA {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+#titulo-CTA {
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 56px;
+    font-family: Inter;
+}
+
+#paragrafo-CTA {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.25rem;
+    font-family: Inter;
+    width: 50%;
+}
+
+#container-card {
+    width: 100%;
+    max-width: 1240px;
+    min-height: 350px;
+    display: flex;
+    gap: 24px;
+    margin-top: 50px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: #F0F2F4;
+    width: 20%;
+    height: 315px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 24px;
+    gap: 14px;
+    border-radius: 16px;
+    border: 1px solid #DCDFE5;
+}
+
+.card img {
+    width: 48px;
+    height: 48px;
+}
+
+.card h4 {
+    margin: 4px 0 0;
+    color: #202733;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+}
+
+.card p {
+    margin: 0;
+    padding: 0;
+    color: #6A7183;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+#card-CTA {
+    border-radius: 24px;
+    background: linear-gradient(113deg, #00674F 0%, #19AED9 100%);
+    box-shadow: 8px 12px 4px 0 rgba(0, 0, 0, 0.25);
+    width: 50%;
+    height: 300px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-CTA .fundo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#card-CTA h1 {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 105.263% */
+}
+
+#card-CTA p {
+    color: rgba(255, 255, 255, 0.80);
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+}
+
+#card-CTA button {
+    display: flex;
+    width: 244.94px;
+    height: 56px;
+    margin: 20px;
+    padding: 18px 43.47px 18px 42.47px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    border: none;
+    background: #FAE007;
+}
+
+#card-CTA button p {
+    color: #171A26;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 155.556% */
+}
