@@ -43,17 +43,14 @@ Mantemos uma estrutura organizada para facilitar a escalabilidade e manutenção
 │    └── 📁 icons/              # Icones em SvG
 ├── 📁 css/                     # Estilização Modular
 │   ├── 📄 global.css           # Reset, Variáveis e Tipografia
-│   ├── 📁 components/          # Css dos componentes
-│   │   ├── 📄 header.js        # CSS Component do Menu
-│   │   └── 📄 footer.js        # CSS Component do Rodapé
+│   ├── 📁 components/          # Header, Footer e UI Patterns
 │   └── 📁 pages/               # Estilos específicos por módulo
 │
-├── 📁 js/
-│   ├── 📁 components/          # 🆕 NOVO: Lógica dos componentes reutilizáveis
-│   │   ├── 📄 header.js        # Web Component do Menu
-│   │   └── 📄 footer.js        # Web Component do Rodapé
-│   ├── 📁 services/            # Futura lógica de LocalStorage/Cálculos
-│   └── 📄 main.js              # Inicialização global
+├── 📁 js/                      # Lógica da Aplicação (Sprint 2)
+│   ├── 📄 main.js              # Lógica global
+│   └── 📁 services/            # Manipulação de dados e simuladores
+│   └── 📁 pages/               # Scripts específicos por tela
+│   └── 📁 components/          # Componentes
 │
 ├── 📁 pages/                   # Telas da Aplicação
 │   ├── 📄 login.html

@@ -1,61 +1,100 @@
+header {
+    border-radius: 30px;
+    background: #FFF;
+    display: flex;
+    justify-content: center;
+    color: var(--second-text-color);
+}
 
-/* Card CTA */
-.cardcta {
-width: 100%;
-height: 320px;
-position: relative;
-box-shadow: 8px 12px 4px rgba(0, 0, 0, 0.25);
-border-radius: 24px;
-background: linear-gradient(112.62deg, #00674f, #19aed9);
-overflow: hidden;
-text-align: center;
-font-size: 38px;
-color: #fff;
-font-family: Inter;
+#topo {
+    position: fixed;
+    width: 90%;
+    height: 10%;
+    top: 0;
+    background-color: #fff;
+    border: #fff 2px solid;
+    border-radius: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.heading-2 {
-position: absolute;
-top: 64px;
-left: calc(50% - 197px);
-line-height: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 393.9px;
-height: 40px;
+#logo {
+    width: 75px;
+    height: 75px;
+    aspect-ratio: 1/1;
 }
-.clique-no-boto {
-position: absolute;
-top: 148px;
-left: calc(50% - 252px);
-font-size: 20px;
-line-height: 24px;
-color: rgba(255, 255, 255, 0.8);
-display: flex;
-align-items: center;
-justify-content: center;
-width: 503.8px;
-height: 41px;
+
+#logo img {
+    width: 100%;
+    height: auto;
 }
-.link {
-position: absolute;
-top: 232px;
-left: calc(50% - 122px);
-border-radius: 9999px;
-background-color: #fae007;
-width: 244.9px;
-height: 56px;
-font-size: 18px;
-color: #171a26;
+
+#links {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+    justify-content: center;
+
 }
-.iniciar-quiz-agora {
-position: absolute;
-top: calc(50% - 10px);
-left: calc(50% - 79.98px);
-line-height: 28px;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 159px;
-height: 20px;
+
+#botoes {
+    display: flex;
+    padding: 15px 25px;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.botao-login {
+    width: 120px;
+    height: 52px;
+    border-radius: 37px;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+}
+
+.botao-register {
+    width: 152px;
+    height: 52px;
+    border-radius: 37px;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+}
+
+a {
+   color: var(--second-text-color, #737373);
+   text-decoration: none;
+   transition: all 0.3s ease;
+   transform: translateY(0) translateX(0);
+}
+
+a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px) translateX(2px);
+    transition: all 0.3s ease;
+}
+
+button {
+    transition: all 0.3s ease;
+    transform: translateY(0) translateX(0);
+}
+
+button:hover {
+    transform: translateY(-3px) translateX(3px);
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+    background-color: var(--accent-color);
+    border: none;
+    font-size: larger;
+    font-weight: 600;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
