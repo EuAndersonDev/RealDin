@@ -111,7 +111,7 @@ button {
 #menu-toggle span {
     width: 25px;
     height: 3px;
-    background: var(--second-text-color);
+    background: rgb(97, 96, 96);
     border-radius: 2px;
 }
 
