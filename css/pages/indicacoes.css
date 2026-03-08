@@ -33,47 +33,128 @@ border-radius:20px;
 
 /* PERFIL */
 
-.perfil{
-padding:60px 0;
-background:#f6f6f6;
+.perfil-secao {
+    padding: 40px 10%;
+    font-family: 'Inter', sans-serif;
 }
 
-.section-title{
-text-align:center;
-margin-bottom:30px;
+.titulo-perfil {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #332d2d;
 }
 
-.perfil-card{
-background:white;
-padding:20px;
-border-radius:8px;
-margin-bottom:20px;
+/* Card Branco Superior */
+.card-perfil-status {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    margin-bottom: 40px;
 }
 
-.perfil-top{
-display:flex;
-justify-content:space-between;
-margin-bottom:10px;
+.perfil-info-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.progress-bar{
-height:10px;
-background:#ddd;
-border-radius:20px;
-overflow:hidden;
+.highlight-blue {
+    color: #1889ae;
+    font-weight: 700;
 }
 
-.progress{
-width:47%;
-height:100%;
-background:#1c9a8d;
+.perfil-score-badge {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.evolucao{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-top:20px;
+.tag-iniciante {
+    background-color: #59bda3;
+    color: white;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.score-numero {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Barra de Progresso RealDin */
+.barra-progresso-container {
+    background-color: #cacaca;
+    height: 12px;
+    border-radius: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.barra-progresso-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1aa7d5, #59bda3);
+    border-radius: 20px;
+}
+
+/* Card de Evolução Inferior */
+.card-evolucao {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.lista-metas-curta {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.lista-metas-curta li::before {
+    content: "•";
+    color: #000;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+}
+
+.evolucao-acao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    max-width: 400px;
+}
+
+.btn-recomenda-perfil {
+    background-color: #59bda3;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-recomenda-perfil:hover {
+    background-color: #48a68d;
+}
+
+.status-aprendizado {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
 }
 
 /* LIVROS */
@@ -97,9 +178,8 @@ border-radius:8px;
 
 .banner-final-cta {
     width: 100%;
-    max-width: 1300px; 
     margin: 40px auto;
-    height: 500px; 
+    height: 800px; 
     
     
     background-image: url(/assets/imgs/HomemPreocupado.svg); 
@@ -146,35 +226,6 @@ border-radius:8px;
     letter-spacing: 0.5px;
     opacity: 0.9;
     font-weight: 500;
-}
-
-/* --- Banner de Conscientização --- */
-.banner-impacto {
-    width: 100%;
-    height: 500px; 
-    background-image: url('/assets/images/banner-trabalho.jpg'); 
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end; 
-    padding: 0 10% 100px; 
-}
-
-.btn-banner-cta {
-    background-color: #59bda3; 
-    color: #ffffff;
-    border: none;
-    padding: 18px 35px;
-    font-size: 18px;
-    font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-    text-transform: lowercase;
-    transition: transform 0.2s;
-}
-
-.btn-banner-cta:hover {
-    transform: scale(1.05);
 }
 
 
