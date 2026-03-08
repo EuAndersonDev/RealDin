@@ -47,10 +47,13 @@ line-height: 20px; /* 142.857% */
     color: rgba(255, 255, 255, 0.90);
 text-align: center;
 font-family: Inter;
-font-size: 72px;
+font-size: 90px;
 font-style: normal;
 font-weight: 500;
 line-height: 20px; /* 142.857% */
+}
+#title span{
+font-size: 90px;
 }
 span{
     color: #FAD905;
