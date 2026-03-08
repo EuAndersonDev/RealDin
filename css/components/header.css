@@ -68,23 +68,37 @@ header {
     color: white;
 }
 
-a {
+#topo a {
     color: var(--second-text-color, #737373);
     text-decoration: none;
     transition: all 0.3s ease;
     transform: translateY(0) translateX(0);
 }
 
-a:hover {
+#topo a:hover {
     color: var(--primary-color);
     transform: translateY(-2px) translateX(2px);
     transition: all 0.3s ease;
 }
 
-button {
+#topo button {
     transition: all 0.3s ease;
     transform: translateY(0) translateX(0);
 }
+
+#botoes a {
+    color: var(--second-text-color, #fff);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    transform: translateY(0) translateX(0);
+}
+
+#botoes a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px) translateX(2px);
+    transition: all 0.3s ease;
+}
+
 
 #botoes button:hover {
     transform: translateY(-3px) translateX(3px);

@@ -26,7 +26,9 @@ class Header extends HTMLElement {
                         <button class="botao-login">
                         <a href="/pages/login.html">Login</a>
                         </button>
-                        <button class="botao-register">Registrar-se</button>
+                        <button class="botao-register">
+                        <a href="/pages/register.html">Registra-se</a>
+                        </button>
                     </section>
                 </nav>
             </header>

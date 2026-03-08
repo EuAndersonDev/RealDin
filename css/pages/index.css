@@ -1,3 +1,6 @@
+/* ===========================
+   Conteúdo Principal (main)
+   =========================== */
 main {
   width: 100%;
   height: auto;
@@ -7,11 +10,13 @@ main {
   align-items: center;;
 }
 
+/* ===========================
+   Seção Hero
+   =========================== */
 #hero {
   background-color: #fff;
   width: 100%;
-  height: 648px;
-  margin-top: 50px;
+  min-height: 648px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,6 +24,7 @@ main {
 }
 
 #conteudo-hero {
+  margin-top: 100px;
   width: 80%;
   height: auto;
   display: flex;
@@ -70,6 +76,7 @@ main {
   font-weight: 800;
   line-height: 80px;
   letter-spacing: 0.2px;
+  text-shadow: none;
 }
 
 #conteudo-hero p {
@@ -87,9 +94,51 @@ main {
   width: 500px;
   height: auto;
   margin-top: 10px;
+  position: relative;
 }
 
+#hero-image::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: #FAE007;
+  border-radius: 50%;
+  top: 50%;
+  left: 66%;
+  transform: translate(-50%, -50%) rotate(20deg);
+  z-index: 0;
+  opacity: 0.65;
+}
+
+#hero-image img {
+  position: relative;
+  z-index: 1;
+}
+
+#hero-image::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: #FAE007;
+  border-radius: 80% 20% 60% 40% / 60% 30% 70% 40%;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%) rotate(20deg);
+  z-index: 0;
+  /* filter: blur(15px); */
+  opacity: 0.3;
+}
+
+/* ===========================
+   Seção de Situações
+   =========================== */
 #situacoes{
+  background-image: url(/assets/icons/telaPrincipal/fundo3.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   width: 100%;
   height: 600px;
   display: flex;
@@ -197,6 +246,9 @@ main {
   line-height: 28px; /* 155.556% */
 }
 
+/* ===========================
+   Seção Vídeo sobre o Projeto
+   =========================== */
 #video {
   width: 100%;
   height: auto;
@@ -273,9 +325,16 @@ main {
   border: none;
 }
 
+/* ===========================
+   Seção Chamada Quiz
+   =========================== */
 #chamada-quiz {
+  background-image: url(/assets/icons/telaPrincipal/fundo2.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   width: 100%;
-  height: 600px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -348,9 +407,12 @@ main {
   line-height: 28px; /* 155.556% */
 }
 
+/* ===========================
+   Seção Informativa - Salário não rende
+   =========================== */
 #salario {
   border-radius: 5px;
-  background: linear-gradient(90deg, #00674F 0%, #19AED9 100%);
+  background: linear-gradient(90deg, #2B9C89 0%, #19AED9 100%);
   width: 100%;
   height: 600px;
   display: flex;
@@ -416,6 +478,7 @@ main {
   border-radius: 37px;
   background: #FFF;
   margin: 20px;
+  border: none;
 }
 
 #btn-salario a {
@@ -429,7 +492,11 @@ main {
   border: none;
 }
 
+/* ===========================
+   Seção Informativa - Reserva Importância
+   =========================== */
 #reserva {
+  
   width: 100%;
   height: 600px;
   display: flex;
@@ -438,6 +505,7 @@ main {
 }
 
 #conteudo-reserva {
+  
   width: 100%;
   height: auto;
   display: flex;
@@ -448,8 +516,10 @@ main {
 }
 
 #conteudo-reserva img{
-  width: 500px;
+  width: 600px;
   height: auto;
+  border-radius: 40px;
+  opacity: 0.9;
 }
 
 #reserva-titulo h1{
@@ -477,6 +547,9 @@ main {
   border-radius: 100px;
 }
 
+/* ===========================
+   Seção Informativa - Dívida antes dos 20
+   =========================== */
 #divida {
   border-radius: 5px;
   background: #177F72;
@@ -540,6 +613,9 @@ main {
   letter-spacing: 2.86px;
 }
 
+/* ===========================
+   Seção Informativa - Decisões dos 18 Afetam os 25
+   =========================== */
 #decisoes {
   width: 100%;
   height: 600px;
@@ -613,8 +689,11 @@ main {
   line-height: 28px; /* 155.556% */
 }
 
+/* ===========================
+   Seção Forms (Contato)
+   =========================== */
 #contato{
-  background:#f4f4f4;
+  background:#F0F0F0;
   padding:60px 10%;
 }
 
