@@ -3,186 +3,211 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/global.css">
     <title>RealDin</title>
+    <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/components/footer.css" type="text/css" />
     <link rel="stylesheet" href="./css/components/header.css" type="text/css" />
     <link rel="stylesheet" href="./css/pages/index.css">
     <script src="./js/components/header.js"></script>
     <script src="./js/components/footer.js"></script>
   </head>
-  <body class="home-page">
+  <body>
     <!-- Header -->
     <header-componente pagina="home"></header-componente>
-    <!-- Conteudo Principal -->
+    <!-- Conteúdo principal da página -->
     <main>
-      <!-- Hero -->
-      <section class="hero section-space">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <h1>Dinheiro Real,<br /><span>Decisões Reais</span></h1>
-            <p>
-              Antes de investir ou usar crédito, você precisa entender como suas
-              decisões financeiras impactam seu presente e seu futuro.
-            </p>
-            <a class="btn btn-solid" href="#perfil">Fazer o teste</a>
+      <!-- Seção Hero -->
+      <section id="hero">
+        <div id="conteudo-hero">
+            <div id="hero-titulo">
+              <h1>Dinheiro Real, <br> <span>Decisões Reais</span></h1>
+              <p>Antes de investir ou usar crédito, você precisa <br> entender como toma decisões financeiras.</p>
+              <br> 
+              <p>O teste identifica seu perfil com o dinheiro e <br> mostra riscos que você pode nem perceber ainda.</p>
+            
+            <button id="btn-fazer-teste">
+                <a href="/pages/conscientizacao.html">Fazer o teste</a>
+            </button>
+            </div>
+          
+            <div id="hero-image">
+              <img src="./assets/imgs/hero-image.svg" alt="Hero Image">
+            </div>
+        </div>
+      </section>
+
+      <!-- Seção de Situações -->
+      <section id="situacoes">
+        <div id="conteudo-situacoes">
+          <div id="situacoes-image">
+            <img src="/assets/imgs/Logo.svg" alt="">
+            <h1>RealDin</h1>
           </div>
 
-          <div class="hero-visual" aria-hidden="true">
-            <div class="hero-circle"></div>
-            <img
-              src="./assets/imgs/hero-image.svg"
-              alt="Ilustração de mão segurando cédulas"
-            />
+          <div id="situacoes-texto">
+            <h1>Você já passou por alguma dessas <br> situações?</h1>
+            <p>・O <span>dinheiro</span> acaba antes do mês terminar</p>
+            <p>・O <span>salário</span> entra e some rapidamente</p>
+            <p>・O limite do <span>cartão</span> vira parte da renda</p>
+            <p>・Já pensou em pegar <span>empréstimos</span> para pagar outro</p>
+
+            <button id="btn-descubra">
+              <a href="#">Descubra porque -></a> 
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- Situacoes -->
-      <section class="situacoes section-space" id="situacoes">
-        <div class="container situacoes-grid">
-          <div class="coin-illustration" aria-hidden="true">
-            <div class="coin-core">
-              <img src="./assets/icons/LogoRealDin.svg" alt="" />
+      <!--Seção Video sobre o projeto-->
+      <section id="video">
+        <div id="conteudo-video">
+          <div id="video-titulo">
+          <h1>Porque o <span>RealDin</span> foi criado?</h1>
+          <p>Entenda mais sobre o projeto</p>
+          </div>
+          <div id="video-area">
+            🎥
+          </div>
+        </div>
+      </section>
+
+
+      <section id="chamada-quiz">
+          <h1>Que tipo de pessoa <span>você</span> é <br> com dinheiro?</h1>
+          <p>Parcelamentos, cartão de crédito, promoções e "comprar agora e pagar
+          <br> depois" parecem inofensivos, mas são as principais portas de entrada
+          <br> para dívidas ainda jovem.</p>
+          <b>⏰ Leva menos de 4 minutos</b>
+          
+          <button id="btn-chamada-quiz">
+            <a href="/pages/sobrequiz.html">Descobrir -></a>
+          </button>
+      </section>
+
+      <!--Seção Informativa - Salário não rende -->
+      <section id="salario">
+        <div id="conteudo-salario">
+          <div id="salario-titulo">
+            <h1>Por que o salário nunca rende</h1>
+            <p>
+              <span> O dinheiro é um recurso fundamental </span>
+              na vida das pessoas, <br> 
+              pois permite a aquisição de bens e serviços essenciais, como
+              <br> alimentação, moradia, saúde, educação, além de proporcionar
+              <br> maior estabilidade e procurar oportunidades
+            </p>
+            <button id="btn-salario">
+              <a href="">Explorar mais</a>
+            </button>
+          </div>
+
+          <div>
+            <img src="/assets/imgs/secao-nuncarende.svg" alt="">
+          </div>
+        </div>
+      </section>
+
+      <!--Seção Informativa - Reserva Importância -->
+      <section id="reserva">
+        <div id="conteudo-reserva">
+          <div>
+            <img src="/assets/imgs/circulo-dinheiro.png" alt="">
+          </div>  
+
+          <div id="reserva-titulo">
+            <h1>O perigo de não ter<br> <span> reserva </span>, qualquer <br> imprevisto vira <br> desespero</h1>
+            <p>
+              Dinheiro não é luxo — é proteção contra imprevistos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--Seção Informativa - Divida antes dos 20 -->
+      <section id="divida">
+        <div id="conteudo-divida">
+            <div id="divida-titulo">
+              <h1>Como muita gente entra em <span>dívida</span> antes dos 20</h1>
+              <p>
+                Muitos jovens entram em dívida por <br> não compreender bem o crédito. <br> Parcelas pequenas e o uso do <br> cartão parecem inofensivos, mas os  <br>juros se acumulam rapidamente. <br> Quando percebem, parte da renda <br> já está comprometida antes mesmo <br> de receber.
+              </p>
+            </div>
+
+            <div>
+              <img src="/assets/imgs/dividas.png" alt="">
+            </div>
+        </div>
+      </section>
+
+      <!--Seção Informativa - Decisões dos 18 Afetam os 25 -->
+      <section id="decisoes">
+        <div id="conteudo-decisoes">
+          <div>
+            <img src="/assets/imgs/homem-dinheiro.png" alt="">
+          </div>  
+
+          <div id="decisoes-titulo">
+            <h1>Decisões dos 18 que afetam os 25</h1>
+            <p>
+              Decisões financeiras aos 18–25 anos têm impacto por muitos anos.
+            </p>
+            <button id="btn-dividas">
+              <a href="">Conferir mais -></a>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!--Seção Forms -->
+      <section id="contato" class="contato">
+        <h1 id="contato-titulo">Qualquer dúvida nos contate</h1>
+        <div id="contato-container" class="container">
+          <div id="contato-info" class="info">
+            <h2>Contatos</h2>
+            <p>
+              Entre em contato com a nossa equipe e tire suas duvidas conosco.
+            </p>
+
+            <div id="contato-email" class="email">
+              <p>✉</p>
+              <p>realdinorganizacional@gmail.com</p>
+            </div>
+
+            <div id="contato-redes" class="redes">
+              <a href="#">
+                <img src="/assets/icons/telaPrincipal/Buttonfacebook.svg" alt="Facebook">
+              </a>
+
+              <a href="#">
+                <img src="/assets/icons/telaPrincipal/Buttoninstagram.svg" alt="Instagram">
+              </a>
+
+              <a href="#">
+                <img src="/assets/icons/telaPrincipal/Buttontwitter.svg" alt="Twitter">
+              </a>
             </div>
           </div>
 
-          <div class="situacoes-copy">
-            <h2>Você já passou por alguma dessas situações?</h2>
-            <ul>
-              <li>O dinheiro acaba antes do mês terminar</li>
-              <li>O salário entra e some rapidamente</li>
-              <li>O limite do cartão vira parte da renda</li>
-              <li>Já pensou em pegar empréstimos para pagar outro</li>
-            </ul>
-            <a class="btn btn-solid" href="#">Descubra o porquê</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projeto -->
-      <section class="projeto" id="projeto">
-        <div class="container projeto-grid">
-          <div>
-            <h2>Porque o <span>RealDin</span> foi criado?</h2>
-            <p>Entenda mais sobre o nosso projeto.</p>
-          </div>
-          <div class="video-card" aria-label="Área de vídeo">
-            <span class="play-btn">&#9654;</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Perfil -->
-      <section class="perfil section-space" id="perfil">
-        <div class="container centered-block">
-          <h2>Que tipo de pessoa <span>você</span> é com dinheiro?</h2>
-          <p>
-            Parcelamentos, cartão de crédito e promoções "comprar agora e pagar
-            depois" parecem inofensivos, mas são as principais portas de entrada
-            para dívidas ainda jovem.
-          </p>
-          <small>Leva menos de 2 minutos</small>
-          <a class="btn btn-solid" href="#">Descobrir</a>
-        </div>
-      </section>
-
-      <!-- Salario -->
-      <section class="salario" id="salario">
-        <div class="container salario-grid">
-          <div>
-            <h2>Por que o salário nunca é suficiente?</h2>
-            <p>
-              O dinheiro é um recurso fundamental na vida das pessoas, pois
-              permite a aquisição de bens e serviços essenciais, alimentação,
-              moradia, saúde e educação, além de proporcionar maior
-              estabilidade.
-            </p>
-            <a class="btn btn-light" href="#reserva">Explorar mais</a>
-          </div>
-          <div class="hands-illustration" aria-hidden="true">
-            <img src="./assets/imgs/secao-nuncarende.svg" alt="" />
-          </div>
-        </div>
-      </section>
-
-      <!-- Reserva -->
-      <section class="reserva section-space" id="reserva">
-        <div class="container reserva-grid">
-          <div class="orbit" aria-hidden="true">
-            <div class="orbit-core">
-              <img src="./assets/imgs/circulo-dinheiro.png" alt="" />
+          <form id="contato-formulario" class="formulario">
+            <div id="contato-linha" class="linha">
+              <div class="campo">
+                <label>Nome</label>
+                <input type="text" placeholder="Seu nome">
+              </div>
+              <div class="campo">
+                <label>Email</label>
+                <input type="email" placeholder="seu@email.com">
+              </div>
             </div>
-          </div>
-          <div>
-            <h2>
-              O perigo de não ter <span>reserva</span>, qualquer imprevisto vira
-              desespero
-            </h2>
-            <p>Dinheiro não é luxo, é proteção contra imprevistos.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Divida -->
-      <section class="divida" id="divida">
-        <div class="container divida-grid">
-          <div>
-            <h2>Como muita gente entra em <span>dívida</span> antes dos 20</h2>
-            <p>
-              Muitos jovens entram em dívida por não compreender bem o crédito.
-              Parcelas pequenas e o uso do cartão parecem inofensivos, mas os
-              juros se acumulam rapidamente. Quando percebem, parte da renda já
-              está comprometida antes mesmo de receber.
-            </p>
-          </div>
-          <div class="word-cloud" aria-hidden="true">
-            <img src="./assets/imgs/nuvem.png" alt="" />
-          </div>
-        </div>
-      </section>
-
-      <!-- Decisoes -->
-      <section class="decisoes section-space" id="decisoes">
-        <div class="container decisoes-grid">
-          <div class="decisoes-image">
-            <img
-              src="./assets/imgs/homem-dinheiro.png"
-              alt="Jovens discutindo decisões"
-            />
-          </div>
-          <div>
-            <h2>Decisões dos 18 que afetam os 25</h2>
-            <p>
-              Decisões financeiras dos 18-25 anos têm impacto por muitos anos.
-            </p>
-            <a class="btn btn-solid" href="#contato">Conferir mais</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contato -->
-      <section class="contato section-space" id="contato">
-        <div class="container contato-grid">
-          <div class="contato-copy">
-            <h2>Qualquer dúvida nos contate</h2>
-            <h3>Contatos</h3>
-            <p>
-              Entre em contato com a nossa equipe e tire suas dúvidas conosco.
-            </p>
-            <a href="mailto:realdinorganizacional@gmail.com">realdin@contato.com</a>
-          </div>
-
-          <form class="contact-card">
-            <div class="row">
-              <input type="text" placeholder="Seu nome" />
-              <input type="email" placeholder="seu@email.com" />
+            <div class="campo">
+              <label>Mensagem</label>
+              <textarea placeholder="Sua mensagem..."></textarea>
             </div>
-            <textarea placeholder="Sua mensagem"></textarea>
-            <button class="btn btn-yellow" type="submit">Enviar</button>
+            <button type="submit">Enviar</button>
           </form>
         </div>
       </section>
+
     </main>
 
     <!-- Footer -->
