@@ -95,11 +95,57 @@ border-radius:8px;
 
 /* CTA */
 
-.cta{
-background:url("/assets/imgs/background.svg") center/cover;
-padding:120px 20px;
-text-align:center;
-color:white;
+.banner-final-cta {
+    width: 100%;
+    max-width: 1300px; 
+    margin: 40px auto;
+    height: 500px; 
+    
+    
+    background-image: url(/assets/imgs/HomemPreocupado.svg); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px; 
+    
+    display: flex;
+    align-items: flex-end; /* Empurra o conteúdo para baixo */
+    justify-content: flex-start; /* Alinha à esquerda  */
+    padding-bottom: 80px; /* Ajuste esse valor para o botão subir ou descer na imagem */
+    padding-left: 8%; /* Ajuste para alinhar o botão lateralmente */
+}
+
+.banner-container-botao {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.btn-cta-verde {
+    background-color: #59bda3;  
+    color: #ffffff;
+    border: none;
+    padding: 18px 35px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: lowercase; /* Estilo moderno  */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+}
+
+.btn-cta-verde:hover {
+    background-color: #48a68d;
+    transform: scale(1.05); /* Feedback visual */
+}
+
+.banner-status-info {
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+    font-weight: 500;
 }
 
 .stats{
