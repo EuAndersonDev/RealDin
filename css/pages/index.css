@@ -10,6 +10,10 @@ main {
   align-items: center;;
 }
 
+button a{
+ text-decoration: none;
+}
+
 /* ===========================
    Seção Hero
    =========================== */
