@@ -1,0 +1,87 @@
+main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#hero{
+    border-radius: 5px;
+background: linear-gradient(122deg, #1AA7D5 0%, #00674F 100%);
+width: 100%;
+height: auto;
+}
+#container{
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+}
+.overlay{
+    border-radius: 9999px;
+border: 1px solid rgba(255, 255, 255, 0.10);
+background: rgba(255, 255, 255, 0.10);
+backdrop-filter: blur(2px);
+width: 300px;
+height: 50px;
+margin-top: 300px;
+text-align: center;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 30px;
+}
+.overlay#texto1{
+    color: rgba(255, 255, 255, 0.90);
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 142.857% */
+}
+#title{
+    color: rgba(255, 255, 255, 0.90);
+text-align: center;
+font-family: Inter;
+font-size: 90px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 142.857% */
+}
+#title span{
+font-size: 90px;
+}
+span{
+    color: #FAD905;
+font-family: Inter;
+font-size: 72px;
+font-style: normal;
+font-weight: 700;
+line-height: 72px;
+}
+
+#aprenda{
+  border-radius: 12px;
+  background-color: #FAD905;
+ box-shadow: 0 4px 16px -2px rgba(229, 255, 0, 0.4); 
+width: 285.34px;
+height: 60px;
+margin-top: 50px;
+}
+#title2{
+    color: #141414;
+text-align: center;
+font-family: Inter;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 28px; /* 155.556% */
+}
+#svg{
+    width: 25px;
+height: 60px;
+}
