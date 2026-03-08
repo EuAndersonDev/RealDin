@@ -1,57 +1,80 @@
 class Footer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <div class="rd-footer-wrap">
-        <footer class="rd-footer">
-          <div class="rd-footer-top">
-            <div class="rd-logo">RealDin</div>
-            <div class="rd-country">Brazil</div>
+      <footer>
+      <section id="conteudo-footer">
+
+        <!-- Seção 1: Logo + Localização -->
+        <div id="secao1">
+          <h1>RealDin</h1>
+          <div class="btn-localizacao">
+            <!-- Ícone de pin/localização -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" stroke="none" fill="#fff"/>
+            </svg>
+            Brazil
           </div>
+        </div>
 
-          <div class="rd-divider" aria-hidden="true"></div>
+        <hr>
 
-          <div class="rd-footer-columns">
-            <section class="rd-footer-col">
-              <h4>SOBRE NOS</h4>
-              <a href="#">Nossa empresa</a>
-              <a href="#">Imprensa</a>
-              <a href="#">Historia</a>
-            </section>
-
-            <section class="rd-footer-col">
-              <h4>PRECISA DE AJUDA</h4>
-              <a href="#">Perguntas frequentes</a>
-              <a href="#">Contate-nos</a>
-            </section>
-
-            <section class="rd-footer-col">
-              <h4>LEGAL</h4>
-              <a href="#">Termos de uso</a>
-            </section>
+        <!-- Seção 2: Títulos + Redes Sociais -->
+        <div id="secao2">
+          <div id="secao2-titulos">
+            <span>Sobre nós</span>
+            <span>Precisa de ajuda?</span>
+            <span>Legal</span>
           </div>
-
-          <div class="rd-divider" aria-hidden="true"></div>
-
-          <div class="rd-footer-bottom">
-            <p>© 2026 RealDin. Todos os direitos reservados.</p>
-
-            <div class="rd-socials">
-              <a class="rd-social" href="#" aria-label="Rede social 1">
-                <img src="assets/icons/Vector.svg" alt="" />
-              </a>
-              <a class="rd-social" href="#" aria-label="Rede social 2">
-                <img src="assets/icons/Vector (1).svg" alt="" />
-              </a>
-              <a class="rd-social" href="#" aria-label="Rede social 3">
-                <img src="assets/icons/Vector (2).svg" alt="" />
-              </a>
-              <a class="rd-social" href="#" aria-label="Rede social 4">
-                <img src="assets/icons/Vector (3).svg" alt="" />
-              </a>
+          <div id="secao2-redes">
+            <!-- Instagram -->
+            <div class="icone-social" title="Instagram">
+              <img src="../assets/icons/telaPrincipal/InstagramBranco.svg" alt="" aria-hidden="true" />
+            </div>
+            <!-- YouTube -->
+            <div class="icone-social" title="YouTube">
+              <img src="../assets/icons/telaPrincipal/YouTubeBranco.svg" alt="" aria-hidden="true" />
+            </div>
+            <!-- Facebook -->
+            <div class="icone-social" title="Facebook">
+              <img src="../assets/icons/telaPrincipal/FacebookBranco.svg" alt="" aria-hidden="true" />
             </div>
           </div>
-        </footer>
-      </div>
+        </div>
+
+        <!-- Seção 3: Links + Acessibilidade -->
+        <div id="secao3">
+          <div id="secao3-links">
+            <div class="coluna-links">
+              <a href="/pages/sobrenos.html">Nossa empresa</a>
+              <a href="/pages/imprensa.html">Imprensa</a>
+              <a href="/pages/sobrenos.html#historia">História</a>
+            </div>
+            <div class="coluna-links">
+              <a href="/pages/faq.html">Perguntas frequentes</a>
+              <a href="#contato">Contate-nos</a>
+            </div>
+            <div class="coluna-links">
+              <a href="#">Termos de uso</a>
+            </div>
+          </div>
+
+          <div id="secao3-icon">
+            <div class="icone-acessibilidade" title="Acessibilidade">
+              <!-- Ícone de acessibilidade (pessoa no círculo) -->
+              <img src="../assets/icons/telaPrincipal/Acessibilidade.svg" alt="" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Copyright -->
+        <div id="copyright">
+          © 2026 RealDin. Todos os direitos reservados.
+        </div>
+
+      </section>
+    </footer>
     `;
   }
 }
