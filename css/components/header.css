@@ -7,7 +7,7 @@ header {
 }
 
 #topo {
-    position: fixed;
+    position: absolute;
     width: 90%;
     height: 80px;
     top: 0;

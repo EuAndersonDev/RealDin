@@ -18,13 +18,14 @@ class Header extends HTMLElement {
                         ${paginaAtual !== 'home' ? '<a href="/index.html">Home</a>' : ''}
                         ${paginaAtual !== 'conscientizacao' ? '<a href="/pages/conscientizacao.html">Conscientização</a>' : ''}
                         ${paginaAtual !== 'perguntas' ? '<a href="/pages/faq.html">Perguntas</a>' : ''}
-                        ${paginaAtual !== 'resultados' ? '<a href="/pages/resultados.html">Resultados</a>' : ''}
-                        ${paginaAtual !== 'sobre' ? '<a href="/pages/sobre.html">Sobre</a>' : ''}
-                        ${paginaAtual !== 'simulador' ? '<a href="/pages/calculadora-juros.html">simulador</a>' : ''}
+                        ${paginaAtual !== 'resultados' ? '<a href="/pages/resultados.html">Resultados</a>' : ''}  
+                        ${paginaAtual !== 'sobre' ? '<a href="/pages/sobre.html">Sobre</a>' : ''}  
                     </section>
 
                     <section id="botoes">
-                        <button class="botao-login">Login</button>
+                        <button class="botao-login">
+                        <a href="/pages/login.html">Login</a>
+                        </button>
                         <button class="botao-register">Registrar-se</button>
                     </section>
                 </nav>
