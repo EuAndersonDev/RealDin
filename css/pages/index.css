@@ -2,52 +2,52 @@
    Conteúdo Principal (main)
    =========================== */
 main {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-button a{
- text-decoration: none;
+button a {
+    text-decoration: none;
 }
 
 /* ===========================
    Seção Hero
    =========================== */
 #hero {
-  background-color: #fff;
-  width: 100%;
-  min-height: 648px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+    background-color: #fff;
+    width: 100%;
+    min-height: 648px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 #conteudo-hero {
-  margin-top: 100px;
-  width: 80%;
-  height: auto;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
+    margin-top: 100px;
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
 }
 
 #btn-fazer-teste {
-  width: 50%;
-  height: 75px;
-  border-radius: 37px;
-  border: none;
-  background: #59BDA3;
-  margin: 20px;
+    width: 50%;
+    height: 75px;
+    border-radius: 37px;
+    border: none;
+    background: #59bda3;
+    margin: 20px;
 }
 
 #btn-fazer-teste:hover {
-  background: #4DA48B;
-  cursor: pointer;
+    background: #4da48b;
+    cursor: pointer;
 }
 
 #btn-fazer-teste a {
@@ -62,792 +62,1177 @@ button a{
 }
 
 #conteudo-hero h1 {
-  color: #212529;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Inter;
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 80px; /* 137.931% */
-  letter-spacing: 0.2px;
+    color: #212529;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 80px; /* 137.931% */
+    letter-spacing: 0.2px;
 }
 
 #conteudo-hero span {
-  color: #FAE007;
-  font-family: Inter;
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 80px;
-  letter-spacing: 0.2px;
-  text-shadow: none;
+    color: #fae007;
+    font-family: Inter;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 80px;
+    letter-spacing: 0.2px;
+    text-shadow: none;
 }
 
 #conteudo-hero p {
-  color: #212529;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 30px; /* 150% */
-  letter-spacing: 0.2px;
-  margin: 10px;
+    color: #212529;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 150% */
+    letter-spacing: 0.2px;
+    margin: 10px;
 }
 
 #hero-image {
-  width: 500px;
-  height: auto;
-  margin-top: 10px;
-  position: relative;
+    width: 500px;
+    height: auto;
+    margin-top: 10px;
+    position: relative;
 }
 
 #hero-image::before {
-  content: '';
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: #FAE007;
-  border-radius: 50%;
-  top: 50%;
-  left: 66%;
-  transform: translate(-50%, -50%) rotate(20deg);
-  z-index: 0;
-  opacity: 0.65;
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #fae007;
+    border-radius: 50%;
+    top: 50%;
+    left: 66%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    z-index: 0;
+    opacity: 0.65;
 }
 
 #hero-image img {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 #hero-image::after {
-  content: '';
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: #FAE007;
-  border-radius: 80% 20% 60% 40% / 60% 30% 70% 40%;
-  top: 50%;
-  left: 60%;
-  transform: translate(-50%, -50%) rotate(20deg);
-  z-index: 0;
-  /* filter: blur(15px); */
-  opacity: 0.3;
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #fae007;
+    border-radius: 80% 20% 60% 40% / 60% 30% 70% 40%;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    z-index: 0;
+    /* filter: blur(15px); */
+    opacity: 0.3;
 }
 
 /* ===========================
    Seção de Situações
    =========================== */
-#situacoes{
-  background-image: url(/assets/icons/telaPrincipal/fundo3.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#situacoes {
+    background-image: url(/assets/icons/telaPrincipal/fundo3.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #conteudo-situacoes {
-  width: 100%;
-  height: 600;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
+    width: 100%;
+    height: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
 
 #situacoes-image {
-  width: 50%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#situacoes-image img{
-  width: 300px;
-  height: auto;
-  margin-top: 10px;
+#situacoes-image img {
+    width: 300px;
+    height: auto;
+    margin-top: 10px;
 }
 
 #situacoes-image h1 {
-  font-family: Inter;
-  font-size: 72px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 72px; /* 100% */
-  background: linear-gradient(90deg, #7957EA 0%, #1AA7D5 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-family: Inter;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 72px; /* 100% */
+    background: linear-gradient(90deg, #7957ea 0%, #1aa7d5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #situacoes-texto {
-  width: 50%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #situacoes-texto h1 {
-  color: #1F242E;
-  font-family: Inter;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 36px; /* 100% */
-  margin: 20px;
+    color: #1f242e;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 100% */
+    margin: 20px;
 }
 
 #situacoes-texto p {
-  color: #141414;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Inter;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 28px; /* 127.273% */
-  margin: 2px;
+    color: #141414;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 127.273% */
+    margin: 2px;
 }
 
 #situacoes-texto span {
-  color: #F9C31F;
-  font-family: Inter;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 28px;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-skip-ink: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
+    color: #f9c31f;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
 }
 
 #btn-descubra {
-  width: 211px;
-  height: 59px;
-  border-radius: 37px;
-  background: #59BDA3;
-  margin: 20px;
-  border: none;
+    width: 211px;
+    height: 59px;
+    border-radius: 37px;
+    background: #59bda3;
+    margin: 20px;
+    border: none;
 }
 
 #btn-descubra a {
-  color: #FFF;
-  text-align: center;
-  font-family: Inter;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28px; /* 155.556% */
+    color: #fff;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 155.556% */
 }
 
 /* ===========================
    Seção Vídeo sobre o Projeto
    =========================== */
 #video {
-  width: 100%;
-  height: auto;
-  padding: 60px 0;
-  background-color: #2B9C89;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 60px 0;
+    background-color: #2b9c89;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #conteudo-video {
-  width: 90%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
 
 #video-titulo {
-  width: 40%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  
+    width: 40%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
 }
 
 #video-titulo h1 {
-  color: #FFF;
-  font-family: Inter;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 48px; /* 100% */
+    color: #fff;
+    font-family: Inter;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 100% */
 }
 
 #video-titulo span {
-  color: #F9C31F;
-  font-family: Inter;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 48px;
+    color: #f9c31f;
+    font-family: Inter;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
 }
 
 #video-titulo p {
-  color: #FFF;
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px; /* 116.667% */
-} 
+    color: #fff;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 116.667% */
+}
 
 #video-area {
-  width: 55%;
-  position: relative;
-  padding-bottom: 30.9%;
-  height: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 55%;
+    position: relative;
+    padding-bottom: 30.9%;
+    height: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 #video-area iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* ===========================
    Seção Chamada Quiz
    =========================== */
 #chamada-quiz {
-  background-image: url(/assets/icons/telaPrincipal/fundo2.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 700px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    background-image: url(/assets/icons/telaPrincipal/fundo2.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #chamada-quiz h1 {
-  color: #1F242E;
-  text-align: center;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Inter;
-  font-size: 54px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 48px; /* 88.889% */
-  margin: 10px;
+    color: #1f242e;
+    text-align: center;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 54px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 88.889% */
+    margin: 10px;
 }
 
 #chamada-quiz span {
-  color: #FAE007;
-  font-family: Inter;
-  font-size: 54px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 48px;
+    color: #fae007;
+    font-family: Inter;
+    font-size: 54px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
 }
 
 #chamada-quiz p {
-  color: #666;
-  text-align: center;
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 29.25px; /* 121.875% */
-  margin: 10px;
+    color: #666;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 29.25px; /* 121.875% */
+    margin: 10px;
 }
 
 #chamada-quiz b {
-  color: #676F7E;
-  text-align: center;
-  font-family: Inter;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 111.111% */
-  margin: 10px;
+    color: #676f7e;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 111.111% */
+    margin: 10px;
 }
 
 #btn-chamada-quiz {
-  display: flex;
-  width: 15%;
-  padding: 17px 49.95px 16px 51px;
-  justify-content: center;
-  align-items: center;
-  gap: 5.334px;
-  border-radius: 37px;
-  background: #2B9C89;
-  margin: 10px;
-  border: none;
+    display: flex;
+    width: 15%;
+    padding: 17px 49.95px 16px 51px;
+    justify-content: center;
+    align-items: center;
+    gap: 5.334px;
+    border-radius: 37px;
+    background: #2b9c89;
+    margin: 10px;
+    border: none;
 }
 
 #btn-chamada-quiz a {
-  color: #FFF;
-  text-align: center;
-  font-family: Inter;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28px; /* 155.556% */
+    color: #fff;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 155.556% */
 }
 
 /* ===========================
    Seção Informativa - Salário não rende
    =========================== */
 #salario {
-  border-radius: 5px;
-  background: linear-gradient(90deg, #2B9C89 0%, #19AED9 100%);
-  width: 100%;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #2b9c89 0%, #19aed9 100%);
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #conteudo-salario {
-  width: 100%;
-  height: 400px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 #salario-titulo {
-  width: 60%;
-  height: auto;
-  text-align: left;
-  flex-direction: column;
+    width: 60%;
+    height: auto;
+    text-align: left;
+    flex-direction: column;
 }
 
 #salario-titulo h1 {
-  color: #FFF;
-  font-family: Inter;
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 48px; /* 82.759% */
-  margin-bottom: 40px;
+    color: #fff;
+    font-family: Inter;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 82.759% */
+    margin-bottom: 40px;
 }
 
 #salario-titulo p {
-  color: #F0FDFA;
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 32.5px; /* 135.417% */
+    color: #f0fdfa;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32.5px; /* 135.417% */
 }
 
 #salario-titulo span {
-  background-color: #FAE007;
-  color: #111827;
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 32.5px; /* 135.417% */
-  border-radius: 10px;
+    background-color: #fae007;
+    color: #111827;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32.5px; /* 135.417% */
+    border-radius: 10px;
 }
 
 #conteudo-salario img {
-  width: 100%;
-  height: 349px;
-  aspect-ratio: 249/158;
+    width: 100%;
+    height: 349px;
+    aspect-ratio: 249/158;
 }
 
 #btn-salario {
-  width: 20%;
-  height: 52px;
-  border-radius: 37px;
-  background: #FFF;
-  margin: 20px;
-  border: none;
+    width: 20%;
+    height: 52px;
+    border-radius: 37px;
+    background: #fff;
+    margin: 20px;
+    border: none;
 }
 
 #btn-salario a {
-  color: #212529;
-  text-align: center;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px; /* 150% */
-  border: none;
+    color: #212529;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    border: none;
 }
 
 /* ===========================
    Seção Informativa - Reserva Importância
    =========================== */
 #reserva {
-  
-  width: 100%;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #conteudo-reserva {
-  
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 250px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 250px;
 }
 
-#conteudo-reserva img{
-  width: 600px;
-  height: auto;
-  border-radius: 40px;
-  opacity: 0.9;
+#conteudo-reserva img {
+    width: 600px;
+    height: auto;
+    border-radius: 40px;
+    opacity: 0.9;
 }
 
-#reserva-titulo h1{
-  color: #212529;
-  font-family: Inter;
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -1.16px;
+#reserva-titulo h1 {
+    color: #212529;
+    font-family: Inter;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -1.16px;
 }
 
 #reserva-titulo p {
-  color: #212529;
-  font-family: Inter;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 30px; /* 107.143% */
-  letter-spacing: -0.56px;
+    color: #212529;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 107.143% */
+    letter-spacing: -0.56px;
 }
 
 #reserva-titulo span {
-  background-color: #FAE007;
-  border-radius: 100px;
+    background-color: #fae007;
+    border-radius: 100px;
 }
 
 /* ===========================
    Seção Informativa - Dívida antes dos 20
    =========================== */
 #divida {
-  border-radius: 5px;
-  background: #177F72;
-  width: 100%;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    border-radius: 5px;
+    background: #177f72;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #conteudo-divida {
-  width: 100%;
-  height: 600px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
 }
 
 #divida-titulo {
-  width: 50%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    width: 50%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #conteudo-divida img {
-  width: 475px;
-  height: auto;
+    width: 475px;
+    height: auto;
 }
 
 #divida-titulo h1 {
-  color: #FFF;
-  font-family: Inter;
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -1.16px;
+    color: #fff;
+    font-family: Inter;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -1.16px;
 }
 
 #divida-titulo span {
-  color: #FAE007;
-  font-family: Inter;
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -1.16px;
+    color: #fae007;
+    font-family: Inter;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -1.16px;
 }
 
 #divida-titulo p {
-  color: #D5D5D5;
-  font-family: Inter;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 23px; /* 104.545% */
-  letter-spacing: 2.86px;
+    color: #d5d5d5;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px; /* 104.545% */
+    letter-spacing: 2.86px;
 }
 
 /* ===========================
    Seção Informativa - Decisões dos 18 Afetam os 25
    =========================== */
 #decisoes {
-  width: 100%;
-  height: 600px;
-  background-color: #FFF
+    width: 100%;
+    height: 600px;
+    background-color: #fff;
 }
 
 #conteudo-decisoes {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
 }
 
 #conteudo-decisoes img {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 #decisoes-titulo {
-  width: 45%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    width: 45%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #decisoes-titulo h1 {
-  color: #212529;
-  text-align: center;
-  font-family: Inter;
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 58px; /* 100% */
-  letter-spacing: -1.16px;
-  margin: 15px;
+    color: #212529;
+    text-align: center;
+    font-family: Inter;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 58px; /* 100% */
+    letter-spacing: -1.16px;
+    margin: 15px;
 }
 
 #decisoes-titulo p {
-  color: #212529;
-  text-align: center;
-  font-family: Inter;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 30px; /* 100% */
-  letter-spacing: -0.6px;
-  margin: 15px;
+    color: #212529;
+    text-align: center;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 100% */
+    letter-spacing: -0.6px;
+    margin: 15px;
 }
 
 #btn-dividas {
-  width: 200px;
-  height: 55px;
-  border-radius: 37px;
-  background: #59BDA3;
-  margin: 15px;
-  border: none;
+    width: 200px;
+    height: 55px;
+    border-radius: 37px;
+    background: #59bda3;
+    margin: 15px;
+    border: none;
 }
 
 #btn-dividas a {
-  color: #FFF;
-  text-align: center;
-  font-family: Inter;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28px; /* 155.556% */
+    color: #fff;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 155.556% */
 }
 
 /* ===========================
    Seção Forms (Contato)
    =========================== */
-#contato{
-  background:#F0F0F0;
-  padding:60px 10%;
+#contato {
+    background: #f0f0f0;
+    padding: 60px 10%;
 }
 
-#contato-titulo{
-  text-align:center;
-  margin-bottom:50px;
-  font-size:40px;
+#contato-titulo {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 40px;
 }
 
-#contato-container{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:50px;
+#contato-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
 }
 
-#contato-info{
-  flex:1;
+#contato-info {
+    flex: 1;
 }
 
-#contato-info h2{
-  color: #000;
-  font-family: Inter;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 50px; /* 166.667% */
-  margin-bottom:10px;
+#contato-info h2 {
+    color: #000;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px; /* 166.667% */
+    margin-bottom: 10px;
 }
 
-#contato-info > p{
-  color: #000;
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom:20px;
+#contato-info > p {
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
 }
 
-#contato-email{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  border-bottom:2px solid teal;
-  padding-bottom:10px;
-  width:fit-content;
+#contato-email {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid teal;
+    padding-bottom: 10px;
+    width: fit-content;
 }
 
 #contato-email span,
 #contato-email img {
-  display: block;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
 #contato-email p {
-  color: #000;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  margin: 0;
-  line-height: 1;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin: 0;
+    line-height: 1;
 }
 
-#contato-redes{
-  display:flex;
-  gap:15px;
-  margin-top:20px;
+#contato-redes {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-#contato-redes a{
-  width:40px;
-  height:40px;
-  background:transparent;
-  border-radius:50%;
+#contato-redes a {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#contato-redes img{
-  width:20px;
-  height:20px;
-  display:block;
-  object-fit:contain;
+#contato-redes img {
+    width: 20px;
+    height: 20px;
+    display: block;
+    object-fit: contain;
 }
 
-#contato-formulario{
-  flex:1;
-  background:white;
-  padding:30px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+#contato-formulario {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 
-  display:flex;
-  flex-direction:column;
-  gap:20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-#contato-linha{
-  display:flex;
-  gap:20px;
+#contato-linha {
+    display: flex;
+    gap: 20px;
 }
 
-#contato-formulario .campo{
-  display:flex;
-  flex-direction:column;
-  flex:1;
+#contato-formulario .campo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 #contato-formulario input,
-#contato-formulario textarea{
-  padding:10px;
-  border:1px solid #ccc;
-  border-radius:6px;
-  margin-top:5px;
-  color: #374151;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 142.857% */
+#contato-formulario textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    color: #374151;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
 }
 
-#contato-formulario textarea{
-  resize:none;
-  height:120px;
+#contato-formulario textarea {
+    resize: none;
+    height: 120px;
 }
 
-#contato-formulario button{
-  background:#f2c200;
-  border:none;
-  padding:15px;
-  border-radius:30px;
-  font-weight:bold;
-  cursor:pointer;
+#contato-formulario button {
+    background: #f2c200;
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 @media (max-width: 900px) {
-  #contato-container {
-    flex-direction: column;
-  }
+    #contato-container {
+        flex-direction: column;
+    }
 
-  #contato-linha {
-    flex-direction: column;
-    gap: 12px;
-  }
+    #contato-linha {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* ===========================
+   Responsividade - Tablet
+   =========================== */
+@media (max-width: 1024px) {
+    #conteudo-hero,
+    #conteudo-situacoes,
+    #conteudo-video,
+    #conteudo-salario,
+    #conteudo-reserva,
+    #conteudo-divida,
+    #conteudo-decisoes {
+        width: 92%;
+        margin: 0 auto;
+        gap: 28px;
+    }
+
+    #hero,
+    #situacoes,
+    #chamada-quiz,
+    #salario,
+    #reserva,
+    #divida,
+    #decisoes {
+        height: auto;
+        min-height: unset;
+        padding: 56px 0;
+    }
+
+    #conteudo-hero h1,
+    #conteudo-hero span {
+        font-size: 46px;
+        line-height: 58px;
+    }
+
+    #conteudo-hero p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    #hero-image,
+    #hero-image::before,
+    #hero-image::after {
+        width: 380px;
+    }
+
+    #hero-image::before,
+    #hero-image::after {
+        height: 380px;
+    }
+
+    #situacoes-image h1 {
+        font-size: 58px;
+        line-height: 58px;
+    }
+
+    #situacoes-texto h1 {
+        font-size: 30px;
+        line-height: 36px;
+        margin: 12px 0;
+    }
+
+    #situacoes-texto p,
+    #situacoes-texto span {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    #video-titulo {
+        width: 45%;
+    }
+
+    #video-titulo h1,
+    #video-titulo span {
+        font-size: 38px;
+        line-height: 42px;
+    }
+
+    #video-titulo p {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    #video-area {
+        width: 52%;
+        padding-bottom: 29.25%;
+    }
+
+    #chamada-quiz h1,
+    #chamada-quiz span {
+        font-size: 42px;
+        line-height: 46px;
+    }
+
+    #chamada-quiz p {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    #btn-chamada-quiz {
+        width: auto;
+        min-width: 220px;
+        padding: 14px 36px;
+    }
+
+    #salario-titulo {
+        width: 58%;
+    }
+
+    #salario-titulo h1,
+    #reserva-titulo h1,
+    #divida-titulo h1,
+    #divida-titulo span,
+    #decisoes-titulo h1 {
+        font-size: 44px;
+        line-height: 50px;
+        letter-spacing: -0.6px;
+    }
+
+    #salario-titulo p,
+    #salario-titulo span,
+    #reserva-titulo p,
+    #divida-titulo p,
+    #decisoes-titulo p {
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 0;
+    }
+
+    #conteudo-reserva {
+        gap: 64px;
+    }
+
+    #conteudo-reserva img {
+        width: 460px;
+    }
+
+    #conteudo-divida img {
+        width: 380px;
+    }
+
+    #btn-salario {
+        width: auto;
+        min-width: 180px;
+        padding: 0 24px;
+    }
+}
+
+/* ===========================
+   Responsividade - Mobile
+   =========================== */
+@media (max-width: 768px) {
+    #conteudo-hero,
+    #conteudo-situacoes,
+    #conteudo-video,
+    #conteudo-salario,
+    #conteudo-reserva,
+    #conteudo-divida,
+    #conteudo-decisoes {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+    }
+
+    #hero,
+    #situacoes,
+    #video,
+    #chamada-quiz,
+    #salario,
+    #reserva,
+    #divida,
+    #decisoes,
+    #contato {
+        padding: 48px 0;
+        height: auto;
+    }
+
+    #hero-titulo,
+    #situacoes-image,
+    #situacoes-texto,
+    #video-titulo,
+    #salario-titulo,
+    #divida-titulo,
+    #decisoes-titulo,
+    #contato-info,
+    #contato-formulario {
+        width: 100%;
+    }
+
+    #conteudo-hero {
+        margin-top: 24px;
+    }
+
+    #conteudo-hero h1,
+    #conteudo-hero span {
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    #conteudo-hero p {
+        font-size: 17px;
+        line-height: 26px;
+        margin: 8px 0;
+    }
+
+    #hero-image,
+    #hero-image::before,
+    #hero-image::after {
+        width: 300px;
+    }
+
+    #hero-image::before,
+    #hero-image::after {
+        height: 300px;
+        left: 50%;
+    }
+
+    #hero-image img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+    }
+
+    #btn-fazer-teste,
+    #btn-descubra,
+    #btn-chamada-quiz,
+    #btn-salario,
+    #btn-dividas {
+        width: auto;
+        min-width: 220px;
+        height: auto;
+        padding: 14px 24px;
+        margin: 16px auto;
+    }
+
+    #situacoes-image img {
+        width: 220px;
+    }
+
+    #situacoes-image h1 {
+        font-size: 46px;
+        line-height: 46px;
+    }
+
+    #situacoes-texto h1 {
+        font-size: 28px;
+        line-height: 34px;
+        margin: 8px 0;
+    }
+
+    #situacoes-texto p,
+    #situacoes-texto span {
+        font-size: 18px;
+        line-height: 26px;
+        text-shadow: none;
+    }
+
+    #video {
+        padding: 48px 0;
+    }
+
+    #video-titulo h1,
+    #video-titulo span,
+    #chamada-quiz h1,
+    #chamada-quiz span,
+    #salario-titulo h1,
+    #reserva-titulo h1,
+    #divida-titulo h1,
+    #divida-titulo span,
+    #decisoes-titulo h1 {
+        font-size: 34px;
+        line-height: 40px;
+        letter-spacing: 0;
+        margin: 8px 0;
+    }
+
+    #video-titulo p,
+    #chamada-quiz p,
+    #salario-titulo p,
+    #salario-titulo span,
+    #reserva-titulo p,
+    #divida-titulo p,
+    #decisoes-titulo p {
+        font-size: 18px;
+        line-height: 26px;
+        margin: 6px 0;
+    }
+
+    #video-area {
+        width: 100%;
+        padding-bottom: 56.25%;
+    }
+
+    #conteudo-salario,
+    #conteudo-divida,
+    #conteudo-decisoes {
+        height: auto;
+    }
+
+    #conteudo-salario img,
+    #conteudo-reserva img,
+    #conteudo-divida img,
+    #conteudo-decisoes img {
+        width: 100%;
+        max-width: 360px;
+        height: auto;
+    }
+
+    #contato {
+        padding: 48px 5%;
+    }
+
+    #contato-titulo {
+        font-size: 32px;
+        margin-bottom: 28px;
+    }
+
+    #contato-info h2 {
+        font-size: 26px;
+        line-height: 34px;
+    }
+
+    #contato-info > p {
+        font-size: 18px;
+    }
+
+    #contato-email p {
+        font-size: 16px;
+    }
+
+    #contato-formulario {
+        padding: 20px;
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    #conteudo-hero h1,
+    #conteudo-hero span,
+    #video-titulo h1,
+    #video-titulo span,
+    #chamada-quiz h1,
+    #chamada-quiz span,
+    #salario-titulo h1,
+    #reserva-titulo h1,
+    #divida-titulo h1,
+    #divida-titulo span,
+    #decisoes-titulo h1 {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    #conteudo-hero p,
+    #video-titulo p,
+    #chamada-quiz p,
+    #salario-titulo p,
+    #salario-titulo span,
+    #reserva-titulo p,
+    #divida-titulo p,
+    #decisoes-titulo p,
+    #situacoes-texto p,
+    #situacoes-texto span {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    #hero-image,
+    #hero-image::before,
+    #hero-image::after {
+        width: 250px;
+    }
+
+    #hero-image::before,
+    #hero-image::after {
+        height: 250px;
+    }
+
+    #btn-fazer-teste,
+    #btn-descubra,
+    #btn-chamada-quiz,
+    #btn-salario,
+    #btn-dividas {
+        min-width: 190px;
+        padding: 12px 20px;
+    }
 }

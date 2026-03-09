@@ -7,7 +7,7 @@ header {
 }
 
 #topo {
-    position: absolute;
+    position: fixed;
     width: 90%;
     height: 80px;
     top: 0;
@@ -17,11 +17,12 @@ header {
     z-index: 1000;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     margin-top: 15px;
-    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0 30px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 #logo {
     width: 75px;
@@ -34,20 +35,52 @@ header {
     height: auto;
 }
 
+#menu-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
 #links {
-    width: 60%;
-    height: auto;
     display: flex;
     flex-direction: row;
     gap: 21px;
     justify-content: center;
+    align-items: center;
+    flex: 1;
 }
 
 #botoes {
     display: flex;
-    padding: 15px 25px;
     align-items: center;
     gap: 15px;
+}
+
+#menu-close {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 15px 0;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#menu-close:hover {
+    color: var(--secondary-color);
+    transform: translateX(-5px);
+}
+
+#menu-close span:first-child {
+    font-size: 1.5rem;
 }
 
 .botao-login {
@@ -57,6 +90,11 @@ header {
     background: var(--primary-color);
     border: none;
     color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .botao-register {
@@ -66,41 +104,39 @@ header {
     border: none;
     background: var(--primary-color);
     color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
-#topo a {
+a {
     color: var(--second-text-color, #737373);
     text-decoration: none;
     transition: all 0.3s ease;
     transform: translateY(0) translateX(0);
 }
 
-#topo a:hover {
+a:hover {
     color: var(--primary-color);
     transform: translateY(-2px) translateX(2px);
     transition: all 0.3s ease;
 }
 
-#topo button {
-    transition: all 0.3s ease;
-    transform: translateY(0) translateX(0);
-}
-
-#botoes a {
-    color: var(--second-text-color, #fff);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    transform: translateY(0) translateX(0);
-}
-
-#botoes a:hover {
+a.pagina-atual {
     color: var(--primary-color);
-    transform: translateY(-2px) translateX(2px);
-    transition: all 0.3s ease;
+    font-weight: 800;
 }
 
+button {
+    transition: all 0.3s ease;
+    transform: translateY(0) translateX(0);
+}
 
-#botoes button:hover {
+#botoes button:hover,
+#botoes a.botao-login:hover,
+#botoes a.botao-register:hover {
     transform: translateY(-3px) translateX(3px);
     transition: all 0.3s ease;
     color: var(--primary-color);
@@ -123,73 +159,142 @@ header {
 #menu-toggle span {
     width: 25px;
     height: 3px;
-    background: rgb(97, 96, 96);
+    background: var(--primary-color);
     border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
-@media (max-width: 720px) {
+#menu-toggle.ativo span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+#menu-toggle.ativo span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle.ativo span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Overlay escuro */
+#menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+    z-index: 999;
+}
+
+#menu-overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsividade para Tablet */
+@media (max-width: 1024px) {
     #topo {
-        top: auto;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 62px;
-        margin-top: 0;
-        border-radius: 14px 14px 0 0;
-        justify-content: center;
-        padding: 6px 10px calc(6px + env(safe-area-inset-bottom));
-        gap: 0;
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.14);
+        width: 95%;
+        justify-content: space-between;
+        padding: 0 20px;
     }
 
     #menu-toggle {
-        display: none;
+        display: flex;
     }
 
-    #menu-toggle:hover {
-        transform: none;
-        background: none;
-        box-shadow: none;
+    #menu-close {
+        display: flex;
     }
 
-    #logo,
-    #botoes {
-        display: none;
+    #menu-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 25px 30px 30px;
+        gap: 0;
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+        transition: right 0.3s ease;
+        z-index: 1001;
+        overflow-y: auto;
+    }
+
+    #menu-container.ativo {
+        right: 0;
     }
 
     #links {
-        position: static;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
         width: 100%;
-        height: 100%;
-        background: transparent;
-        z-index: 1001;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding: 0;
-        display: flex;
-        transform: none;
-        opacity: 1;
-        gap: 8px;
+        gap: 0;
     }
 
     #links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        height: 100%;
-        padding: 6px 4px;
-        font-size: 0.72rem;
-        font-weight: 600;
-        line-height: 1.1;
+        width: 100%;
+        padding: 15px 0;
+        font-size: 1.05rem;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     #links a:hover {
-        transform: none;
+        transform: translateX(5px);
+        color: var(--primary-color);
     }
 
-    body {
-        padding-bottom: calc(70px + env(safe-area-inset-bottom));
+    #botoes {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0 0;
+        margin-top: 20px;
+        border-top: 2px solid rgba(0, 0, 0, 0.1);
+        gap: 12px;
+    }
+
+    .botao-login,
+    .botao-register {
+        width: 100%;
+        height: 48px;
+    }
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 720px) {
+    #topo {
+        width: 100%;
+        margin-top: 0;
+        border-radius: 0 0 14px 14px;
+        padding: 0 15px;
+        height: 70px;
+    }
+
+    #logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    #menu-container {
+        width: 85%;
+        max-width: 280px;
+        padding: 20px 25px 25px;
+    }
+
+    #links a {
+        font-size: 0.95rem;
+        padding: 13px 0;
     }
 }

@@ -2,6 +2,7 @@ class Header extends HTMLElement {
     connectedCallback() {
         const paginaAtual = this.getAttribute('pagina');
         this.innerHTML = `
+            <div id="menu-overlay"></div>
             <header>
                 <nav id="topo">
                     <section id="logo">
@@ -14,36 +15,67 @@ class Header extends HTMLElement {
                         <span></span>
                     </button>
 
-                    <section id="links">
-                        ${paginaAtual !== 'home' ? '<a href="/index.html">Home</a>' : ''}
-                        ${paginaAtual !== 'conscientizacao' ? '<a href="/pages/conscientizacao.html">Conscientização</a>' : ''}
-                        ${paginaAtual !== 'perguntas' ? '<a href="/pages/faq.html">Perguntas</a>' : ''}
-                        ${paginaAtual !== 'resultados' ? '<a href="/pages/resultados.html">Resultados</a>' : ''}  
-                        ${paginaAtual !== 'sobre' ? '<a href="/pages/sobre.html">Sobre</a>' : ''}  
-                    </section>
+                    <div id="menu-container">
+                        <button id="menu-close" aria-label="Fechar menu">
+                            <span>&larr;</span>
+                            <span>Voltar</span>
+                        </button>
 
-                    <section id="botoes">
-                        <button class="botao-login">
-                        <a href="/pages/login.html">Login</a>
-                        </button>
-                        <button class="botao-register">
-                        <a href="/pages/register.html">Registra-se</a>
-                        </button>
-                    </section>
+                        <section id="links">
+                            <a href="/index.html" class="${paginaAtual === 'home' ? 'pagina-atual' : ''}">Home</a>
+
+                            <a href="/pages/conscientizacao.html" class="${paginaAtual === 'conscientizacao' ? 'pagina-atual' : ''}">Conscientização</a>
+
+                            <a href="/pages/sobrequiz.html" class="${paginaAtual === 'perguntas' ? 'pagina-atual' : ''}">Quiz</a>
+                            <a href="/pages/resultados.html" class="${paginaAtual === 'resultados' ? 'pagina-atual' : ''}">Resultados</a>
+                            <a href="/pages/sobrenos.html" class="${paginaAtual === 'sobre' ? 'pagina-atual' : ''}">Sobre Nós</a>
+                            <a href="/pages/calculadora-juros.html" class="${paginaAtual === 'simulador' ? 'pagina-atual' : ''}">Simulador</a>
+                            <a href="/pages/indicacoes.html" class="${paginaAtual === 'indicacoes' ? 'pagina-atual' : ''}">Indicações</a>
+                        </section>
+
+                        <div id="botoes">
+                            <a href="/pages/login.html" class="botao-login">Login</a>
+                            <a href="/pages/register.html" class="botao-register">Registra-se</a>
+                        </div>
+                    </div>
                 </nav>
             </header>
         `;
 
         const botaoMenu = this.querySelector("#menu-toggle");
-        const links = this.querySelector("#links");
-        const botaoLogin = this.querySelector(".botao-login");
+        const botaoClose = this.querySelector("#menu-close");
+        const menuContainer = this.querySelector("#menu-container");
+        const overlay = this.querySelector("#menu-overlay");
 
+        // Toggle do menu hambúrguer
         botaoMenu.addEventListener("click", () => {
-            links.classList.toggle("ativo");
+            menuContainer.classList.toggle("ativo");
+            botaoMenu.classList.toggle("ativo");
+            overlay.classList.toggle("ativo");
         });
 
-        botaoLogin.addEventListener("click", () => {
-            window.location.href = "/pages/login.html";
+        // Botão de voltar no menu
+        botaoClose.addEventListener("click", () => {
+            menuContainer.classList.remove("ativo");
+            botaoMenu.classList.remove("ativo");
+            overlay.classList.remove("ativo");
+        });
+
+        // Fechar menu ao clicar em qualquer link (incluindo botões de login/register)
+        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register");
+        todosLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                menuContainer.classList.remove("ativo");
+                botaoMenu.classList.remove("ativo");
+                overlay.classList.remove("ativo");
+            });
+        });
+
+        // Fechar menu ao clicar no overlay
+        overlay.addEventListener("click", () => {
+            menuContainer.classList.remove("ativo");
+            botaoMenu.classList.remove("ativo");
+            overlay.classList.remove("ativo");
         });
     }
 }
