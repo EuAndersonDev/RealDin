@@ -51,7 +51,7 @@ class Footer extends HTMLElement {
             </div>
             <div class="coluna-links">
               <a href="/pages/faq.html">Perguntas frequentes</a>
-              <a href="#contato">Contate-nos</a>
+              <a href="../index.html#contato">Contate-nos</a>
             </div>
             <div class="coluna-links">
               <a href="#">Termos de uso</a>

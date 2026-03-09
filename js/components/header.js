@@ -19,7 +19,7 @@ class Header extends HTMLElement {
                         ${paginaAtual !== 'conscientizacao' ? '<a href="/pages/conscientizacao.html">Conscientização</a>' : ''}
                         ${paginaAtual !== 'perguntas' ? '<a href="/pages/faq.html">Perguntas</a>' : ''}
                         ${paginaAtual !== 'resultados' ? '<a href="/pages/resultados.html">Resultados</a>' : ''}  
-                        ${paginaAtual !== 'sobre' ? '<a href="/pages/sobre.html">Sobre</a>' : ''}  
+                        ${paginaAtual !== 'sobre' ? '<a href="/pages/sobrenos.html">Sobre</a>' : ''}  
                     </section>
 
                     <section id="botoes">
