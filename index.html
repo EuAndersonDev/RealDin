@@ -16,25 +16,55 @@
     <header-componente pagina="home"></header-componente>
     <!-- Conteúdo principal da página -->
     <main>
+
       <!-- Seção Hero -->
-      <section id="hero">
-        <div id="conteudo-hero">
+        <section id="hero" aria-label="Introdução ao RealDin">
+          <!-- Onda animada: borda entre fundo branco e vídeo -->
+          <div id="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 200 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <path id="wave-path" d="M0,0 L120,0 Q160,200 130,400 Q100,600 140,800 L0,800 Z" fill="white"/>
+            </svg>
+          </div>
+
+          <!-- Vídeo de fundo (lado direito) -->
+          <div id="hero-video-bg" aria-hidden="true">
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              aria-label="Vídeo decorativo de pessoa gerenciando dinheiro"
+            >
+              <!-- Substitua pelo seu arquivo de vídeo do Freepik -->
+              <source src="./assets/videos/velha.mp4" type="video/mp4">
+            </video>
+            <!-- Overlay escuro suave para legibilidade -->
+            <div id="hero-video-overlay"></div>
+          </div>
+
+          <div id="conteudo-hero">
             <div id="hero-titulo">
-              <h1>Dinheiro Real, <br> <span>Decisões Reais</span></h1>
-              <p>Antes de investir ou usar crédito, você precisa <br> entender como toma decisões financeiras.</p>
-              <br>
-              <p>O teste identifica seu perfil com o dinheiro e <br> mostra riscos que você pode nem perceber ainda.</p>
-
-            <button id="btn-fazer-teste">
+              <h1 class="hero-anim" style="--delay:0s">
+                Dinheiro Real, <br>
+                <span>Decisões Reais</span>
+              </h1>
+              <p class="hero-anim" style="--delay:0.15s">
+                Antes de investir ou usar crédito, você precisa<br>
+                entender como toma decisões financeiras.
+              </p>
+              <p class="hero-anim" style="--delay:0.28s">
+                O teste identifica seu perfil com o dinheiro e<br>
+                mostra riscos que você pode nem perceber ainda.
+              </p>
+              <button id="btn-fazer-teste" class="hero-anim" style="--delay:0.42s">
                 <a href="/pages/conscientizacao.html">Fazer o teste</a>
-            </button>
+              </button>
             </div>
 
-            <div id="hero-image">
-              <img src="./assets/imgs/hero-image.svg" alt="Hero Image">
-            </div>
-        </div>
-      </section>
+            <!-- Espaço vazio direito (o vídeo fica atrás via position:absolute) -->
+            <div id="hero-right-space" aria-hidden="true"></div>
+          </div>
+        </section>
 
       <!-- Seção de Situações -->
       <section id="situacoes">
@@ -111,7 +141,7 @@
       <section id="reserva">
         <div id="conteudo-reserva">
           <div>
-            <img src="/assets/imgs/circulo-dinheiro.png" alt="">
+            <img src="/assets/imgs/reserva.png" alt="">
           </div>
 
           <div id="reserva-titulo">
