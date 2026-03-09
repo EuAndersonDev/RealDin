@@ -48,7 +48,7 @@ main {
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-span {
+#hero span {
     background: linear-gradient(107deg, #7957ea 0%, #19aed9 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -92,6 +92,7 @@ p {
     font-family: Inter, sans-serif;
     cursor: pointer;
     transition: all 0.5s ease;
+    text-decoration: none;
 }
 
 #descer-mais .texto-descer {
@@ -268,7 +269,7 @@ p {
 
     #titulo-hero,
     .fonte-amarelo,
-    span {
+    #hero span {
         font-size: 3rem;
         line-height: 3.6rem;
         letter-spacing: -0.08rem;
@@ -344,7 +345,7 @@ p {
 
     #titulo-hero,
     .fonte-amarelo,
-    span {
+    #hero span {
         font-size: 2.2rem;
         line-height: 2.8rem;
         letter-spacing: -0.04rem;
@@ -367,7 +368,7 @@ p {
         margin: 22px;
     }
 
-    #descer-mais img{
+    #descer-mais img {
         width: 1.5em;
     }
 
@@ -448,7 +449,7 @@ p {
 
     #titulo-hero,
     .fonte-amarelo,
-    span {
+    #hero span {
         font-size: 1.9rem;
         line-height: 2.35rem;
     }

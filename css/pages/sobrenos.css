@@ -25,7 +25,7 @@ main {
 }
 
 #hero-texto h1 {
-   color: #171A26;
+    color: #171a26;
     font-family: Inter;
     font-size: 102px;
     font-style: normal;
@@ -36,7 +36,7 @@ main {
 }
 
 #hero-texto span {
-    background: linear-gradient(180deg, #7756EC 0%, #1AA7D5 100%);
+    background: linear-gradient(180deg, #7756ec 0%, #1aa7d5 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -54,7 +54,7 @@ main {
     font-style: normal;
     font-weight: 500;
     line-height: 28px; /* 100% */
-    background: linear-gradient(90deg, #7957EA 0%, #1AA7D5 100%);
+    background: linear-gradient(90deg, #7957ea 0%, #1aa7d5 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -83,7 +83,7 @@ main {
 }
 
 #conteudo-historia {
-    background: linear-gradient(135deg, #00674F 0%, #19AED9 100%);
+    background: linear-gradient(135deg, #00674f 0%, #19aed9 100%);
     width: 100%;
     height: 600px;
     display: flex;
@@ -102,8 +102,8 @@ main {
     gap: 20px;
 }
 
-#historia-texto h1{
-    color: #FAE007;
+#historia-texto h1 {
+    color: #fae007;
     font-family: Inter;
     font-size: 58px;
     font-style: normal;
@@ -111,8 +111,8 @@ main {
     line-height: 40px; /* 68.966% */
 }
 
-#historia-texto p{
-    color: #FFF;
+#historia-texto p {
+    color: #fff;
     font-family: Inter;
     font-size: 24px;
     font-style: normal;
@@ -147,7 +147,7 @@ main {
     font-style: normal;
     font-weight: 700;
     line-height: 40px; /* 133.333% */
-    background: linear-gradient(90deg, #5873E6 0%, #52BBA5 100%);
+    background: linear-gradient(90deg, #5873e6 0%, #52bba5 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -172,7 +172,7 @@ main {
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    border-top: 4px solid #7756EC;
+    border-top: 4px solid #7756ec;
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -187,8 +187,8 @@ main {
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    border-top: 4px solid #3991E0;
-    background: #FFF;
+    border-top: 4px solid #3991e0;
+    background: #fff;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -202,8 +202,8 @@ main {
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    border-top: 4px solid #52BBA5;
-    background: #FFF;
+    border-top: 4px solid #52bba5;
+    background: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -213,7 +213,7 @@ main {
 #card-missao h1,
 #card-visao h1,
 #card-valores h1 {
-    color: #1F2937;
+    color: #1f2937;
     font-family: Inter;
     font-size: 24px;
     font-style: normal;
@@ -225,7 +225,7 @@ main {
 #card-missao p,
 #card-visao p,
 #card-valores p {
-    color: #4B5563;
+    color: #4b5563;
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
@@ -279,14 +279,14 @@ main {
     font-style: normal;
     font-weight: 700;
     line-height: 40px; /* 112.045% */
-    background: linear-gradient(90deg, #7756EC 0%, #3991E0 100%);
+    background: linear-gradient(90deg, #7756ec 0%, #3991e0 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 #texto-equipe p {
-    color: #4B5563;
+    color: #4b5563;
     text-align: center;
     font-family: Inter;
     font-size: 16.9px;
@@ -307,64 +307,395 @@ main {
     margin-top: 30px;
 }
 
-.card{
-  width: calc(33.333% - 20px);
-  min-width: 280px;
-  border-radius:12px;
-  overflow:hidden;
-  background:white;
-  box-shadow:0 15px 30px rgba(0,0,0,0.15);
+.card {
+    width: calc(33.333% - 20px);
+    min-width: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.card-img{
-  width:100%;
-  height:250px;
-  overflow:hidden;
+.card-img {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
 }
 
-.card-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.card-content{
-  padding:20px;
+.card-content {
+    padding: 20px;
 }
 
-.name{
-  margin:0;
-  font-size:22px;
-  font-weight:700;
-  color:#333;
+.name {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
 }
 
-.role{
-  margin-top:5px;
-  color:#4a6cf7;
-  font-size:15px;
+.role {
+    margin-top: 5px;
+    color: #4a6cf7;
+    font-size: 15px;
 }
 
-.socials{
-  margin-top:20px;
-  display:flex;
-  gap:12px;
-  align-items:center;
+.socials {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
 
-.social{
-  width:45px;
-  height:45px;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
+.social {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.social img{
-  width: 45px;
-  height: 45px;
-  object-fit:contain;
+.social img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+/* ===========================
+   Responsividade - Tablet
+   =========================== */
+@media (max-width: 1024px) {
+    #hero,
+    #historia,
+    #mvv,
+    #mvvv,
+    #equipe,
+    #conteudo-equipe {
+        height: auto;
+    }
+
+    #hero {
+        margin-top: 20px;
+        padding: 56px 5% 40px;
+        gap: 20px;
+    }
+
+    #hero-texto {
+        width: 58%;
+    }
+
+    #hero-texto h1,
+    #hero-texto span {
+        font-size: 72px;
+        line-height: 72px;
+        letter-spacing: 0.4px;
+    }
+
+    #hero-texto p {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    #hero-image {
+        width: 36%;
+    }
+
+    #conteudo-historia {
+        height: auto;
+        padding: 48px 5%;
+        gap: 28px;
+    }
+
+    #historia-texto {
+        width: 55%;
+        gap: 14px;
+    }
+
+    #historia-texto h1 {
+        font-size: 48px;
+        line-height: 52px;
+    }
+
+    #historia-texto p {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0.8px;
+    }
+
+    #historia-image {
+        width: 40%;
+    }
+
+    #mvv-titulo h1 {
+        font-size: 42px;
+        line-height: 48px;
+        margin-top: 40px;
+    }
+
+    #conteudo-mvv {
+        width: 92%;
+        height: auto;
+        margin: 32px auto 56px;
+        align-items: stretch;
+    }
+
+    #card-missao,
+    #card-visao,
+    #card-valores {
+        width: calc(33.333% - 14px);
+        min-height: 290px;
+    }
+
+    #texto-equipe img {
+        width: 18%;
+    }
+
+    #texto-equipe h1 {
+        font-size: 32px;
+        line-height: 38px;
+    }
+
+    #texto-equipe p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    #cards-equipe {
+        width: 94%;
+        gap: 22px;
+    }
+
+    .card {
+        width: calc(50% - 14px);
+        min-width: 250px;
+    }
+
+    #equipe {
+        margin-bottom: 90px;
+    }
+}
+
+/* ===========================
+   Responsividade - Mobile
+   =========================== */
+@media (max-width: 768px) {
+    #hero,
+    #conteudo-historia,
+    #conteudo-mvv {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #hero {
+        padding: 36px 5% 30px;
+        text-align: center;
+    }
+
+    #hero-texto,
+    #hero-image,
+    #historia-texto,
+    #historia-image {
+        width: 100%;
+        margin-top: 70px;
+    }
+
+    #hero-texto {
+        align-items: center;
+    }
+
+    #hero-texto h1,
+    #hero-texto span {
+        font-size: 48px;
+        line-height: 52px;
+        letter-spacing: 0;
+    }
+
+    #hero-texto p {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    #hero-image {
+        max-width: 280px;
+    }
+
+    #conteudo-historia {
+        padding: 36px 5%;
+        text-align: center;
+    }
+
+    #historia-texto {
+        align-items: center;
+        gap: 10px;
+    }
+
+    #historia-texto h1 {
+        font-size: 40px;
+        line-height: 44px;
+    }
+
+    #historia-texto p {
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 0.3px;
+    }
+
+    #historia-image {
+        max-width: 360px;
+    }
+
+    #mvv-titulo h1 {
+        font-size: 36px;
+        line-height: 40px;
+        margin-top: 34px;
+    }
+
+    #conteudo-mvv {
+        width: 90%;
+        gap: 14px;
+        margin: 24px auto 42px;
+    }
+
+    #card-missao,
+    #card-visao,
+    #card-valores {
+        width: 100%;
+        min-height: auto;
+        align-items: flex-start;
+    }
+
+    #card-missao h1,
+    #card-visao h1,
+    #card-valores h1 {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    #card-missao p,
+    #card-visao p,
+    #card-valores p {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    #equipe {
+        margin-bottom: 70px;
+    }
+
+    #texto-equipe img {
+        width: 26%;
+    }
+
+    #texto-equipe h1 {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    #texto-equipe p {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    #cards-equipe {
+        width: 90%;
+        gap: 18px;
+    }
+
+    .card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .card-img {
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero {
+        padding: 26px 5% 24px;
+    }
+
+    #hero-texto h1,
+    #hero-texto span {
+        font-size: 36px;
+        line-height: 42px;
+    }
+
+    #hero-texto p {
+        font-size: 17px;
+        line-height: 23px;
+    }
+
+    #conteudo-historia {
+        padding: 28px 5%;
+    }
+
+    #historia-texto h1 {
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    #historia-texto p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    #mvv-titulo h1 {
+        font-size: 30px;
+        line-height: 34px;
+        margin-top: 28px;
+    }
+
+    #conteudo-mvv {
+        width: 92%;
+        margin: 20px auto 34px;
+    }
+
+    #card-missao,
+    #card-visao,
+    #card-valores {
+        border-radius: 10px;
+    }
+
+    #texto-equipe img {
+        width: 34%;
+    }
+
+    #texto-equipe h1 {
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    #texto-equipe p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .card-img {
+        height: 200px;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .role {
+        font-size: 14px;
+    }
+
+    .social,
+    .social img {
+        width: 40px;
+        height: 40px;
+    }
 }
