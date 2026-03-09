@@ -1,205 +1,326 @@
 /* ===== FOOTER ===== */
-      footer {
-        background: linear-gradient(180deg, rgba(23, 127, 114, 0.70) 0%, rgba(23, 127, 114, 0.85) 50%, #177F72 100%);
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        padding: 0 0 0 0;
-      }
+footer {
+    background: linear-gradient(
+        180deg,
+        rgba(23, 127, 114, 0.7) 0%,
+        rgba(23, 127, 114, 0.85) 50%,
+        #177f72 100%
+    );
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 0 0;
+}
 
-      #conteudo-footer {
-        width: 80%;
-        max-width: 1200px;
-        padding: 0;
-      }
+#conteudo-footer {
+    width: 80%;
+    max-width: 1200px;
+    padding: 0;
+}
 
-      /* Seção 1: Logo + Brazil */
-      #secao1 {
-        width: 100%;
-        padding-top: 50px;
-        padding-bottom: 30px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-      }
+/* Seção 1: Logo + Brazil */
+#secao1 {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
 
-      #secao1 h1 {
-        color: #FFF;
-        font-family: 'Inter', sans-serif;
-        font-size: 28px;
-        font-weight: 700;
-        line-height: 32px;
-        letter-spacing: -0.5px;
-      }
+#secao1 h1 {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+}
 
-      .btn-localizacao {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        border: 1.5px solid rgba(255, 255, 255, 0.7);
-        border-radius: 50px;
-        padding: 8px 20px;
-        color: #fff;
-        font-family: 'Inter', sans-serif;
+.btn-localizacao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    padding: 8px 20px;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-localizacao:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-localizacao svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.8;
+}
+
+/* Divisor */
+hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+}
+
+/* Seção 2: Redes sociais */
+#secao2 {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#secao2-redes {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+}
+
+.icone-social {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+        background 0.2s,
+        border-color 0.2s;
+}
+
+.icone-social:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+}
+
+.icone-social svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+}
+
+/* Seção 3: Links + ícone de acessibilidade */
+#secao3 {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#secao3-links {
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0;
+}
+
+.coluna-links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.titulo-coluna {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.coluna-links a {
+    color: rgba(213, 213, 213, 0.9);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1.3;
+    transition: opacity 0.2s;
+}
+
+.coluna-links a:hover {
+    opacity: 0.75;
+    
+}
+
+#secao3-icon {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 0;
+}
+
+.icone-acessibilidade {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.icone-acessibilidade:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.icone-acessibilidade svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+/* Rodapé copyright */
+#copyright {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* ===== RESPONSIVIDADE TABLET ===== */
+@media (max-width: 768px) {
+    #conteudo-footer {
+        width: 90%;
+    }
+
+    #secao1 {
+        padding-top: 40px;
+        padding-bottom: 25px;
+    }
+
+    #secao1 h1 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .btn-localizacao {
+        font-size: 13px;
+        padding: 6px 16px;
+    }
+
+    .btn-localizacao svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    #secao2-redes {
+        gap: 10px;
+    }
+
+    .icone-social {
+        width: 34px;
+        height: 34px;
+    }
+
+    .icone-social svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    #secao3-links {
+        width: 60%;
+    }
+
+    .coluna-links a {
         font-size: 14px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
+    }
 
-      .btn-localizacao:hover {
-        background: rgba(255,255,255,0.1);
-      }
+    .icone-acessibilidade {
+        width: 34px;
+        height: 34px;
+    }
 
-      .btn-localizacao svg {
-        width: 18px;
-        height: 18px;
-        fill: none;
-        stroke: #fff;
-        stroke-width: 1.8;
-      }
+    #copyright {
+        font-size: 13px;
+        padding-bottom: 25px;
+    }
+}
 
-      /* Divisor */
-      hr {
-        border: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        width: 100%;
-      }
+/* ===== RESPONSIVIDADE MOBILE ===== */
+@media (max-width: 480px) {
+    #conteudo-footer {
+        width: 90%;
+    }
 
-      /* Seção 2: Títulos das colunas + ícones redes sociais */
-      #secao2 {
-        width: 100%;
-        padding-top: 30px;
-        padding-bottom: 16px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-
-      #secao2-titulos {
-        width: 55%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 0;
-      }
-
-      #secao2-titulos span {
-        flex: 1;
-      }
-
-      #secao2-titulos span {
-        color: rgba(213, 213, 213, 0.9);
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      #secao2-redes {
-        display: flex;
-        flex-direction: row;
-        gap: 12px;
-        align-items: center;
-      }
-
-      .icone-social {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: background 0.2s, border-color 0.2s;
-      }
-
-      .icone-social:hover {
-        background: rgba(255,255,255,0.15);
-        border-color: #fff;
-      }
-
-      .icone-social svg {
-        width: 18px;
-        height: 18px;
-        fill: #fff;
-      }
-
-      /* Seção 3: Links + ícone de acessibilidade */
-      #secao3 {
-        width: 100%;
-        padding-top: 10px;
-        padding-bottom: 30px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-
-      #secao3-links {
-        width: 55%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 0;
-      }
-
-      .coluna-links {
-        flex: 1;
-        display: flex;
+    #secao1 {
         flex-direction: column;
-        gap: 14px;
-      }
+        align-items: flex-start;
+        gap: 20px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
 
-      .coluna-links a {
-        color: #fff;
-        font-size: 15px;
-        font-weight: 600;
-        text-decoration: none;
-        line-height: 1.3;
-        transition: opacity 0.2s;
-      }
+    #secao1 h1 {
+        font-size: 22px;
+        line-height: 26px;
+    }
 
-      .coluna-links a:hover {
-        opacity: 0.75;
-      }
+    .btn-localizacao {
+        align-self: flex-start;
+    }
 
-      #secao3-icon {
-        display: flex;
-        align-items: flex-end;
-        padding-bottom: 0;
-      }
-
-      .icone-acessibilidade {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-
-      .icone-acessibilidade:hover {
-        background: rgba(255,255,255,0.15);
-      }
-
-      .icone-acessibilidade svg {
-        width: 20px;
-        height: 20px;
-        fill: #fff;
-      }
-
-      /* Rodapé copyright */
-      #copyright {
-        width: 100%;
+    #secao2 {
+        justify-content: flex-start;
         padding-top: 20px;
-        padding-bottom: 30px;
-        text-align: right;
-        color: rgba(255,255,255,0.85);
-        font-size: 14px;
-        font-weight: 400;
-      }
+        padding-bottom: 20px;
+    }
+
+    #secao2-redes {
+        align-self: flex-start;
+        gap: 12px;
+    }
+
+    #secao3 {
+        flex-direction: column;
+        gap: 24px;
+        padding-bottom: 20px;
+    }
+
+    #secao3-links {
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .coluna-links {
+        gap: 12px;
+    }
+
+    .coluna-links a {
+        font-size: 15px;
+    }
+
+    #secao3-icon {
+        align-self: flex-start;
+    }
+
+    #copyright {
+        text-align: center;
+        font-size: 12px;
+        padding-top: 16px;
+        padding-bottom: 20px;
+    }
+}

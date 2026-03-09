@@ -59,3 +59,60 @@
 .cardcta .link-buttonCta:active {
     transform: translateY(0);
 }
+
+@media (max-width: 1024px) {
+    .cardcta {
+        width: 82%;
+        margin-top: 72px;
+        padding: 28px 20px;
+    }
+
+    .cardcta .heading-2 {
+        width: 88%;
+        font-size: 32px;
+    }
+
+    .cardcta .text-button-cardCta {
+        width: 86%;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cardcta {
+        width: 100%;
+        margin-top: 52px;
+        border-radius: 18px;
+        gap: 16px;
+        padding: 24px 16px;
+    }
+
+    .cardcta .heading-2 {
+        width: 100%;
+        font-size: 26px;
+        line-height: 1.25;
+    }
+
+    .cardcta .text-button-cardCta {
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.45;
+    }
+
+    .cardcta .link-buttonCta {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 18px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardcta .heading-2 {
+        font-size: 23px;
+    }
+
+    .cardcta .text-button-cardCta {
+        font-size: 15px;
+    }
+}

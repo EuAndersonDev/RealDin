@@ -1,6 +1,6 @@
 class Footer extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `
+    connectedCallback() {
+        this.innerHTML = `
       <footer>
       <section id="conteudo-footer">
 
@@ -18,13 +18,36 @@ class Footer extends HTMLElement {
 
         <hr>
 
-        <!-- Seção 2: Títulos + Redes Sociais -->
-        <div id="secao2">
-          <div id="secao2-titulos">
-            <span>Sobre nós</span>
-            <span>Precisa de ajuda?</span>
-            <span>Legal</span>
+        <!-- Seção 3: Links + Acessibilidade -->
+        <div id="secao3">
+          <div id="secao3-links">
+            <div class="coluna-links">
+              <span class="titulo-coluna">Sobre nós</span>
+              <a href="/pages/sobrenos.html">Nossa empresa</a>
+              <a href="/pages/imprensa.html">Imprensa</a>
+              <a href="/pages/sobrenos.html#historia">História</a>
+            </div>
+            <div class="coluna-links">
+              <span class="titulo-coluna">Precisa de ajuda?</span>
+              <a href="/pages/faq.html">Perguntas frequentes</a>
+              <a href="../index.html#contato">Contate-nos</a>
+            </div>
+            <div class="coluna-links">
+              <span class="titulo-coluna">Legal</span>
+              <a href="#">Termos de uso</a>
+            </div>
           </div>
+
+          <div id="secao3-icon">
+            <div class="icone-acessibilidade" title="Acessibilidade">
+              <!-- Ícone de acessibilidade (pessoa no círculo) -->
+              <img src="../assets/icons/telaPrincipal/Acessibilidade.svg" alt="" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Seção 2: Redes Sociais -->
+        <div id="secao2">
           <div id="secao2-redes">
             <!-- Instagram -->
             <div class="icone-social" title="Instagram">
@@ -41,31 +64,6 @@ class Footer extends HTMLElement {
           </div>
         </div>
 
-        <!-- Seção 3: Links + Acessibilidade -->
-        <div id="secao3">
-          <div id="secao3-links">
-            <div class="coluna-links">
-              <a href="/pages/sobrenos.html">Nossa empresa</a>
-              <a href="/pages/imprensa.html">Imprensa</a>
-              <a href="/pages/sobrenos.html#historia">História</a>
-            </div>
-            <div class="coluna-links">
-              <a href="/pages/faq.html">Perguntas frequentes</a>
-              <a href="../index.html#contato">Contate-nos</a>
-            </div>
-            <div class="coluna-links">
-              <a href="#">Termos de uso</a>
-            </div>
-          </div>
-
-          <div id="secao3-icon">
-            <div class="icone-acessibilidade" title="Acessibilidade">
-              <!-- Ícone de acessibilidade (pessoa no círculo) -->
-              <img src="../assets/icons/telaPrincipal/Acessibilidade.svg" alt="" aria-hidden="true" />
-            </div>
-          </div>
-        </div>
-
         <hr>
 
         <!-- Copyright -->
@@ -76,7 +74,7 @@ class Footer extends HTMLElement {
       </section>
     </footer>
     `;
-  }
+    }
 }
 
 customElements.define('footer-componente', Footer);
