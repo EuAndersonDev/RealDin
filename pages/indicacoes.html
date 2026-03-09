@@ -1,251 +1,297 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resultado Perfil Financeiro</title>
 
-<title>Resultado Perfil Financeiro</title>
+        <link rel="stylesheet" href="/css/pages/indicacoes.css" />
+        <link rel="stylesheet" href="/css/global.css" />
+        <link rel="stylesheet" href="/css/components/header.css" />
+        <link rel="stylesheet" href="/css/components/footer.css" />
 
-<link rel="stylesheet" href="/css/pages/indicacoes.css">
-<link rel="stylesheet" href="/css/global.css">
-<link rel="stylesheet" href="/css/components/header.css">
-<link rel="stylesheet" href="/css/components/footer.css">
+        <script src="/js/components/header.js" defer></script>
+        <script src="/js/components/footer.js" defer></script>
+    </head>
 
-<script src="/js/components/header.js" defer></script>
-<script src="/js/components/footer.js" defer></script>
+    <body>
+        <header-componente pagina="indicacoes"></header-componente>
 
-</head>
+        <main>
+            <!-- HERO -->
+            <section class="hero">
+                <div class="container hero-grid">
+                    <div class="hero-text">
+                        <h1>
+                            Aqui você encontra seu resultado de mapeamento de
+                            perfil financeiro
+                        </h1>
 
-<body>
+                        <button class="btn-primary">RESPONDER NOVAMENTE</button>
+                    </div>
 
-<header-componente></header-componente>
+                    <div class="hero-img">
+                        <img
+                            src="/assets/imgs/dinheiro 1.svg"
+                            alt="Dinheiro brasileiro"
+                        />
+                    </div>
+                </div>
+            </section>
 
-<main>
+            <!-- PERFIL -->
+            <section class="perfil-secao">
+                <div class="container-perfil">
+                    <h2 class="titulo-perfil">Seu perfil</h2>
 
-<!-- HERO -->
-<section class="hero">
+                    <div class="card-perfil-status">
+                        <div class="perfil-info-topo">
+                            <p>
+                                Seu perfil
+                                <span class="highlight-blue">financeiro:</span>
+                            </p>
+                            <div class="perfil-score-badge">
+                                <span class="tag-iniciante">Iniciante</span>
+                                <span class="score-numero">45/100</span>
+                            </div>
+                        </div>
 
-    <div class="container hero-grid">
+                        <div class="barra-progresso-container">
+                            <div
+                                class="barra-progresso-fill"
+                                style="width: 45%"
+                            ></div>
+                        </div>
+                    </div>
 
-        <div class="hero-text">
+                    <div class="card-evolucao">
+                        <div class="evolucao-texto">
+                            <h3 class="highlight-blue">Foco de Evolução:</h3>
+                            <ul class="lista-metas-curta">
+                                <li>Anotar gastos por 7 dias</li>
+                                <li>Ajustar um hábito financeiro</li>
+                                <li>Criar reserva inicial</li>
+                            </ul>
+                        </div>
 
-            <h1>
-            Aqui você encontra seu resultado de mapeamento de perfil financeiro
-            </h1>
+                        <div class="evolucao-acao">
+                            <button class="btn-recomenda-perfil">
+                                Recomendações →
+                            </button>
+                            <p class="status-aprendizado">
+                                <span class="emoji-lampada">💡</span>
+                                continue aprendendo sobre controle de gastos e
+                                reserva de emergencia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                <button class="btn-primary">
-RESPONDER NOVAMENTE
+            <!-- RECOMENDADOS -->
+            <section class="recomendados">
+                <div class="container">
+                    <h2 class="section-title">Recomendado para você</h2>
+
+                    <div class="livros">
+                        <article class="livro">
+                            <img
+                                src="/assets/imgs/historia-da-riqueza-do-brasil-jorge-caldeira-pdf 1.svg"
+                            />
+
+                            <h4>História da riqueza do Brasil</h4>
+
+                            <p>Jorge Caldeira</p>
+                        </article>
+
+                        <article class="livro">
+                            <img src="/assets/imgs/natty.svg" />
+
+                            <h4>Orçamento Sem Falhas</h4>
+
+                            <p>Nath Finanças</p>
+                        </article>
+
+                        <article class="livro">
+                            <img src="/assets/imgs/homemRico.svg" />
+
+                            <h4>O Homem Mais Rico da Babilônia</h4>
+
+                            <p>George S. Clason</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!--Banner -->
+
+            <section class="banner-final-cta">
+                <div class="banner-container-botao">
+                    <button class="btn-cta-verde">
+                        começar agora gratuitamente
                     </button>
 
-        </div>
-
-        <div class="hero-img">
-
-            <img src="/assets/imgs/dinheiro 1.svg" alt="Dinheiro brasileiro">
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PERFIL -->
-<section class="perfil-secao">
-    <div class="container-perfil">
-        <h2 class="titulo-perfil">Seu perfil</h2>
-
-        <div class="card-perfil-status">
-            <div class="perfil-info-topo">
-                <p>Seu perfil <span class="highlight-blue">financeiro:</span></p>
-                <div class="perfil-score-badge">
-                    <span class="tag-iniciante">Iniciante</span>
-                    <span class="score-numero">45/100</span>
+                    <p class="banner-status-info">
+                        100% online • 100% gratuito • Sem enrolação
+                    </p>
                 </div>
-            </div>
-            
-            <div class="barra-progresso-container">
-                <div class="barra-progresso-fill" style="width: 45%;"></div>
-            </div>
-        </div>
+            </section>
 
-        <div class="card-evolucao">
-            <div class="evolucao-texto">
-                <h3 class="highlight-blue">Foco de Evolução:</h3>
-                <ul class="lista-metas-curta">
-                    <li>Anotar gastos por 7 dias</li>
-                    <li>Ajustar um hábito financeiro</li>
-                    <li>Criar reserva inicial</li>
-                </ul>
-            </div>
+            <section class="stats-container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="icon-placeholder">
+                            <img
+                                src="/assets/icons/indicacoes/Acelerador.svg"
+                                alt="Ícone Endividamento"
+                            />
+                        </div>
+                        <p>
+                            <strong>70% dos brasileiros</strong> estão
+                            endividados.
+                        </p>
+                    </div>
 
-            <div class="evolucao-acao">
-                <button class="btn-recomenda-perfil">Recomendações →</button>
-                <p class="status-aprendizado">
-                    <span class="emoji-lampada">💡</span> 
-                    continue aprendendo sobre controle de gastos e reserva de emergencia.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
+                    <div class="stat-card">
+                        <div class="icon-placeholder">
+                            <img
+                                src="/assets/icons/indicacoes/BolsaDinheiro.svg"
+                                alt="Ícone Reserva"
+                            />
+                        </div>
+                        <p>
+                            A maioria não tem
+                            <strong>reserva de emergência.</strong>
+                        </p>
+                    </div>
 
-<!-- RECOMENDADOS -->
-    <section class="recomendados">
+                    <div class="stat-card">
+                        <div class="icon-placeholder">
+                            <img
+                                src="/assets/icons/indicacoes/Porquinho.svg"
+                                alt="Ícone Educação"
+                            />
+                        </div>
+                        <p>
+                            A escola nunca ensinou você a
+                            <strong>lidar com dinheiro.</strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-    <div class="container">
+            <!-- CURSOS -->
+            <section class="cursos-container">
+                <h2 class="cursos-titulo">Cursos Gratuitos e Online</h2>
 
-        <h2 class="section-title">
-        Recomendado para você
-        </h2>
+                <div class="cursos-grid">
+                    <article class="course-card">
+                        <div class="card-header">
+                            <img
+                                src="/assets/icons/indicacoes/BancoBrasil.svg"
+                                alt="Logo Bacen"
+                                class="course-logo"
+                            />
+                            <h3>Banco Central do Brasil</h3>
+                        </div>
+                        <p>
+                            Aprenda a organizar seu orçamento, entender juros e
+                            sair das dívidas.
+                        </p>
+                        <span class="course-level">Iniciante</span>
+                        <button class="btn-acessar">Acessar Curso</button>
+                    </article>
 
-    <div class="livros">
+                    <article class="course-card">
+                        <div class="card-header">
+                            <img
+                                src="/assets/icons/indicacoes/ComissaoValores.svg"
+                                alt="Logo CVM"
+                                class="course-logo"
+                            />
+                            <h3>Comissão de Valores Mobiliários (CVM)</h3>
+                        </div>
+                        <p>
+                            Descubra como investir com segurança e parar de ter
+                            medo do mercado.
+                        </p>
+                        <span class="course-level"
+                            >Iniciante a Intermediário</span
+                        >
+                        <button class="btn-acessar">Acessar Curso</button>
+                    </article>
 
-    <article class="livro">
+                    <article class="course-card">
+                        <div class="card-header">
+                            <img
+                                src="/assets/icons/indicacoes/Sebrae.svg"
+                                alt="Logo SEBRAE"
+                                class="course-logo"
+                            />
+                        </div>
+                        <p>
+                            Aprenda a gerar renda extra e transformar
+                            conhecimento em dinheiro.
+                        </p>
+                        <span class="course-level">Empreendedorismo</span>
+                        <button class="btn-acessar">Acessar Curso</button>
+                    </article>
 
-    <img src="/assets/imgs/historia-da-riqueza-do-brasil-jorge-caldeira-pdf 1.svg">
+                    <article class="course-card">
+                        <div class="card-header">
+                            <img
+                                src="/assets/icons/indicacoes/primeCusos.svg"
+                                alt="Logo Prime"
+                                class="course-logo"
+                            />
+                            <h3>Prime Cursos</h3>
+                        </div>
+                        <p>
+                            Curso gratuito de finanças pessoais com foco em
+                            orçamento, planejamento e melhores decisões
+                            financeiras.
+                        </p>
+                        <span class="course-level">Finanças Pessoais</span>
+                        <button class="btn-acessar">Acessar Curso</button>
+                    </article>
 
-        <h4>História da riqueza do Brasil</h4>
+                    <article class="course-card">
+                        <div class="card-header">
+                            <img
+                                src="/assets/icons/indicacoes/khan.svg"
+                                alt="Logo Khan"
+                                class="course-logo"
+                            />
+                            <h3>Khan Academy</h3>
+                        </div>
+                        <p>
+                            Vídeos simples e diretos para quem está começando do
+                            zero.
+                        </p>
+                        <span class="course-level">Básico</span>
+                        <button class="btn-acessar">Acessar Curso</button>
+                    </article>
 
-            <p>Jorge Caldeira</p>
+                    <article class="course-card">
+                        <div class="card-header">
+                            <img
+                                src="/assets/icons/indicacoes/FGV.svg"
+                                alt="Logo FGV"
+                                class="course-logo"
+                            />
+                        </div>
+                        <p>
+                            Organização financeira e planejamento para longo
+                            prazo.
+                        </p>
+                        <span class="course-level">Intermediário</span>
+                        <button class="btn-acessar">Acessar Curso</button>
+                    </article>
+                </div>
+            </section>
+        </main>
 
-    </article>
-
-    <article class="livro">
-
-     <img src="/assets/imgs/natty.svg">
-
-        <h4>Orçamento Sem Falhas</h4>
-
-        <p>Nath Finanças</p>
-
-    </article>
-
-    <article class="livro">
-
-        <img src="/assets/imgs/homemRico.svg">
-
-        <h4>O Homem Mais Rico da Babilônia </h4>
-
-        <p>George S. Clason</p>
-
-    </article>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!--Banner -->
-
-<section class="banner-final-cta">
-    <div class="banner-container-botao">
-        <button class="btn-cta-verde">começar agora gratuitamente</button>
-        
-        <p class="banner-status-info">100% online • 100% gratuito • Sem enrolação</p>
-    </div>
-    
-</section>
-
-<section class="stats-container">
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="icon-placeholder">
-                <img src="/assets/icons/indicacoes/Acelerador.svg" alt="Ícone Endividamento">
-            </div>
-            <p><strong>70% dos brasileiros</strong> estão endividados.</p>
-        </div>
-
-        <div class="stat-card">
-            <div class="icon-placeholder">
-                <img src="/assets/icons/indicacoes/BolsaDinheiro.svg" alt="Ícone Reserva">
-            </div>
-            <p>A maioria não tem <strong>reserva de emergência.</strong></p>
-        </div>
-
-        <div class="stat-card">
-            <div class="icon-placeholder">
-                <img src="/assets/icons/indicacoes/Porquinho.svg" alt="Ícone Educação">
-            </div>
-            <p>A escola nunca ensinou você a <strong>lidar com dinheiro.</strong></p>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- CURSOS -->
-<section class="cursos-container">
-    <h2 class="cursos-titulo">Cursos Gratuitos e Online</h2>
-    
-    <div class="cursos-grid">
-        <article class="course-card">
-            <div class="card-header">
-                <img src="/assets/icons/indicacoes/BancoBrasil.svg" alt="Logo Bacen" class="course-logo">
-                <h3>Banco Central do Brasil</h3>
-            </div>
-            <p>Aprenda a organizar seu orçamento, entender juros e sair das dívidas.</p>
-            <span class="course-level">Iniciante</span>
-            <button class="btn-acessar">Acessar Curso</button>
-        </article>
-
-        <article class="course-card">
-            <div class="card-header">
-                <img src="/assets/icons/indicacoes/ComissaoValores.svg" alt="Logo CVM" class="course-logo">
-                <h3>Comissão de Valores Mobiliários (CVM)</h3>
-            </div>
-            <p>Descubra como investir com segurança e parar de ter medo do mercado.</p>
-            <span class="course-level">Iniciante a Intermediário</span>
-            <button class="btn-acessar">Acessar Curso</button>
-        </article>
-
-        <article class="course-card">
-            <div class="card-header">
-                <img src="/assets/icons/indicacoes/Sebrae.svg" alt="Logo SEBRAE" class="course-logo">
-            </div>
-            <p>Aprenda a gerar renda extra e transformar conhecimento em dinheiro.</p>
-            <span class="course-level">Empreendedorismo</span>
-            <button class="btn-acessar">Acessar Curso</button>
-        </article>
-
-        <article class="course-card">
-            <div class="card-header">
-                <img src="/assets/icons/indicacoes/primeCusos.svg" alt="Logo Prime" class="course-logo">
-                <h3>Prime Cursos</h3>
-            </div>
-            <p>Curso gratuito de finanças pessoais com foco em orçamento, planejamento e melhores decisões financeiras.</p>
-            <span class="course-level">Finanças Pessoais</span>
-            <button class="btn-acessar">Acessar Curso</button>
-        </article>
-
-        <article class="course-card">
-            <div class="card-header">
-                <img src="/assets/icons/indicacoes/khan.svg" alt="Logo Khan" class="course-logo">
-                <h3>Khan Academy</h3>
-            </div>
-            <p>Vídeos simples e diretos para quem está começando do zero.</p>
-            <span class="course-level">Básico</span>
-            <button class="btn-acessar">Acessar Curso</button>
-        </article>
-
-        <article class="course-card">
-            <div class="card-header">
-                <img src="/assets/icons/indicacoes/FGV.svg" alt="Logo FGV" class="course-logo">
-            </div>
-            <p>Organização financeira e planejamento para longo prazo.</p>
-            <span class="course-level">Intermediário</span>
-            <button class="btn-acessar">Acessar Curso</button>
-        </article>
-    </div>
-</section>
-
-</main>
-
-<footer-componente></footer-componente>
-
-</body>
-
+        <footer-componente></footer-componente>
+    </body>
 </html>

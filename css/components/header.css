@@ -91,6 +91,10 @@ header {
     border: none;
     color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .botao-register {
@@ -101,6 +105,10 @@ header {
     background: var(--primary-color);
     color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 a {
@@ -116,12 +124,19 @@ a:hover {
     transition: all 0.3s ease;
 }
 
+a.pagina-atual {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
 button {
     transition: all 0.3s ease;
     transform: translateY(0) translateX(0);
 }
 
-#botoes button:hover {
+#botoes button:hover,
+#botoes a.botao-login:hover,
+#botoes a.botao-register:hover {
     transform: translateY(-3px) translateX(3px);
     transition: all 0.3s ease;
     color: var(--primary-color);

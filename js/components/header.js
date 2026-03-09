@@ -22,18 +22,20 @@ class Header extends HTMLElement {
                         </button>
 
                         <section id="links">
-                            ${paginaAtual !== 'home' ? '<a href="/index.html">Home</a>' : ''}
-                            ${paginaAtual !== 'conscientizacao' ? '<a href="/pages/conscientizacao.html">Conscientização</a>' : ''}
-                            ${paginaAtual !== 'perguntas' ? '<a href="/pages/sobrequiz.html">Quiz</a>' : ''}
-                            ${paginaAtual !== 'resultados' ? '<a href="/pages/resultados.html">Resultados</a>' : ''}
-                            ${paginaAtual !== 'sobre' ? '<a href="/pages/sobrenos.html">Sobre Nós</a>' : ''}
-                            ${paginaAtual !== 'simulador' ? '<a href="/pages/calculadora-juros.html">Simulador</a>' : ''}
-                            ${paginaAtual !== 'indicacoes' ? '<a href="/pages/indicacoes.html">Indicações</a>' : ''}
+                            <a href="/index.html" class="${paginaAtual === 'home' ? 'pagina-atual' : ''}">Home</a>
+
+                            <a href="/pages/conscientizacao.html" class="${paginaAtual === 'conscientizacao' ? 'pagina-atual' : ''}">Conscientização</a>
+
+                            <a href="/pages/sobrequiz.html" class="${paginaAtual === 'perguntas' ? 'pagina-atual' : ''}">Quiz</a>
+                            <a href="/pages/resultados.html" class="${paginaAtual === 'resultados' ? 'pagina-atual' : ''}">Resultados</a>
+                            <a href="/pages/sobrenos.html" class="${paginaAtual === 'sobre' ? 'pagina-atual' : ''}">Sobre Nós</a>
+                            <a href="/pages/calculadora-juros.html" class="${paginaAtual === 'simulador' ? 'pagina-atual' : ''}">Simulador</a>
+                            <a href="/pages/indicacoes.html" class="${paginaAtual === 'indicacoes' ? 'pagina-atual' : ''}">Indicações</a>
                         </section>
 
                         <div id="botoes">
-                            <button class="botao-login">Login</button>
-                            <button class="botao-register">Registra-se</button>
+                            <a href="/pages/login.html" class="botao-login">Login</a>
+                            <a href="/pages/register.html" class="botao-register">Registra-se</a>
                         </div>
                     </div>
                 </nav>
@@ -43,9 +45,6 @@ class Header extends HTMLElement {
         const botaoMenu = this.querySelector("#menu-toggle");
         const botaoClose = this.querySelector("#menu-close");
         const menuContainer = this.querySelector("#menu-container");
-        const links = this.querySelector("#links");
-        const botaoLogin = this.querySelector(".botao-login");
-        const botaoRegister = this.querySelector(".botao-register");
         const overlay = this.querySelector("#menu-overlay");
 
         // Toggle do menu hambúrguer
@@ -62,9 +61,9 @@ class Header extends HTMLElement {
             overlay.classList.remove("ativo");
         });
 
-        // Fechar menu ao clicar em qualquer link
-        const linksArray = this.querySelectorAll("#links a");
-        linksArray.forEach(link => {
+        // Fechar menu ao clicar em qualquer link (incluindo botões de login/register)
+        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register");
+        todosLinks.forEach(link => {
             link.addEventListener("click", () => {
                 menuContainer.classList.remove("ativo");
                 botaoMenu.classList.remove("ativo");
@@ -77,21 +76,6 @@ class Header extends HTMLElement {
             menuContainer.classList.remove("ativo");
             botaoMenu.classList.remove("ativo");
             overlay.classList.remove("ativo");
-        });
-
-        // Navegação dos botões
-        botaoLogin.addEventListener("click", () => {
-            menuContainer.classList.remove("ativo");
-            botaoMenu.classList.remove("ativo");
-            overlay.classList.remove("ativo");
-            window.location.href = "/pages/login.html";
-        });
-
-        botaoRegister.addEventListener("click", () => {
-            menuContainer.classList.remove("ativo");
-            botaoMenu.classList.remove("ativo");
-            overlay.classList.remove("ativo");
-            window.location.href = "/pages/register.html";
         });
     }
 }
