@@ -17,18 +17,16 @@ class Header extends HTMLElement {
                     <section id="links">
                         ${paginaAtual !== 'home' ? '<a href="/index.html">Home</a>' : ''}
                         ${paginaAtual !== 'conscientizacao' ? '<a href="/pages/conscientizacao.html">Conscientização</a>' : ''}
-                        ${paginaAtual !== 'perguntas' ? '<a href="/pages/faq.html">Perguntas</a>' : ''}
-                        ${paginaAtual !== 'resultados' ? '<a href="/pages/resultados.html">Resultados</a>' : ''}  
-                        ${paginaAtual !== 'sobre' ? '<a href="/pages/sobrenos.html">Sobre</a>' : ''}  
+                        ${paginaAtual !== 'perguntas' ? '<a href="/pages/sobrequiz.html">Quiz</a>' : ''}
+                        ${paginaAtual !== 'resultados' ? '<a href="/pages/resultados.html">Resultados</a>' : ''}
+                        ${paginaAtual !== 'sobre' ? '<a href="/pages/sobrenos.html">Sobre Nós</a>' : ''}
+                        ${paginaAtual !== 'simulador' ? '<a href="/pages/calculadora-juros.html">Simulador</a>' : ''}
+                        ${paginaAtual !== 'indicacoes' ? '<a href="/pages/indicacoes.html">Indicações</a>' : ''}
                     </section>
 
                     <section id="botoes">
-                        <button class="botao-login">
-                        <a href="/pages/login.html">Login</a>
-                        </button>
-                        <button class="botao-register">
-                        <a href="/pages/register.html">Registra-se</a>
-                        </button>
+                        <button class="botao-login">Login</button>
+                        <button class="botao-register">Registra-se</button>
                     </section>
                 </nav>
             </header>
@@ -37,6 +35,7 @@ class Header extends HTMLElement {
         const botaoMenu = this.querySelector("#menu-toggle");
         const links = this.querySelector("#links");
         const botaoLogin = this.querySelector(".botao-login");
+        const botaoRegister = this.querySelector(".botao-register");
 
         botaoMenu.addEventListener("click", () => {
             links.classList.toggle("ativo");
@@ -44,6 +43,10 @@ class Header extends HTMLElement {
 
         botaoLogin.addEventListener("click", () => {
             window.location.href = "/pages/login.html";
+        });
+
+        botaoRegister.addEventListener("click", () => {
+            window.location.href = "/pages/register.html";
         });
     }
 }
