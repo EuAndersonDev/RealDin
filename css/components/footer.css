@@ -50,11 +50,12 @@ footer {
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background ease 0.5s;
 }
 
 .btn-localizacao:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--accent-color);
+    transition: background ease 0.5s;
 }
 
 .btn-localizacao svg {
@@ -97,14 +98,13 @@ hr {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition:
-        background 0.2s,
-        border-color 0.2s;
+    transition: all ease 0.5s;
 }
 
 .icone-social:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--accent-color) !important;
     border-color: #fff;
+    transition: all ease 0.5s;
 }
 
 .icone-social svg {
@@ -140,7 +140,7 @@ hr {
 }
 
 .titulo-coluna {
-    color: #fff;
+    color: #fff !important;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -149,17 +149,19 @@ hr {
 }
 
 .coluna-links a {
-    color: rgba(213, 213, 213, 0.9);
+    color: rgba(213, 213, 213, 0.9) !important;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
     line-height: 1.3;
-    transition: opacity 0.2s;
+    transition: all ease 0.5s;
+    cursor: pointer;
 }
 
 .coluna-links a:hover {
     opacity: 0.75;
-    
+    color: var(--accent-color) !important;
+    transition: all ease 0.5s;
 }
 
 #secao3-icon {
@@ -176,11 +178,12 @@ hr {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all ease 0.5s;
 }
 
 .icone-acessibilidade:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--accent-color) !important;
+    transition: all ease 0.5s;
 }
 
 .icone-acessibilidade svg {

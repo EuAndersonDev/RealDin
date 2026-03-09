@@ -4,7 +4,7 @@ class CardCta extends HTMLElement {
         const titulo = this.getAttribute('titulo') || 'Pronto para o desafio?';
         const descricao = this.getAttribute('descricao') || 'Clique no botão abaixo e comece seu quiz agora. É rápido, gratuito e muito divertido!';
         const textoBotao = this.getAttribute('texto-botao') || 'Iniciar Quiz Agora';
-        const link = this.getAttribute('link') || '#';
+        const link = this.getAttribute('link') || '/pages/quiz.html';
 
         this.innerHTML = `
         <div class="cardcta">
