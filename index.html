@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,57 +14,41 @@
   <body>
     <!-- Header -->
     <header-componente pagina="home"></header-componente>
+
     <!-- Conteúdo principal da página -->
     <main>
 
-      <!-- Seção Hero -->
-        <section id="hero" aria-label="Introdução ao RealDin">
-          <!-- Onda animada: borda entre fundo branco e vídeo -->
-          <div id="hero-wave" aria-hidden="true">
-            <svg viewBox="0 0 200 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-              <path id="wave-path" d="M0,0 L120,0 Q160,200 130,400 Q100,600 140,800 L0,800 Z" fill="white"/>
-            </svg>
-          </div>
+          <!-- Seção Hero -->
+            <section id="hero">
 
-          <!-- Vídeo de fundo (lado direito) -->
-          <div id="hero-video-bg" aria-hidden="true">
-            <video
-              autoplay
-              muted
-              loop
-              playsinline
-              aria-label="Vídeo decorativo de pessoa gerenciando dinheiro"
-            >
-              <!-- Substitua pelo seu arquivo de vídeo do Freepik -->
-              <source src="./assets/videos/velha.mp4" type="video/mp4">
-            </video>
-            <!-- Overlay escuro suave para legibilidade -->
-            <div id="hero-video-overlay"></div>
-          </div>
+      <!-- PLACEHOLDER (remova quando tiver a imagem real) -->
+      <div class="placeholder-bg">
+        <img id="hero-bg" src="/assets/imgs/homem-hero (3).png">
+      </div>
 
-          <div id="conteudo-hero">
-            <div id="hero-titulo">
-              <h1 class="hero-anim" style="--delay:0s">
-                Dinheiro Real, <br>
-                <span>Decisões Reais</span>
-              </h1>
-              <p class="hero-anim" style="--delay:0.15s">
-                Antes de investir ou usar crédito, você precisa<br>
-                entender como toma decisões financeiras.
-              </p>
-              <p class="hero-anim" style="--delay:0.28s">
-                O teste identifica seu perfil com o dinheiro e<br>
-                mostra riscos que você pode nem perceber ainda.
-              </p>
-              <button id="btn-fazer-teste" class="hero-anim" style="--delay:0.42s">
-                <a href="/pages/conscientizacao.html">Fazer o teste</a>
-              </button>
-            </div>
+      <!-- Overlay gradiente esquerda → transparente -->
+      <div id="hero-overlay"></div>
 
-            <!-- Espaço vazio direito (o vídeo fica atrás via position:absolute) -->
-            <div id="hero-right-space" aria-hidden="true"></div>
-          </div>
-        </section>
+      <!-- Nota explicativa --> 
+
+      <!-- Conteúdo: título + subtítulo + botão — só à esquerda -->
+      <div id="hero-content">
+        <h1 class="hero-anim" style="--delay:0s">
+          Dinheiro Real,<br>
+          <span id="span">Decisões Reais</span>
+        </h1>
+
+        <p class="hero-anim" style="--delay:0.22s">
+          O teste identifica seu perfil com o dinheiro
+        </p>
+
+        <a href="/pages/conscientizacao.html" id="btn-fazer-teste" class="hero-anim" style="--delay:0.40s">
+          Fazer o teste
+        </a>
+      </div>
+
+    </section>
+
 
       <!-- Seção de Situações -->
       <section id="situacoes">
