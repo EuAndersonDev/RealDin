@@ -141,7 +141,7 @@ function initSimulador() {
 
             // Validações
             if (!valor || valor <= 0) {
-                alert('Por favor, insira um valor válido para a dívida.');
+                Toast.show('Por favor, insira um valor válido para a dívida.', 'warning');
                 valorInput.focus();
                 return;
             }

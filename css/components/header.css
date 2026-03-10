@@ -30,6 +30,12 @@ header {
     aspect-ratio: 1/1;
 }
 
+#logo a {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 #logo img {
     width: 100%;
     height: auto;
@@ -55,6 +61,59 @@ header {
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+#usuario-menu {
+    position: relative;
+}
+
+#usuario-toggle {
+    min-width: 140px;
+    height: 52px;
+    border-radius: 37px;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    padding: 0 18px;
+    font-weight: 600;
+}
+
+#usuario-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 220px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    z-index: 1200;
+}
+
+#usuario-dropdown p {
+    color: #4b5563;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+#confirmar-logout {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+    background: #ef4444;
+    color: #fff;
+    font-weight: 600;
+}
+
+#confirmar-logout:hover {
+    background: #dc2626;
+}
+
+#usuario-dropdown.fechado {
+    display: none;
 }
 
 #menu-close {
@@ -266,9 +325,22 @@ button {
     }
 
     .botao-login,
-    .botao-register {
+    .botao-register,
+    #usuario-toggle {
         width: 100%;
         height: 48px;
+    }
+
+    #usuario-menu {
+        width: 100%;
+    }
+
+    #usuario-dropdown {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+        box-shadow: none;
+        border: 1px solid rgba(0, 0, 0, 0.08);
     }
 }
 
