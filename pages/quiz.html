@@ -6,15 +6,16 @@
     <title>Quiz - RealDin</title>
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/pages/quiz.css" />
+    <script src="../js/pages/quiz.js" defer></script>
   </head>
   <body>
     <div class="header">
       <div class="container">
         <b class="heading-1">RealDin</b>
         <div class="background-line">
-          <div class="background2-line"></div>
+          <div class="background2-line" id="barra-progresso"></div>
         </div>
-        <div class="div">1/14</div>
+        <div class="div" id="progresso">1/14</div>
       </div>
       <button class="button" onclick="window.location.href='../index.html'">
         <b class="sair">Sair</b>
@@ -24,43 +25,43 @@
     </div>
 
     <div class="main">
-      <button class="enviar">
+      <button class="enviar" id="btn-proximo">
         <div class="buttonshadow"></div>
         <div class="prxima-pergunta">Próxima Pergunta</div>
       </button>
-      <div class="e">
+      <div class="e" id="opcao-E" data-perfil="">
         <button class="background">
           <div class="e2">E</div>
         </button>
-        <div class="um-investimento-de">Um investimento de alto risco</div>
+        <div class="um-investimento-de" id="texto-E">Um investimento de alto risco</div>
       </div>
-      <div class="d">
+      <div class="d" id="opcao-D" data-perfil="">
         <button class="background">
           <div class="e2">D</div>
         </button>
-        <div class="um-investimento-de2">Um investimento de alto risco</div>
+        <div class="um-investimento-de2" id="texto-D">Um investimento de alto risco</div>
       </div>
-      <div class="c">
+      <div class="c" id="opcao-C" data-perfil="">
         <button class="background">
           <div class="c2">C</div>
         </button>
-        <div class="o-saldo-da">O saldo da conta corrente</div>
+        <div class="o-saldo-da" id="texto-C">O saldo da conta corrente</div>
       </div>
-      <div class="b">
+      <div class="b" id="opcao-B" data-perfil="">
         <button class="background">
           <div class="b2">B</div>
         </button>
-        <div class="uma-quantia-para">
+        <div class="uma-quantia-para" id="texto-B">
           Uma quantia para cobrir imprevistos (3 a 6 meses<br />de gastos)
         </div>
       </div>
-      <div class="a">
+      <div class="a" id="opcao-A" data-perfil="">
         <button class="background">
           <div class="a2">A</div>
         </button>
-        <div class="dinheiro-guardado-para">Dinheiro guardado para viagens</div>
+        <div class="dinheiro-guardado-para" id="texto-A">Dinheiro guardado para viagens</div>
       </div>
-      <b class="o-que">O que é uma reserva de emergência?</b>
+      <b class="o-que" id="pergunta-texto">O que é uma reserva de emergência?</b>
     </div>
   </body>
 </html>

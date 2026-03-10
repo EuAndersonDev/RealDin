@@ -1,0 +1,150 @@
+{
+  "perguntas": [
+    {
+      "id": 1,
+      "pergunta": "Quando você recebe dinheiro, qual é sua primeira atitude?",
+      "opcoes": [
+        { "letra": "A", "texto": "Separo uma parte para guardar", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Já penso no que quero comprar", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Pago algumas coisas e depois vejo o resto", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Vou usando sem pensar muito", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Divido mentalmente quanto posso gastar em cada coisa", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 2,
+      "pergunta": "Como você organiza seus gastos mensais?",
+      "opcoes": [
+        { "letra": "A", "texto": "Anoto e acompanho tudo", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Não organizo, vou no impulso", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Começo organizado, mas me perco", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Raramente paro para olhar contas", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Planejo por categorias e metas", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 3,
+      "pergunta": "Sobre compras parceladas, você...",
+      "opcoes": [
+        { "letra": "A", "texto": "Evita ao máximo para não comprometer renda", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Parcela sem pensar muito no total", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Parcela e às vezes perde o controle", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Nem sempre sabe quantas parcelas tem", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Usa parcelamento estrategicamente", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 4,
+      "pergunta": "Se surgir uma emergência de R$ 1.000, você...",
+      "opcoes": [
+        { "letra": "A", "texto": "Usa sua reserva de emergência", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Recorre ao cartão e depois vê", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Pega empréstimo por não ter outra opção", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Fica sem saber como resolver", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Tem plano e fundo para imprevistos", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 5,
+      "pergunta": "Qual frase mais combina com você?",
+      "opcoes": [
+        { "letra": "A", "texto": "Prefiro guardar hoje para ter tranquilidade amanhã", "perfil": "Poupador" },
+        { "letra": "B", "texto": "A vida é agora, depois eu resolvo", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Quero economizar, mas não consigo manter", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Dinheiro é complicado, evito pensar nisso", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Busco equilíbrio entre presente e futuro", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 6,
+      "pergunta": "Com que frequência você revisa sua conta bancária?",
+      "opcoes": [
+        { "letra": "A", "texto": "Quase todos os dias", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Só quando falta dinheiro", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Algumas vezes, sem rotina", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Raramente olho", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Tenho rotina semanal com análise", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 7,
+      "pergunta": "Quando entra um dinheiro extra, você...",
+      "opcoes": [
+        { "letra": "A", "texto": "Guarda a maior parte", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Gasta com algo que quer", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Divide entre contas e gastos sem regra", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Deixa na conta e esquece", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Define percentuais para metas", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 8,
+      "pergunta": "Sobre investimentos, você...",
+      "opcoes": [
+        { "letra": "A", "texto": "Prefere opções seguras e previsíveis", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Não investe, prioriza consumo", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Começa a investir e para no meio", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Não entende e evita o assunto", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Estuda risco e monta carteira", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 9,
+      "pergunta": "Como você lida com metas financeiras?",
+      "opcoes": [
+        { "letra": "A", "texto": "Define metas simples e cumpre", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Quase nunca define metas", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Define, mas perde foco rapidamente", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Não pensa muito em metas", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Define metas com prazos e acompanhamento", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 10,
+      "pergunta": "No fim do mês, normalmente você...",
+      "opcoes": [
+        { "letra": "A", "texto": "Consegue fechar com saldo positivo", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Termina no limite do cartão", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Não sabe bem para onde foi o dinheiro", "perfil": "Descontrolado" },
+        { "letra": "D", "texto": "Percebe atrasado que passou do limite", "perfil": "Desligado" },
+        { "letra": "E", "texto": "Fecha com controle e já planeja o próximo", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 11,
+      "pergunta": "Você já possui reserva de emergência?",
+      "opcoes": [
+        { "letra": "A", "texto": "Sim, e mantenho com disciplina", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Não, ainda não consegui começar", "perfil": "Descontrolado" },
+        { "letra": "C", "texto": "Estou montando de forma planejada", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 12,
+      "pergunta": "Diante de uma promoção, você geralmente...",
+      "opcoes": [
+        { "letra": "A", "texto": "Só compra se já estava no planejamento", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Compra por impulso para aproveitar", "perfil": "Gastador" },
+        { "letra": "C", "texto": "Compara preço e necessidade antes", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 13,
+      "pergunta": "Quando o assunto é dívida, você...",
+      "opcoes": [
+        { "letra": "A", "texto": "Evita e paga sempre em dia", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Já atrasou por falta de organização", "perfil": "Descontrolado" },
+        { "letra": "C", "texto": "Renegocia cedo para reduzir juros", "perfil": "Financista" }
+      ]
+    },
+    {
+      "id": 14,
+      "pergunta": "Qual é sua visão de longo prazo com dinheiro?",
+      "opcoes": [
+        { "letra": "A", "texto": "Ter segurança para imprevistos", "perfil": "Poupador" },
+        { "letra": "B", "texto": "Viver o presente sem muitas regras", "perfil": "Desligado" },
+        { "letra": "C", "texto": "Construir patrimônio com estratégia", "perfil": "Financista" }
+      ]
+    }
+  ]
+}
