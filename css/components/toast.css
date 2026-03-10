@@ -1,0 +1,173 @@
+/* =====================================================
+   Toast — Alert personalizado do RealDin
+   css/components/toast.css
+   ===================================================== */
+
+/* Container posicionado na tela */
+.toast-container {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+  max-width: 360px;
+  width: calc(100% - 32px);
+}
+
+/* Posições disponíveis */
+.toast-top-right    { top: 20px;    right: 16px;  align-items: flex-end; }
+.toast-top-left     { top: 20px;    left: 16px;   align-items: flex-start; }
+.toast-top-center   { top: 20px;    left: 50%;    transform: translateX(-50%); align-items: center; }
+.toast-bottom-right { bottom: 20px; right: 16px;  align-items: flex-end; }
+.toast-bottom-left  { bottom: 20px; left: 16px;   align-items: flex-start; }
+.toast-bottom-center{ bottom: 20px; left: 50%;    transform: translateX(-50%); align-items: center; }
+
+/* Card do toast */
+.toast {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  pointer-events: all;
+  overflow: hidden;
+  min-width: 260px;
+  max-width: 360px;
+  width: 100%;
+  border-left: 4px solid transparent;
+
+  /* Estado inicial (invisível, levemente deslocado) */
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Estado visível */
+.toast.toast-visivel {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animação de saída */
+.toast.toast-saindo {
+  animation: toastSaindo 0.3s ease forwards;
+}
+
+@keyframes toastSaindo {
+  to {
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+  }
+}
+
+/* ── Variantes de tipo ───────────────────────── */
+.toast-success { border-left-color: #177f72; }
+.toast-warning { border-left-color: #f59e0b; }
+.toast-error   { border-left-color: #ef4444; }
+.toast-info    { border-left-color: #19aed9; }
+
+/* ── Ícone ────────────────────────────────────── */
+.toast-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.toast-success .toast-icon { color: #177f72; }
+.toast-warning .toast-icon { color: #f59e0b; }
+.toast-error   .toast-icon { color: #ef4444; }
+.toast-info    .toast-icon { color: #19aed9; }
+
+/* ── Mensagem ─────────────────────────────────── */
+.toast-mensagem {
+  flex: 1;
+  font-family: var(--font-text, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+/* ── Botão fechar ─────────────────────────────── */
+.toast-fechar {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 0;
+  transition: color 0.2s, background 0.2s;
+}
+
+.toast-fechar:hover {
+  color: #475569;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.toast-fechar svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Barra de progresso ───────────────────────── */
+.toast-progresso {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: transparent;
+  border-radius: 0 0 14px 14px;
+}
+
+.toast-progresso-ativo {
+  animation: toastProgresso linear forwards;
+}
+
+@keyframes toastProgresso {
+  from { width: 100%; }
+  to   { width: 0%; }
+}
+
+.toast-success .toast-progresso-ativo { background: #177f72; }
+.toast-warning .toast-progresso-ativo { background: #f59e0b; }
+.toast-error   .toast-progresso-ativo { background: #ef4444; }
+.toast-info    .toast-progresso-ativo { background: #19aed9; }
+
+/* ── Responsivo ───────────────────────────────── */
+@media (max-width: 480px) {
+  .toast-container {
+    max-width: 100%;
+    width: calc(100% - 24px);
+  }
+
+  .toast-top-right,
+  .toast-top-left {
+    left: 12px;
+    right: 12px;
+    align-items: stretch;
+  }
+
+  .toast {
+    min-width: unset;
+    max-width: 100%;
+  }
+}

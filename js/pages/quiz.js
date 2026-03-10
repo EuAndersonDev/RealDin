@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('[Quiz] Página carregada, iniciando configuração.');
+  const session = window.SessionService;
   const perguntaTexto = document.getElementById('pergunta-texto');
   const progresso = document.getElementById('progresso');
   const barraProgresso = document.getElementById('barra-progresso');
@@ -35,7 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
     opcaoSelecionada: null
   };
 
-  const pontuacaoInicial = {
+  const estiloOpcao = {
+    bordaPadrao: '2px solid transparent',
+    fundoHover: '#f3f7ff',
+    bordaHover: '2px solid #9db7ff',
+    fundoSelecionado: '#dfe9ff',
+    bordaSelecionado: '2px solid #4f7cff'
+  };
+
+  const pontuacaoInicial = session?.QUIZ_DEFAULT_SCORES || {
     Poupador: 0,
     Gastador: 0,
     Descontrolado: 0,
@@ -44,12 +53,24 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function resetPontuacao() {
-    sessionStorage.setItem('pontuacao', JSON.stringify(pontuacaoInicial));
-    sessionStorage.removeItem('quizFinalizado');
-    console.log('[Quiz] Pontuação resetada no sessionStorage.', pontuacaoInicial);
+    if (session?.resetQuizState) {
+      session.resetQuizState();
+    } else {
+      sessionStorage.setItem('pontuacao', JSON.stringify(pontuacaoInicial));
+      sessionStorage.removeItem('quizFinalizado');
+    }
+
+    console.log('[Quiz] Pontuação resetada na sessão.', pontuacaoInicial);
   }
 
   function obterPontuacaoAtual() {
+    if (session?.getQuizState) {
+      return {
+        ...pontuacaoInicial,
+        ...(session.getQuizState().scores || {})
+      };
+    }
+
     const salvo = sessionStorage.getItem('pontuacao');
     if (!salvo) {
       return { ...pontuacaoInicial };
@@ -70,6 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const percentual = (atual / total) * 100;
     barraProgresso.style.width = `${percentual}%`;
+
+    if (session?.setQuizState) {
+      session.setQuizState({
+        currentQuestionIndex: estado.indiceAtual,
+        totalQuestions: total
+      });
+    }
+
     console.log(`[Quiz] Progresso atualizado: ${atual}/${total} (${percentual.toFixed(2)}%).`);
   }
 
@@ -77,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Object.values(opcoesMap).forEach(({ container }) => {
       if (container) {
         container.classList.remove('selecionada');
+        aplicarEstiloPadrao(container);
       }
     });
 
@@ -149,10 +179,12 @@ document.addEventListener('DOMContentLoaded', () => {
     Object.values(opcoesMap).forEach(({ container: opcaoContainer }) => {
       if (opcaoContainer) {
         opcaoContainer.classList.remove('selecionada');
+        aplicarEstiloPadrao(opcaoContainer);
       }
     });
 
     container.classList.add('selecionada');
+    aplicarEstiloSelecionado(container);
     estado.opcaoSelecionada = container;
     btnProximo.disabled = false;
     console.log('[Quiz] Opção selecionada:', {
@@ -161,19 +193,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function aplicarEstiloPadrao(container) {
+    const fundoInterno = container.querySelector('.background');
+    container.style.backgroundColor = '';
+    container.style.border = estiloOpcao.bordaPadrao;
+    container.style.borderRadius = '12px';
+
+    if (fundoInterno) {
+      fundoInterno.style.backgroundColor = '';
+      fundoInterno.style.border = estiloOpcao.bordaPadrao;
+      fundoInterno.style.borderRadius = '12px';
+      fundoInterno.style.transition = 'background-color 0.18s ease, border-color 0.18s ease';
+    }
+  }
+
+  function aplicarEstiloSelecionado(container) {
+    const fundoInterno = container.querySelector('.background');
+    container.style.backgroundColor = estiloOpcao.fundoSelecionado;
+    container.style.border = estiloOpcao.bordaSelecionado;
+    container.style.borderRadius = '12px';
+
+    if (fundoInterno) {
+      fundoInterno.style.backgroundColor = estiloOpcao.fundoSelecionado;
+      fundoInterno.style.border = estiloOpcao.bordaSelecionado;
+      fundoInterno.style.borderRadius = '12px';
+    }
+  }
+
   function aplicarHover(container, ativo) {
     if (!container) {
       return;
     }
 
+    const fundoInterno = container.querySelector('.background');
+    const estaSelecionada = container.classList.contains('selecionada');
+
     if (ativo) {
       container.style.transform = 'translateY(-2px)';
-      container.style.transition = 'transform 0.18s ease';
+      container.style.transition = 'transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease';
       container.style.cursor = 'pointer';
+      if (!estaSelecionada) {
+        container.style.backgroundColor = estiloOpcao.fundoHover;
+        container.style.border = estiloOpcao.bordaHover;
+        container.style.borderRadius = '12px';
+
+        if (fundoInterno) {
+          fundoInterno.style.backgroundColor = estiloOpcao.fundoHover;
+          fundoInterno.style.border = estiloOpcao.bordaHover;
+          fundoInterno.style.borderRadius = '12px';
+        }
+      }
       return;
     }
 
     container.style.transform = '';
+    if (!estaSelecionada) {
+      aplicarEstiloPadrao(container);
+    }
   }
 
   function avancar() {
@@ -186,15 +262,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const pontuacao = obterPontuacaoAtual();
 
     if (perfil && Object.prototype.hasOwnProperty.call(pontuacao, perfil)) {
-      pontuacao[perfil] += 1;
-      sessionStorage.setItem('pontuacao', JSON.stringify(pontuacao));
+      if (session?.incrementQuizScore) {
+        session.incrementQuizScore(perfil);
+      } else {
+        pontuacao[perfil] += 1;
+        sessionStorage.setItem('pontuacao', JSON.stringify(pontuacao));
+      }
+
       console.log('[Quiz] Pontuação atualizada:', pontuacao);
     }
 
     const ultimaPergunta = estado.indiceAtual === estado.perguntas.length - 1;
 
     if (ultimaPergunta) {
-      sessionStorage.setItem('quizFinalizado', 'true');
+      if (session?.finalizeQuiz) {
+        session.finalizeQuiz();
+      } else {
+        sessionStorage.setItem('quizFinalizado', 'true');
+      }
+
       console.log('[Quiz] Quiz finalizado. Redirecionando para resultados.');
       window.location.href = '../pages/resultados.html';
       return;
@@ -214,6 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
       container.addEventListener('mouseenter', () => aplicarHover(container, true));
       container.addEventListener('mouseleave', () => aplicarHover(container, false));
       container.style.cursor = 'pointer';
+      aplicarEstiloPadrao(container);
     });
 
     btnProximo.addEventListener('click', avancar);
@@ -221,8 +308,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const botaoSair = document.querySelector('.header .button');
     if (botaoSair) {
       botaoSair.addEventListener('click', () => {
-        sessionStorage.clear();
-        console.log('[Quiz] Sessão limpa ao clicar em Sair.');
+        if (session?.clearUserSession) {
+          session.clearUserSession();
+        }
+        console.log('[Quiz] Sessão de usuário limpa ao clicar em Sair.');
       });
     }
   }

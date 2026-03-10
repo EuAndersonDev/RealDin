@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('[Resultado] Página carregada, preparando renderização do perfil.');
+  const session = window.SessionService;
   const perfis = {
     Poupador: {
       descricao: 'Você é cauteloso e prioriza a segurança financeira antes de gastar.',
@@ -63,6 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function lerPontuacao() {
+    if (session?.getQuizState) {
+      const scores = session.getQuizState().scores || {};
+      console.log('[Resultado] Pontuação lida do SessionService:', scores);
+      return { ...pontuacaoPadrao, ...scores };
+    }
+
     const salvo = sessionStorage.getItem('pontuacao');
     if (!salvo) {
       console.log('[Resultado] Nenhuma pontuação encontrada. Usando padrão.');
@@ -133,6 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const pontuacao = lerPontuacao();
     const perfilFinal = obterPerfilFinal(pontuacao);
     const dadosPerfil = perfis[perfilFinal] || perfis.Poupador;
+
+    if (session?.finalizeQuiz) {
+      session.finalizeQuiz(perfilFinal);
+    }
+
     console.log('[Resultado] Perfil final selecionado:', perfilFinal);
 
     titulo.textContent = perfilFinal;

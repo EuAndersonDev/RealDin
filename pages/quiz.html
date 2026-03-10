@@ -3,10 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
+    
     <title>Quiz - RealDin</title>
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/pages/quiz.css" />
+    <script src="../js/services/session/session.js" defer></script>
     <script src="../js/pages/quiz.js" defer></script>
+    <link rel="stylesheet" href="../css/components/toast.css" />
+    <script src="../js/components/toast.js"></script>
   </head>
   <body>
     <div class="header">
@@ -21,44 +25,45 @@
         <b class="sair">Sair</b>
         <img src="../assets/icons/telaQuiz/setaSair.svg" alt="" />
       </button>
-      <img src="../assets/imgs/logo.svg" alt="" class="logo-icon" />
+      <a href="/index.html">
+        <img src="../assets/imgs/logo.svg" alt="" class="logo-icon" />
+      </a>
     </div>
 
     <div class="main">
       <button class="enviar" id="btn-proximo">
-        <div class="buttonshadow"></div>
         <div class="prxima-pergunta">Próxima Pergunta</div>
       </button>
       <div class="e" id="opcao-E" data-perfil="">
-        <button class="background">
+        <div class="background">
           <div class="e2">E</div>
-        </button>
+        </div>
         <div class="um-investimento-de" id="texto-E">Um investimento de alto risco</div>
       </div>
       <div class="d" id="opcao-D" data-perfil="">
-        <button class="background">
+        <div class="background">
           <div class="e2">D</div>
-        </button>
+        </div>
         <div class="um-investimento-de2" id="texto-D">Um investimento de alto risco</div>
       </div>
       <div class="c" id="opcao-C" data-perfil="">
-        <button class="background">
+        <div class="background">
           <div class="c2">C</div>
-        </button>
+        </div>
         <div class="o-saldo-da" id="texto-C">O saldo da conta corrente</div>
       </div>
       <div class="b" id="opcao-B" data-perfil="">
-        <button class="background">
+        <div class="background">
           <div class="b2">B</div>
-        </button>
+        </div>
         <div class="uma-quantia-para" id="texto-B">
           Uma quantia para cobrir imprevistos (3 a 6 meses<br />de gastos)
         </div>
       </div>
       <div class="a" id="opcao-A" data-perfil="">
-        <button class="background">
+        <div class="background">
           <div class="a2">A</div>
-        </button>
+        </div>
         <div class="dinheiro-guardado-para" id="texto-A">Dinheiro guardado para viagens</div>
       </div>
       <b class="o-que" id="pergunta-texto">O que é uma reserva de emergência?</b>

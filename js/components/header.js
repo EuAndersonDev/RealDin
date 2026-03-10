@@ -1,12 +1,16 @@
 class Header extends HTMLElement {
     connectedCallback() {
         const paginaAtual = this.getAttribute('pagina');
+        const usuarioAtual = this.obterUsuarioAtual();
+
         this.innerHTML = `
             <div id="menu-overlay"></div>
             <header>
                 <nav id="topo">
                     <section id="logo">
-                        <img src="/assets/imgs/logo.svg" alt="Logo">
+                        <a href="/index.html">
+                            <img src="/assets/imgs/logo.svg" alt="Logo">
+                        </a>
                     </section>
 
                     <button id="menu-toggle">
@@ -34,8 +38,7 @@ class Header extends HTMLElement {
                         </section>
 
                         <div id="botoes">
-                            <a href="/pages/login.html" class="botao-login">Login</a>
-                            <a href="/pages/register.html" class="botao-register">Registra-se</a>
+                            ${this.renderBotoesUsuario(usuarioAtual)}
                         </div>
                     </div>
                 </nav>
@@ -62,7 +65,7 @@ class Header extends HTMLElement {
         });
 
         // Fechar menu ao clicar em qualquer link (incluindo botões de login/register)
-        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register");
+        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register, #usuario-toggle, #confirmar-logout");
         todosLinks.forEach(link => {
             link.addEventListener("click", () => {
                 menuContainer.classList.remove("ativo");
@@ -71,11 +74,127 @@ class Header extends HTMLElement {
             });
         });
 
+        this.configurarMenuUsuario();
+
         // Fechar menu ao clicar no overlay
         overlay.addEventListener("click", () => {
             menuContainer.classList.remove("ativo");
             botaoMenu.classList.remove("ativo");
             overlay.classList.remove("ativo");
+        });
+    }
+
+    renderBotoesUsuario(usuarioAtual) {
+        if (!usuarioAtual) {
+            return `
+                <a href="/pages/login.html" class="botao-login">Login</a>
+                <a href="/pages/register.html" class="botao-register">Registra-se</a>
+            `;
+        }
+
+        const primeiroNome = (usuarioAtual.firstName || usuarioAtual.fullName || 'Usuário').trim().split(' ')[0];
+
+        return `
+            <div id="usuario-menu">
+                <button id="usuario-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+                    ${primeiroNome}
+                </button>
+                <div id="usuario-dropdown" class="fechado" role="menu" aria-hidden="true">
+                    <p>Deseja fazer logout?</p>
+                    <button id="confirmar-logout" type="button">Fazer logout</button>
+                </div>
+            </div>
+        `;
+    }
+
+    obterUsuarioAtual() {
+        if (window.SessionService?.getCurrentUser) {
+            return window.SessionService.getCurrentUser();
+        }
+
+        try {
+            const estadoSalvo = sessionStorage.getItem('realdin.auth');
+            if (!estadoSalvo) {
+                return null;
+            }
+
+            const estado = JSON.parse(estadoSalvo);
+            return estado?.auth?.currentUser || null;
+        } catch (error) {
+            return null;
+        }
+    }
+
+    limparSessaoUsuario() {
+        if (window.SessionService?.clearUserSession) {
+            window.SessionService.clearUserSession();
+            return;
+        }
+
+        try {
+            const estadoSalvo = sessionStorage.getItem('realdin.auth');
+            if (!estadoSalvo) {
+                return;
+            }
+
+            const estado = JSON.parse(estadoSalvo);
+            estado.auth = {
+                isAuthenticated: false,
+                currentUser: null,
+                lastLoginAt: null
+            };
+
+            sessionStorage.setItem('realdin.auth', JSON.stringify(estado));
+        } catch (error) {
+            console.error('[Header] Erro ao limpar sessão do usuário.', error);
+        }
+    }
+
+    configurarMenuUsuario() {
+        const toggleUsuario = this.querySelector('#usuario-toggle');
+        const dropdownUsuario = this.querySelector('#usuario-dropdown');
+        const botaoLogout = this.querySelector('#confirmar-logout');
+
+        if (!toggleUsuario || !dropdownUsuario || !botaoLogout) {
+            return;
+        }
+
+        const fecharDropdown = () => {
+            dropdownUsuario.classList.add('fechado');
+            toggleUsuario.setAttribute('aria-expanded', 'false');
+            dropdownUsuario.setAttribute('aria-hidden', 'true');
+        };
+
+        toggleUsuario.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const aberto = !dropdownUsuario.classList.contains('fechado');
+
+            if (aberto) {
+                fecharDropdown();
+                return;
+            }
+
+            dropdownUsuario.classList.remove('fechado');
+            toggleUsuario.setAttribute('aria-expanded', 'true');
+            dropdownUsuario.setAttribute('aria-hidden', 'false');
+        });
+
+        dropdownUsuario.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+
+        document.addEventListener('click', () => {
+            fecharDropdown();
+        });
+
+        botaoLogout.addEventListener('click', () => {
+            this.limparSessaoUsuario();
+
+            if (window.Toast?.show) {
+                window.Toast.show('Logout realizado com sucesso.', 'success');
+            }
+
+            window.location.href = '/pages/login.html';
         });
     }
 }
