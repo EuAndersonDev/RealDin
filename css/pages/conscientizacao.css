@@ -210,17 +210,17 @@ main {
 
 #card_fundo{
     background-color: #dadada;
-    margin-top: -200px;
+    margin-top: -230px;
 }
 
 .cards6{
     position: relative;
     background-color: white;
-    width: 1500px;
-    height: 200px;
-    margin: 30px;
+    width: 1200px;
+    height: 130px;
+    margin: 70px;
     border-radius: 20px;
-    font-size: 45px;
+    font-size: 30px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -229,90 +229,185 @@ main {
     }
   
 .cards6 p{
-    width: 1380px;
+    width: 1300px;
     font-weight: bold;
+    text-align: left;
+    margin-left: 20px;
 }
 
-.img_cards{
-    width: ;
+.cards6 img{
+    width: 80px;
+    margin-left: 40px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #dividas{
-    background-color: rgb(145, 142, 142);
+    background-color: rgb(255, 255, 255);
     width: 100%;
-    height: 1024px;
+    padding: 80px 0;
     text-align: center;
-    justify-content: center;
-    flex-direction: row;
+    height: 900px;
 }
 
 #dividas h1{
-    font-size:50px;
-    width: 100%;
-    margin-top: 10%;
-    text-align: center;
-    
+    font-size: 50px;
 }
 
 #dividas p{
-    font-size: 20px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* container dos cards */
+#relatos{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    
+}
+    
+
+/* cards */
+.depoimentos{
+    background-color: white;
+    width: 280px;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    border-radius:12px;
+    border:1px solid #dcdcdc;
+    padding-top: 30px ;
+    height: 300px;
+    transition: ease all 0.5s;
+    
+    
+}
+
+.depoimentos img{
+    border-radius: 50%;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+
+}
+
+.depoimentos:hover{
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    transition: ease all 0.5s;
+}
+
+.depoimentos h3{
+    margin: 40px;
+    display: flex;
+    align-items: center;
     flex-direction: row;
-    margin-top:1%;
+}
+
+.depoimentos span{
+    color: gray;
+    font-size: 14px;
 }
 
 .depoimentos p{
-    background-color: white;
-    flex-direction: row;
-    width: 20%;
-    height: 100px;
-    align-items: center;
-
+    margin-top: 15px;
+    font-style: italic;
 }
 
-#relatos{
-    display: flex;
-    text-align: center;
-    flex-direction: row;
-    align-items: center;
-}
-.depoimentos{
-    flex-direction: row;
+
+
+
+
+
+
+
+
+
+#educacao{
+    position: relative;
+    width: 100%;
+    height: 1024px;
+    background: linear-gradient(122deg, #1aa7d5, #00674f);
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+}
+
+#credito2{
+    position: relative;
+    color: #FFC105;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#educacao h1{
+    position: relative;
+    color: white;
+    font-size: 64px;
+    text-align: center;
+}
+
+#educacao span{
+    color: #FFC105;
+}
+
+.educacao_financeira{
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    text-align: center;
+}
+
+#ao_todo{
+    position: relative;
+    width: 80%;
+    height: 550px;
+    background-color: #666;
+    top: 30px;
 }
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#sonho{
+    width: 100%;
+    height: 1024px;
+    align-items: center;
+    text-align: center;
+
+}
+
+#sonho h1{
+    font-size: 40px;
+    padding-top: 100px;
+}
+#sonho p{
+    font-size: 20px;
+    padding-top: 20px;
+
+}
