@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('[Resultado] Página carregada, preparando renderização do perfil.');
   const perfis = {
     Poupador: {
       descricao: 'Você é cauteloso e prioriza a segurança financeira antes de gastar.',
@@ -64,13 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function lerPontuacao() {
     const salvo = sessionStorage.getItem('pontuacao');
     if (!salvo) {
+      console.log('[Resultado] Nenhuma pontuação encontrada. Usando padrão.');
       return { ...pontuacaoPadrao };
     }
 
     try {
       const lido = JSON.parse(salvo);
+      console.log('[Resultado] Pontuação lida do sessionStorage:', lido);
       return { ...pontuacaoPadrao, ...lido };
     } catch (error) {
+      console.error('[Resultado] Erro ao ler pontuação. Usando padrão.', error);
       return { ...pontuacaoPadrao };
     }
   }
@@ -78,11 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function obterPerfilFinal(pontuacao) {
     const maiorValor = Math.max(...Object.values(pontuacao));
     const empatados = prioridadeEmpate.filter((perfil) => pontuacao[perfil] === maiorValor);
+    console.log('[Resultado] Cálculo de perfil final:', {
+      maiorValor,
+      empatados,
+      prioridadeEmpate
+    });
     return empatados[0] || 'Poupador';
   }
 
   function renderizarXray(lista, itens) {
     lista.innerHTML = '';
+    console.log('[Resultado] Renderizando raio-X com itens:', itens.length);
 
     itens.forEach((item) => {
       const li = document.createElement('li');
@@ -116,12 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const listaXray = document.querySelector('ul.xray-lista');
 
     if (!titulo || !descricao || !imagem || !listaXray) {
+      console.warn('[Resultado] Elementos de destino não encontrados no HTML.');
       return;
     }
 
     const pontuacao = lerPontuacao();
     const perfilFinal = obterPerfilFinal(pontuacao);
     const dadosPerfil = perfis[perfilFinal] || perfis.Poupador;
+    console.log('[Resultado] Perfil final selecionado:', perfilFinal);
 
     titulo.textContent = perfilFinal;
     descricao.textContent = dadosPerfil.descricao;
@@ -129,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     imagem.alt = `Perfil ${perfilFinal}`;
 
     renderizarXray(listaXray, dadosPerfil.xray);
+    console.log('[Resultado] Resultado renderizado com sucesso.');
   }
 
   renderizarResultado();

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('[Quiz] Página carregada, iniciando configuração.');
   const perguntaTexto = document.getElementById('pergunta-texto');
   const progresso = document.getElementById('progresso');
   const barraProgresso = document.getElementById('barra-progresso');
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function resetPontuacao() {
     sessionStorage.setItem('pontuacao', JSON.stringify(pontuacaoInicial));
     sessionStorage.removeItem('quizFinalizado');
+    console.log('[Quiz] Pontuação resetada no sessionStorage.', pontuacaoInicial);
   }
 
   function obterPontuacaoAtual() {
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const percentual = (atual / total) * 100;
     barraProgresso.style.width = `${percentual}%`;
+    console.log(`[Quiz] Progresso atualizado: ${atual}/${total} (${percentual.toFixed(2)}%).`);
   }
 
   function limparSelecao() {
@@ -84,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function atualizarTextoBotao() {
     const ultima = estado.indiceAtual === estado.perguntas.length - 1;
     textoBotao.textContent = ultima ? 'Ver Resultado' : 'Próxima Pergunta';
+    console.log(`[Quiz] Texto do botão: ${textoBotao.textContent}.`);
   }
 
   function renderPergunta() {
@@ -91,6 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!perguntaAtual) {
       return;
     }
+
+    console.log('[Quiz] Renderizando pergunta:', {
+      indice: estado.indiceAtual,
+      id: perguntaAtual.id,
+      pergunta: perguntaAtual.pergunta,
+      totalOpcoes: perguntaAtual.opcoes.length
+    });
 
     perguntaTexto.textContent = perguntaAtual.pergunta;
 
@@ -122,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (opcoesMap.E.container) {
         opcoesMap.E.container.style.display = 'none';
       }
+      console.log('[Quiz] Pergunta com menos de 5 opções: ocultando D e E.');
     }
 
     limparSelecao();
@@ -143,10 +155,30 @@ document.addEventListener('DOMContentLoaded', () => {
     container.classList.add('selecionada');
     estado.opcaoSelecionada = container;
     btnProximo.disabled = false;
+    console.log('[Quiz] Opção selecionada:', {
+      opcao: container.id,
+      perfil: container.dataset.perfil
+    });
+  }
+
+  function aplicarHover(container, ativo) {
+    if (!container) {
+      return;
+    }
+
+    if (ativo) {
+      container.style.transform = 'translateY(-2px)';
+      container.style.transition = 'transform 0.18s ease';
+      container.style.cursor = 'pointer';
+      return;
+    }
+
+    container.style.transform = '';
   }
 
   function avancar() {
     if (!estado.opcaoSelecionada) {
+      console.log('[Quiz] Clique em próximo ignorado: nenhuma opção selecionada.');
       return;
     }
 
@@ -156,12 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (perfil && Object.prototype.hasOwnProperty.call(pontuacao, perfil)) {
       pontuacao[perfil] += 1;
       sessionStorage.setItem('pontuacao', JSON.stringify(pontuacao));
+      console.log('[Quiz] Pontuação atualizada:', pontuacao);
     }
 
     const ultimaPergunta = estado.indiceAtual === estado.perguntas.length - 1;
 
     if (ultimaPergunta) {
       sessionStorage.setItem('quizFinalizado', 'true');
+      console.log('[Quiz] Quiz finalizado. Redirecionando para resultados.');
       window.location.href = '../pages/resultados.html';
       return;
     }
@@ -177,6 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       container.addEventListener('click', () => selecionarOpcao(container));
+      container.addEventListener('mouseenter', () => aplicarHover(container, true));
+      container.addEventListener('mouseleave', () => aplicarHover(container, false));
+      container.style.cursor = 'pointer';
     });
 
     btnProximo.addEventListener('click', avancar);
@@ -185,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (botaoSair) {
       botaoSair.addEventListener('click', () => {
         sessionStorage.clear();
+        console.log('[Quiz] Sessão limpa ao clicar em Sair.');
       });
     }
   }
@@ -198,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnProximo.disabled = true;
 
     try {
+      console.log('[Quiz] Buscando perguntas em ../data/perguntas.json');
       const resposta = await fetch('../data/perguntas.json');
       if (!resposta.ok) {
         throw new Error('Falha ao carregar perguntas.');
@@ -205,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const dados = await resposta.json();
       estado.perguntas = Array.isArray(dados.perguntas) ? dados.perguntas : [];
+      console.log('[Quiz] Perguntas carregadas com sucesso:', estado.perguntas.length);
 
       if (!estado.perguntas.length) {
         throw new Error('Nenhuma pergunta encontrada.');
@@ -213,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
       configurarEventos();
       renderPergunta();
     } catch (error) {
+      console.error('[Quiz] Erro ao iniciar quiz:', error);
       perguntaTexto.textContent = 'Não foi possível carregar o quiz agora.';
       btnProximo.disabled = true;
       Object.values(opcoesMap).forEach(({ container }) => {
