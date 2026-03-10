@@ -1,73 +1,283 @@
-
-body{ 
+body { 
     background-color: var(--background-dark);
 }
 
-#container{
+#container {
     width: 100%;
     height: 100vh;
-   background: rgba(37, 192, 185, 0.80);
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
-   align-items: center;
+    background: rgba(37, 192, 185, 0.80);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-#titulo{
+#titulo {
     width: 100%;
     height: auto;
-     display: flex;
+    display: flex;
     justify-content: center; 
     margin-top: 200px;
-    
-} 
-#titulo h1{
-    
+}
+
+#titulo h1 {
     color: #FFF;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter;
     font-size: 70px;
-    font-style: normal;
     font-weight: 700;
     line-height: normal;
-
 }
 
-#cards{
+#cards {
     width: 85%;
     height: 660px;
     display: flex;
     justify-content: center;
-    flex-direction:row;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     gap: 20px; 
 }
 
-.card{
+.card {
     width: 30%;
     height: 200px;
     background-color: #FFF;
-    border-radius: 25px ;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    fill: #FFF;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
 }
 
-.card p{
+.card:hover {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3));
+}
+
+.card p {
     color: #000;
     font-family: Inter;
     font-size: 30px;
-    font-style: normal;
     font-weight: 600;
     line-height: normal;
-    
 }
-    
-    
 
+/* ── Modal ── */
+.modal {
+  	width: 100%;
+  	height: 573px;
+  	position: relative;
+  	box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  	border-radius: 16px;
+  	background: linear-gradient(180deg, #fff, #f9fafb);
+  	overflow: auto;
+  	text-align: left;
+  	font-size: 15px;
+  	color: #374151;
+  	font-family: Inter;
+}
+.modal-background {
+  	position: absolute;
+  	width: 100%;
+  	top: 0px;
+  	right: 0px;
+  	left: 0px;
+  	border-radius: 16px 16px 0px 0px;
+  	background: linear-gradient(90deg, #9333ea, #2563eb 50%, #16a34a);
+  	height: 140px;
+  	font-size: 35.4px;
+  	color: #fff;
+}
+.modal-heading {
+  	position: absolute;
+  	top: 32px;
+  	left: 32px;
+  	line-height: 40px;
+  	display: flex;
+  	align-items: center;
+  	width: 315.8px;
+  	height: 40px;
+}
+.modal-subtitle {
+  	position: absolute;
+  	top: 80px;
+  	left: 32px;
+  	font-size: 17px;
+  	line-height: 28px;
+  	color: rgba(255, 255, 255, 0.9);
+  	display: flex;
+  	align-items: center;
+  	width: 503.9px;
+  	height: 28px;
+}
+.modal-close {
+  	position: absolute;
+  	top: 24px;
+  	right: 24px;
+  	border-radius: 9999px;
+  	width: 36px;
+  	height: 36px;
+}
+.modal-text1 {
+  	position: absolute;
+  	top: 177px;
+  	left: 32px;
+  	line-height: 26px;
+  	display: flex;
+  	align-items: center;
+  	width: 595.4px;
+  	height: 42px;
+  	font-size: 23px; /* increased to 23px */
+}
+.modal-text2 {
+  	position: absolute;
+  	top: 255px;
+  	left: 32px;
+  	line-height: 26px;
+  	display: flex;
+  	align-items: center;
+  	width: 606.4px;
+  	height: 42px;
+  	font-size: 23px; /* increased to 23px */
+}
+.modal-text3 {
+  	position: absolute;
+  	top: 333px;
+  	left: 32px;
+  	line-height: 26px;
+  	display: flex;
+  	align-items: center;
+  	width: 525.3px;
+  	height: 42px;
+  	font-size: 23px; /* increased to 23px */
+}
+.modal-text4 {
+  	position: absolute;
+  	top: 411px;
+  	left: 32px;
+  	font-size: 20px; /* increased proportionally */
+  	line-height: 26px;
+  	display: flex;
+  	align-items: center;
+  	width: 607.9px;
+  	height: 42px;
+}
+.modal-button-cancel {
+  	position: absolute;
+  	top: 498px;
+  	right: 188.47px;
+  	border-radius: 8px;
+  	background-color: #e5e7eb;
+  	width: 115.7px;
+  	height: 48px;
+  	text-align: center;
+  	font-size: 15.4px;
+  	color: #1f2937;
+}
+.modal-cancel-text {
+  	position: absolute;
+  	top: calc(50% - 8px);
+  	left: calc(50% - 33.85px);
+  	line-height: 24px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	width: 67.9px;
+  	height: 16px;
+}
+.modal-button-confirm {
+  	position: absolute;
+  	top: 498px;
+  	right: 32.05px;
+  	border-radius: 8px;
+  	background: linear-gradient(90deg, #9333ea, #2563eb 50%, #16a34a);
+  	width: 140.4px;
+  	height: 48px;
+  	text-align: center;
+  	font-size: 15.4px;
+  	color: #fff;
+}
+.modal-confirm-text {
+  	position: absolute;
+  	top: calc(50% - 8px);
+  	left: calc(50% - 38.2px);
+  	line-height: 24px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	width: 76.7px;
+  	height: 16px;
+}
 
+.modal-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 140px; /* to avoid overlap with modal-background */
+}
 
+.modal-content h2 {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+.modal-content p {
+    font-family: Inter;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.modal-close {
+    align-self: flex-end;
+    margin-top: 8px;
+    padding: 10px 24px;
+    background: rgba(37, 192, 185, 0.85);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: Inter;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: rgba(37, 192, 185, 1);
+}
+
+/* ── Tablet (até 1024px) ── */
+@media (max-width: 1024px) {
+    #titulo { margin-top: 120px; }
+    #titulo h1 { font-size: 52px; }
+    #cards { width: 90%; height: auto; gap: 16px; }
+    .card { width: 45%; height: 180px; }
+    .card p { font-size: 24px; }
+}
+
+/* ── Mobile (até 768px) ── */
+@media (max-width: 768px) {
+    #container { height: auto; min-height: 100vh; padding-bottom: 40px; }
+    #titulo { margin-top: 60px; padding: 0 20px; text-align: center; }
+    #titulo h1 { font-size: 36px; }
+    #cards { width: 95%; height: auto; flex-direction: column; align-items: center; gap: 16px; }
+    .card { width: 90%; height: 150px; }
+    .card p { font-size: 20px; }
+}
+
+/* ── Mobile pequeno (até 480px) ── */
+@media (max-width: 480px) {
+    #titulo h1 { font-size: 28px; }
+    .card { width: 100%; height: 130px; }
+    .card p { font-size: 18px; }
+}
