@@ -3,55 +3,69 @@ body{
     background-color: var(--background-dark);
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-
-}
-.hero {
-width: 688px;
-height: 800px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-text-align: left;
-margin-top: 50px;
-margin-left:200px ;
-    
-}
-.text {
-    position: relative;
+#container{
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    color: #171A26;
+    height: 100vh;
+   background: rgba(37, 192, 185, 0.80);
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+
+#titulo{
+    width: 100%;
+    height: auto;
+     display: flex;
+    justify-content: center; 
+    margin-top: 200px;
+    
+} 
+#titulo h1{
+    
+    color: #FFF;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter;
-    font-size: 130px;
+    font-size: 70px;
     font-style: normal;
     font-weight: 700;
-    line-height: 100px; /* 78.431% */
-    letter-spacing: 1px;
-        
+    line-height: normal;
+
+}
+
+#cards{
+    width: 85%;
+    height: 660px;
+    display: flex;
+    justify-content: center;
+    flex-direction:row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px; 
+}
+
+.card{
+    width: 30%;
+    height: 200px;
+    background-color: #FFF;
+    border-radius: 25px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    fill: #FFF;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.card p{
+    color: #000;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
     
 }
-
-#historia {
-    width:100%;
-    height: 300px;
-    background-color: rgb(255, 255, 255);
-    margin: auto;
-    display: flex;
-    justify-content: center; /* alinha o elementro na horizontal */
-    align-items: center; /*alinha o elemento na vertical */
-}
-
-#conteudo {
-    width: 100%;
-    height: 200px;
-    background-color: antiquewhite;
-}
-
     
     
 

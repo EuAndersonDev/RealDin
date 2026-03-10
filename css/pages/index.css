@@ -15,25 +15,157 @@ button a {
 }
 
 /* ===========================
-   Seção Hero
+   Seção Hero — com vídeo + onda
    =========================== */
 #hero {
-    background-color: #fff;
-    width: 100%;
-    min-height: 648px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  background-color: #fff;
+  width: 100%;
+  min-height: 648px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Vídeo ocupa a metade direita */
+#hero-video-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  z-index: 0;
+}
+
+#hero-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay escuro suave no vídeo para não competir com o texto */
+#hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.05) 100%);
+  pointer-events: none;
+}
+
+/* Onda SVG: o "mar branco" avançando sobre o vídeo */
+#hero-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58%;          /* cobre um pouco além da metade */
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#hero-wave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Animação da onda: leve respiração */
+#wave-path {
+  animation: waveBreath 5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes waveBreath {
+  0%, 100% {
+    d: path("M0,0 L120,0 Q160,200 130,400 Q100,600 140,800 L0,800 Z");
+  }
+  50% {
+    d: path("M0,0 L120,0 Q145,200 160,400 Q145,600 120,800 L0,800 Z");
+  }
+}
+
+/* Conteúdo hero acima de tudo */
 #conteudo-hero {
-    margin-top: 100px;
-    width: 80%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+  position: relative;
+  z-index: 2;
+  margin-top: 100px;
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Espaço reservado para o lado do vídeo */
+#hero-right-space {
+  width: 45%;
+  min-height: 400px;
+}
+
+/* Título e texto ficam na esquerda (fundo branco graças à onda) */
+#hero-titulo {
+  width: 50%;
+}
+
+/* ── Animações de entrada staggered ── */
+.hero-anim {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: heroFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respeita preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  #wave-path {
+    animation: none;
+  }
+}
+
+/* ── Responsividade ── */
+@media (max-width: 768px) {
+  #hero-video-bg {
+    width: 100%;
+    opacity: 0.25; /* vídeo vira fundo sutil no mobile */
+  }
+
+  #hero-wave {
+    width: 100%;
+  }
+
+  #hero-wave svg path {
+    /* no mobile cobre tudo */
+    d: path("M0,0 L200,0 L200,800 L0,800 Z");
+  }
+
+  #conteudo-hero {
+    flex-direction: column;
+  }
+
+  #hero-titulo,
+  #hero-right-space {
+    width: 100%;
+  }
+
+  #hero-right-space {
+    min-height: 0;
+    display: none;
+  }
 }
 
 #btn-fazer-teste {
@@ -61,7 +193,7 @@ button a {
     letter-spacing: 0.2px;
 }
 
-#conteudo-hero h1 {
+#hero h1 {
     color: #212529;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter;
@@ -72,8 +204,8 @@ button a {
     letter-spacing: 0.2px;
 }
 
-#conteudo-hero span {
-    color: #fae007;
+#hero span {
+    color: #C7B500;
     font-family: Inter;
     font-size: 58px;
     font-style: normal;
@@ -83,7 +215,7 @@ button a {
     text-shadow: none;
 }
 
-#conteudo-hero p {
+#hero p {
     color: #212529;
     font-family: Inter;
     font-size: 20px;
@@ -92,47 +224,6 @@ button a {
     line-height: 30px; /* 150% */
     letter-spacing: 0.2px;
     margin: 10px;
-}
-
-#hero-image {
-    width: 500px;
-    height: auto;
-    margin-top: 10px;
-    position: relative;
-}
-
-#hero-image::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: #fae007;
-    border-radius: 50%;
-    top: 50%;
-    left: 66%;
-    transform: translate(-50%, -50%) rotate(20deg);
-    z-index: 0;
-    opacity: 0.65;
-}
-
-#hero-image img {
-    position: relative;
-    z-index: 1;
-}
-
-#hero-image::after {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: #fae007;
-    border-radius: 80% 20% 60% 40% / 60% 30% 70% 40%;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%) rotate(20deg);
-    z-index: 0;
-    /* filter: blur(15px); */
-    opacity: 0.3;
 }
 
 /* ===========================
@@ -357,7 +448,7 @@ button a {
 }
 
 #chamada-quiz span {
-    color: #fae007;
+    color: #C7B500;
     font-family: Inter;
     font-size: 54px;
     font-style: normal;
@@ -415,7 +506,8 @@ button a {
    =========================== */
 #salario {
     border-radius: 5px;
-    background: linear-gradient(90deg, #2b9c89 0%, #19aed9 100%);
+    background: linear-gradient(#2b9c89, #19aed9);
+    color: white;
     width: 100%;
     height: 600px;
     display: flex;
@@ -459,7 +551,7 @@ button a {
 }
 
 #salario-titulo span {
-    background-color: #fae007;
+    background-color: #C7B500;
     color: #111827;
     font-family: Inter;
     font-size: 24px;
@@ -513,7 +605,7 @@ button a {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 250px;
+    gap: 150px;
 }
 
 #conteudo-reserva img {
@@ -529,7 +621,7 @@ button a {
     font-size: 58px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    line-height: 70px;
     letter-spacing: -1.16px;
 }
 
@@ -544,7 +636,7 @@ button a {
 }
 
 #reserva-titulo span {
-    background-color: #fae007;
+    background-color: #C7B500;
     border-radius: 100px;
 }
 
@@ -590,12 +682,12 @@ button a {
     font-size: 58px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    line-height: 58px;
     letter-spacing: -1.16px;
 }
 
 #divida-titulo span {
-    color: #fae007;
+    color: #C7B500;
     font-family: Inter;
     font-size: 58px;
     font-style: normal;
