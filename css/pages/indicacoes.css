@@ -13,12 +13,36 @@
 /* HERO */
 
 .hero {
-    background: #1c9a8d;
-    padding: 70px 0;
-    color: white;
+    background-image: url(/assets/imgs/borboleta.png);
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    
+    
+    min-height: 90vh; 
+    padding: 100px 0; 
+    color: white; 
+    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); 
+    z-index: -1; 
 }
 
 .hero-grid {
+    
+    max-width: 1400px;
+    height: 700px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -26,16 +50,27 @@
     margin-top: 50px;
 }
 
-.hero-img img {
-    width: 100%;
-    max-width: 750px;
-    border-radius: 20px;
+.hero-text{
+
+text-align:center;
+    max-width: 800px; 
+    margin: 0 auto;
 }
+
+.hero-text h1 {
+    height: 50vh;
+    font-size: 60px; 
+    line-height: 1.0;
+    text-align:left;
+}
+
+
+
 
 /* PERFIL */
 
 .perfil-secao {
-    padding: 40px 10%;
+    padding: 80px 10%;
     font-family: "Inter", sans-serif;
 }
 
@@ -161,7 +196,7 @@
 /* LIVROS */
 
 .recomendados {
-    padding: 60px 0;
+    padding: 100px 0;
 }
 
 .livros {
@@ -180,7 +215,7 @@
 .banner-final-cta {
     width: 100%;
     margin: 40px auto;
-    height: 800px;
+    height: 1024px;
 
     background-image: url(/assets/imgs/HomemPreocupado.svg);
     background-size: cover;
