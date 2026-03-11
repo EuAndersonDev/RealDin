@@ -1,230 +1,309 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RealDin</title>
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/components/footer.css" type="text/css" />
-    <link rel="stylesheet" href="./css/components/header.css" type="text/css" />
-    <link rel="stylesheet" href="./css/pages/index.css">
-    <link rel="stylesheet" href="./css/components/toast.css">
-    <script src="./js/components/header.js"></script>
-    <script src="./js/components/footer.js"></script>
-    <script src="./js/components/toast.js"></script>
-  </head>
-  <body>
-    <!-- Header -->
-    <header-componente pagina="home"></header-componente>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RealDin</title>
+        <link rel="stylesheet" href="./css/global.css" />
+        <link
+            rel="stylesheet"
+            href="./css/components/footer.css"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            href="./css/components/header.css"
+            type="text/css"
+        />
+        <link rel="stylesheet" href="./css/pages/index.css" />
+        <link rel="stylesheet" href="./css/components/toast.css" />
+        <script src="./js/components/header.js"></script>
+        <script src="./js/components/footer.js"></script>
+        <script src="./js/components/toast.js"></script>
+        <script src="./js/main.js" defer></script>
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/imgs/LogoHead.png"
+            width="50"
+            height="50"
+        />
+    </head>
+    <body>
+        <!-- Header -->
+        <header-componente pagina="home"></header-componente>
 
-    <!-- Conteúdo principal da página -->
-    <main>
+        <!-- Conteúdo principal da página -->
+        <main>
+            <!-- Seção Hero -->
+            <section id="hero" class="parallax" data-speed="0.12">
+                <!-- PLACEHOLDER (remova quando tiver a imagem real) -->
+                <div class="placeholder-bg" data-speed="0.32">
+                    <img id="hero-bg" src="/assets/imgs/homem-hero (3).png" />
+                </div>
 
-          <!-- Seção Hero -->
-            <section id="hero">
+                <!-- Overlay gradiente esquerda → transparente -->
+                <div id="hero-overlay"></div>
 
-      <!-- PLACEHOLDER (remova quando tiver a imagem real) -->
-      <div class="placeholder-bg">
-        <img id="hero-bg" src="/assets/imgs/homem-hero (3).png">
-      </div>
+                <!-- Nota explicativa -->
 
-      <!-- Overlay gradiente esquerda → transparente -->
-      <div id="hero-overlay"></div>
+                <!-- Conteúdo: título + subtítulo + botão — só à esquerda -->
+                <div
+                    id="hero-content"
+                    class="parallax-content"
+                    data-speed="0.08"
+                >
+                    <h1 class="hero-anim" style="--delay: 0s">
+                        Dinheiro Real,<br />
+                        <span id="span">Decisões Reais</span>
+                    </h1>
 
-      <!-- Nota explicativa --> 
+                    <p class="hero-anim" style="--delay: 0.22s">
+                        O teste identifica seu perfil com o dinheiro
+                    </p>
 
-      <!-- Conteúdo: título + subtítulo + botão — só à esquerda -->
-      <div id="hero-content">
-        <h1 class="hero-anim" style="--delay:0s">
-          Dinheiro Real,<br>
-          <span id="span">Decisões Reais</span>
-        </h1>
+                    <a
+                        href="/pages/conscientizacao.html"
+                        id="btn-fazer-teste"
+                        class="hero-anim"
+                        style="--delay: 0.4s"
+                    >
+                        Fazer o teste
+                    </a>
+                </div>
+            </section>
 
-        <p class="hero-anim" style="--delay:0.22s">
-          O teste identifica seu perfil com o dinheiro
-        </p>
+            <!-- Seção de Situações -->
+            <section id="situacoes">
+                <div id="conteudo-situacoes">
+                    <div id="situacoes-image">
+                        <img src="/assets/imgs/Logo.svg" alt="" />
+                        <h1>RealDin</h1>
+                    </div>
 
-        <a href="/pages/conscientizacao.html" id="btn-fazer-teste" class="hero-anim" style="--delay:0.40s">
-          Fazer o teste
-        </a>
-      </div>
+                    <div id="situacoes-texto">
+                        <h1>
+                            Você já passou por alguma dessas <br />
+                            situações?
+                        </h1>
+                        <p>
+                            O <span>dinheiro</span> acaba antes do mês terminar
+                            ?
+                        </p>
+                        <p>O <span>salário</span> entra e some rapidamente ?</p>
 
-    </section>
+                        <button id="btn-descubra">
+                            <a href="#">Descubra porque -></a>
+                        </button>
+                    </div>
+                </div>
+            </section>
 
+            <!--Seção Video sobre o projeto-->
+            <section id="video">
+                <div id="conteudo-video">
+                    <div id="video-titulo">
+                        <h1>Porque o <span>RealDin</span> foi criado?</h1>
+                        <p>Entenda mais sobre o projeto</p>
+                    </div>
+                    <div id="video-area">
+                        <iframe
+                            width="560"
+                            height="315"
+                            src="https://www.youtube.com/embed/HSIwTde_gJM?si=Vmt_htwyERjCBhiO"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="
+                                accelerometer;
+                                autoplay;
+                                clipboard-write;
+                                encrypted-media;
+                                gyroscope;
+                                picture-in-picture;
+                                web-share;
+                            "
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Seção de Situações -->
-      <section id="situacoes">
-        <div id="conteudo-situacoes">
-          <div id="situacoes-image">
-            <img src="/assets/imgs/Logo.svg" alt="">
-            <h1>RealDin</h1>
-          </div>
+            <section id="chamada-quiz">
+                <h1>
+                    Que tipo de pessoa <span>você</span> é <br />
+                    com dinheiro?
+                </h1>
+                <p>
+                    Parcelamentos, cartão de crédito, promoções <br />
+                    e "comprar agora e pagar depois" <br />
+                    para dívidas ainda jovem.
+                </p>
+                <b>⏰ Leva menos de 4 minutos</b>
 
-          <div id="situacoes-texto">
-            <h1>Você já passou por alguma dessas <br> situações?</h1>
-            <p>O <span>dinheiro</span> acaba antes do mês terminar ?</p>
-            <p>O <span>salário</span> entra e some rapidamente ?</p>
+                <button id="btn-chamada-quiz">
+                    <a href="/pages/sobrequiz.html">Descobrir -></a>
+                </button>
+            </section>
 
-            <button id="btn-descubra">
-              <a href="#">Descubra porque -></a>
-            </button>
-          </div>
-        </div>
-      </section>
+            <!--Seção Informativa - Salário não rende -->
+            <section id="salario">
+                <div id="conteudo-salario">
+                    <div id="salario-titulo">
+                        <h1>Por que o salário nunca rende</h1>
+                        <p>
+                            <span> O dinheiro é um recurso fundamental </span>
+                            na vida das pessoas, <br />
+                            pois permite a aquisição de bens e serviços
+                            essenciais, como
+                            <br />
+                            alimentação, moradia, saúde, educação, além de
+                            proporcionar <br />
+                            maior estabilidade e procurar oportunidades
+                        </p>
+                        <button id="btn-salario">
+                            <a href="">Explorar mais</a>
+                        </button>
+                    </div>
 
-      <!--Seção Video sobre o projeto-->
-      <section id="video">
-        <div id="conteudo-video">
-          <div id="video-titulo">
-          <h1>Porque o <span>RealDin</span> foi criado?</h1>
-          <p>Entenda mais sobre o projeto</p>
-          </div>
-          <div id="video-area">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/HSIwTde_gJM?si=Vmt_htwyERjCBhiO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </div>
-      </section>
+                    <div>
+                        <img src="/assets/imgs/secao-nuncarende.png" alt="" />
+                    </div>
+                </div>
+            </section>
 
+            <!--Seção Informativa - Reserva Importância -->
+            <section id="reserva">
+                <div id="conteudo-reserva">
+                    <div>
+                        <img src="/assets/imgs/reserva.png" alt="" />
+                    </div>
 
-      <section id="chamada-quiz">
-          <h1>Que tipo de pessoa <span>você</span> é <br> com dinheiro?</h1>
-          <p>Parcelamentos, cartão de crédito, promoções <br> e "comprar agora e pagar depois"
-          <br> para dívidas ainda jovem.</p>
-          <b>⏰ Leva menos de 4 minutos</b>
+                    <div id="reserva-titulo">
+                        <h1>
+                            O perigo de não ter<br />
+                            <span> reserva </span>, qualquer <br />
+                            imprevisto vira <br />
+                            desespero
+                        </h1>
+                        <p>
+                            Dinheiro não é luxo — é proteção contra imprevistos.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-          <button id="btn-chamada-quiz">
-            <a href="/pages/sobrequiz.html">Descobrir -></a>
-          </button>
-      </section>
+            <!--Seção Informativa - Divida antes dos 20 -->
+            <section id="divida">
+                <div id="conteudo-divida">
+                    <div id="divida-titulo">
+                        <h1>
+                            Como muita gente entra em <span>dívida</span> antes
+                            dos 20
+                        </h1>
+                        <p>
+                            Muitos jovens entram em dívida por <br />
+                            não compreender bem o crédito. <br />
+                            Parcelas pequenas e o uso do <br />
+                            cartão parecem inofensivos, mas os <br />juros se
+                            acumulam rapidamente. <br />
+                            Quando percebem, parte da renda <br />
+                            já está comprometida antes mesmo <br />
+                            de receber.
+                        </p>
+                    </div>
 
-      <!--Seção Informativa - Salário não rende -->
-      <section id="salario">
-        <div id="conteudo-salario">
-          <div id="salario-titulo">
-            <h1>Por que o salário nunca rende</h1>
-            <p>
-              <span> O dinheiro é um recurso fundamental </span>
-              na vida das pessoas, <br>
-              pois permite a aquisição de bens e serviços essenciais, como
-              <br> alimentação, moradia, saúde, educação, além de proporcionar
-              <br> maior estabilidade e procurar oportunidades
-            </p>
-            <button id="btn-salario">
-              <a href="">Explorar mais</a>
-            </button>
-          </div>
+                    <div>
+                        <img src="/assets/imgs/dividas.png" alt="" />
+                    </div>
+                </div>
+            </section>
 
-          <div>
-            <img src="/assets/imgs/secao-nuncarende.png" alt="">
-          </div>
-        </div>
-      </section>
+            <!--Seção Informativa - Decisões dos 18 Afetam os 25 -->
+            <section id="decisoes">
+                <div id="conteudo-decisoes">
+                    <div>
+                        <img src="/assets/imgs/homem-dinheiro.png" alt="" />
+                    </div>
 
-      <!--Seção Informativa - Reserva Importância -->
-      <section id="reserva">
-        <div id="conteudo-reserva">
-          <div>
-            <img src="/assets/imgs/reserva.png" alt="">
-          </div>
+                    <div id="decisoes-titulo">
+                        <h1>Decisões dos 18 que afetam os 25</h1>
+                        <p>
+                            Decisões financeiras aos 18–25 anos têm impacto por
+                            muitos anos.
+                        </p>
+                        <button id="btn-dividas">
+                            <a href="">Conferir mais -></a>
+                        </button>
+                    </div>
+                </div>
+            </section>
 
-          <div id="reserva-titulo">
-            <h1>O perigo de não ter<br> <span> reserva </span>, qualquer <br> imprevisto vira <br> desespero</h1>
-            <p>
-              Dinheiro não é luxo — é proteção contra imprevistos.
-            </p>
-          </div>
-        </div>
-      </section>
+            <!--Seção Forms -->
+            <section id="contato" class="contato">
+                <h1 id="contato-titulo">Qualquer dúvida nos contate</h1>
+                <div id="contato-container" class="container">
+                    <div id="contato-info" class="info">
+                        <h2>Contatos</h2>
+                        <p>
+                            Entre em contato com a nossa equipe e tire suas
+                            duvidas conosco.
+                        </p>
 
-      <!--Seção Informativa - Divida antes dos 20 -->
-      <section id="divida">
-        <div id="conteudo-divida">
-            <div id="divida-titulo">
-              <h1>Como muita gente entra em <span>dívida</span> antes dos 20</h1>
-              <p>
-                Muitos jovens entram em dívida por <br> não compreender bem o crédito. <br> Parcelas pequenas e o uso do <br> cartão parecem inofensivos, mas os  <br>juros se acumulam rapidamente. <br> Quando percebem, parte da renda <br> já está comprometida antes mesmo <br> de receber.
-              </p>
-            </div>
+                        <div id="contato-email" class="email">
+                            <p>✉</p>
+                            <p>realdinorganizacional@gmail.com</p>
+                        </div>
 
-            <div>
-              <img src="/assets/imgs/dividas.png" alt="">
-            </div>
-        </div>
-      </section>
+                        <div id="contato-redes" class="redes">
+                            <a href="#">
+                                <img
+                                    src="/assets/icons/telaPrincipal/Buttonfacebook.svg"
+                                    alt="Facebook"
+                                />
+                            </a>
 
-      <!--Seção Informativa - Decisões dos 18 Afetam os 25 -->
-      <section id="decisoes">
-        <div id="conteudo-decisoes">
-          <div>
-            <img src="/assets/imgs/homem-dinheiro.png" alt="">
-          </div>
+                            <a href="#">
+                                <img
+                                    src="/assets/icons/telaPrincipal/Buttoninstagram.svg"
+                                    alt="Instagram"
+                                />
+                            </a>
 
-          <div id="decisoes-titulo">
-            <h1>Decisões dos 18 que afetam os 25</h1>
-            <p>
-              Decisões financeiras aos 18–25 anos têm impacto por muitos anos.
-            </p>
-            <button id="btn-dividas">
-              <a href="">Conferir mais -></a>
-            </button>
-          </div>
-        </div>
-      </section>
+                            <a href="#">
+                                <img
+                                    src="/assets/icons/telaPrincipal/Buttontwitter.svg"
+                                    alt="Twitter"
+                                />
+                            </a>
+                        </div>
+                    </div>
 
-      <!--Seção Forms -->
-      <section id="contato" class="contato">
-        <h1 id="contato-titulo">Qualquer dúvida nos contate</h1>
-        <div id="contato-container" class="container">
-          <div id="contato-info" class="info">
-            <h2>Contatos</h2>
-            <p>
-              Entre em contato com a nossa equipe e tire suas duvidas conosco.
-            </p>
+                    <form id="contato-formulario" class="formulario">
+                        <div id="contato-linha" class="linha">
+                            <div class="campo">
+                                <label>Nome</label>
+                                <input type="text" placeholder="Seu nome" />
+                            </div>
+                            <div class="campo">
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    placeholder="seu@email.com"
+                                />
+                            </div>
+                        </div>
+                        <div class="campo">
+                            <label>Mensagem</label>
+                            <textarea placeholder="Sua mensagem..."></textarea>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </section>
+        </main>
 
-            <div id="contato-email" class="email">
-              <p>✉</p>
-              <p>realdinorganizacional@gmail.com</p>
-            </div>
-
-            <div id="contato-redes" class="redes">
-              <a href="#">
-                <img src="/assets/icons/telaPrincipal/Buttonfacebook.svg" alt="Facebook">
-              </a>
-
-              <a href="#">
-                <img src="/assets/icons/telaPrincipal/Buttoninstagram.svg" alt="Instagram">
-              </a>
-
-              <a href="#">
-                <img src="/assets/icons/telaPrincipal/Buttontwitter.svg" alt="Twitter">
-              </a>
-            </div>
-          </div>
-
-          <form id="contato-formulario" class="formulario">
-            <div id="contato-linha" class="linha">
-              <div class="campo">
-                <label>Nome</label>
-                <input type="text" placeholder="Seu nome">
-              </div>
-              <div class="campo">
-                <label>Email</label>
-                <input type="email" placeholder="seu@email.com">
-              </div>
-            </div>
-            <div class="campo">
-              <label>Mensagem</label>
-              <textarea placeholder="Sua mensagem..."></textarea>
-            </div>
-            <button type="submit">Enviar</button>
-          </form>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer-componente></footer-componente>
-
-  </body>
+        <!-- Footer -->
+        <footer-componente></footer-componente>
+    </body>
 </html>

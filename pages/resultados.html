@@ -8,11 +8,19 @@
         <link rel="stylesheet" href="../css/components/footer.css" />
         <link rel="stylesheet" href="../css/components/cardCta.css" />
         <link rel="stylesheet" href="../css/pages/resultados.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/imgs/LogoHead.png"
+            width="50"
+            height="50"
+        />
         <script src="../js/components/cardCta.js"></script>
         <script src="../js/components/footer.js"></script>
         <script src="../js/components/header.js"></script>
         <script src="../js/services/session/session.js" defer></script>
         <script src="../js/pages/resultado.js" defer></script>
+        <script src="../js/main.js" defer></script>
         <title>Resultados</title>
         <link rel="stylesheet" href="../css/components/toast.css" />
         <script src="../js/components/toast.js"></script>
@@ -21,8 +29,8 @@
         <header-componente pagina="resultados"></header-componente>
         <main>
             <!-- Hero Section -->
-            <section class="hero">
-                <div class="left-hero">
+            <section class="hero parallax" data-speed="0.12">
+                <div class="left-hero parallax-content" data-speed="0.08">
                     <h1 class="title-hero">Quiz Finalizado!</h1>
                     <p class="text-hero">
                         Com base nas suas respostas, vamos te mostrar seu perfil
@@ -33,6 +41,7 @@
                 </div>
                 <img
                     class="right-hero"
+                    data-speed="0.22"
                     src="../assets/icons/resultados/Medalha.svg"
                     alt="Medalha de resultados"
                 />
@@ -61,9 +70,7 @@
                 <!-- Cards de Informações - RAIO X financeiro -->
 
                 <section class="xray">
-                    <h2 class="xray-titulo">
-                        Seu raio-X financeiro
-                    </h2>
+                    <h2 class="xray-titulo">Seu raio-X financeiro</h2>
                     <ul class="xray-lista">
                         <li class="xray-item">
                             <img

@@ -3,108 +3,130 @@
 /* css/global.css */
 
 :root {
-  /* Atribuição das fontes às variáveis para facilitar o uso */
-  --font-text: "Inter", sans-serif;
-  --font-title: "Inter", sans-serif;
-  --font-subtitle: "Inter", sans-serif;
-  --font-smallText: "Inter", sans-serif;
+    /* Atribuição das fontes às variáveis para facilitar o uso */
+    --font-text: "Inter", sans-serif;
+    --font-title: "Inter", sans-serif;
+    --font-subtitle: "Inter", sans-serif;
+    --font-smallText: "Inter", sans-serif;
 
-  /* Variáveis de cores do Figma */
-  --primary-color: #177f72;
-  --secondary-color: #19aed9;
-  --third-color: #00674f;
-  --accent-color: #fae007;
+    /* Variáveis de cores do Figma */
+    --primary-color: #177f72;
+    --secondary-color: #19aed9;
+    --third-color: #00674f;
+    --accent-color: #fae007;
 
-  /* Gradiente tipo 1 com mais verde */
-  --gradient-start: #00674f;
-  --gradient-end: #19aed9;
+    /* Gradiente tipo 1 com mais verde */
+    --gradient-start: #00674f;
+    --gradient-end: #19aed9;
 
-  /* Gradiente tipo 2 com mais azul */
-  --gradient2-start: #7957ea;
-  --gradient2-end: #1aa7d5;
+    /* Gradiente tipo 2 com mais azul */
+    --gradient2-start: #7957ea;
+    --gradient2-end: #1aa7d5;
 
-  /* Fundo mais branco mais escuro */
-  --background-dark: #d3dde7;
+    /* Fundo mais branco mais escuro */
+    --background-dark: #d3dde7;
 
-  /* Fundo padrão da pagina */
-  --background: #f8f9fa;
+    /* Fundo padrão da pagina */
+    --background: #f8f9fa;
 }
 
 /* Isso faz com que a navegação por âncoras (clicar em um link e a página descer) deslize suavemente */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
-  width: 10px; /* Um pouco mais fina fica mais elegante e menos intrusiva */
+    width: 10px; /* Um pouco mais fina fica mais elegante e menos intrusiva */
 }
 
 /* O fundo (track) quase transparente */
 ::-webkit-scrollbar-track {
-  /* Um fundo super sutil (ajuste a opacidade se precisar) */
-  background: rgba(0, 0, 0, 0.03);
-  /* Nota: Se o seu site for escuro, use rgba(255, 255, 255, 0.03) */
+    /* Um fundo super sutil (ajuste a opacidade se precisar) */
+    background: rgba(0, 0, 0, 0.03);
+    /* Nota: Se o seu site for escuro, use rgba(255, 255, 255, 0.03) */
 }
 
 /* A barrinha que se move (thumb) */
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
-  border-radius: 10px;
+    background: linear-gradient(
+        180deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    border-radius: 10px;
 
-  /* Cria um espaço "transparente" ao redor da barrinha para ela não grudar nas pontas da tela */
-  border: 3px solid transparent;
-  background-clip: padding-box;
+    /* Cria um espaço "transparente" ao redor da barrinha para ela não grudar nas pontas da tela */
+    border: 3px solid transparent;
+    background-clip: padding-box;
 }
 
 /* Hover da barrinha */
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    180deg,
-    var(--secondary-color),
-    var(--primary-color)
-  );
+    background: linear-gradient(
+        180deg,
+        var(--secondary-color),
+        var(--primary-color)
+    );
 }
 
 /* SUPORTE PARA FIREFOX */
 /* O Firefox não aceita -webkit, então usamos o padrão web aqui */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: var(--primary-color) transparent;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
 }
 
 /* Reset de estilos */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  font-family: var(--font-text);
-  background-color: var(--background);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-text);
+    background-color: var(--background);
+}
+
+.parallax {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 1;
+}
+
+.parallax [data-speed] {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
 }
 
 main {
-  flex: 1;
+    flex: 1;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font-title);
+    font-family: var(--font-title);
 }
 
 p {
-  font-family: var(--font-text);
+    font-family: var(--font-text);
+}
+
+@media (max-width: 767px) {
+    .parallax [data-speed] {
+        transform: none !important;
+        will-change: auto !important;
+    }
 }

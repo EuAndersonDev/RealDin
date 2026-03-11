@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="/css/components/header.css" />
     <link rel="stylesheet" href="/css/components/footer.css" />
     <link rel="stylesheet" href="/css/pages/conscientizacao.css" />
+    <link rel="icon" type="image/png" href="/assets/imgs/LogoHead.png" width="50" height="50" />
 
     <link rel="stylesheet" href="/css/components/toast.css" />
     <script src="/js/components/header.js"></script>
     <script src="/js/components/footer.js"></script>
     <script src="/js/components/toast.js"></script>
+    <script src="/js/main.js" defer></script>
 
     <title>Conscientização</title>
 </head>
@@ -22,8 +24,8 @@
     <header-componente pagina="conscientizacao"></header-componente>
 
     <main>
-        <section id="hero">
-            <div class="container">
+        <section id="hero" class="parallax" data-speed="0.12">
+            <div class="container parallax-content" data-speed="0.1">
                 <div class="overlay">Dinheiro real, decisões reais.</div>
 
                 <h1 class="hero-title">Você controla o dinheiro</h1>
@@ -168,7 +170,7 @@
             <section id="relatos">
                 <div class="depoimentos">
                     <img src="/assets/icons/conscientizacao/IconLetraB.svg" alt="">
-                    <h3>Mariana S.</h3>  
+                    <h3>Mariana S.</h3>
                     <span>29 anos</span>
                     <p>"Tudo começou com uma pequena reforma... A bola de neve foi rápida."</p>
 
