@@ -366,31 +366,59 @@ main {
     position: relative;
     width: 80%;
     height: 550px;
-    background-color: #666;
+    background-color: #ffffff00;
     top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
+.ao_topo2{
+    position: relative;
+    width: 50%;
+    height: 550px;
+    background-color: #96050500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
+.card_topo{
+    width: 650px;
+    height: 250px;
+    background-color: #a1902e00;
+    margin-left: 45px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
+.card_topo p{
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    margin-left: 30px
+}
+    
+#p2{
+    width: 500px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.829);
+    margin-bottom: 20px;
+    margin-left: 113px;
+}
 
+#img2{
+    display: flex;
+   flex-direction: row;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.card_topo img{
+    width: 60px;   
+    margin-left: 20px;
+}
 
 #sonhos {
     height: 1400px;
@@ -468,4 +496,241 @@ main {
     color: #6A7181 ;
 }
 
+
+/* ______________________ JUROS ALTOS _________________________*/
+
+#juros_altos{
+    position: relative;
+    width: 100%;
+    height: 1024px;
+    background-color: #c2c2c2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.fundo_juros{
+    position: relative;
+    width: 60%;
+    height: 1024px;
+    background-color: #c2c2c2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fundo_juros1{
+    position: relative;
+    width: 40%;
+    height: 1024px;
+    background-color: #c2c2c2(199, 199, 199);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading-2-container {
+  	width: 990px;
+  	height: 107px;
+  	position: relative;
+  	font-size: 90px;
+  	line-height: 80px;
+  	display: flex;
+  	font-family: Inter;
+  	text-align: left;
+  	align-items: center;
+  	color: #212529;
+    margin-top: 200px;
+    margin-left: 90px;
+}
+.heading-2-container2 {
+  	width: 100%;
+}
+.inimigo-invisvel {
+  	color: #18a7cc;
+}
+
+.o-brasil-tem-container {
+  	width: 931px;
+  	height: 145px;
+  	position: relative;
+  	font-size: 35px;
+  	line-height: 40px;
+  	font-family: Inter;
+  	text-align: left;
+  	display: flex;
+  	align-items: center;
+  	color: #212529;
+    margin-left: 34px;
+    margin-top: 90px;
+}
+.o-brasil-tem-container2 {
+  	width: 100%;
+}
+.taxas {
+  	color: #000000;
+}
+
+.strong-juros-container {
+  	width: 902px;
+  	height: 110px;
+  	position: relative;
+  	font-size: 35px;
+  	line-height: 40px;
+  	color: #212529;
+  	text-align: left;
+  	display: flex;
+  	align-items: center;
+  	font-family: Inter;
+    margin-top: 75px;
+}
+.strong-juros-container2 {
+  	width: 100%;
+}
+
+.overlayborder {
+  	width: 79%;
+  	height: 100px;
+  	position: relative;
+  	border-radius: 12px;
+  	background-color: rgba(250, 217, 5, 0.1);
+  	border: 1px solid rgba(250, 217, 5, 0.3);
+  	box-sizing: border-box;
+  	text-align: left;
+  	font-size: 25px;
+  	color: #212529;
+  	font-family: Inter;
+    top: 60px;
+    margin-right: 30px;
+}
+.antes-de-assumir {
+  	position: absolute;
+  	top: 26px;
+  	left: 17px;
+  	line-height: 30px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 773.7px;
+  	height: 37px;
+}
+
+.card_branco1{
+    width: 500px;
+    height: 250px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 12px;
+    margin-top: 150px; 
+    display: flex;
+  	align-items: center;
+  	justify-content: center;
+    flex-direction: column;
+}
+
+.div {
+  	width: 186px;
+  	height: 60px;
+  	position: relative;
+  	font-size: 80px;
+  	line-height: 60px;
+  	font-weight: 900;
+  	font-family: Inter;
+  	color: #fae007;
+  	text-align: center;
+}
+.juros-do-carto {
+  	width: 427.7px;
+  	height: 24px;
+  	position: relative;
+  	font-size: 30px;
+  	line-height: 24px;
+  	font-weight: 500;
+  	font-family: Inter;
+  	color: #666;
+  	text-align: center;
+    margin-top: 20px;
+}
+
+
+
+.card_branco2{
+    width: 500px;
+    height: 250px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 12px;
+    display: flex;
+  	align-items: center;
+  	justify-content: center;
+    flex-direction: column;
+}
+
+.x {
+  	width: 105.1px;
+  	height: 60px;
+  	position: relative;
+  	font-size: 80px;
+  	line-height: 60px;
+  	font-weight: 900;
+  	font-family: Inter;
+  	color: #7957ea;
+  	text-align: center;
+}
+.mais-caro-pode {
+  	width: 450px;
+  	height: 24px;
+  	position: relative;
+  	font-size: 30px;
+  	line-height: 24px;
+  	font-weight: 500;
+  	font-family: Inter;
+  	color: #666;
+  	text-align: center;
+  	margin-top: 20px;
+}
+
+
+
+
+
+.card_branco3{
+    width: 500px;
+    height: 250px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 12px;
+    display: flex;
+  	align-items: center;
+  	justify-content: center;
+    flex-direction: column;
+}
+
+.div1 {
+  	width: 140.4px;
+  	height: 60px;
+  	position: relative;
+  	font-size: 80px;
+  	line-height: 60px;
+  	font-weight: 900;
+  	font-family: Inter;
+  	color: #1aa7d5;
+  	text-align: center;
+}
+
+.dos-brasileiros-no {
+  	width: 450px;
+  	height: 24px;
+  	position: relative;
+  	font-size: 30px;
+  	line-height: 28px;
+  	font-weight: 500;
+  	font-family: Inter;
+  	color: #666;
+  	text-align: center;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+    margin-top: 40px;
+}
 
