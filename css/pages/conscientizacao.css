@@ -210,17 +210,17 @@ main {
 
 #card_fundo{
     background-color: #dadada;
-    margin-top: -200px;
+    margin-top: -230px;
 }
 
 .cards6{
     position: relative;
     background-color: white;
-    width: 1500px;
-    height: 200px;
-    margin: 30px;
+    width: 1200px;
+    height: 130px;
+    margin: 70px;
     border-radius: 20px;
-    font-size: 45px;
+    font-size: 30px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -229,12 +229,14 @@ main {
     }
   
 .cards6 p{
-    width: 1380px;
+    width: 1300px;
     font-weight: bold;
+    text-align: left;
+    margin-left: 20px;
 }
 
 .img_cards{
-    width: 20px; 
+    width: ;
 }
 
 
@@ -272,47 +274,75 @@ main {
     width: 100%;
     height: 1024px;
     text-align: center;
-    justify-content: center;
-    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 120px;
 }
 
-#dividas h1{
-    font-size:50px;
+#sono{
     width: 100%;
+    height: auto;
+    font-size: 40px;
+    color: #fad905;
+
+}
+
+#agiotagem{
+    position: relative;
+    width: 100%;
+    font-size: 25px;
+    margin-top: 2%;
+   
+}
+
+
+.bravo{
+    position: relative;
+    width: 500px;
+    top: 5%;
+}
+
+.base{
+    width: 100%;
+    height: 420px;
+    left: 20px;
+    border-radius: 20px;
+    transform: rotate(-5deg);
+}
+
+.sobreposta{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 500px;
+    border-radius: 15px;
+}
+
+.grafico{
+    width: 1300px;
+    position: relative;
     margin-top: 10%;
-    text-align: center;
-    
 }
 
-#dividas p{
+.texto{
+    position: absolute;
+    width: 30%;
+    margin-top: 10%;
+    z-index: 1;
+    margin-left: 60px;
+}
+
+.texto h2{
+    margin-top: 70px;
+    font-size: 40px;
+    text-align: left;
+}
+.texto p{
+    margin-top: 50px;
     font-size: 20px;
-    flex-direction: row;
-    margin-top:1%;
+    text-align: left;
+    color: #6A7181 ;
 }
-
-.depoimentos p{
-    background-color: white;
-    flex-direction: row;
-    width: 20%;
-    height: 100px;
-    align-items: center;
-
-}
-
-#relatos{
-    display: flex;
-    text-align: center;
-    flex-direction: row;
-    align-items: center;
-}
-.depoimentos{
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
 
 

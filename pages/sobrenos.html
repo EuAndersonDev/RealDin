@@ -1,203 +1,337 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/components/footer.css" type="text/css" />
-    <link rel="stylesheet" href="/css/components/header.css" type="text/css" />
-    <link rel="stylesheet" href="/css/pages/sobrenos.css">
-    <link rel="stylesheet" href="/css/components/toast.css" />
-    <script src="/js/components/header.js"></script>
-    <script src="/js/components/footer.js"></script>
-    <script src="/js/components/toast.js"></script>
-    <title>Sobre Nós</title>
-</head>
-<body>
-    <!-- Header -->
-    <header-componente pagina="sobre"></header-componente>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/global.css" />
+        <link
+            rel="stylesheet"
+            href="/css/components/footer.css"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            href="/css/components/header.css"
+            type="text/css"
+        />
+        <link rel="stylesheet" href="/css/pages/sobrenos.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/imgs/LogoHead.png"
+            width="50"
+            height="50"
+        />
+        <link rel="stylesheet" href="/css/components/toast.css" />
+        <script src="/js/components/header.js"></script>
+        <script src="/js/components/footer.js"></script>
+        <script src="/js/components/toast.js"></script>
+        <script src="/js/main.js" defer></script>
+        <title>Sobre Nós</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header-componente pagina="sobre"></header-componente>
 
-    <!-- Conteudo Principal -->
-    <main>
-        <!-- Hero -->
-        <section id="hero">
-            <div id="hero-texto">
-                <h1>Você já conhece a historia da <span>RealDin?</span></h1>
-                <p>Dinheiro real, Decisões reais</p>
-            </div>
-
-            <div id="hero-image">
-                <img src="/assets/imgs/Logo.svg" alt="">
-            </div>
-        </section>
-
-        <section id="historia">
-            <div id="conteudo-historia">
-                <div id="historia-texto">
-                    <h1>Nossa História</h1> <br>
-                    <p> O RealDin nasceu da necessidade <br> de simplificar o controle financeiro <br> pessoal e empresarial.</p>
-                    <p>Em um mundo onde o gerenciamento de finanças
-                    <br>pode ser complexo e confuso, nossa missão é tornar esse processo
-                    intuitivo e acessível para todos.</p>
+        <!-- Conteudo Principal -->
+        <main>
+            <!-- Hero -->
+            <section id="hero" class="parallax" data-speed="0.12">
+                <div id="hero-texto" class="parallax-content" data-speed="0.08">
+                    <h1>Você já conhece a historia da <span>RealDin?</span></h1>
+                    <p>Dinheiro real, Decisões reais</p>
                 </div>
 
-                <div id="historia-image">
-                    <img src="/assets/imgs/TeamCollaboration-AboutUs.png" alt="">
+                <div id="hero-image" data-speed="0.2">
+                    <img src="/assets/imgs/Logo.svg" alt="" />
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Seção nossa missão,visão e valores -->
-        <section id="mvvv">
-            <div id="mvv-titulo">
-                <h1>Nosso MVV</h1>
-            </div>
-            <div id="conteudo-mvv">
-                <div id="card-missao">
-                    <img src="/assets/icons/sobreNos/IconAlvo.svg" alt="">
-                    <h1>Missão</h1>
-                    <p>Cada funcionalidade é pensada para facilitar
-                        <br>a vida do usuário, com interfaces intuitivas e
-                        <br>experiências fluidas.</p>
-                </div>
-                <div id="card-visao">
-                    <img src="/assets/icons/sobreNos/LampadaAzul.svg" alt="">
-                    <h1>Visão</h1>
-                    <p>Estamos sempre buscando novas
-                        <br>tecnologias e metodologias para oferecer as
-                        <br>melhores soluções do mercado.</p>
-                </div>
-                <div id="card-valores">
-                    <img src="/assets/icons/sobreNos/CoracaoVerde.svg" alt="">
-                    <h1>Valores</h1>
-                    <p>Construímos relações baseadas em
-                        <br>confiança, com comunicação clara e
-                        <br>honesta em todos os aspectos.</p>
-                </div>
-            </div>
-        </section>
+            <section id="historia">
+                <div id="conteudo-historia">
+                    <div id="historia-texto">
+                        <h1>Nossa História</h1>
+                        <br />
+                        <p>
+                            O RealDin nasceu da necessidade <br />
+                            de simplificar o controle financeiro <br />
+                            pessoal e empresarial.
+                        </p>
+                        <p>
+                            Em um mundo onde o gerenciamento de finanças
+                            <br />pode ser complexo e confuso, nossa missão é
+                            tornar esse processo intuitivo e acessível para
+                            todos.
+                        </p>
+                    </div>
 
-        <!-- Seção Equipe -->
-        <section id="equipe">
-            <div id="conteudo-equipe">
-                <div id="texto-equipe">
-                    <img src="/assets/icons/sobreNos/IconLikedinRoxo.svg" alt="">
-                    <h1>Nossa equipe</h1>
-                    <p>Conheça os talentos por trás do RealDin. Uma equipe dedicada, criativa e
-                        <br>comprometida em entregar o melhor produto.</p>
+                    <div id="historia-image">
+                        <img
+                            src="/assets/imgs/TeamCollaboration-AboutUs.png"
+                            alt=""
+                        />
+                    </div>
                 </div>
+            </section>
 
-                <div id="cards-equipe">
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="/assets/imgs/AboutUsImg/Anderson.jpg" alt="Foto do perfil">
+            <!-- Seção nossa missão,visão e valores -->
+            <section id="mvvv">
+                <div id="mvv-titulo">
+                    <h1>Nosso MVV</h1>
+                </div>
+                <div id="conteudo-mvv">
+                    <div id="card-missao">
+                        <img src="/assets/icons/sobreNos/IconAlvo.svg" alt="" />
+                        <h1>Missão</h1>
+                        <p>
+                            Cada funcionalidade é pensada para facilitar <br />a
+                            vida do usuário, com interfaces intuitivas e
+                            <br />experiências fluidas.
+                        </p>
+                    </div>
+                    <div id="card-visao">
+                        <img
+                            src="/assets/icons/sobreNos/LampadaAzul.svg"
+                            alt=""
+                        />
+                        <h1>Visão</h1>
+                        <p>
+                            Estamos sempre buscando novas <br />tecnologias e
+                            metodologias para oferecer as <br />melhores
+                            soluções do mercado.
+                        </p>
+                    </div>
+                    <div id="card-valores">
+                        <img
+                            src="/assets/icons/sobreNos/CoracaoVerde.svg"
+                            alt=""
+                        />
+                        <h1>Valores</h1>
+                        <p>
+                            Construímos relações baseadas em <br />confiança,
+                            com comunicação clara e <br />honesta em todos os
+                            aspectos.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Equipe -->
+            <section id="equipe">
+                <div id="conteudo-equipe">
+                    <div id="texto-equipe">
+                        <img
+                            src="/assets/icons/sobreNos/IconLikedinRoxo.svg"
+                            alt=""
+                        />
+                        <h1>Nossa equipe</h1>
+                        <p>
+                            Conheça os talentos por trás do RealDin. Uma equipe
+                            dedicada, criativa e <br />comprometida em entregar
+                            o melhor produto.
+                        </p>
+                    </div>
+
+                    <div id="cards-equipe">
+                        <div class="card">
+                            <div class="card-img">
+                                <img
+                                    src="/assets/imgs/AboutUsImg/Anderson.jpg"
+                                    alt="Foto do perfil"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h2 class="name">Anderson</h2>
+                                <p class="role">Full Stack Developer</p>
+                                <div class="socials">
+                                    <a
+                                        href="https://www.linkedin.com/in/euandersonreis/"
+                                        class="social linkedin"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Linkedin.svg"
+                                            alt="LinkedIn"
+                                        />
+                                    </a>
+                                    <a
+                                        href="https://github.com/EuAndersonDev"
+                                        class="social github"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Github.svg"
+                                            alt="GitHub"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <h2 class="name">Anderson</h2>
-                            <p class="role">Full Stack Developer</p>
-                            <div class="socials">
-                            <a href="https://www.linkedin.com/in/euandersonreis/" class="social linkedin">
-                                <img src="/assets/icons/sobreNos/Linkedin.svg" alt="LinkedIn">
-                            </a>
-                            <a href="https://github.com/EuAndersonDev" class="social github">
-                                <img src="/assets/icons/sobreNos/Github.svg" alt="GitHub">
-                            </a>
+                        <div class="card">
+                            <div class="card-img">
+                                <img
+                                    src="/assets/imgs/AboutUsImg/Jaiane.jpeg"
+                                    alt="Foto do perfil"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h2 class="name">Jaiane</h2>
+                                <p class="role">Full Stack Developer</p>
+                                <div class="socials">
+                                    <a
+                                        href="https://www.linkedin.com/in/jaiane-d-5897802b5/"
+                                        class="social linkedin"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Linkedin.svg"
+                                            alt="LinkedIn"
+                                        />
+                                    </a>
+                                    <a
+                                        href="https://github.com/jaiane-soares"
+                                        class="social github"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Github.svg"
+                                            alt="GitHub"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-img">
+                                <img
+                                    src="/assets/imgs/AboutUsImg/JoaoP.jpeg"
+                                    alt="Foto do perfil"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h2 class="name">Joao Pedro</h2>
+                                <p class="role">Full Stack Developer</p>
+                                <div class="socials">
+                                    <a
+                                        href="https://www.linkedin.com/in/jo%C3%A3o-pedro-pereira-ramos-9089973a3/"
+                                        class="social linkedin"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Linkedin.svg"
+                                            alt="LinkedIn"
+                                        />
+                                    </a>
+                                    <a
+                                        href="https://github.com/Joao2007Pedro/"
+                                        class="social github"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Github.svg"
+                                            alt="GitHub"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-img">
+                                <img
+                                    src="/assets/imgs/AboutUsImg/JoaoV.jpeg"
+                                    alt="Foto do perfil"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h2 class="name">Joao Victor</h2>
+                                <p class="role">Full Stack Developer</p>
+                                <div class="socials">
+                                    <a
+                                        href="https://www.linkedin.com/in/joão-victor-santos-de-medeiros-936b9536b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                                        class="social linkedin"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Linkedin.svg"
+                                            alt="LinkedIn"
+                                        />
+                                    </a>
+                                    <a
+                                        href="https://github.com/joaovictorsanmed-dev"
+                                        class="social github"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Github.svg"
+                                            alt="GitHub"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-img">
+                                <img
+                                    src="/assets/imgs/AboutUsImg/Kaue.jpeg"
+                                    alt="Foto do perfil"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h2 class="name">Kaue</h2>
+                                <p class="role">Full Stack Developer</p>
+                                <div class="socials">
+                                    <a
+                                        href="https://www.linkedin.com/in/kauê-rodrigues-de-sousa-ba62b33b6/"
+                                        class="social linkedin"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Linkedin.svg"
+                                            alt="LinkedIn"
+                                        />
+                                    </a>
+                                    <a
+                                        href="https://github.com/kauesousa1"
+                                        class="social github"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Github.svg"
+                                            alt="GitHub"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-img">
+                                <img
+                                    src="/assets/imgs/AboutUsImg/Luiz.jpeg"
+                                    alt="Foto do perfil"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h2 class="name">Luiz Gustavo</h2>
+                                <p class="role">Full Stack Developer</p>
+                                <div class="socials">
+                                    <a
+                                        href="https://www.linkedin.com/in/ugussousa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                                        class="social linkedin"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Linkedin.svg"
+                                            alt="LinkedIn"
+                                        />
+                                    </a>
+                                    <a
+                                        href="https://github.com/ugussousa-a11y/Exercicios_PROA"
+                                        class="social github"
+                                    >
+                                        <img
+                                            src="/assets/icons/sobreNos/Github.svg"
+                                            alt="GitHub"
+                                        />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="/assets/imgs/AboutUsImg/Jaiane.jpeg" alt="Foto do perfil">
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Jaiane</h2>
-                            <p class="role">Full Stack Developer</p>
-                            <div class="socials">
-                            <a href="https://www.linkedin.com/in/jaiane-d-5897802b5/" class="social linkedin">
-                                <img src="/assets/icons/sobreNos/Linkedin.svg" alt="LinkedIn">
-                            </a>
-                            <a href="https://github.com/jaiane-soares" class="social github">
-                                <img src="/assets/icons/sobreNos/Github.svg" alt="GitHub">
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="/assets/imgs/AboutUsImg/JoaoP.jpeg" alt="Foto do perfil">
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Joao Pedro</h2>
-                            <p class="role">Full Stack Developer</p>
-                            <div class="socials">
-                            <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-pereira-ramos-9089973a3/" class="social linkedin">
-                                <img src="/assets/icons/sobreNos/Linkedin.svg" alt="LinkedIn">
-                            </a>
-                            <a href="https://github.com/Joao2007Pedro/" class="social github">
-                                <img src="/assets/icons/sobreNos/Github.svg" alt="GitHub">
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="/assets/imgs/AboutUsImg/JoaoV.jpeg" alt="Foto do perfil">
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Joao Victor</h2>
-                            <p class="role">Full Stack Developer</p>
-                            <div class="socials">
-                            <a href="https://www.linkedin.com/in/joão-victor-santos-de-medeiros-936b9536b?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social linkedin">
-                                <img src="/assets/icons/sobreNos/Linkedin.svg" alt="LinkedIn">
-                            </a>
-                            <a href="https://github.com/joaovictorsanmed-dev" class="social github">
-                                <img src="/assets/icons/sobreNos/Github.svg" alt="GitHub">
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="/assets/imgs/AboutUsImg/Kaue.jpeg" alt="Foto do perfil">
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Kaue</h2>
-                            <p class="role">Full Stack Developer</p>
-                            <div class="socials">
-                            <a href="https://www.linkedin.com/in/kauê-rodrigues-de-sousa-ba62b33b6/" class="social linkedin">
-                                <img src="/assets/icons/sobreNos/Linkedin.svg" alt="LinkedIn">
-                            </a>
-                            <a href="https://github.com/kauesousa1" class="social github">
-                                <img src="/assets/icons/sobreNos/Github.svg" alt="GitHub">
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="/assets/imgs/AboutUsImg/Luiz.jpeg" alt="Foto do perfil">
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Luiz Gustavo</h2>
-                            <p class="role">Full Stack Developer</p>
-                            <div class="socials">
-                            <a href="https://www.linkedin.com/in/ugussousa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social linkedin">
-                                <img src="/assets/icons/sobreNos/Linkedin.svg" alt="LinkedIn">
-                            </a>
-                            <a href="https://github.com/ugussousa-a11y/Exercicios_PROA" class="social github">
-                                <img src="/assets/icons/sobreNos/Github.svg" alt="GitHub">
-                            </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </div>
+            </section>
+        </main>
 
-        </section>
-    </main>
+        <!-- Footer -->
 
-    <!-- Footer -->
-
-    <footer-componente></footer-componente>
-</body>
+        <footer-componente></footer-componente>
+    </body>
 </html>

@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="/css/components/header.css" />
     <link rel="stylesheet" href="/css/components/footer.css" />
     <link rel="stylesheet" href="/css/pages/conscientizacao.css" />
+    <link rel="icon" type="image/png" href="/assets/imgs/LogoHead.png" width="50" height="50" />
 
     <link rel="stylesheet" href="/css/components/toast.css" />
     <script src="/js/components/header.js"></script>
     <script src="/js/components/footer.js"></script>
     <script src="/js/components/toast.js"></script>
+    <script src="/js/main.js" defer></script>
 
     <title>Conscientização</title>
 </head>
@@ -22,8 +24,8 @@
     <header-componente pagina="conscientizacao"></header-componente>
 
     <main>
-        <section id="hero">
-            <div class="container">
+        <section id="hero" class="parallax" data-speed="0.12">
+            <div class="container parallax-content" data-speed="0.1">
                 <div class="overlay">Dinheiro real, decisões reais.</div>
 
                 <h1 class="hero-title">Você controla o dinheiro</h1>
@@ -129,7 +131,7 @@
             <div id="card_fundo">
 
                 <div class="cards6">
-                    <img class="img_card" src="/assets/icons/conscientizacao/SVG.svg" alt="">
+                    <img src="/assets/icons/conscientizacao/SVG.svg" alt="">
                     <p>Apostas exploram a emoção e a impulsividade — nunca a lógica.</p>
 
                 </div>
@@ -146,13 +148,14 @@
                 </div>
 
                 <div class="cards6">
-                    <img  src="/assets/icons/conscientizacao/svg5.svg" alt="">
+                    <img src="/assets/icons/conscientizacao/svg5.svg" alt="">
                     <p id="pr">Educação financeira é o melhor investimento contra a tentação do jogo.</p>
 
                 </div>
             </div>
-        </section>
 
+
+        </section>
         <section id="dividas">
 
 
@@ -163,29 +166,111 @@
             <p>Entenda hitórias reais sobre desafios financeiros e comece sua <br>
                 jornada para a liberdade</p>
 
-            <section id="Relatos">
 
+            <section id="relatos">
                 <div class="depoimentos">
-                    <p>mariana
-                    </p>
+                    <img src="/assets/icons/conscientizacao/IconLetraB.svg" alt="">
+                    <h3>Mariana S.</h3>
+                    <span>29 anos</span>
+                    <p>"Tudo começou com uma pequena reforma... A bola de neve foi rápida."</p>
+
+                </div>
                 </div>
 
-
                 <div class="depoimentos">
-                    <p>Adriana</p>
+                    <h3>Adriana G.</h3>
+                    <span>37 anos</span>
+                    <p>"Sendo sincera, hoje é mais sobreviver do que viver."</p>
                 </div>
 
-
                 <div class="depoimentos">
-                    <p>Daiane
-                    </p>
+                    <h3>Daianne J.</h3>
+                    <span>44 anos</span>
+                    <p>"Eu comecei a trabalhar cedo, mas nunca aprendi a organizar o que eu ganhava."</p>
                 </div>
-
             </section>
+
+
+        </section>
         </section>
 
 
 
+
+        <section id="educacao">
+            <p id="credito2"> CRÉDITO </p>
+            <h1>O que você <span>não aprende</span> sobre dinheiro <br> pode custar caro</h1>
+
+            <p class="educacao_financeira">A falta de educação financeira é um dos maiores obstáculos para a
+                independência. <br>
+                Mas nunca é tarde para começar.</p>
+
+                <section id="ao_todo" ></section>
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="sonhos">
+            <div id="sono">
+            <h1>Quanto vale o sono da sua família?</h1>
+            </div>
+
+
+            <div id="agiotagem">
+            <p>Na agiotagem, os juros não são calculados em porcentagem, são medidos pelo número de <br> pancadas de
+                ferro na sua porta no meio da madrugada.</p>
+                </div>
+
+                 <div class="bravo">
+    <img class="base" src="/assets/icons/conscientizacao/Overlay.svg" alt="base">
+    <img class="sobreposta" src="/assets/icons/conscientizacao/Homem estressado com problemas financeiros.svg" alt="sobreposta">
+</div>
+
+<div>
+
+
+<div class="texto">
+    <h2>Juros extorsivos</h2>
+    <p>
+        As taxas de juros praticadas pelos agiotas podem chegar a porcentagens
+        na casa das centenas ao mês, muito além dos limites legais estabelecidos
+        para instituições financeiras. Enquanto bancos regulados praticam juros
+        entre 3% e 10% ao mês, agiotas podem cobrar de 20% a 50% ao mês.
+    </p>
+    </div>
+    <img class="grafico" src="/assets/icons/conscientizacao/grafico.svg" alt="">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </section>
     </main>
 
     <footer-componente></footer-componente>

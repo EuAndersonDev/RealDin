@@ -10,11 +10,19 @@
         <link rel="stylesheet" href="/css/global.css" />
         <link rel="stylesheet" href="/css/components/header.css" />
         <link rel="stylesheet" href="/css/components/footer.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/imgs/LogoHead.png"
+            width="50"
+            height="50"
+        />
         <link rel="stylesheet" href="/css/components/toast.css" />
 
         <script src="/js/components/header.js" defer></script>
         <script src="/js/components/footer.js" defer></script>
         <script src="/js/components/toast.js"></script>
+        <script src="/js/main.js" defer></script>
     </head>
 
     <body>
@@ -22,16 +30,24 @@
 
         <main>
             <!-- HERO -->
-            <section class="hero">
+            <section class="hero parallax" data-speed="0.12">
                 <div class="container hero-grid">
-                    <div class="hero-text">
+                    <div class="hero-text parallax-content" data-speed="0.08">
                         <h1>
                             Aqui você encontra seu resultado de mapeamento de
                             perfil financeiro
                         </h1>
 
                         <button class="btn-primary">RESPONDER NOVAMENTE</button>
-                    
+                    </div>
+
+                    <div class="hero-img">
+                        <img
+                            src="/assets/imgs/dinheiro 1.svg"
+                            alt="Dinheiro brasileiro"
+                        />
+                    </div>
+                </div>
             </section>
 
             <!-- PERFIL -->

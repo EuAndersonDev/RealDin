@@ -8,23 +8,39 @@
         <link rel="stylesheet" href="/css/components/footer.css" />
         <link rel="stylesheet" href="/css/components/header.css" />
         <link rel="stylesheet" href="/css/components/cardCta.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/imgs/LogoHead.png"
+            width="50"
+            height="50"
+        />
         <link rel="stylesheet" href="/css/components/toast.css" />
         <script src="/js/components/header.js"></script>
         <script src="/js/components/footer.js"></script>
         <script src="/js/components/toast.js"></script>
         <script src="/js/components/cardCta.js"></script>
+        <script src="/js/main.js" defer></script>
         <title>Quiz</title>
     </head>
     <body>
         <header-componente pagina="perguntas"></header-componente>
 
         <main>
-            <section id="hero">
-                <img src="/assets/icons/sobreQuiz/RealDin logo.svg" alt="" />
+            <section id="hero" class="parallax" data-speed="0.12">
+                <img
+                    src="/assets/icons/sobreQuiz/RealDin logo.svg"
+                    alt=""
+                    data-speed="0.24"
+                />
                 <h3 id="titulo-hero">Teste seus</h3>
                 <h3 class="fonte-amarelo">conhecimentos</h3>
                 <h3 id="titulo-hero">com o <span>RealDin</span></h3>
-                <div id="paragrafo-hero">
+                <div
+                    id="paragrafo-hero"
+                    class="parallax-content"
+                    data-speed="0.08"
+                >
                     <p>
                         Um quiz interativo, rápido e divertido sobre finanças.
                     </p>
