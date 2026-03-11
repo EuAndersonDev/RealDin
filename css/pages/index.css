@@ -319,7 +319,7 @@ button a {
    =========================== */
 #video {
     width: 100%;
-    height: 800px;
+    height: 700px;
     padding: 60px 0;
     background-color: #2b9c89;
     display: flex;
@@ -372,7 +372,7 @@ button a {
     font-size: 44px;
     font-style: normal;
     font-weight: 400;
-    line-height: 28px; /* 116.667% */
+    line-height: 40px; /* 116.667% */
     margin-top: 10px;
 }
 
@@ -502,100 +502,15 @@ button a {
 }
 
 /* ===========================
-   Seção Informativa - Salário não rende
-   =========================== */
-#salario {
-    border-radius: 5px;
-    background: linear-gradient(#2b9c89, #19aed9);
-    color: white;
-    width: 100%;
-    height: 1024px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#conteudo-salario {
-    width: 100%;
-    height: 400px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#salario-titulo {
-    width: 40%;
-    height: auto;
-    text-align: left;
-    flex-direction: column;
-}
-
-#salario-titulo h1 {
-    color: #fff;
-    font-family: Inter;
-    font-size: 58px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 48px; /* 82.759% */
-    margin-bottom: 40px;
-}
-
-#salario-titulo p {
-    color: #f0fdfa;
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32.5px; /* 135.417% */
-}
-
-#salario-titulo span {
-    background-color: #c7b500;
-    color: #111827;
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 32.5px; /* 135.417% */
-    border-radius: 10px;
-}
-
-#conteudo-salario img {
-    width: 95%;
-    height: 549px;
-    aspect-ratio: 249/158;
-}
-
-#btn-salario {
-    width: 20%;
-    height: 52px;
-    border-radius: 37px;
-    background: #fff;
-    margin: 20px;
-    border: none;
-}
-
-#btn-salario a {
-    color: #212529;
-    text-align: center;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; /* 150% */
-    border: none;
-}
-
-/* ===========================
    Seção Informativa - Reserva Importância
    =========================== */
 #reserva {
     width: 100%;
-    height: 1024px;
+    height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 #conteudo-reserva {
@@ -636,13 +551,115 @@ button a {
 }
 
 #reserva-titulo span {
-    background-color: #c7b500;
+    background-color: #fae007;
     border-radius: 100px;
 }
 
 /* ===========================
-   Seção Informativa - Dívida antes dos 20
+   Seção Informativa - Reserva & Objetivos
    =========================== */
+
+#objetivos {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+#conteudo-objetivos {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+
+#objetivos-titulo {
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#objetivos-titulo h1 {
+    color: #212529;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 70px;
+    letter-spacing: -1.16px;
+    margin: 20px;
+}
+
+.container-card {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+}
+
+.card {
+    width: 33%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 28px 24px;
+    border: 1px solid #e8e8e8;
+    flex: 1 1 33%;
+    transition: background 0.2s;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.card:hover {
+      background: #f9f9f9;
+    }
+
+.card .icon {
+      width: 34px;
+      height: 34px;
+    }
+
+.card h3 {
+      font-size: 25px;
+      font-weight: 600;
+      color: #111;
+      line-height: 1.4;
+    }
+
+.card p {
+      font-size: 19.5px;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .card { flex: 1 1 50%; }
+    }
+
+    @media (max-width: 400px) {
+      .card { flex: 1 1 100%; }
+    }
+
+
+/* ===========================
+   Seção Informativa - Decisões dos 18 Afetam os 25
+   =========================== */
+
+
 #divida {
     border-radius: 5px;
     background: #177f72;
@@ -655,7 +672,7 @@ button a {
 
 #conteudo-divida {
     width: 100%;
-    height: 600px;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -664,7 +681,7 @@ button a {
 }
 
 #divida-titulo {
-    width: 50%;
+    width: 40%;
     height: auto;
     justify-content: center;
     align-items: center;
@@ -672,7 +689,7 @@ button a {
 }
 
 #conteudo-divida img {
-    width: 475px;
+    width: 635px;
     height: auto;
 }
 
@@ -684,16 +701,7 @@ button a {
     font-weight: 700;
     line-height: 58px;
     letter-spacing: -1.16px;
-}
-
-#divida-titulo span {
-    color: #c7b500;
-    font-family: Inter;
-    font-size: 58px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -1.16px;
+    
 }
 
 #divida-titulo p {
@@ -704,82 +712,7 @@ button a {
     font-weight: 500;
     line-height: 23px; /* 104.545% */
     letter-spacing: 2.86px;
-}
-
-/* ===========================
-   Seção Informativa - Decisões dos 18 Afetam os 25
-   =========================== */
-#decisoes {
-    width: 100%;
-    height: 1024px;
-    background-color: #fff;
-}
-
-#conteudo-decisoes {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-}
-
-#conteudo-decisoes img {
-    width: 100%;
-    height: auto;
-}
-
-#decisoes-titulo {
-    width: 45%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#decisoes-titulo h1 {
-    color: #212529;
-    text-align: center;
-    font-family: Inter;
-    font-size: 58px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 58px; /* 100% */
-    letter-spacing: -1.16px;
-    margin: 15px;
-}
-
-#decisoes-titulo p {
-    color: #212529;
-    text-align: center;
-    font-family: Inter;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 30px; /* 100% */
-    letter-spacing: -0.6px;
-    margin: 15px;
-}
-
-#btn-dividas {
-    width: 200px;
-    height: 55px;
-    border-radius: 37px;
-    background: #59bda3;
-    margin: 15px;
-    border: none;
-}
-
-#btn-dividas a {
-    color: #fff;
-    text-align: center;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 28px; /* 155.556% */
+    margin-top: 20px;
 }
 
 /* ===========================
