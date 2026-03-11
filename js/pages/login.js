@@ -17,6 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
         Toast.show('Cadastro salvo na sessão. Agora faça login para continuar.', 'success');
     }
 
+    if (window.AuthGuard?.consumeRedirectMessage) {
+        const mensagem = window.AuthGuard.consumeRedirectMessage();
+        if (mensagem) {
+            Toast.show(mensagem, 'warning');
+        }
+    }
+
     if (window.SessionService?.isAuthenticated()) {
         const sessao = window.SessionService.getCurrentSession();
         const nome = sessao?.currentUser?.firstName || 'usuário';
@@ -45,10 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        Toast.show(`Bem-vindo de volta, ${resultado.user.firstName}!`, 'success');
+        Toast.show('Bem-vinda! Aqui estão suas indicações personalizadas com base no seu resultado.', 'success');
 
         setTimeout(() => {
-            window.location.href = '/index.html';
+            window.location.href = '/pages/indicacoes.html';
         }, 900);
     });
 });

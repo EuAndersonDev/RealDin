@@ -156,5 +156,25 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('[Resultado] Resultado renderizado com sucesso.');
   }
 
+  function configurarBannerAcesso() {
+    const auth = window.AuthContext?.getState ? window.AuthContext.getState() : { isAuthenticated: false };
+    if (auth.isAuthenticated) {
+      return;
+    }
+
+    const banner = document.getElementById('auth-required-banner');
+    const botao = document.getElementById('btn-ir-login-resultado');
+
+    if (!banner || !botao) {
+      return;
+    }
+
+    banner.style.display = 'block';
+    botao.addEventListener('click', () => {
+      window.location.href = '/pages/login.html?redirect=/pages/indicacoes.html';
+    });
+  }
+
   renderizarResultado();
+  configurarBannerAcesso();
 });

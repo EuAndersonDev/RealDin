@@ -1,7 +1,8 @@
 class Header extends HTMLElement {
     connectedCallback() {
         const paginaAtual = this.getAttribute('pagina');
-        const usuarioAtual = this.obterUsuarioAtual();
+        const auth = this.obterAuthState();
+        const isAuthenticated = auth.isAuthenticated;
 
         this.innerHTML = `
             <div id="menu-overlay"></div>
@@ -27,18 +28,18 @@ class Header extends HTMLElement {
 
                         <section id="links">
                             <a href="/index.html" class="${paginaAtual === 'home' ? 'pagina-atual' : ''}">Home</a>
-
-                            <a href="/pages/conscientizacao.html" class="${paginaAtual === 'conscientizacao' ? 'pagina-atual' : ''}">Conscientização</a>
-
-                            <a href="/pages/sobrequiz.html" class="${paginaAtual === 'perguntas' ? 'pagina-atual' : ''}">Quiz</a>
-                            <a href="/pages/resultados.html" class="${paginaAtual === 'resultados' ? 'pagina-atual' : ''}">Resultados</a>
                             <a href="/pages/sobrenos.html" class="${paginaAtual === 'sobre' ? 'pagina-atual' : ''}">Sobre Nós</a>
-                            <a href="/pages/calculadora-juros.html" class="${paginaAtual === 'simulador' ? 'pagina-atual' : ''}">Simulador</a>
-                            <a href="/pages/indicacoes.html" class="${paginaAtual === 'indicacoes' ? 'pagina-atual' : ''}">Indicações</a>
+                            <a href="/pages/sobrequiz.html" class="${paginaAtual === 'perguntas' ? 'pagina-atual' : ''}">Quiz</a>
+                            ${isAuthenticated ? `
+                                <a href="/pages/conscientizacao.html" class="${paginaAtual === 'conscientizacao' ? 'pagina-atual' : ''}">Conscientização</a>
+                                <a href="/pages/resultados.html" class="${paginaAtual === 'resultados' ? 'pagina-atual' : ''}">Resultado</a>
+                                <a href="/pages/calculadora-juros.html" class="${paginaAtual === 'simulador' ? 'pagina-atual' : ''}">Simulador</a>
+                                <a href="/pages/indicacoes.html" class="${paginaAtual === 'indicacoes' ? 'pagina-atual' : ''}">Indicações</a>
+                            ` : ``}
                         </section>
 
                         <div id="botoes">
-                            ${this.renderBotoesUsuario(usuarioAtual)}
+                            ${this.renderBotoesUsuario(auth.user)}
                         </div>
                     </div>
                 </nav>
@@ -88,7 +89,6 @@ class Header extends HTMLElement {
         if (!usuarioAtual) {
             return `
                 <a href="/pages/login.html" class="botao-login">Login</a>
-                <a href="/pages/register.html" class="botao-register">Registra-se</a>
             `;
         }
 
@@ -100,7 +100,7 @@ class Header extends HTMLElement {
                     ${primeiroNome}
                 </button>
                 <div id="usuario-dropdown" class="fechado" role="menu" aria-hidden="true">
-                    <p>Deseja fazer logout?</p>
+                    <p>Logout</p>
                     <button id="confirmar-logout" type="button">Fazer logout</button>
                 </div>
             </div>
@@ -196,6 +196,18 @@ class Header extends HTMLElement {
 
             window.location.href = '/pages/login.html';
         });
+    }
+
+    obterAuthState() {
+        if (window.AuthContext?.getState) {
+            return window.AuthContext.getState();
+        }
+
+        const usuario = this.obterUsuarioAtual();
+        return {
+            isAuthenticated: Boolean(usuario),
+            user: usuario
+        };
     }
 }
 
