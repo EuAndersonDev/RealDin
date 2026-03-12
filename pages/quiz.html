@@ -1,72 +1,94 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    
-    <title>Quiz - RealDin</title>
-    <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/pages/quiz.css" />
-    <script src="../js/services/session/session.js" defer></script>
-    <script src="../js/pages/quiz.js" defer></script>
-    <link rel="stylesheet" href="../css/components/toast.css" />
-    <script src="../js/components/toast.js"></script>
-  </head>
-  <body>
-    <div class="header">
-      <div class="container">
-        <b class="heading-1">RealDin</b>
-        <div class="background-line">
-          <div class="background2-line" id="barra-progresso"></div>
-        </div>
-        <div class="div" id="progresso">1/14</div>
-      </div>
-      <button class="button" onclick="window.location.href='../index.html'">
-        <b class="sair">Sair</b>
-        <img src="../assets/icons/telaQuiz/setaSair.svg" alt="" />
-      </button>
-      <a href="/index.html">
-        <img src="../assets/imgs/logo.svg" alt="" class="logo-icon" />
-      </a>
-    </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <div class="main">
-      <button class="enviar" id="btn-proximo">
-        <div class="prxima-pergunta">Próxima Pergunta</div>
-      </button>
-      <div class="e" id="opcao-E" data-perfil="">
-        <div class="background">
-          <div class="e2">E</div>
+        <title>Quiz - RealDin</title>
+        <link rel="stylesheet" href="../css/global.css" />
+        <link rel="stylesheet" href="../css/pages/quiz.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/imgs/LogoHead.png"
+            width="50"
+            height="50"
+        />
+        <script src="../js/services/session/session.js" defer></script>
+        <script src="../js/pages/quiz.js" defer></script>
+        <script src="../js/main.js" defer></script>
+        <link rel="stylesheet" href="../css/components/toast.css" />
+        <script src="../js/components/toast.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="container">
+                <b class="heading-1">RealDin</b>
+                <div class="background-line">
+                    <div class="background2-line" id="barra-progresso"></div>
+                </div>
+                <div class="div" id="progresso">1/14</div>
+            </div>
+            <button
+                class="button"
+                onclick="window.location.href = '../index.html'"
+            >
+                <b class="sair">Sair</b>
+                <img src="../assets/icons/telaQuiz/setaSair.svg" alt="" />
+            </button>
+            <a href="/index.html">
+                <img src="../assets/imgs/logo.svg" alt="" class="logo-icon" />
+            </a>
         </div>
-        <div class="um-investimento-de" id="texto-E">Um investimento de alto risco</div>
-      </div>
-      <div class="d" id="opcao-D" data-perfil="">
-        <div class="background">
-          <div class="e2">D</div>
+
+        <div class="main">
+            <button class="enviar" id="btn-proximo">
+                <div class="prxima-pergunta">Próxima Pergunta</div>
+            </button>
+            <div class="e" id="opcao-E" data-perfil="">
+                <div class="background">
+                    <div class="e2">E</div>
+                </div>
+                <div class="um-investimento-de" id="texto-E">
+                    Um investimento de alto risco
+                </div>
+            </div>
+            <div class="d" id="opcao-D" data-perfil="">
+                <div class="background">
+                    <div class="e2">D</div>
+                </div>
+                <div class="um-investimento-de2" id="texto-D">
+                    Um investimento de alto risco
+                </div>
+            </div>
+            <div class="c" id="opcao-C" data-perfil="">
+                <div class="background">
+                    <div class="c2">C</div>
+                </div>
+                <div class="o-saldo-da" id="texto-C">
+                    O saldo da conta corrente
+                </div>
+            </div>
+            <div class="b" id="opcao-B" data-perfil="">
+                <div class="background">
+                    <div class="b2">B</div>
+                </div>
+                <div class="uma-quantia-para" id="texto-B">
+                    Uma quantia para cobrir imprevistos (3 a 6 meses<br />de
+                    gastos)
+                </div>
+            </div>
+            <div class="a" id="opcao-A" data-perfil="">
+                <div class="background">
+                    <div class="a2">A</div>
+                </div>
+                <div class="dinheiro-guardado-para" id="texto-A">
+                    Dinheiro guardado para viagens
+                </div>
+            </div>
+            <b class="o-que" id="pergunta-texto"
+                >O que é uma reserva de emergência?</b
+            >
         </div>
-        <div class="um-investimento-de2" id="texto-D">Um investimento de alto risco</div>
-      </div>
-      <div class="c" id="opcao-C" data-perfil="">
-        <div class="background">
-          <div class="c2">C</div>
-        </div>
-        <div class="o-saldo-da" id="texto-C">O saldo da conta corrente</div>
-      </div>
-      <div class="b" id="opcao-B" data-perfil="">
-        <div class="background">
-          <div class="b2">B</div>
-        </div>
-        <div class="uma-quantia-para" id="texto-B">
-          Uma quantia para cobrir imprevistos (3 a 6 meses<br />de gastos)
-        </div>
-      </div>
-      <div class="a" id="opcao-A" data-perfil="">
-        <div class="background">
-          <div class="a2">A</div>
-        </div>
-        <div class="dinheiro-guardado-para" id="texto-A">Dinheiro guardado para viagens</div>
-      </div>
-      <b class="o-que" id="pergunta-texto">O que é uma reserva de emergência?</b>
-    </div>
-  </body>
+    </body>
 </html>

@@ -24,7 +24,6 @@ class Footer extends HTMLElement {
             <div class="coluna-links">
               <span class="titulo-coluna">Sobre nós</span>
               <a href="/pages/sobrenos.html">Nossa empresa</a>
-              <a href="/pages/imprensa.html">Imprensa</a>
               <a href="/pages/sobrenos.html#historia">História</a>
             </div>
             <div class="coluna-links">

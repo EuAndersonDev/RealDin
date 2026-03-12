@@ -1,0 +1,66 @@
+:root {
+    --animation-ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body.motion-pending header-componente,
+body.motion-pending footer-componente,
+body.motion-pending main,
+body.motion-pending main * {
+    opacity: 0;
+}
+
+[data-animate] {
+    --enter-x: 0px;
+    --enter-y: 60px;
+    --enter-scale: 1;
+    --parallax-y: 0px;
+    --hover-lift: 0px;
+    --reveal-duration: 720ms;
+    --reveal-delay: 0ms;
+    opacity: 0;
+    transform: translate3d(0, calc(var(--parallax-y) + var(--hover-lift)), 0)
+        translate3d(var(--enter-x), var(--enter-y), 0) scale(var(--enter-scale));
+    transition:
+        opacity var(--reveal-duration) var(--animation-ease-smooth)
+            var(--reveal-delay),
+        transform var(--reveal-duration) var(--animation-ease-smooth)
+            var(--reveal-delay);
+    transform-origin: center center;
+    backface-visibility: hidden;
+}
+
+[data-animate="fade-up"] {
+    --enter-x: 0px;
+    --enter-y: 60px;
+    --enter-scale: 1;
+}
+
+[data-animate="fade-left"] {
+    --enter-x: -60px;
+    --enter-y: 0px;
+    --enter-scale: 1;
+}
+
+[data-animate="fade-right"] {
+    --enter-x: 60px;
+    --enter-y: 0px;
+    --enter-scale: 1;
+}
+
+[data-animate="zoom-in"] {
+    --enter-x: 0px;
+    --enter-y: 0px;
+    --enter-scale: 0.85;
+}
+
+[data-animate].is-visible {
+    opacity: 1;
+    transform: translate3d(0, calc(var(--parallax-y) + var(--hover-lift)), 0)
+        translate3d(0, 0, 0) scale(1);
+}
+
+@media (max-width: 767px) {
+    [data-animate] {
+        --parallax-y: 0px !important;
+    }
+}

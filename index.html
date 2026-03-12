@@ -1,231 +1,318 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RealDin</title>
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/components/footer.css" type="text/css" />
-    <link rel="stylesheet" href="./css/components/header.css" type="text/css" />
-    <link rel="stylesheet" href="./css/pages/index.css">
-    <link rel="stylesheet" href="./css/components/toast.css">
-    <script src="./js/components/header.js"></script>
-    <script src="./js/components/footer.js"></script>
-    <script src="./js/components/toast.js"></script>
-  </head>
-  <body>
-    <!-- Header -->
-    <header-componente pagina="home"></header-componente>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RealDin</title>
+        <link rel="stylesheet" href="./css/global.css" />
+        <link
+            rel="stylesheet"
+            href="./css/components/footer.css"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            href="./css/components/header.css"
+            type="text/css"
+        />
+        <link rel="stylesheet" href="./css/pages/index.css" />
+        <link rel="stylesheet" href="./css/components/toast.css" />
+        <script src="./js/services/session/session.js"></script>
+        <script src="./js/services/auth-context.js"></script>
+        <script src="./js/components/header.js"></script>
+        <script src="./js/components/footer.js"></script>
+        <script src="./js/components/toast.js"></script>
+        <script src="./js/main.js" defer></script>
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/imgs/LogoHead.png"
+            width="50"
+            height="50"
+        />
+    </head>
+    <body>
+        <!-- Header -->
+        <header-componente pagina="home"></header-componente>
 
-    <!-- Conteúdo principal da página -->
-    <main>
+        <!-- Conteúdo principal da página -->
+        <main>
+            <!-- Seção Hero -->
+            <section id="hero" class="parallax" data-speed="0.12">
+                <div class="placeholder-bg" data-speed="0.32">
+                    <img id="hero-bg" src="/assets/imgs/homem-hero (3).png" />
+                </div>
 
-          <!-- Seção Hero -->
-            <section id="hero">
+                <!-- Overlay gradiente esquerda → transparente -->
+                <div id="hero-overlay"></div>
 
-      <!-- PLACEHOLDER (remova quando tiver a imagem real) -->
-      <div class="placeholder-bg">
-        <img id="hero-bg" src="/assets/imgs/homem-hero (3).png">
-      </div>
+                <!-- Nota explicativa -->
 
-      <!-- Overlay gradiente esquerda → transparente -->
-      <div id="hero-overlay"></div>
+                <!-- Conteúdo: título + subtítulo + botão — só à esquerda -->
+                <div
+                    id="hero-content"
+                    class="parallax-content"
+                    data-speed="0.08"
+                >
+                    <h1 class="hero-anim" style="--delay: 0s">
+                        Dinheiro Real,<br />
+                        <span id="span">Decisões Reais</span>
+                    </h1>
 
-      <!-- Nota explicativa --> 
+                    <p class="hero-anim" style="--delay: 0.22s">
+                        O teste identifica seu perfil com o dinheiro
+                    </p>
 
-      <!-- Conteúdo: título + subtítulo + botão — só à esquerda -->
-      <div id="hero-content">
-        <h1 class="hero-anim" style="--delay:0s">
-          Dinheiro Real,<br>
-          <span id="span">Decisões Reais</span>
-        </h1>
+                    <a
+                        href="/pages/sobrequiz.html"
+                        id="btn-fazer-teste"
+                        class="hero-anim"
+                        style="--delay: 0.4s"
+                    >
+                        Fazer o teste
+                    </a>
+                </div>
+            </section>
 
-        <p class="hero-anim" style="--delay:0.22s">
-          O teste identifica seu perfil com o dinheiro
-        </p>
+            <!-- Seção de Situações -->
+            <section id="situacoes">
+                <div id="conteudo-situacoes">
+                    <div id="situacoes-image">
+                        <img src="/assets/imgs/Logo.svg" alt="" />
+                        <h1>RealDin</h1>
+                    </div>
 
-        <a href="/pages/conscientizacao.html" id="btn-fazer-teste" class="hero-anim" style="--delay:0.40s">
-          Fazer o teste
-        </a>
-      </div>
+                    <div id="situacoes-texto">
+                        <h1>
+                            Você já passou por alguma dessas <br />
+                            situações?
+                        </h1>
+                        <p>
+                            O <span>dinheiro</span> acaba antes do mês terminar
+                            ?
+                        </p>
+                        <p>O <span>salário</span> entra e some rapidamente ?</p>
 
-    </section>
+                        <button id="btn-descubra">
+                            <a href="#">Descubra porque -></a>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!--Seção Video sobre o projeto-->
+            <section id="video">
+                <div id="conteudo-video">
+                    <div id="video-titulo">
+                        <h1>Porque o <span>RealDin</span> foi criado?</h1>
+                        <p>Entenda mais sobre o projeto</p>
+                    </div>
+                    <div id="video-area">
+                        <iframe
+                            width="560"
+                            height="315"
+                            src="https://www.youtube.com/embed/HSIwTde_gJM?si=Vmt_htwyERjCBhiO"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="
+                                accelerometer;
+                                autoplay;
+                                clipboard-write;
+                                encrypted-media;
+                                gyroscope;
+                                picture-in-picture;
+                                web-share;
+                            "
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!--Seção de Chamada para o Quiz-->
+            <section id="chamada-quiz">
+                <div id="conteudo-chamada-quiz">
+                    <div id="secao-texto">
+                        <h1>
+                            Que tipo de pessoa <span>você 🫵</span> é <br />
+                            com dinheiro?
+                        </h1>
+                        <b>⏰ Leva menos de 4 minutos</b>
+
+                        <button id="btn-chamada-quiz">
+                            <a href="/pages/sobrequiz.html">Descobrir -></a>
+                        </button>
+                    </div>
+                    <div id="secao-imagem">
+                        <img src="/assets/icons/telaPrincipal/celular-quiz.svg" alt="" />
+                </div>
+
+            </section>
+
+            <!--Seção Informativa - Reserva Importância -->
+            <section id="reserva">
+                <div id="conteudo-reserva">
+                    <div>
+                        <img src="/assets/imgs/reserva.png" alt="" />
+                    </div>
+
+                    <div id="reserva-titulo">
+                        <h1>
+                            O perigo de não ter<br />
+                            <span> reserva </span>, qualquer <br />
+                            imprevisto vira <br />
+                            desespero
+                        </h1>
+                        <p>
+                            Dinheiro não é luxo — é proteção contra imprevistos.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!--Seção Informativa - Reserva & Objetivos -->
+            <section id="objetivos">
+                <div id="conteudo-objetivos">
+                    <div id="objetivos-titulo">
+                        <h1>
+                         Imprevistos acontecem. Esteja preparado.
+                        </h1>
+                    </div>
+                    <div class="container-card">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="icon-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-warning-icon lucide-message-circle-warning"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+                                <h3>Imprevistos acontecem</h3>
+                            </div>
+                                <p>Um gasto inesperado pode surgir a qualquer momento.</p>
+                            </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="icon-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-down-icon lucide-trending-down"><path d="M16 17h6v-6"/><path d="m22 17-8.5-8.5-5 5L2 7"/></svg></div>
+                                <h3>Sem reserva vira dívida</h3>
+                            </div>
+                                <p>Muita gente recorre a empréstimos ou cartão de crédito.</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="icon-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-siren-icon lucide-siren"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg></div>
+                                    <h3>Emergências custam caro</h3>
+                                </div>
+                                <p>Problemas de saúde, casa ou carro podem surgir de repente.</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="icon-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-icon lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
+                                    <h3>Ter reserva traz segurança</h3>
+                                </div>
+                                    <p>Você consegue lidar com problemas sem entrar em pânico.</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="icon-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-piggy-bank-icon lucide-piggy-bank"><path d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"/><path d="M16 10h.01"/><path d="M2 8v1a2 2 0 0 0 2 2h1"/></svg></div>
+                                    <h3>Pequenos valores ajudam</h3>
+                                </div>
+                                    <p>Guardar um pouco todo mês já faz diferença no futuro.</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="icon-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-icon lucide-brain"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg></div>
+                                    <h3>Evite decisões por desespero</h3>
+                                </div>
+                                    <p>Sem dinheiro guardado, escolhas ruins parecem a única saída.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!--Seção Informativa - Divida antes dos 20 -->
+            <section id="divida">
+                <div id="conteudo-divida">
+                    <div id="divida-titulo">
+                    <h1>Decisões dos 18 que<br>afetam os 25</h1>
+                    <p>Decisões financeiras aos 18–25 anos têm impacto por muitos anos.</p>
+                    </div>
+                    <div id="divida-imagem">
+                    <img src="/assets/imgs/pilha.jpg" alt="" />
+                    </div>
+                </div>
+            </section>
 
 
-      <!-- Seção de Situações -->
-      <section id="situacoes">
-        <div id="conteudo-situacoes">
-          <div id="situacoes-image">
-            <img src="/assets/imgs/Logo.svg" alt="">
-            <h1>RealDin</h1>
-          </div>
 
-          <div id="situacoes-texto">
-            <h1>Você já passou por alguma dessas <br> situações?</h1>
-            <p>O <span>dinheiro</span> acaba antes do mês terminar ?</p>
-            <p>O <span>salário</span> entra e some rapidamente ?</p>
+            <!--Seção Forms -->
+            <section id="contato" class="contato">
+                <h1 id="contato-titulo">Qualquer dúvida nos contate</h1>
+                <div id="contato-container" class="container">
+                    <div id="contato-info" class="info">
+                        <h2>Contatos</h2>
+                        <p>
+                            Entre em contato com a nossa equipe e tire suas
+                            duvidas conosco.
+                        </p>
 
-            <button id="btn-descubra">
-              <a href="#">Descubra porque -></a>
-            </button>
-          </div>
-        </div>
-      </section>
+                        <div id="contato-email" class="email">
+                            <p>✉</p>
+                            <p>realdinorganizacional@gmail.com</p>
+                        </div>
 
-      <!--Seção Video sobre o projeto-->
-      <section id="video">
-        <div id="conteudo-video">
-          <div id="video-titulo">
-          <h1>Porque o <span>RealDin</span> foi criado?</h1>
-          <p>Entenda mais sobre o projeto</p>
-          </div>
-          <div id="video-area">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/HSIwTde_gJM?si=Vmt_htwyERjCBhiO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </div>
-      </section>
+                        <div id="contato-redes" class="redes">
+                            <a href="#">
+                                <img
+                                    src="/assets/icons/telaPrincipal/Buttonfacebook.svg"
+                                    alt="Facebook"
+                                />
+                            </a>
 
+                            <a href="#">
+                                <img
+                                    src="/assets/icons/telaPrincipal/Buttoninstagram.svg"
+                                    alt="Instagram"
+                                />
+                            </a>
 
-      <section id="chamada-quiz">
-          <h1>Que tipo de pessoa <span>você</span> é <br> com dinheiro?</h1>
-          <p>Parcelamentos, cartão de crédito, promoções e "comprar agora e pagar
-          <br> depois" parecem inofensivos, mas são as principais portas de entrada
-          <br> para dívidas ainda jovem.</p>
-          <b>⏰ Leva menos de 4 minutos</b>
+                            <a href="#">
+                                <img
+                                    src="/assets/icons/telaPrincipal/Buttontwitter.svg"
+                                    alt="Twitter"
+                                />
+                            </a>
+                        </div>
+                    </div>
 
-          <button id="btn-chamada-quiz">
-            <a href="/pages/sobrequiz.html">Descobrir -></a>
-          </button>
-      </section>
+                    <form id="contato-formulario" class="formulario">
+                        <div id="contato-linha" class="linha">
+                            <div class="campo">
+                                <label>Nome</label>
+                                <input type="text" placeholder="Seu nome" />
+                            </div>
+                            <div class="campo">
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    placeholder="seu@email.com"
+                                />
+                            </div>
+                        </div>
+                        <div class="campo">
+                            <label>Mensagem</label>
+                            <textarea placeholder="Sua mensagem..."></textarea>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </section>
+        </main>
 
-      <!--Seção Informativa - Salário não rende -->
-      <section id="salario">
-        <div id="conteudo-salario">
-          <div id="salario-titulo">
-            <h1>Por que o salário nunca rende</h1>
-            <p>
-              <span> O dinheiro é um recurso fundamental </span>
-              na vida das pessoas, <br>
-              pois permite a aquisição de bens e serviços essenciais, como
-              <br> alimentação, moradia, saúde, educação, além de proporcionar
-              <br> maior estabilidade e procurar oportunidades
-            </p>
-            <button id="btn-salario">
-              <a href="">Explorar mais</a>
-            </button>
-          </div>
-
-          <div>
-            <img src="/assets/imgs/secao-nuncarende.svg" alt="">
-          </div>
-        </div>
-      </section>
-
-      <!--Seção Informativa - Reserva Importância -->
-      <section id="reserva">
-        <div id="conteudo-reserva">
-          <div>
-            <img src="/assets/imgs/reserva.png" alt="">
-          </div>
-
-          <div id="reserva-titulo">
-            <h1>O perigo de não ter<br> <span> reserva </span>, qualquer <br> imprevisto vira <br> desespero</h1>
-            <p>
-              Dinheiro não é luxo — é proteção contra imprevistos.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!--Seção Informativa - Divida antes dos 20 -->
-      <section id="divida">
-        <div id="conteudo-divida">
-            <div id="divida-titulo">
-              <h1>Como muita gente entra em <span>dívida</span> antes dos 20</h1>
-              <p>
-                Muitos jovens entram em dívida por <br> não compreender bem o crédito. <br> Parcelas pequenas e o uso do <br> cartão parecem inofensivos, mas os  <br>juros se acumulam rapidamente. <br> Quando percebem, parte da renda <br> já está comprometida antes mesmo <br> de receber.
-              </p>
-            </div>
-
-            <div>
-              <img src="/assets/imgs/dividas.png" alt="">
-            </div>
-        </div>
-      </section>
-
-      <!--Seção Informativa - Decisões dos 18 Afetam os 25 -->
-      <section id="decisoes">
-        <div id="conteudo-decisoes">
-          <div>
-            <img src="/assets/imgs/homem-dinheiro.png" alt="">
-          </div>
-
-          <div id="decisoes-titulo">
-            <h1>Decisões dos 18 que afetam os 25</h1>
-            <p>
-              Decisões financeiras aos 18–25 anos têm impacto por muitos anos.
-            </p>
-            <button id="btn-dividas">
-              <a href="">Conferir mais -></a>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!--Seção Forms -->
-      <section id="contato" class="contato">
-        <h1 id="contato-titulo">Qualquer dúvida nos contate</h1>
-        <div id="contato-container" class="container">
-          <div id="contato-info" class="info">
-            <h2>Contatos</h2>
-            <p>
-              Entre em contato com a nossa equipe e tire suas duvidas conosco.
-            </p>
-
-            <div id="contato-email" class="email">
-              <p>✉</p>
-              <p>realdinorganizacional@gmail.com</p>
-            </div>
-
-            <div id="contato-redes" class="redes">
-              <a href="#">
-                <img src="/assets/icons/telaPrincipal/Buttonfacebook.svg" alt="Facebook">
-              </a>
-
-              <a href="#">
-                <img src="/assets/icons/telaPrincipal/Buttoninstagram.svg" alt="Instagram">
-              </a>
-
-              <a href="#">
-                <img src="/assets/icons/telaPrincipal/Buttontwitter.svg" alt="Twitter">
-              </a>
-            </div>
-          </div>
-
-          <form id="contato-formulario" class="formulario">
-            <div id="contato-linha" class="linha">
-              <div class="campo">
-                <label>Nome</label>
-                <input type="text" placeholder="Seu nome">
-              </div>
-              <div class="campo">
-                <label>Email</label>
-                <input type="email" placeholder="seu@email.com">
-              </div>
-            </div>
-            <div class="campo">
-              <label>Mensagem</label>
-              <textarea placeholder="Sua mensagem..."></textarea>
-            </div>
-            <button type="submit">Enviar</button>
-          </form>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer-componente></footer-componente>
-
-  </body>
+        <!-- Footer -->
+        <footer-componente></footer-componente>
+    </body>
 </html>

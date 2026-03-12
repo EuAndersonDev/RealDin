@@ -1,0 +1,81 @@
+<svg width="900" height="320" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Card -->
+  <rect x="10" y="10" width="880" height="300" rx="15" fill="#f3f3f3" stroke="#e0e0e0"></rect>
+
+  <!-- Área do gráfico -->
+  <rect x="520" y="60" width="320" height="200" fill="none" stroke="#cccccc"></rect>
+
+  <!-- Linhas de grade horizontais -->
+  <g stroke="#dddddd" stroke-dasharray="4">
+    <line x1="520" y1="100" x2="840" y2="100"></line>
+    <line x1="520" y1="140" x2="840" y2="140"></line>
+    <line x1="520" y1="180" x2="840" y2="180"></line>
+    <line x1="520" y1="220" x2="840" y2="220"></line>
+  </g>
+
+  <!-- Linhas verticais -->
+  <g stroke="#dddddd" stroke-dasharray="4">
+    <line x1="560" y1="60" x2="560" y2="260"></line>
+    <line x1="600" y1="60" x2="600" y2="260"></line>
+    <line x1="640" y1="60" x2="640" y2="260"></line>
+    <line x1="680" y1="60" x2="680" y2="260"></line>
+    <line x1="720" y1="60" x2="720" y2="260"></line>
+    <line x1="760" y1="60" x2="760" y2="260"></line>
+  </g>
+
+  <!-- Números eixo Y -->
+  <g font-size="12" fill="#666">
+    <text x="495" y="225">0</text>
+    <text x="490" y="185">150</text>
+    <text x="490" y="145">300</text>
+    <text x="490" y="105">450</text>
+    <text x="490" y="70">600</text>
+  </g>
+
+  <!-- Meses eixo X -->
+  <g font-size="12" fill="#666">
+    <text x="550" y="280">Mês 1</text>
+    <text x="590" y="280">Mês 2</text>
+    <text x="630" y="280">Mês 3</text>
+    <text x="670" y="280">Mês 4</text>
+    <text x="710" y="280">Mês 5</text>
+    <text x="750" y="280">Mês 6</text>
+  </g>
+
+  <!-- Linha azul (Banco) -->
+  <polyline fill="none" stroke="#2b7cd3" stroke-width="3" points="560,200 600,195 640,192 680,188 720,185 760,182"></polyline>
+
+  <!-- Pontos azuis -->
+  <g fill="#2b7cd3">
+    <circle cx="560" cy="200" r="4"></circle>
+    <circle cx="600" cy="195" r="4"></circle>
+    <circle cx="640" cy="192" r="4"></circle>
+    <circle cx="680" cy="188" r="4"></circle>
+    <circle cx="720" cy="185" r="4"></circle>
+    <circle cx="760" cy="182" r="4"></circle>
+  </g>
+
+  <!-- Linha vermelha (Agiota) -->
+  <polyline fill="none" stroke="#e53935" stroke-width="3" points="560,200 600,190 640,175 680,160 720,140 760,90"></polyline>
+
+  <!-- Pontos vermelhos -->
+  <g fill="#e53935">
+    <circle cx="560" cy="200" r="4"></circle>
+    <circle cx="600" cy="190" r="4"></circle>
+    <circle cx="640" cy="175" r="4"></circle>
+    <circle cx="680" cy="160" r="4"></circle>
+    <circle cx="720" cy="140" r="4"></circle>
+    <circle cx="760" cy="90" r="4"></circle>
+  </g>
+
+  <!-- Legenda -->
+  <g font-size="12">
+    <circle cx="600" cy="305" r="5" fill="#2b7cd3"></circle>
+    <text x="610" y="309" fill="#2b7cd3">Banco</text>
+
+    <circle cx="680" cy="305" r="5" fill="#e53935"></circle>
+    <text x="690" y="309" fill="#e53935">Agiota</text>
+  </g>
+
+</svg>

@@ -17,87 +17,87 @@ button a {
 /* ===========================
    Seção Hero — com vídeo + onda
    =========================== */
-    #hero {
-      position: relative;
-      width: 100%;
-      min-height: 100vh;         /* ponta a ponta na altura */
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
+#hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* ponta a ponta na altura */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
 
-    /* Imagem de fundo ponta a ponta */
-    #hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center right; /* pessoa fica mais à direita */
-      z-index: 0;
-    }
+/* Imagem de fundo ponta a ponta */
+#hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right; /* pessoa fica mais à direita */
+    z-index: 0;
+}
 
-    /*
+/*
       Gradiente sobre a imagem:
       - lado esquerdo: escuro/opaco → texto legível
       - lado direito: transparente → imagem aparece limpa
     */
-    #hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
+#hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.62) 0%,
         rgba(0, 0, 0, 0.38) 38%,
-        rgba(0, 0, 0, 0.0)  62%
-      );
-      z-index: 1;
-    }
+        rgba(0, 0, 0, 0) 62%
+    );
+    z-index: 1;
+}
 
-    /* Conteúdo à esquerda, sobre tudo */
-    #hero-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: auto;
-      max-width: 1200px;
-      margin: 5 auto;
-      padding: 0 6%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 28px;
-    }
+/* Conteúdo à esquerda, sobre tudo */
+#hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    margin: 5 auto;
+    padding: 0 6%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+}
 
-    #hero-content h1 {
-      color: #ffffff;
-      font-size: 102px;
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -1px;
-      max-width: auto;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.25);
-    }
+#hero-content h1 {
+    color: #ffffff;
+    font-size: 102px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    max-width: auto;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+}
 
-    #hero-content h1 #span {
+#hero-content h1 #span {
     background-color: #fae007;
     color: #1a1a1a;
     padding: 0 6px;
     border-radius: 4px;
     text-shadow: none;
-    display: inline;   /* ← troca flex por inline */
+    display: inline; /* ← troca flex por inline */
     margin-top: 6px;
-    }
+}
 
-    #hero-content p {
-      color: rgba(255,255,255,0.90);
-      font-size: 35px;
-      font-weight: 500;
-      max-width: auto;
-      line-height: 1.5;
-    }
+#hero-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 35px;
+    font-weight: 500;
+    max-width: auto;
+    line-height: 1.5;
+}
 
-    #btn-fazer-teste {
+#btn-fazer-teste {
     width: 350px;
     height: 80px;
     background: #59bda3;
@@ -110,79 +110,83 @@ button a {
     cursor: pointer;
     text-decoration: none;
     display: flex;
-    transition: background 0.22s, transform 0.18s;
+    transition:
+        background 0.22s,
+        transform 0.18s;
     letter-spacing: 0.2px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     align-items: center;
     justify-content: center;
-    }
+}
 
-    #btn-fazer-teste:hover {
-      background: #4aaa90;
-      transform: translateY(-2px);
-    }
+#btn-fazer-teste:hover {
+    background: #4aaa90;
+    transform: translateY(-2px);
+}
 
-    /* ── Animações de entrada ── */
-    .hero-anim {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      animation-delay: var(--delay, 0s);
-    }
+/* ── Animações de entrada ── */
+.hero-anim {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--delay, 0s);
+}
 
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      #hero-overlay {
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    #hero-overlay {
         background: linear-gradient(
-          to bottom,
-          rgba(0,0,0,0.65) 0%,
-          rgba(0,0,0,0.40) 60%,
-          rgba(0,0,0,0.10) 100%
+            to bottom,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.4) 60%,
+            rgba(0, 0, 0, 0.1) 100%
         );
-      }
+    }
 
-      #hero-content {
+    #hero-content {
         padding: 60px 5% 40px;
         align-items: flex-start;
-      }
+    }
 
-      #hero-content h1 {
+    #hero-content h1 {
         max-width: 100%;
-      }
     }
+}
 
-    /* ── Placeholder da imagem (para testar sem arquivo real) ── */
-    .placeholder-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #2c3e50 0%, #4a7c6f 40%, #8db8a0 100%);
-      display: flex;    
-      align-items: center;
-      justify-content: flex-end;
-      z-index: 0;
-    }
+/* ── Placeholder da imagem (para testar sem arquivo real) ── */
+.placeholder-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a7c6f 40%, #8db8a0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 0;
+}
 
-    .placeholder-person {
-      width: 55%;
-      height: 100%;
-      background: linear-gradient(180deg, #7a9e8a 0%, #3d6b5a 100%);
-      opacity: 0.6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 120px;
-    }
-
+.placeholder-person {
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(180deg, #7a9e8a 0%, #3d6b5a 100%);
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+}
 
 /* ===========================
    Seção de Situações
    =========================== */
 #situacoes {
-    background-image: url(/assets/icons/telaPrincipal/fundo3.svg);
+    background-image: url(/assets/icons/telaPrincipal/wave-haikei\ \(3\).svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -218,6 +222,21 @@ button a {
     margin-top: 10px;
 }
 
+.moeda {
+    width: 120px;
+    animation: coinSpin 2s linear infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes coinSpin {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
 #situacoes-image h1 {
     font-family: Inter;
     font-size: 92px;
@@ -244,8 +263,8 @@ button a {
     font-size: 56px;
     font-style: normal;
     font-weight: 700;
-    line-height: 36px; /* 100% */
-    margin: 20px;
+    line-height: 56px; /* 100% */
+    margin-bottom: 20px;
 }
 
 #situacoes-texto p {
@@ -281,7 +300,7 @@ button a {
     height: 90px;
     border-radius: 37px;
     background: #59bda3;
-    margin: 20px;
+    margin-top: 50px;
     border: none;
 }
 
@@ -289,7 +308,7 @@ button a {
     color: #fff;
     text-align: center;
     font-family: Inter;
-    font-size: 38px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 700;
     line-height: 28px; /* 155.556% */
@@ -300,7 +319,7 @@ button a {
    =========================== */
 #video {
     width: 100%;
-    height: 1024px;
+    height: 700px;
     padding: 60px 0;
     background-color: #2b9c89;
     display: flex;
@@ -330,28 +349,31 @@ button a {
 #video-titulo h1 {
     color: #fff;
     font-family: Inter;
-    font-size: 48px;
+    font-size: 68px;
     font-style: normal;
     font-weight: 700;
     line-height: 48px; /* 100% */
+    margin-top: 10px;
 }
 
 #video-titulo span {
     color: #f9c31f;
     font-family: Inter;
-    font-size: 48px;
+    font-size: 68px;
     font-style: normal;
     font-weight: 700;
-    line-height: 48px;
+    line-height: 68px;
+    margin-top: 10px;
 }
 
 #video-titulo p {
     color: #fff;
     font-family: Inter;
-    font-size: 24px;
+    font-size: 44px;
     font-style: normal;
     font-weight: 400;
-    line-height: 28px; /* 116.667% */
+    line-height: 40px; /* 116.667% */
+    margin-top: 10px;
 }
 
 #video-area {
@@ -377,16 +399,48 @@ button a {
    Seção Chamada Quiz
    =========================== */
 #chamada-quiz {
-    background-image: url(/assets/icons/telaPrincipal/fundo2.svg);
+    background-image: url(/assets/icons/telaPrincipal/wave-haikei\ \(2\).svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     width: 100%;
     height: 1024px;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudo-chamada-quiz {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#secao-texto {
+    width: 55%;
+    height: auto;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 10px;
+}
+
+#secao-imagem {
+    width: 45%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#secao-imagem img{
+    width: 100%;
+    height: 100%;
 }
 
 #chamada-quiz h1 {
@@ -394,54 +448,46 @@ button a {
     text-align: center;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter;
-    font-size: 54px;
+    font-size: 58px;
     font-style: normal;
     font-weight: 700;
-    line-height: 48px; /* 88.889% */
+    line-height: 68px; /* 88.889% */
     margin: 10px;
 }
 
 #chamada-quiz span {
-    color: #C7B500;
+    width: fit-content;
+    background-color: #fae007;
+    color: #212529;
     font-family: Inter;
-    font-size: 54px;
+    font-size: 60px;
     font-style: normal;
     font-weight: 700;
     line-height: 48px;
-}
-
-#chamada-quiz p {
-    color: #666;
-    text-align: center;
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 29.25px; /* 121.875% */
-    margin: 10px;
 }
 
 #chamada-quiz b {
     color: #676f7e;
     text-align: center;
     font-family: Inter;
-    font-size: 18px;
+    font-size: 26px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px; /* 111.111% */
-    margin: 10px;
+    margin: 20px;
 }
 
 #btn-chamada-quiz {
     display: flex;
-    width: 15%;
+    width: 35%;
+    height: 80px;
     padding: 17px 49.95px 16px 51px;
     justify-content: center;
     align-items: center;
     gap: 5.334px;
     border-radius: 37px;
     background: #2b9c89;
-    margin: 10px;
+    margin-top: 20px;
     border: none;
 }
 
@@ -449,96 +495,10 @@ button a {
     color: #fff;
     text-align: center;
     font-family: Inter;
-    font-size: 18px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 700;
     line-height: 28px; /* 155.556% */
-}
-
-/* ===========================
-   Seção Informativa - Salário não rende
-   =========================== */
-#salario {
-    border-radius: 5px;
-    background: linear-gradient(#2b9c89, #19aed9);
-    color: white;
-    width: 100%;
-    height: 1024px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#conteudo-salario {
-    width: 100%;
-    height: 400px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#salario-titulo {
-    width: 60%;
-    height: auto;
-    text-align: left;
-    flex-direction: column;
-}
-
-#salario-titulo h1 {
-    color: #fff;
-    font-family: Inter;
-    font-size: 58px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 48px; /* 82.759% */
-    margin-bottom: 40px;
-}
-
-#salario-titulo p {
-    color: #f0fdfa;
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32.5px; /* 135.417% */
-}
-
-#salario-titulo span {
-    background-color: #C7B500;
-    color: #111827;
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 32.5px; /* 135.417% */
-    border-radius: 10px;
-}
-
-#conteudo-salario img {
-    width: 100%;
-    height: 349px;
-    aspect-ratio: 249/158;
-}
-
-#btn-salario {
-    width: 20%;
-    height: 52px;
-    border-radius: 37px;
-    background: #fff;
-    margin: 20px;
-    border: none;
-}
-
-#btn-salario a {
-    color: #212529;
-    text-align: center;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; /* 150% */
-    border: none;
 }
 
 /* ===========================
@@ -546,10 +506,11 @@ button a {
    =========================== */
 #reserva {
     width: 100%;
-    height: 1024px;
+    height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 #conteudo-reserva {
@@ -590,150 +551,180 @@ button a {
 }
 
 #reserva-titulo span {
-    background-color: #C7B500;
+    background-color: #fae007;
     border-radius: 100px;
 }
 
 /* ===========================
-   Seção Informativa - Dívida antes dos 20
+   Seção Informativa - Reserva & Objetivos
    =========================== */
-#divida {
-    border-radius: 5px;
-    background: #177f72;
+
+#objetivos {
     width: 100%;
-    height: 1024px;
+    height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
-#conteudo-divida {
+#conteudo-objetivos {
     width: 100%;
     height: 600px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
-}
-
-#divida-titulo {
-    width: 50%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;   
 }
 
-#conteudo-divida img {
-    width: 475px;
+#objetivos-titulo {
+    width: 80%;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-#divida-titulo h1 {
-    color: #fff;
+#objetivos-titulo h1 {
+    color: #212529;
     font-family: Inter;
-    font-size: 58px;
+    font-size: 50px;
     font-style: normal;
     font-weight: 700;
-    line-height: 58px;
+    line-height: 70px;
     letter-spacing: -1.16px;
+    margin: 20px;
 }
 
-#divida-titulo span {
-    color: #C7B500;
-    font-family: Inter;
-    font-size: 58px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -1.16px;
+.container-card {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
 }
 
-#divida-titulo p {
-    color: #d5d5d5;
-    font-family: Inter;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 23px; /* 104.545% */
-    letter-spacing: 2.86px;
+.card {
+    width: 33%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 28px 24px;
+    border: 1px solid #e8e8e8;
+    flex: 1 1 33%;
+    transition: background 0.2s;
 }
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.card:hover {
+      background: #f9f9f9;
+    }
+
+.card .icon {
+      width: 34px;
+      height: 34px;
+    }
+
+.card h3 {
+      font-size: 25px;
+      font-weight: 600;
+      color: #111;
+      line-height: 1.4;
+    }
+
+.card p {
+      font-size: 19.5px;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .card { flex: 1 1 50%; }
+    }
+
+    @media (max-width: 400px) {
+      .card { flex: 1 1 100%; }
+    }
+
 
 /* ===========================
    Seção Informativa - Decisões dos 18 Afetam os 25
    =========================== */
-#decisoes {
-    width: 100%;
-    height: 1024px;
-    background-color: #fff;
+
+
+#divida {
+  border-radius: 5px;
+  background: #177f72;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-#conteudo-decisoes {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
+#conteudo-divida {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
 }
 
-#conteudo-decisoes img {
-    width: 100%;
-    height: auto;
+#divida-titulo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  padding-left: 80px;
 }
 
-#decisoes-titulo {
-    width: 45%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#divida-titulo h1 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 58px;
+  letter-spacing: -1.16px;
 }
 
-#decisoes-titulo h1 {
-    color: #212529;
-    text-align: center;
-    font-family: Inter;
-    font-size: 58px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 58px; /* 100% */
-    letter-spacing: -1.16px;
-    margin: 15px;
+#divida-titulo p {
+  color: #fff;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 2.86px;
+  margin-top: 20px;
 }
 
-#decisoes-titulo p {
-    color: #212529;
-    text-align: center;
-    font-family: Inter;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 30px; /* 100% */
-    letter-spacing: -0.6px;
-    margin: 15px;
+#divida-imagem {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 1;
+  height: 100%;
 }
 
-#btn-dividas {
-    width: 200px;
-    height: 55px;
-    border-radius: 37px;
-    background: #59bda3;
-    margin: 15px;
-    border: none;
-}
-
-#btn-dividas a {
-    color: #fff;
-    text-align: center;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 28px; /* 155.556% */
+#divida-imagem img {
+  width: 635px;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 250px 5px 5px 0;
 }
 
 /* ===========================
