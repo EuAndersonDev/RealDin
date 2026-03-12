@@ -21,7 +21,7 @@ main {
 }
 
 #hero img {
-    width: 200px;
+    width: 370px;
     height: auto;
 }
 
@@ -30,35 +30,36 @@ main {
     text-align: center;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter;
-    font-size: 3.625rem;
+    font-size: 80px;
     font-style: normal;
     font-weight: 700;
     line-height: 4.5rem; /* 124.138% */
     letter-spacing: -0.1125rem;
+    margin: 10px;
 }
 
 .fonte-amarelo {
-    color: #fae007;
-    font-family: Inter;
-    font-size: 3.625rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 4.5rem;
-    letter-spacing: -0.1125rem;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-#hero span {
     background: linear-gradient(107deg, #7957ea 0%, #19aed9 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Inter;
-    font-size: 3.625rem;
+    font-size: 80px;
     font-style: normal;
     font-weight: 700;
     line-height: 4.5rem;
     letter-spacing: -0.1125rem;
+}
+
+#hero span {
+    color: #fae007;
+    font-family: Inter;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 4.5rem;
+    letter-spacing: -0.1125rem;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #paragrafo-hero {
@@ -69,6 +70,11 @@ main {
     margin-top: 20px;
 }
 
+#paragrafo-hero p {
+    font-size: 40px;
+    line-height: 1.6;
+}
+
 p {
     padding: 5px;
 }
@@ -76,7 +82,8 @@ p {
 #descer-mais {
     background: var(--primary-color);
     display: flex;
-    width: 250px;
+    width: 290px;
+    height: 70px;
     color: #fff;
     margin: 30px;
     padding: 0.75rem 1rem;
@@ -86,7 +93,7 @@ p {
     gap: 0.2em;
     border-radius: 624.9375rem;
     border: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.1;
     text-align: center;
     font-family: Inter, sans-serif;
@@ -111,145 +118,236 @@ p {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-#CTA {
-    background-color: #fff;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    align-items: center;
-    padding-bottom: 100px;
-}
+/* ============================================
+           SEÇÃO #CTA — estrutura igual à original,
+        ============================================ */
+        #CTA {
+            background-color: rgb(61, 61, 61)8ef;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            align-items: center;
+            padding-bottom: 100px;
+        }
 
-#titulo-CTA {
-    width: auto;
-    height: auto;
-    text-align: center;
-    margin-top: 100px;
-    font-size: 56px;
-    font-family: Inter;
-}
+        /* ---- HERO ROW (novo: título + imagem lado a lado) ---- */
+        .cta-hero-row {
+            width: 100%;
+            max-width: 1240px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+            margin-top: 80px;
+            padding: 0 40px;
+        }
 
-#paragrafo-CTA {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 1.25rem;
-    font-family: Inter;
-    width: 50%;
-}
+        .cta-hero-text {
+            flex: 0 0 44%;
+        }
 
-#container-card {
-    width: 100%;
-    max-width: 1240px;
-    min-height: 350px;
-    display: flex;
-    gap: 24px;
-    margin-top: 50px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
+        /* ---- Título ---- */
+        #titulo-CTA {
+            width: auto;
+            height: auto;
+            text-align: left;
+            font-size: 60px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
 
-.card {
-    background: #f0f2f4;
-    width: 20%;
-    height: 315px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 24px;
-    gap: 14px;
-    border-radius: 16px;
-    border: 1px solid #dcdfe5;
-}
+        #titulo-CTA .fonte-amarelo {
+            color: #fae007;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            font-family: inherit;
+        }
 
-.card img {
-    width: 48px;
-    height: 48px;
-}
+        /* ---- Parágrafo ---- */
+        #paragrafo-CTA {
+            text-align: left;
+            font-size: 30px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 400;
+            color: #6a6a6a;
+            line-height: 1.7;
+            width: 100%;
+        }
 
-.card h4 {
-    margin: 4px 0 0;
-    color: #202733;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.2px;
-}
+        #paragrafo-CTA p {
+            padding: 0;
+            display: inline;
+        }
 
-.card p {
-    margin: 0;
-    padding: 0;
-    color: #6a7183;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.3;
-}
 
-#card-CTA {
-    border-radius: 24px;
-    background: linear-gradient(113deg, #00674f 0%, #19aed9 100%);
-    box-shadow: 8px 12px 4px 0 rgba(0, 0, 0, 0.25);
-    width: 50%;
-    height: 300px;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        /* ============================================
+           CARDS
+        ============================================ */
+        #container-card {
+            width: 100%;
+            max-width: 1240px;
+            min-height: 350px;
+            display: flex;
+            gap: 24px;
+            margin-top: 48px;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: center;
+            padding: 0 40px;
+        }
 
-#card-CTA .fundo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
+        #CTA cardcta-component {
+            width: 100%;
+            max-width: 1240px;
+            margin-top: 80px;
+            padding: 0 40px;
+            display: block;
+        }
 
-#card-CTA h1 {
-    color: #fff;
-    text-align: center;
-    font-family: Inter;
-    font-size: 38px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 40px; /* 105.263% */
-}
+        #CTA cardcta-component .cardcta {
+            width: 100%;
+        }
 
-#card-CTA p {
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 120% */
-}
+        .card {
+            background: #ffffff;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 34px 28px;
+            gap: 0;
+            border-radius: 20px;
+            border: none;
+            box-shadow: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-#card-CTA button {
-    display: flex;
-    width: 244.94px;
-    height: 56px;
-    margin: 20px;
-    padding: 18px 43.47px 18px 42.47px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 9999px;
-    border: none;
-    background: #fae007;
-}
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+        }
 
-#card-CTA button p {
-    color: #171a26;
-    text-align: center;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 28px; /* 155.556% */
-}
+        .card img {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 18px;
+        }
+
+        .card h4 {
+            margin: 0 0 10px;
+            color: #1a1a1a;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.2px;
+        }
+
+        .card p {
+            margin: 0;
+            padding: 0;
+            color: #6a7183;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        #CTA cardcta-component .heading-2 {
+            font-size: 2.9rem;
+            line-height: 1.2;
+        }
+
+        #CTA cardcta-component .text-button-cardCta {
+            font-size: 1.35rem;
+            line-height: 1.6;
+        }
+
+        #CTA cardcta-component .link-buttonCta {
+            font-size: 1.2rem;
+            padding: 18px 36px;
+        }
+
+        /* ============================================
+           CARD CTA
+        ============================================ */
+        #card-CTA {
+            border-radius: 24px;
+            background: linear-gradient(113deg, #00674f 0%, #19aed9 100%);
+            box-shadow: 8px 12px 24px rgba(0, 0, 0, 0.18);
+            width: 50%;
+            height: 300px;
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #card-CTA .fundo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 0 32px;
+        }
+
+        #card-CTA h1 {
+            color: #fff;
+            text-align: center;
+            font-family: 'Sora', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        #card-CTA p {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        #card-CTA button {
+            display: flex;
+            width: 244.94px;
+            height: 56px;
+            margin: 20px;
+            padding: 18px 43px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 9999px;
+            border: none;
+            background: #fae007;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        #card-CTA button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #card-CTA button p {
+            color: #171a26;
+            text-align: center;
+            font-family: 'Sora', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1;
+        }
 
 /* ===========================
    Responsividade - Tablet
@@ -270,8 +368,8 @@ p {
     #titulo-hero,
     .fonte-amarelo,
     #hero span {
-        font-size: 3rem;
-        line-height: 3.6rem;
+        font-size: 3.3rem;
+        line-height: 4rem;
         letter-spacing: -0.08rem;
     }
 
@@ -280,20 +378,20 @@ p {
     }
 
     #paragrafo-hero p {
-        font-size: 1.1rem;
-        line-height: 1.5;
+        font-size: 1.2rem;
+        line-height: 1.6;
         padding: 2px;
     }
 
     #titulo-CTA {
         margin-top: 72px;
-        font-size: 46px;
+        font-size: 52px;
         line-height: 1.15;
     }
 
     #paragrafo-CTA {
         width: 76%;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     #container-card {
@@ -302,10 +400,37 @@ p {
         gap: 20px;
     }
 
+    #CTA cardcta-component {
+        width: 92%;
+        margin-top: 72px;
+        padding: 0;
+    }
+
     .card {
         width: calc(50% - 10px);
-        min-height: 280px;
+        min-height: 330px;
         height: auto;
+    }
+
+    .card h4 {
+        font-size: 1.25rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    #CTA cardcta-component .heading-2 {
+        font-size: 2.5rem;
+    }
+
+    #CTA cardcta-component .text-button-cardCta {
+        font-size: 1.2rem;
+    }
+
+    #CTA cardcta-component .link-buttonCta {
+        font-size: 1.1rem;
     }
 
     #card-CTA {
@@ -346,8 +471,8 @@ p {
     #titulo-hero,
     .fonte-amarelo,
     #hero span {
-        font-size: 2.2rem;
-        line-height: 2.8rem;
+        font-size: 2.5rem;
+        line-height: 3.1rem;
         letter-spacing: -0.04rem;
     }
 
@@ -357,14 +482,14 @@ p {
     }
 
     #paragrafo-hero p {
-        font-size: 1rem;
-        line-height: 1.45;
+        font-size: 1.1rem;
+        line-height: 1.55;
         padding: 1px;
     }
 
     #descer-mais {
-        width: 180px;
-        height: 84px;
+        width: 220px;
+        height: 92px;
         margin: 22px;
     }
 
@@ -373,7 +498,7 @@ p {
     }
 
     #descer-mais .texto-descer {
-        font-size: 0.95rem;
+        font-size: 1.02rem;
     }
 
     #CTA {
@@ -382,12 +507,12 @@ p {
 
     #titulo-CTA {
         margin-top: 56px;
-        font-size: 36px;
+        font-size: 42px;
     }
 
     #paragrafo-CTA {
         width: 100%;
-        font-size: 1rem;
+        font-size: 1.08rem;
     }
 
     #container-card {
@@ -396,20 +521,38 @@ p {
         gap: 16px;
     }
 
+    #CTA cardcta-component {
+        width: 100%;
+        margin-top: 52px;
+        padding: 0;
+    }
+
     .card {
         width: 100%;
-        min-height: 230px;
-        padding: 20px;
+        min-height: 260px;
+        padding: 24px;
         border-radius: 14px;
     }
 
     .card h4 {
-        font-size: 18px;
+        font-size: 21px;
     }
 
     .card p {
-        font-size: 15px;
-        line-height: 1.45;
+        font-size: 17px;
+        line-height: 1.55;
+    }
+
+    #CTA cardcta-component .heading-2 {
+        font-size: 2.05rem;
+    }
+
+    #CTA cardcta-component .text-button-cardCta {
+        font-size: 1.05rem;
+    }
+
+    #CTA cardcta-component .link-buttonCta {
+        font-size: 1rem;
     }
 
     #card-CTA {
@@ -450,26 +593,43 @@ p {
     #titulo-hero,
     .fonte-amarelo,
     #hero span {
-        font-size: 1.9rem;
-        line-height: 2.35rem;
+        font-size: 2.15rem;
+        line-height: 2.55rem;
     }
 
     #paragrafo-hero p {
-        font-size: 0.95rem;
+        font-size: 1.02rem;
     }
 
     #descer-mais {
-        width: 164px;
-        height: 78px;
-        font-size: 0.9rem;
+        width: 196px;
+        height: 86px;
+        font-size: 0.98rem;
     }
 
     #titulo-CTA {
-        font-size: 30px;
+        font-size: 35px;
     }
 
     .card {
-        min-height: 210px;
+        min-height: 240px;
+    }
+
+    .card h4 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    #CTA cardcta-component .heading-2 {
+        font-size: 1.8rem;
+    }
+
+    #CTA cardcta-component .text-button-cardCta {
+        font-size: 1rem;
     }
 
     #card-CTA h1 {
