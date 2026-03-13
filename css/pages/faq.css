@@ -194,19 +194,14 @@ body {
   	text-align: center;
   	font-size: 15.4px;
   	color: #1f2937;
-}
-.modal-cancel-text {
-  	position: absolute;
-  	top: calc(50% - 8px);
-  	left: calc(50% - 33.85px);
-  	line-height: 24px;
   	display: flex;
-  	align-items: center;
-    
   	justify-content: center;
-  	width: 67.9px;
-  	height: 16px;
+  	align-items: center;
+  	font-family: Inter;
+  	border: none;
+  	cursor: pointer;
 }
+
 .modal-button-confirm {
   	position: absolute;
   	top: 498px;
@@ -218,18 +213,14 @@ body {
   	text-align: center;
   	font-size: 15.4px;
   	color: #fff;
-}
-.modal-confirm-text {
-  	position: absolute;
-  	top: calc(50% - 8px);
-  	left: calc(50% - 38.2px);
-  	line-height: 24px;
   	display: flex;
-  	align-items: center;
   	justify-content: center;
-  	width: 76.7px;
-  	height: 16px;
+  	align-items: center;
+  	font-family: Inter;
+  	border: none;
+  	cursor: pointer;
 }
+
 
 .modal-content {
     position: relative;
