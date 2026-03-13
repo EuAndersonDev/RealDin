@@ -521,7 +521,7 @@ main {
     width: 990px;
     height: 107px;
     position: relative;
-    font-size: 90px;
+    font-size: 95px;
     line-height: 80px;
     display: flex;
     font-family: Inter;
@@ -542,7 +542,7 @@ main {
     width: 931px;
     height: 145px;
     position: relative;
-    font-size: 35px;
+    font-size: 40px;
     line-height: 40px;
     font-family: Inter;
     text-align: left;
@@ -563,7 +563,7 @@ main {
     width: 902px;
     height: 110px;
     position: relative;
-    font-size: 35px;
+    font-size: 40px;
     line-height: 40px;
     color: #212529;
     text-align: left;
@@ -595,8 +595,8 @@ main {
     position: absolute;
     top: 26px;
     left: 17px;
-    line-height: 30px;
-    font-weight: 500;
+    line-height: 25px;
+    font-size: 30px;
     display: flex;
     align-items: center;
     width: 773.7px;
