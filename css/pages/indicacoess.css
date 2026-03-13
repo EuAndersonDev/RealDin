@@ -4,30 +4,72 @@
     box-sizing: border-box;
 }
 
+/* === SCROLL SUAVE GLOBAL === */
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity; /* "proximity" = snap suave, sem prender demais */
+}
+
+body {
+    overflow-x: hidden;
+}
+
 .container {
     max-width: 1200px;
     margin: auto;
     padding: 0 20px;
 }
 
-/* HERO */
+/* === ANIMAÇÃO DE ENTRADA AO SCROLLAR === */
+/* JS adiciona .will-animate antes de observar, evitando flash de conteúdo invisível */
+.will-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
 
+.will-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay escalonado para grupos de cards dentro de grids */
+.stats-grid .will-animate:nth-child(2),
+.cursos-grid .will-animate:nth-child(2) { transition-delay: 0.1s; }
+
+.stats-grid .will-animate:nth-child(3),
+.cursos-grid .will-animate:nth-child(3) { transition-delay: 0.2s; }
+
+.cursos-grid .will-animate:nth-child(4) { transition-delay: 0.3s; }
+.cursos-grid .will-animate:nth-child(5) { transition-delay: 0.4s; }
+.cursos-grid .will-animate:nth-child(6) { transition-delay: 0.5s; }
+
+/* === SEÇÕES COM SCROLL SNAP === */
+/* Aplique .snap-section nas seções principais do HTML */
+.snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal; /* "normal" = não prende, só guia */
+}
+
+/* HERO */
 .hero {
     background-image: url(/assets/imgs/borboleta.png);
-    background-size: cover; 
-    background-position: center center; 
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    
-    
-    min-height: 90vh; 
-    padding: 100px 0; 
-    color: white; 
-    
-    
+    background-attachment: fixed; /* Parallax suave no desktop */
+
+    min-height: 90vh;
+    padding: 100px 0;
+    color: white;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    scroll-snap-align: start;
 }
+
 .hero::after {
     content: "";
     position: absolute;
@@ -35,12 +77,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); 
-    z-index: -1; 
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
 }
 
 .hero-grid {
-    
     max-width: 1400px;
     height: 700px;
     display: grid;
@@ -50,28 +91,32 @@
     margin-top: 50px;
 }
 
-.hero-text{
-
-text-align:center;
-    max-width: 800px; 
+.hero-text {
+    text-align: center;
+    max-width: 800px;
     margin: 0 auto;
+
+    /* Animação de entrada do hero (roda uma vez ao carregar) */
+    animation: heroEntrada 0.9s ease both;
+}
+
+@keyframes heroEntrada {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero-text h1 {
     height: 50vh;
-    font-size: 60px; 
+    font-size: 60px;
     line-height: 1.0;
-    text-align:left;
+    text-align: left;
 }
 
-
-
-
 /* PERFIL */
-
 .perfil-secao {
     padding: 80px 10%;
     font-family: "Inter", sans-serif;
+    scroll-snap-align: start;
 }
 
 .titulo-perfil {
@@ -85,11 +130,16 @@ text-align:center;
 /* Card Branco Superior */
 .card-perfil-status {
     background: #fff;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    padding: 50px 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid #f0f0f0;
     margin-bottom: 40px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .perfil-info-topo {
@@ -124,7 +174,7 @@ text-align:center;
     color: #333;
 }
 
-/* Barra de Progresso RealDin */
+/* Barra de Progresso */
 .barra-progresso-container {
     background-color: #cacaca;
     height: 12px;
@@ -137,9 +187,15 @@ text-align:center;
     height: 100%;
     background: linear-gradient(90deg, #1aa7d5, #59bda3);
     border-radius: 20px;
+    width: 0%;
+    transition: width 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
 }
 
-/* Card de Evolução Inferior */
+.barra-progresso-fill.animate {
+    width: var(--target-width, 45%);
+}
+
+/* Card de Evolução */
 .card-evolucao {
     background: #fff;
     border-radius: 15px;
@@ -180,11 +236,12 @@ text-align:center;
     border-radius: 12px;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .btn-recomenda-perfil:hover {
     background-color: #48a68d;
+    transform: scale(1.04);
 }
 
 .status-aprendizado {
@@ -194,9 +251,9 @@ text-align:center;
 }
 
 /* LIVROS */
-
 .recomendados {
     padding: 100px 0;
+    scroll-snap-align: start;
 }
 
 .livros {
@@ -208,10 +265,15 @@ text-align:center;
 .livro img {
     width: 100%;
     border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.livro img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 /* CTA */
-
 .banner-final-cta {
     width: 100%;
     margin: 40px auto;
@@ -220,13 +282,16 @@ text-align:center;
     background-image: url(/assets/imgs/HomemPreocupado.svg);
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Parallax no desktop */
     border-radius: 15px;
 
     display: flex;
-    align-items: flex-end; /* Empurra o conteúdo para baixo */
-    justify-content: flex-start; /* Alinha à esquerda  */
-    padding-bottom: 80px; /* Ajuste esse valor para o botão subir ou descer na imagem */
-    padding-left: 8%; /* Ajuste para alinhar o botão lateralmente */
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-bottom: 80px;
+    padding-left: 8%;
+
+    scroll-snap-align: start;
 }
 
 .banner-container-botao {
@@ -242,19 +307,17 @@ text-align:center;
     padding: 18px 35px;
     font-size: 18px;
     font-weight: 700;
-    text-transform: lowercase; /* Estilo moderno  */
+    text-transform: lowercase;
     border-radius: 8px;
     cursor: pointer;
-    transition:
-        transform 0.2s,
-        background 0.3s;
+    transition: transform 0.2s, background 0.3s;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     width: fit-content;
 }
 
 .btn-cta-verde:hover {
     background-color: #48a68d;
-    transform: scale(1.05); /* Feedback visual */
+    transform: scale(1.05);
 }
 
 .banner-status-info {
@@ -265,11 +328,13 @@ text-align:center;
     font-weight: 500;
 }
 
+/* STATS */
 .stats-container {
     max-width: 1200px;
     margin: -50px auto 60px;
     padding: 0 20px;
     margin-top: 100px;
+    scroll-snap-align: start;
 }
 
 .stats-grid {
@@ -289,9 +354,14 @@ text-align:center;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Espaço para os Ícones */
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
 .icon-placeholder {
     width: 120px;
     height: 120px;
@@ -313,12 +383,13 @@ text-align:center;
     font-family: "Inter", sans-serif;
 }
 
-/* Container Geral */
+/* CURSOS */
 .cursos-container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
     font-family: "Inter", sans-serif;
+    scroll-snap-align: start;
 }
 
 .cursos-titulo {
@@ -328,14 +399,12 @@ text-align:center;
     color: #333;
 }
 
-/* Grid Responsivo */
 .cursos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
 }
 
-/* Estilo do Card */
 .course-card {
     background: #fff;
     border: 1px solid #e0e0e0;
@@ -343,20 +412,17 @@ text-align:center;
     padding: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Garante que o botão fique sempre embaixo */
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .course-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    border-color: #1aa7d5; /* Destaque sutil */
+    border-color: #1aa7d5;
 }
 
-/* Cabeçalho do Card (Logo + Título) */
 .card-header {
     display: flex;
     align-items: center;
@@ -378,7 +444,6 @@ text-align:center;
     line-height: 1.2;
 }
 
-/* Texto de Descrição */
 .course-card p {
     font-size: 15px;
     color: #444;
@@ -386,7 +451,6 @@ text-align:center;
     line-height: 1.5;
 }
 
-/* Nível/Categoria */
 .course-level {
     font-size: 14px;
     font-weight: 600;
@@ -395,9 +459,8 @@ text-align:center;
     display: block;
 }
 
-/* Botão Estilo RealDin */
 .btn-acessar {
-    background-color: #59bda3; /* O verde menta do seu design */
+    background-color: #59bda3;
     color: #000;
     border: none;
     border-radius: 8px;
@@ -413,15 +476,17 @@ text-align:center;
     background-color: #48a68d;
 }
 
-/* BOTÕES */
-
+/* BOTÕES GLOBAIS */
 .btn-primary {
     background: #64d4c4;
     border: none;
     padding: 12px 24px;
     border-radius: 30px;
     cursor: pointer;
+    transition: transform 0.2s;
 }
+
+.btn-primary:hover { transform: scale(1.04); }
 
 .btn-secondary {
     background: #1c9a8d;
@@ -439,11 +504,28 @@ text-align:center;
     font-weight: bold;
 }
 
+/* === SCRIPT INLINE SUGERIDO (cole no final do <body>) ===
+<script>
+  // 1. Animação fade-in-up via IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+        // Para barra de progresso
+        const barra = el.target.querySelector('.barra-progresso-fill');
+        if (barra) barra.classList.add('animate');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in-up, .card-perfil-status, .card-evolucao, .stat-card, .course-card')
+    .forEach(el => { el.classList.add('fade-in-up'); observer.observe(el); });
+</script>
+*/
+
 /* RESPONSIVO */
 @media (max-width: 1024px) {
-    .hero {
-        padding: 56px 0;
-    }
+    .hero { padding: 56px 0; }
 
     .hero-grid {
         grid-template-columns: 1fr;
@@ -451,110 +533,59 @@ text-align:center;
         gap: 28px;
     }
 
-    .hero-img {
-        display: flex;
-        justify-content: center;
-    }
+    .hero-img { display: flex; justify-content: center; }
 
-    .perfil-secao {
-        padding: 32px 24px;
-    }
+    .perfil-secao { padding: 32px 24px; }
 
-    .card-evolucao {
-        flex-direction: column;
-        gap: 24px;
-    }
+    .card-evolucao { flex-direction: column; gap: 24px; }
 
-    .evolucao-acao {
-        align-items: flex-start;
-        max-width: 100%;
-    }
+    .evolucao-acao { align-items: flex-start; max-width: 100%; }
 
-    .status-aprendizado {
-        text-align: left;
-    }
+    .status-aprendizado { text-align: left; }
 
     .banner-final-cta {
         height: 560px;
         padding-left: 6%;
         padding-bottom: 48px;
         border-radius: 0;
+        background-attachment: scroll; /* Remove parallax no mobile */
     }
 
-    .stats-container {
-        margin-top: 64px;
-    }
+    .hero { background-attachment: scroll; }
 
-    .stats-grid {
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
-    }
+    .stats-container { margin-top: 64px; }
 
-    .cursos-container {
-        padding: 20px 24px;
-    }
+    .stats-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
 
-    .cursos-grid {
-        grid-template-columns: repeat(2, minmax(260px, 1fr));
-    }
+    .cursos-container { padding: 20px 24px; }
+
+    .cursos-grid { grid-template-columns: repeat(2, minmax(260px, 1fr)); }
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 0 16px;
-    }
+    .container { padding: 0 16px; }
 
-    .hero {
-        padding: 42px 0;
-    }
+    .hero { padding: 42px 0; }
 
-    .hero-text h1 {
-        font-size: 1.7rem;
-        line-height: 1.25;
-    }
+    .hero-text h1 { font-size: 1.7rem; line-height: 1.25; }
 
-    .btn-primary {
-        width: 100%;
-        max-width: 320px;
-    }
+    .btn-primary { width: 100%; max-width: 320px; }
 
-    .perfil-secao {
-        padding: 28px 16px;
-    }
+    .perfil-secao { padding: 28px 16px; }
 
-    .titulo-perfil,
-    .cursos-titulo {
-        font-size: 1.6rem;
-    }
+    .titulo-perfil, .cursos-titulo { font-size: 1.6rem; }
 
-    .card-perfil-status,
-    .card-evolucao,
-    .course-card,
-    .stat-card {
-        padding: 20px;
-    }
+    .card-perfil-status, .card-evolucao, .course-card, .stat-card { padding: 20px; }
 
-    .perfil-info-topo {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-    }
+    .perfil-info-topo { flex-direction: column; align-items: flex-start; gap: 14px; }
 
-    .perfil-score-badge {
-        flex-wrap: wrap;
-        gap: 12px;
-    }
+    .perfil-score-badge { flex-wrap: wrap; gap: 12px; }
 
-    .tag-iniciante {
-        padding: 6px 16px;
-    }
+    .tag-iniciante { padding: 6px 16px; }
 
-    .score-numero {
-        font-size: 1.2rem;
-    }
+    .score-numero { font-size: 1.2rem; }
 
-    .livros {
-        grid-template-columns: 1fr;
-    }
+    .livros { grid-template-columns: 1fr; }
 
     .banner-final-cta {
         min-height: clamp(260px, 82vw, 360px);
@@ -562,51 +593,27 @@ text-align:center;
         padding: 16px 14px;
         align-items: flex-end;
         background-image:
-            linear-gradient(
-                90deg,
-                rgba(0, 0, 0, 0.35) 0%,
-                rgba(0, 0, 0, 0.12) 40%,
-                rgba(0, 0, 0, 0) 70%
-            ),
+            linear-gradient(90deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.12) 40%, rgba(0,0,0,0) 70%),
             url(/assets/imgs/HomemPreocupado.svg);
         background-position: 62% center;
+        background-attachment: scroll;
     }
 
-    .banner-container-botao {
-        width: min(100%, 360px);
-        gap: 14px;
-    }
+    .banner-container-botao { width: min(100%, 360px); gap: 14px; }
 
-    .btn-cta-verde {
-        width: 100%;
-        text-align: center;
-        font-size: 1rem;
-        padding: 14px 18px;
-    }
+    .btn-cta-verde { width: 100%; text-align: center; font-size: 1rem; padding: 14px 18px; }
 
-    .stats-container {
-        margin: 48px auto;
-        padding: 0 16px;
-    }
+    .stats-container { margin: 48px auto; padding: 0 16px; }
 
-    .stats-grid,
-    .cursos-grid {
-        grid-template-columns: 1fr;
-    }
+    .stats-grid, .cursos-grid { grid-template-columns: 1fr; }
 
-    .stat-card p {
-        font-size: 1rem;
-    }
+    .stat-card p { font-size: 1rem; }
 
-    .card-header {
-        min-height: auto;
-    }
+    .card-header { min-height: auto; }
 }
 
 @media (max-width: 480px) {
-    .hero-text h1 {
-        font-size: 1.45rem;
-    }
+    .hero-text h1 { font-size: 1.45rem; }
 
     .banner-final-cta {
         min-height: 240px;
@@ -614,18 +621,9 @@ text-align:center;
         background-position: 68% center;
     }
 
-    .banner-status-info {
-        font-size: 0.8rem;
-        line-height: 1.4;
-    }
+    .banner-status-info { font-size: 0.8rem; line-height: 1.4; }
 
-    .btn-recomenda-perfil,
-    .btn-acessar {
-        width: 100%;
-    }
+    .btn-recomenda-perfil, .btn-acessar { width: 100%; }
 
-    .icon-placeholder {
-        width: 88px;
-        height: 88px;
-    }
+    .icon-placeholder { width: 88px; height: 88px; }
 }

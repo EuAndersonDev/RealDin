@@ -6,7 +6,7 @@
 
         <title>Resultado Perfil Financeiro</title>
 
-        <link rel="stylesheet" href="/css/pages/indicacoes.css" />
+        <link rel="stylesheet" href="/css/pages/indicacoess.css" />
         <link rel="stylesheet" href="/css/global.css" />
         <link rel="stylesheet" href="/css/components/header.css" />
         <link rel="stylesheet" href="/css/components/footer.css" />
@@ -71,10 +71,7 @@
                         </div>
 
                         <div class="barra-progresso-container">
-                            <div
-                                class="barra-progresso-fill"
-                                style="width: 45%"
-                            ></div>
+                            <div class="barra-progresso-fill" style="--target-width: 45%"></div>
                         </div>
                     </div>
 
@@ -103,40 +100,37 @@
             </section>
 
             <!-- RECOMENDADOS -->
-            <section class="recomendados">
-                <div class="container">
-                    <h2 class="section-title">Recomendado para você</h2>
+          <section class="recomendados">
+    <div class="container">
+        <h2 class="section-title">Recomendado para você</h2>
 
-                    <div class="livros">
-                        <article class="livro">
-                            <img
-                                src="/assets/imgs/historia-da-riqueza-do-brasil-jorge-caldeira-pdf 1.svg"
-                            />
+        <div class="livros">
+            <article class="livro">
+                <a href="https://www.amazon.com.br/Hist%C3%B3ria-riqueza-Brasil-Jorge-Caldeira/dp/8556080251/ref=sr_1_1?asc_campaign=69855eda6d7282de712fee7eb5235ab1&asc_source=01HPSC5553NA5V5NA1N7A6B4DE&tag=snxbr16-20" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/imgs/historia-da-riqueza-do-brasil-jorge-caldeira-pdf 1.svg" alt="História da riqueza do Brasil" />
+                    <h4>História da riqueza do Brasil</h4>
+                    <p>Jorge Caldeira</p>
+                </a>
+            </article>
 
-                            <h4>História da riqueza do Brasil</h4>
+            <article class="livro">
+                <a href="https://www.nathfinancas.com.br/livros/" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/imgs/natty.svg" alt="Orçamento Sem Falhas" />
+                    <h4>Orçamento Sem Falhas</h4>
+                    <p>Nath Finanças</p>
+                </a>
+            </article>
 
-                            <p>Jorge Caldeira</p>
-                        </article>
-
-                        <article class="livro">
-                            <img src="/assets/imgs/natty.svg" />
-
-                            <h4>Orçamento Sem Falhas</h4>
-
-                            <p>Nath Finanças</p>
-                        </article>
-
-                        <article class="livro">
-                            <img src="/assets/imgs/homemRico.svg" />
-
-                            <h4>O Homem Mais Rico da Babilônia</h4>
-
-                            <p>George S. Clason</p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
+            <article class="livro">
+                <a href="https://www.amazon.com.br/Homem-Mais-Rico-Babil%C3%B4nia/dp/8595081530/ref=sr_1_1?adgrpid=1142393240022949&dib=eyJ2IjoiMSJ9.OINyYk-5bbVFVSfpGH9gzxHoFBgGgIELg84MYtPSbxN4bM7En7HoO3-I337ecmxqZfgWtDqGfb3oH7Qz1YI2GtCtoB6oD_Bg6K-GRhzBWrI.BY1KDjvMWNqih8hnVRitwn64OeEdElYSJFoj4xcIC-E&dib_tag=se&hvadid=71399743810010&hvbmt=be&hvdev=c&hvlocint=116068&hvlocphy=147505&hvnetw=o&hvqmt=e&hvtargid=kwd-71400092190589%3Aloc-20&hydadcr=5656_13210377&keywords=o+homem+mais+rico+da+babi&mcid=a4971ec0de9d3159927662ca80bec430&qid=1773280821&sr=8-1" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/imgs/homemRico.svg" alt="O Homem Mais Rico da Babilônia" />
+                    <h4>O Homem Mais Rico da Babilônia</h4>
+                    <p>George S. Clason</p>
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
             <!--Banner -->
 
             <section class="banner-final-cta">
@@ -195,116 +189,77 @@
             </section>
 
             <!-- CURSOS -->
-            <section class="cursos-container">
-                <h2 class="cursos-titulo">Cursos Gratuitos e Online</h2>
+                 <section class="cursos-container">
+    <h2 class="cursos-titulo">Cursos Gratuitos e Online</h2>
 
-                <div class="cursos-grid">
-                    <article class="course-card">
-                        <div class="card-header">
-                            <img
-                                src="/assets/icons/indicacoes/BancoBrasil.svg"
-                                alt="Logo Bacen"
-                                class="course-logo"
-                            />
-                            <h3>Banco Central do Brasil</h3>
-                        </div>
-                        <p>
-                            Aprenda a organizar seu orçamento, entender juros e
-                            sair das dívidas.
-                        </p>
-                        <span class="course-level">Iniciante</span>
-                        <button class="btn-acessar">Acessar Curso</button>
-                    </article>
+    <div class="cursos-grid">
+        <article class="course-card">
+            <div class="card-header">
+                <img src="/assets/icons/indicacoes/BancoBrasil.svg" alt="Logo Bacen" class="course-logo" />
+                <h3>Banco Central do Brasil</h3>
+            </div>
+            <p>Aprenda a organizar seu orçamento, entender juros e sair das dívidas.</p>
+            <span class="course-level">Iniciante</span>
+            <a href="https://www.bcb.gov.br/cidadaniafinanceira/cursos" target="_blank" rel="noopener noreferrer" class="btn-acessar">Acessar Curso</a>
+        </article>
 
-                    <article class="course-card">
-                        <div class="card-header">
-                            <img
-                                src="/assets/icons/indicacoes/ComissaoValores.svg"
-                                alt="Logo CVM"
-                                class="course-logo"
-                            />
-                            <h3>Comissão de Valores Mobiliários (CVM)</h3>
-                        </div>
-                        <p>
-                            Descubra como investir com segurança e parar de ter
-                            medo do mercado.
-                        </p>
-                        <span class="course-level"
-                            >Iniciante a Intermediário</span
-                        >
-                        <button class="btn-acessar">Acessar Curso</button>
-                    </article>
+        <article class="course-card">
+            <div class="card-header">
+                <img src="/assets/icons/indicacoes/ComissaoValores.svg" alt="Logo CVM" class="course-logo" />
+                <h3>Comissão de Valores Mobiliários (CVM)</h3>
+            </div>
+            <p>Descubra como investir com segurança e parar de ter medo do mercado.</p>
+            <span class="course-level">Iniciante a Intermediário</span>
+            <a href="https://www.gov.br/cvm/pt-br" target="_blank" rel="noopener noreferrer" class="btn-acessar">Acessar Curso</a>
+        </article>
 
-                    <article class="course-card">
-                        <div class="card-header">
-                            <img
-                                src="/assets/icons/indicacoes/Sebrae.svg"
-                                alt="Logo SEBRAE"
-                                class="course-logo"
-                            />
-                        </div>
-                        <p>
-                            Aprenda a gerar renda extra e transformar
-                            conhecimento em dinheiro.
-                        </p>
-                        <span class="course-level">Empreendedorismo</span>
-                        <button class="btn-acessar">Acessar Curso</button>
-                    </article>
+        <article class="course-card">
+            <div class="card-header">
+                <img src="/assets/icons/indicacoes/Sebrae.svg" alt="Logo SEBRAE" class="course-logo" />
+                <h3>SEBRAE</h3>
+            </div>
+            <p>Aprenda a gerar renda extra e transformar conhecimento em dinheiro.</p>
+            <span class="course-level">Empreendedorismo</span>
+            <a href="https://www.sebrae.com.br/sites/PortalSebrae/cursosonline" target="_blank" rel="noopener noreferrer" class="btn-acessar">Acessar Curso</a>
+        </article>
 
-                    <article class="course-card">
-                        <div class="card-header">
-                            <img
-                                src="/assets/icons/indicacoes/primeCusos.svg"
-                                alt="Logo Prime"
-                                class="course-logo"
-                            />
-                            <h3>Prime Cursos</h3>
-                        </div>
-                        <p>
-                            Curso gratuito de finanças pessoais com foco em
-                            orçamento, planejamento e melhores decisões
-                            financeiras.
-                        </p>
-                        <span class="course-level">Finanças Pessoais</span>
-                        <button class="btn-acessar">Acessar Curso</button>
-                    </article>
+        <article class="course-card">
+            <div class="card-header">
+                <img src="/assets/icons/indicacoes/primeCusos.svg" alt="Logo Prime" class="course-logo" />
+                <h3>Prime Cursos</h3>
+            
+            </div>
 
-                    <article class="course-card">
-                        <div class="card-header">
-                            <img
-                                src="/assets/icons/indicacoes/khan.svg"
-                                alt="Logo Khan"
-                                class="course-logo"
-                            />
-                            <h3>Khan Academy</h3>
-                        </div>
-                        <p>
-                            Vídeos simples e diretos para quem está começando do
-                            zero.
-                        </p>
-                        <span class="course-level">Básico</span>
-                        <button class="btn-acessar">Acessar Curso</button>
-                    </article>
+            <p>Curso gratuito de finanças pessoais com foco em orçamento e planejamento.</p>
+            <span class="course-level">Finanças Pessoais</span>
+            <a href="https://www.primecursos.com.br/financas-pessoais/" target="_blank" rel="noopener noreferrer" class="btn-acessar">Acessar Curso</a>
+        </article>
 
-                    <article class="course-card">
-                        <div class="card-header">
-                            <img
-                                src="/assets/icons/indicacoes/FGV.svg"
-                                alt="Logo FGV"
-                                class="course-logo"
-                            />
-                        </div>
-                        <p>
-                            Organização financeira e planejamento para longo
-                            prazo.
-                        </p>
-                        <span class="course-level">Intermediário</span>
-                        <button class="btn-acessar">Acessar Curso</button>
-                    </article>
-                </div>
-            </section>
+        <article class="course-card">
+            <div class="card-header">
+                <img src="/assets/icons/indicacoes/khan.svg" alt="Logo Khan" class="course-logo" />
+                <h3>Khan Academy</h3>
+            </div>
+            <p>Vídeos simples e diretos para quem está começando do zero.</p>
+            <span class="course-level">Básico</span>
+            <a href="https://pt.khanacademy.org/college-careers-more/financial-literacy" target="_blank" rel="noopener noreferrer" class="btn-acessar">Acessar Curso</a>
+        </article>
+
+        <article class="course-card">
+            <div class="card-header">
+                <img src="/assets/icons/indicacoes/FGV.svg" alt="Logo FGV" class="course-logo" />
+                <h3>FGV</h3>
+            </div>
+            <p>Organização financeira e planejamento para longo prazo.</p>
+            <span class="course-level">Intermediário</span>
+            <a href="https://educacao-executiva.fgv.br/cursos/gratuitos" target="_blank" rel="noopener noreferrer" class="btn-acessar">Acessar Curso</a>
+        </article>
+    </div>
+</section>       
+
         </main>
 
         <footer-componente></footer-componente>
+   
     </body>
 </html>

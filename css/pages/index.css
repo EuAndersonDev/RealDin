@@ -641,8 +641,8 @@ button a {
     }
 
 .card p {
-      font-size: 19.5px;
-      color: #888;
+      font-size: 21 px;
+      color: #212529;
       line-height: 1.6;
     }
 
@@ -661,58 +661,70 @@ button a {
 
 
 #divida {
-    border-radius: 5px;
-    background: #177f72;
-    width: 100%;
-    height: 1024px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  border-radius: 5px;
+  background: #177f72;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 #conteudo-divida {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
 }
 
 #divida-titulo {
-    width: 40%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#conteudo-divida img {
-    width: 635px;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  padding-left: 80px;
 }
 
 #divida-titulo h1 {
-    color: #fff;
-    font-family: Inter;
-    font-size: 58px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 58px;
-    letter-spacing: -1.16px;
-    
+  color: #fff;
+  font-family: Inter;
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 58px;
+  letter-spacing: -1.16px;
 }
 
 #divida-titulo p {
-    color: #d5d5d5;
-    font-family: Inter;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 23px; /* 104.545% */
-    letter-spacing: 2.86px;
-    margin-top: 20px;
+  color: #fff;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 2.86px;
+  margin-top: 20px;
+}
+
+#divida-imagem {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 1;
+  height: 100%;
+}
+
+#divida-imagem img {
+  width: 635px;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 250px 5px 5px 0;
 }
 
 /* ===========================
