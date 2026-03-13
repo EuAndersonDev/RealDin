@@ -1,65 +1,105 @@
 main {
     --header-offset: 120px;
-    background-color: #e9e9e9;
+    background-color: transparent;
     width: 100%;
-    min-height: 100vh;
-    padding-top: var(--header-offset);
+    height: auto;
+    /* padding-top: var(--header-offset); */
     font-family: Inter;
     display: flex;
     flex-direction: column;
 }
 
+/* ============================================
+   HERO — fundo escuro com gradiente
+============================================ */
 #hero {
-    background-color: #e9e9e9;
+    background: linear-gradient(135deg, #0f0b1e 0%, #0d2233 60%, #0b1a2e 100%);
     width: 100%;
     min-height: calc(100vh - var(--header-offset));
-    height: auto;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* brilho decorativo atrás do conteúdo */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: auto;
+    background: radial-gradient(ellipse, rgba(121, 87, 234, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, #f4f4f4);
+    pointer-events: none;
 }
 
 #hero img {
     width: 370px;
     height: auto;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 32px rgba(121, 87, 234, 0.3));
 }
 
 #titulo-hero {
-    color: #212529;
+    color: #ffffff;
     text-align: center;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter;
-    font-size: 80px;
+    font-size: 88px;
     font-style: normal;
     font-weight: 700;
-    line-height: 4.5rem; /* 124.138% */
+    line-height: 5rem;
     letter-spacing: -0.1125rem;
     margin: 10px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
 }
 
-.fonte-amarelo {
+#hero span {
     background: linear-gradient(107deg, #7957ea 0%, #19aed9 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Inter;
-    font-size: 80px;
+    font-size: 88px;
     font-style: normal;
     font-weight: 700;
-    line-height: 4.5rem;
+    line-height: 5rem;
     letter-spacing: -0.1125rem;
+    filter: drop-shadow(0 2px 8px rgba(121, 87, 234, 0.5));
 }
 
-#hero span {
-    color: #fae007;
+.fonte-gradiente {
+    background: linear-gradient(107deg, #7957ea 0%, #19aed9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-family: Inter;
-    font-size: 80px;
+    font-size: 88px;
     font-style: normal;
     font-weight: 700;
-    line-height: 4.5rem;
+    line-height: 5rem;
     letter-spacing: -0.1125rem;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 2px 8px rgba(121, 87, 234, 0.4));
 }
 
 #paragrafo-hero {
@@ -68,11 +108,15 @@ main {
     align-items: center;
     text-align: center;
     margin-top: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 #paragrafo-hero p {
-    font-size: 40px;
+    font-size: 32px;
     line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.02em;
 }
 
 p {
@@ -80,26 +124,30 @@ p {
 }
 
 #descer-mais {
-    background: var(--primary-color);
+    background: linear-gradient(107deg, #7957ea 0%, #19aed9 100%);
     display: flex;
-    width: 290px;
-    height: 70px;
+    width: 220px;
+    height: 60px;
     color: #fff;
     margin: 30px;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1.5rem;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 0.2em;
+    gap: 0.4em;
     border-radius: 624.9375rem;
     border: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
     line-height: 1.1;
     text-align: center;
     font-family: Inter, sans-serif;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     text-decoration: none;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 32px rgba(121, 87, 234, 0.4);
 }
 
 #descer-mais .texto-descer {
@@ -112,253 +160,233 @@ p {
 }
 
 #descer-mais:hover {
-    background-color: var(--accent-color);
-    font-weight: 800;
-    transition: all 0.5s ease;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(121, 87, 234, 0.55);
 }
 
 /* ============================================
-           SEÇÃO #CTA — estrutura igual à original,
-        ============================================ */
-        #CTA {
-            background-color: rgb(61, 61, 61)8ef;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            align-items: center;
-            padding-bottom: 100px;
-        }
+   SEÇÃO CTA
+============================================ */
+#CTA {
+    background-color: #f4f4f4;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    padding-bottom: 100px;
+}
 
-        /* ---- HERO ROW (novo: título + imagem lado a lado) ---- */
-        .cta-hero-row {
-            width: 100%;
-            max-width: 1240px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 48px;
-            margin-top: 80px;
-            padding: 0 40px;
-        }
+.cta-hero-row {
+    width: 100%;
+    max-width: 1240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    margin-top: 80px;
+    padding: 0 40px;
+}
 
-        .cta-hero-text {
-            flex: 0 0 44%;
-        }
+.cta-hero-text {
+    flex: 0 0 44%;
+}
 
-        /* ---- Título ---- */
-        #titulo-CTA {
-            width: auto;
-            height: auto;
-            text-align: left;
-            font-size: 60px;
-            font-family: 'Sora', sans-serif;
-            font-weight: 800;
-            color: #1a1a1a;
-            line-height: 1.1;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-        }
+#titulo-CTA {
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-size: 68px;
+    font-family: Inter;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+}
 
-        #titulo-CTA .fonte-amarelo {
-            color: #fae007;
-            font-size: inherit;
-            font-weight: inherit;
-            line-height: inherit;
-            letter-spacing: inherit;
-            font-family: inherit;
-        }
+#paragrafo-CTA {
+    text-align: left;
+    font-size: 24px;
+    font-family: Inter;
+    font-weight: 400;
+    color: #6a6a6a;
+    line-height: 1.7;
+    width: 100%;
+}
 
-        /* ---- Parágrafo ---- */
-        #paragrafo-CTA {
-            text-align: left;
-            font-size: 30px;
-            font-family: 'Sora', sans-serif;
-            font-weight: 400;
-            color: #6a6a6a;
-            line-height: 1.7;
-            width: 100%;
-        }
+#paragrafo-CTA p {
+    padding: 0;
+}
 
-        #paragrafo-CTA p {
-            padding: 0;
-            display: inline;
-        }
+/* ============================================
+   CARDS — com borda colorida por categoria
+============================================ */
+#container-card {
+    width: 100%;
+    max-width: 1240px;
+    min-height: 350px;
+    display: flex;
+    gap: 24px;
+    margin-top: 48px;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0 40px;
+}
 
+#CTA cardcta-component {
+    width: 100%;
+    max-width: 1240px;
+    margin-top: 80px;
+    padding: 0 40px;
+    display: block;
+}
 
-        /* ============================================
-           CARDS
-        ============================================ */
-        #container-card {
-            width: 100%;
-            max-width: 1240px;
-            min-height: 350px;
-            display: flex;
-            gap: 24px;
-            margin-top: 48px;
-            flex-direction: row;
-            align-items: stretch;
-            justify-content: center;
-            padding: 0 40px;
-        }
+.card {
+    background: #ffffff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 34px 28px;
+    gap: 0;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-top: 4px solid transparent;
+}
 
-        #CTA cardcta-component {
-            width: 100%;
-            max-width: 1240px;
-            margin-top: 80px;
-            padding: 0 40px;
-            display: block;
-        }
+/* borda colorida individual por card */
+.card--purple { border-top-color: #7957ea; }
+.card--blue   { border-top-color: #19aed9; }
+.card--yellow { border-top-color: #fae007; }
+.card--green  { border-top-color: #1d9e75; }
 
-        #CTA cardcta-component .cardcta {
-            width: 100%;
-        }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
 
-        .card {
-            background: #ffffff;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            align-items: flex-start;
-            justify-content: flex-start;
-            padding: 34px 28px;
-            gap: 0;
-            border-radius: 20px;
-            border: none;
-            box-shadow: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+/* fundo suave no ícone de acordo com a cor do card */
+.card img {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 18px;
+    padding: 10px;
+    border-radius: 12px;
+}
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
-        }
+.card--purple img { background: rgba(121, 87, 234, 0.1); }
+.card--blue   img { background: rgba(25, 174, 217, 0.1); }
+.card--yellow img { background: rgba(250, 224, 7,  0.12); }
+.card--green  img { background: rgba(29, 158, 117, 0.1); }
 
-        .card img {
-            width: 56px;
-            height: 56px;
-            margin-bottom: 18px;
-        }
+.card h4 {
+    margin: 0 0 10px;
+    color: #1a1a1a;
+    font-family: Inter;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+}
 
-        .card h4 {
-            margin: 0 0 10px;
-            color: #1a1a1a;
-            font-family: 'Sora', sans-serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            line-height: 1.25;
-            letter-spacing: -0.2px;
-        }
+.card p {
+    margin: 0;
+    padding: 0;
+    color: #6a7183;
+    font-family: Inter;
+    font-size: 1.08rem;
+    font-weight: 400;
+    line-height: 1.65;
+    flex: 1;
+}
 
-        .card p {
-            margin: 0;
-            padding: 0;
-            color: #6a7183;
-            font-family: 'Sora', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 400;
-            line-height: 1.65;
-            flex: 1;
-        }
+/* ============================================
+   CARD CTA
+============================================ */
+#card-CTA {
+    border-radius: 24px;
+    background: linear-gradient(113deg, #00674f 0%, #19aed9 100%);
+    box-shadow: 8px 12px 24px rgba(0, 0, 0, 0.18);
+    width: 50%;
+    height: 300px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        #CTA cardcta-component .heading-2 {
-            font-size: 2.9rem;
-            line-height: 1.2;
-        }
+#card-CTA .fundo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 32px;
+}
 
-        #CTA cardcta-component .text-button-cardCta {
-            font-size: 1.35rem;
-            line-height: 1.6;
-        }
+#card-CTA h1 {
+    color: #fff;
+    text-align: center;
+    font-family: Inter;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
 
-        #CTA cardcta-component .link-buttonCta {
-            font-size: 1.2rem;
-            padding: 18px 36px;
-        }
+#card-CTA p {
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
 
-        /* ============================================
-           CARD CTA
-        ============================================ */
-        #card-CTA {
-            border-radius: 24px;
-            background: linear-gradient(113deg, #00674f 0%, #19aed9 100%);
-            box-shadow: 8px 12px 24px rgba(0, 0, 0, 0.18);
-            width: 50%;
-            height: 300px;
-            margin-top: 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+#card-CTA button {
+    display: flex;
+    width: 244.94px;
+    height: 56px;
+    margin: 20px;
+    padding: 18px 43px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    border: none;
+    background: #fae007;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
 
-        #card-CTA .fundo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            padding: 0 32px;
-        }
+#card-CTA button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
 
-        #card-CTA h1 {
-            color: #fff;
-            text-align: center;
-            font-family: 'Sora', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            line-height: 1.15;
-        }
+#card-CTA button p {
+    color: #171a26;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1;
+}
 
-        #card-CTA p {
-            color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            font-family: 'Sora', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        #card-CTA button {
-            display: flex;
-            width: 244.94px;
-            height: 56px;
-            margin: 20px;
-            padding: 18px 43px;
-            justify-content: center;
-            align-items: center;
-            border-radius: 9999px;
-            border: none;
-            background: #fae007;
-            cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        #card-CTA button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        #card-CTA button p {
-            color: #171a26;
-            text-align: center;
-            font-family: 'Sora', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-/* ===========================
-   Responsividade - Tablet
-   =========================== */
+/* ============================================
+   Responsividade — Tablet (≤ 1024px)
+============================================ */
 @media (max-width: 1024px) {
     main {
         --header-offset: 100px;
     }
 
     #hero {
-        padding: 28px 6% 48px;
+        padding: 28px 6% 80px;
     }
 
     #hero img {
@@ -366,10 +394,10 @@ p {
     }
 
     #titulo-hero,
-    .fonte-amarelo,
-    #hero span {
-        font-size: 3.3rem;
-        line-height: 4rem;
+    #hero span,
+    .fonte-gradiente {
+        font-size: 3.6rem;
+        line-height: 4.2rem;
         letter-spacing: -0.08rem;
     }
 
@@ -378,19 +406,16 @@ p {
     }
 
     #paragrafo-hero p {
-        font-size: 1.2rem;
+        font-size: 1.35rem;
         line-height: 1.6;
-        padding: 2px;
     }
 
     #titulo-CTA {
-        margin-top: 72px;
-        font-size: 52px;
+        font-size: 54px;
         line-height: 1.15;
     }
 
     #paragrafo-CTA {
-        width: 76%;
         font-size: 1.2rem;
     }
 
@@ -398,39 +423,18 @@ p {
         width: 92%;
         flex-wrap: wrap;
         gap: 20px;
+        padding: 0 20px;
+    }
+
+    .card {
+        width: calc(50% - 10px);
+        flex: none;
     }
 
     #CTA cardcta-component {
         width: 92%;
         margin-top: 72px;
         padding: 0;
-    }
-
-    .card {
-        width: calc(50% - 10px);
-        min-height: 330px;
-        height: auto;
-    }
-
-    .card h4 {
-        font-size: 1.25rem;
-    }
-
-    .card p {
-        font-size: 1rem;
-        line-height: 1.55;
-    }
-
-    #CTA cardcta-component .heading-2 {
-        font-size: 2.5rem;
-    }
-
-    #CTA cardcta-component .text-button-cardCta {
-        font-size: 1.2rem;
-    }
-
-    #CTA cardcta-component .link-buttonCta {
-        font-size: 1.1rem;
     }
 
     #card-CTA {
@@ -441,19 +445,13 @@ p {
     }
 
     #card-CTA h1 {
-        font-size: 34px;
-        line-height: 1.2;
-    }
-
-    #card-CTA p {
-        font-size: 17px;
-        line-height: 1.45;
+        font-size: 38px;
     }
 }
 
-/* ===========================
-   Responsividade - Mobile
-   =========================== */
+/* ============================================
+   Responsividade — Mobile (≤ 768px)
+============================================ */
 @media (max-width: 768px) {
     main {
         --header-offset: 88px;
@@ -461,7 +459,11 @@ p {
 
     #hero {
         min-height: auto;
-        padding: 22px 6% 42px;
+        padding: 22px 6% 80px;
+    }
+
+    #hero::after {
+        height: 80px;
     }
 
     #hero img {
@@ -469,10 +471,10 @@ p {
     }
 
     #titulo-hero,
-    .fonte-amarelo,
-    #hero span {
-        font-size: 2.5rem;
-        line-height: 3.1rem;
+    #hero span,
+    .fonte-gradiente {
+        font-size: 2.8rem;
+        line-height: 3.4rem;
         letter-spacing: -0.04rem;
     }
 
@@ -482,43 +484,62 @@ p {
     }
 
     #paragrafo-hero p {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         line-height: 1.55;
-        padding: 1px;
     }
 
     #descer-mais {
-        width: 220px;
-        height: 92px;
+        width: 200px;
+        height: 54px;
         margin: 22px;
-    }
-
-    #descer-mais img {
-        width: 1.5em;
-    }
-
-    #descer-mais .texto-descer {
-        font-size: 1.02rem;
+        font-size: 1.05rem;
     }
 
     #CTA {
         padding: 0 5% 72px;
     }
 
+    .cta-hero-row {
+        flex-direction: column;
+        margin-top: 48px;
+        padding: 0;
+        gap: 24px;
+    }
+
+    .cta-hero-text {
+        flex: none;
+        width: 100%;
+    }
+
+    .cta-hero-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
     #titulo-CTA {
-        margin-top: 56px;
         font-size: 42px;
+        text-align: center;
     }
 
     #paragrafo-CTA {
-        width: 100%;
         font-size: 1.08rem;
+        text-align: center;
     }
 
     #container-card {
         width: 100%;
-        margin-top: 34px;
+        flex-direction: column;
+        margin-top: 28px;
         gap: 16px;
+        padding: 0;
+    }
+
+    .card {
+        width: 100%;
+        flex: none;
+        padding: 24px;
+        border-radius: 14px;
     }
 
     #CTA cardcta-component {
@@ -527,49 +548,16 @@ p {
         padding: 0;
     }
 
-    .card {
-        width: 100%;
-        min-height: 260px;
-        padding: 24px;
-        border-radius: 14px;
-    }
-
-    .card h4 {
-        font-size: 21px;
-    }
-
-    .card p {
-        font-size: 17px;
-        line-height: 1.55;
-    }
-
-    #CTA cardcta-component .heading-2 {
-        font-size: 2.05rem;
-    }
-
-    #CTA cardcta-component .text-button-cardCta {
-        font-size: 1.05rem;
-    }
-
-    #CTA cardcta-component .link-buttonCta {
-        font-size: 1rem;
-    }
-
     #card-CTA {
         width: 100%;
         margin-top: 56px;
         border-radius: 18px;
         padding: 28px 14px;
+        height: auto;
     }
 
     #card-CTA h1 {
-        font-size: 28px;
-        line-height: 1.2;
-    }
-
-    #card-CTA p {
-        font-size: 16px;
-        line-height: 1.4;
+        font-size: 31px;
     }
 
     #card-CTA button {
@@ -578,65 +566,50 @@ p {
         height: auto;
         padding: 14px 24px;
     }
-
-    #card-CTA button p {
-        font-size: 16px;
-        line-height: 1.3;
-    }
 }
 
+/* ============================================
+   Responsividade — Mobile pequeno (≤ 480px)
+============================================ */
 @media (max-width: 480px) {
     #hero {
-        padding: 18px 5% 36px;
+        padding: 18px 5% 70px;
     }
 
     #titulo-hero,
-    .fonte-amarelo,
-    #hero span {
-        font-size: 2.15rem;
-        line-height: 2.55rem;
+    #hero span,
+    .fonte-gradiente {
+        font-size: 2.2rem;
+        line-height: 2.7rem;
     }
 
     #paragrafo-hero p {
-        font-size: 1.02rem;
+        font-size: 1rem;
     }
 
     #descer-mais {
-        width: 196px;
-        height: 86px;
-        font-size: 0.98rem;
+        width: 186px;
+        height: 50px;
+        font-size: 1rem;
     }
 
     #titulo-CTA {
-        font-size: 35px;
-    }
-
-    .card {
-        min-height: 240px;
+        font-size: 33px;
     }
 
     .card h4 {
-        font-size: 20px;
+        font-size: 1.18rem;
     }
 
     .card p {
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
-    #CTA cardcta-component .heading-2 {
-        font-size: 1.8rem;
-    }
-
-    #CTA cardcta-component .text-button-cardCta {
         font-size: 1rem;
     }
 
     #card-CTA h1 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     #card-CTA p {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
