@@ -5,257 +5,255 @@ main {
     flex-direction: column;
 }
 
+/* ===========================
+   Hero
+   =========================== */
 #hero {
+    background-image: url(/assets/imgs/sobrenos-hero.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     width: 100%;
-    height: 700px;
+    height: 800px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    padding-bottom: 40px;
+    margin-top: 0;
+    box-shadow: inset 0 0 0 9999px rgba(37, 36, 36, 0.45);
 }
 
-#hero-texto {
-    width: 50%;
+#conteudo-hero {
+    width: 80%;
     height: auto;
     display: flex;
     flex-direction: column;
-    align-items: left;
     justify-content: center;
-}
-
-#hero-texto h1 {
-    color: #171a26;
-    font-family: Inter;
-    font-size: 102px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100px; /* 78.431% */
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
-#hero-texto span {
-    background: linear-gradient(180deg, #7756ec 0%, #1aa7d5 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: Inter;
-    font-size: 102px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 80px;
-    letter-spacing: 1px;
-}
-
-#hero-texto p {
-    font-family: Inter;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28px; /* 100% */
-    background: linear-gradient(90deg, #7957ea 0%, #1aa7d5 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#hero-image {
-    width: 30%;
-    height: auto;
-    display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-#hero-image img {
-    width: 100%;
-    height: auto;
+#retangulo {
+    width: 70%;
+    height: 7px;
+    margin: 10px;
+    background: #fff;
 }
 
+#titulo-hero h1 {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 88px;
+}
+
+#titulo-hero h2 {
+    color: #FFF;
+    background-clip: text;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 88px;
+}
+
+#titulo-hero span {
+    background: linear-gradient(107deg, #fae007 0%, #19AED9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 88px;
+}
+
+/* ===========================
+   História
+   =========================== */
 #historia {
-    width: 100%;
-    height: 700px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 300px;
+    position: relative;
 }
 
 #conteudo-historia {
-    background: linear-gradient(135deg, #00674f 0%, #19aed9 100%);
-    width: 100%;
-    height: 600px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#historia-texto {
-    width: 50%;
+    width: 80%;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
-    gap: 20px;
-}
-
-#historia-texto h1 {
-    color: #fae007;
-    font-family: Inter;
-    font-size: 58px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 40px; /* 68.966% */
-}
-
-#historia-texto p {
-    color: #fff;
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 27px; /* 112.5% */
-    letter-spacing: 1.68px;
-}
-
-#historia-image {
-    width: 45%;
-    height: auto;
-}
-
-#historia-image img {
-    width: 100%;
-    height: auto;
-}
-
-#mvv {
-    width: 100%;
-    height: 600px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
+    gap: 30px;
 }
 
-#mvv-titulo h1 {
-    text-align: center;
+#conteudo-card {
+    background-color: #59BDA3;
+    width: 100%;
+    height: 300px;
+    min-height: 200px;
+    border-radius: 37px;
+}
+
+#conteudo-card p {
+    color: var(--Neutral-10, #FFF);
     font-family: Inter;
-    font-size: 50px;
+    font-size: 30px;
     font-style: normal;
-    font-weight: 700;
-    line-height: 40px; /* 133.333% */
-    background: linear-gradient(90deg, #5873e6 0%, #52bba5 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 50px;
+    font-weight: 400;
+    line-height: 48px;
+    margin: 30px;
 }
 
-#conteudo-mvv {
-    width: 80%;
-    height: 500px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+#historia-img {
+    position: absolute;
+    top: 180px;
+    border-radius: 0px 0px 40px 0px;
     margin: auto;
 }
 
-#card-missao {
-    width: 30%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    border-top: 4px solid #7756ec;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
+#historia-img img {
+    width: 100%;
+    height: 100%;
 }
 
-#card-visao {
-    width: 30%;
+/* ===========================
+   MVV
+   =========================== */
+#mvv {
+    width: 100%;
     height: auto;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    border-radius: 12px;
-    border-top: 4px solid #3991e0;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 120px;
 }
 
-#card-valores {
-    width: 30%;
+#conteudo-mvv {
+    width: 90%;
     height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    border-top: 4px solid #52bba5;
-    background: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
+    align-items: center;
 }
 
-#card-missao h1,
-#card-visao h1,
-#card-valores h1 {
-    color: #1f2937;
+#titulo-mvv {
+    margin-bottom: 30px;
+}
+
+#titulo-mvv h1 {
+    color: #1F2937;
+    text-align: center;
     font-family: Inter;
-    font-size: 24px;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 88px;
+}
+
+#titulo-mvv span {
+    background: linear-gradient(90deg, #7756EC 0%, #52BBA5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 88px;
+}
+
+#secao-card-mvv {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.card-mvv {
+    background-color: #fff;
+    width: 33%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 37px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -4px rgba(0, 0, 0, 0.10);
+}
+
+#missao { border-top: 4px solid #7756EC; }
+#visao  { border-top: 4px solid #3991E0; }
+#valores { border-top: 4px solid #52BBA5; }
+
+.icon {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+    gap: 80px;
+}
+
+.icon h3 {
+    color: #1F2937;
+    font-family: Inter;
+    font-size: 30px;
     font-style: normal;
     font-weight: 700;
-    line-height: 32px; /* 133.333% */
-    margin: 10px;
+    line-height: 32px;
 }
 
-#card-missao p,
-#card-visao p,
-#card-valores p {
-    color: #4b5563;
+.card-mvv p {
+    margin: 10px 0px 40px 40px;
+    color: #4B5563;
     font-family: Inter;
-    font-size: 16px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 400;
-    line-height: 26px; /* 162.5% */
-    margin: 10px;
+    line-height: 26px;
 }
 
-#card-missao img,
-#card-visao img,
-#card-valores img {
-    margin: 15px;
+.icon img {
+    width: auto;
+    height: auto;
 }
 
+/* ===========================
+   Equipe
+   =========================== */
 #equipe {
     width: 100%;
-    height: 1000px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 200px;
+    margin-bottom: 250px;
 }
 
 #conteudo-equipe {
     width: 100%;
-    height: 1000px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
 #texto-equipe {
@@ -278,7 +276,7 @@ main {
     font-size: 35.7px;
     font-style: normal;
     font-weight: 700;
-    line-height: 40px; /* 112.045% */
+    line-height: 40px;
     background: linear-gradient(90deg, #7756ec 0%, #3991e0 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -286,13 +284,12 @@ main {
 }
 
 #texto-equipe p {
-    color: #4b5563;
-    text-align: center;
+    color: #4B5563;
     font-family: Inter;
-    font-size: 16.9px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 400;
-    line-height: 28px; /* 165.68% */
+    line-height: 26px;
 }
 
 #cards-equipe {
@@ -304,7 +301,7 @@ main {
     justify-content: center;
     align-items: stretch;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .card {
@@ -318,7 +315,7 @@ main {
 
 .card-img {
     width: 100%;
-    height: 250px;
+    height: 300px;
     overflow: hidden;
 }
 
@@ -326,13 +323,14 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
     display: block;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: center;
-    justify-content: center;
-    display: flex;
 }
+
+/* Ajustes individuais por foto */
+#img-Teko img  { object-position: center 50%; }
+#img-kaue img  { object-position: center 35%; }
+#img-Luiz img  { object-position: center 30%; }
 
 .card-content {
     padding: 20px;
@@ -375,90 +373,70 @@ main {
 }
 
 /* ===========================
-   Responsividade - Tablet
+   Responsividade - Tablet (≤ 1024px)
    =========================== */
 @media (max-width: 1024px) {
-    #hero,
-    #historia,
-    #mvv,
-    #mvvv,
-    #equipe,
-    #conteudo-equipe {
-        height: auto;
-    }
 
+    /* Hero */
     #hero {
-        margin-top: 20px;
-        padding: 56px 5% 40px;
-        gap: 20px;
+        margin-top: 120px;
+        padding: 40px 5%;
+        background-position: center center;
     }
 
-    #hero-texto {
-        width: 58%;
+    #titulo-hero h1,
+    #titulo-hero h2,
+    #titulo-hero span {
+        font-size: 48px;
+        line-height: 64px;
     }
 
-    #hero-texto h1,
-    #hero-texto span {
-        font-size: 72px;
-        line-height: 72px;
-        letter-spacing: 0.4px;
-    }
-
-    #hero-texto p {
-        font-size: 24px;
-        line-height: 30px;
-    }
-
-    #hero-image {
-        width: 36%;
+    /* História */
+    #historia {
+        margin-top: 60px;
+        margin-bottom: 100px;
     }
 
     #conteudo-historia {
-        height: auto;
-        padding: 48px 5%;
-        gap: 28px;
+        width: 88%;
     }
 
-    #historia-texto {
-        width: 55%;
-        gap: 14px;
+    #conteudo-card p {
+        font-size: 22px;
+        line-height: 36px;
+        margin: 24px;
     }
 
-    #historia-texto h1 {
-        font-size: 48px;
-        line-height: 52px;
+    /* MVV */
+    #mvv {
+        margin-top: 30px;
+        margin-bottom: 80px;
     }
 
-    #historia-texto p {
-        font-size: 20px;
-        line-height: 28px;
-        letter-spacing: 0.8px;
-    }
-
-    #historia-image {
-        width: 40%;
-    }
-
-    #mvv-titulo h1 {
+    #titulo-mvv h1,
+    #titulo-mvv span {
         font-size: 42px;
-        line-height: 48px;
-        margin-top: 40px;
+        line-height: 60px;
     }
 
     #conteudo-mvv {
         width: 92%;
-        height: auto;
-        margin: 32px auto 56px;
-        align-items: stretch;
     }
 
-    #card-missao,
-    #card-visao,
-    #card-valores {
-        width: calc(33.333% - 14px);
-        min-height: 290px;
+    .icon {
+        gap: 30px;
     }
 
+    .icon h3 {
+        font-size: 24px;
+    }
+
+    .card-mvv p {
+        font-size: 18px;
+        margin: 10px 20px 30px 24px;
+    }
+
+    /* Equipe */
     #texto-equipe img {
         width: 18%;
     }
@@ -469,8 +447,8 @@ main {
     }
 
     #texto-equipe p {
-        font-size: 16px;
-        line-height: 26px;
+        font-size: 18px;
+        line-height: 24px;
     }
 
     #cards-equipe {
@@ -480,120 +458,105 @@ main {
 
     .card {
         width: calc(50% - 14px);
-        min-width: 250px;
+        min-width: 240px;
     }
 
     #equipe {
-        margin-bottom: 90px;
+        margin-bottom: 120px;
     }
 }
 
 /* ===========================
-   Responsividade - Mobile
+   Responsividade - Mobile (≤ 768px)
    =========================== */
 @media (max-width: 768px) {
-    #hero,
-    #conteudo-historia,
-    #conteudo-mvv {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
 
+    /* Hero */
     #hero {
-        padding: 36px 5% 30px;
+        height: 380px;
+        background-position: center center;
+        margin-top: 0;
+        padding: 30px 5%;
         text-align: center;
     }
 
-    #hero-texto,
-    #hero-image,
-    #historia-texto,
-    #historia-image {
-        width: 100%;
-        margin-top: 70px;
+    #titulo-hero h1,
+    #titulo-hero h2,
+    #titulo-hero span {
+        font-size: 36px;
+        line-height: 48px;
     }
 
-    #hero-texto {
-        align-items: center;
+    #retangulo {
+        width: 90%;
     }
 
-    #hero-texto h1,
-    #hero-texto span {
-        font-size: 48px;
-        line-height: 52px;
-        letter-spacing: 0;
-    }
-
-    #hero-texto p {
-        font-size: 20px;
-        line-height: 26px;
-    }
-
-    #hero-image {
-        max-width: 280px;
+    /* História */
+    #historia {
+        margin-top: 40px;
+        margin-bottom: 60px;
     }
 
     #conteudo-historia {
-        padding: 36px 5%;
-        text-align: center;
+        width: 90%;
+        gap: 20px;
     }
 
-    #historia-texto {
-        align-items: center;
-        gap: 10px;
+    #conteudo-card {
+        border-radius: 20px;
     }
 
-    #historia-texto h1 {
-        font-size: 40px;
+    #conteudo-card p {
+        font-size: 18px;
+        line-height: 30px;
+        margin: 20px;
+    }
+
+    #historia-img {
+        display: none; /* imagem decorativa oculta em mobile para não quebrar o layout */
+    }
+
+    /* MVV */
+    #mvv {
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+    #titulo-mvv h1,
+    #titulo-mvv span {
+        font-size: 32px;
         line-height: 44px;
     }
 
-    #historia-texto p {
-        font-size: 18px;
-        line-height: 26px;
-        letter-spacing: 0.3px;
+    #secao-card-mvv {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
     }
 
-    #historia-image {
-        max-width: 360px;
-    }
-
-    #mvv-titulo h1 {
-        font-size: 36px;
-        line-height: 40px;
-        margin-top: 34px;
-    }
-
-    #conteudo-mvv {
-        width: 90%;
-        gap: 14px;
-        margin: 24px auto 42px;
-    }
-
-    #card-missao,
-    #card-visao,
-    #card-valores {
+    .card-mvv {
         width: 100%;
-        min-height: auto;
-        align-items: flex-start;
+        border-radius: 20px;
     }
 
-    #card-missao h1,
-    #card-visao h1,
-    #card-valores h1 {
+    .icon {
+        gap: 20px;
+        margin: 16px;
+    }
+
+    .icon h3 {
         font-size: 22px;
-        line-height: 28px;
     }
 
-    #card-missao p,
-    #card-visao p,
-    #card-valores p {
-        font-size: 15px;
+    .card-mvv p {
+        font-size: 16px;
         line-height: 24px;
+        margin: 8px 16px 24px 16px;
     }
 
+    /* Equipe */
     #equipe {
-        margin-bottom: 70px;
+        margin-bottom: 80px;
     }
 
     #texto-equipe img {
@@ -601,13 +564,13 @@ main {
     }
 
     #texto-equipe h1 {
-        font-size: 30px;
+        font-size: 28px;
         line-height: 34px;
     }
 
     #texto-equipe p {
         font-size: 15px;
-        line-height: 24px;
+        line-height: 22px;
     }
 
     #cards-equipe {
@@ -621,55 +584,54 @@ main {
     }
 
     .card-img {
-        height: 220px;
+        height: 240px;
     }
 }
 
+/* ===========================
+   Responsividade - Mobile pequeno (≤ 480px)
+   =========================== */
 @media (max-width: 480px) {
+
+    /* Hero */
     #hero {
-        padding: 26px 5% 24px;
+        height: 260px;
+        padding: 20px 5%;
     }
 
-    #hero-texto h1,
-    #hero-texto span {
-        font-size: 36px;
-        line-height: 42px;
+    #titulo-hero h1,
+    #titulo-hero h2,
+    #titulo-hero span {
+        font-size: 28px;
+        line-height: 38px;
     }
 
-    #hero-texto p {
-        font-size: 17px;
-        line-height: 23px;
+    /* História */
+    #conteudo-card p {
+        font-size: 16px;
+        line-height: 26px;
+        margin: 16px;
     }
 
-    #conteudo-historia {
-        padding: 28px 5%;
-    }
-
-    #historia-texto h1 {
-        font-size: 32px;
+    /* MVV */
+    #titulo-mvv h1,
+    #titulo-mvv span {
+        font-size: 26px;
         line-height: 36px;
     }
 
-    #historia-texto p {
-        font-size: 16px;
+    .icon h3 {
+        font-size: 20px;
+    }
+
+    .card-mvv p {
+        font-size: 14px;
         line-height: 22px;
     }
 
-    #mvv-titulo h1 {
-        font-size: 30px;
-        line-height: 34px;
-        margin-top: 28px;
-    }
-
-    #conteudo-mvv {
-        width: 92%;
-        margin: 20px auto 34px;
-    }
-
-    #card-missao,
-    #card-visao,
-    #card-valores {
-        border-radius: 10px;
+    /* Equipe */
+    #equipe {
+        margin-bottom: 60px;
     }
 
     #texto-equipe img {
@@ -677,13 +639,13 @@ main {
     }
 
     #texto-equipe h1 {
-        font-size: 26px;
+        font-size: 24px;
         line-height: 30px;
     }
 
     #texto-equipe p {
         font-size: 14px;
-        line-height: 22px;
+        line-height: 20px;
     }
 
     .card-img {
