@@ -20,244 +20,540 @@
         <script src="/js/components/toast.js"></script>
         <script src="/js/pages/calculadora-juros.js"></script>
         <script src="/js/main.js" defer></script>
-        <title>Simulador de Juros - RealDin</title>
+        <title>Simulador Financeiro - RealDin</title>
     </head>
     <body>
         <header-componente pagina="simulador"></header-componente>
 
         <main>
-            <section class="hero-section">
-                <!-- Conteúdo Hero -->
-                <div class="hero-content">
-                    <div class="hero-badge">
-                        <svg
-                            class="badge-icon"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6L8 0Z"
-                                fill="currentColor"
-                            />
-                        </svg>
-                        <span>Simulador de Dívidas</span>
+            <!-- ============================================================
+                 HERO — com toggle de modo no topo
+            ============================================================ -->
+            <section class="hero-section" id="heroSection">
+                <!-- ================================================
+                     PAINEL JUROS
+                ================================================ -->
+                <div
+                    class="calc-panel"
+                    id="panelJuros"
+                    role="tabpanel"
+                    aria-labelledby="btnModeJuros"
+                >
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <svg
+                                class="badge-icon"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6L8 0Z"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                            <span>Simulador de Dívidas</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Descubra o peso real dos juros
+                        </h1>
+                        <p class="hero-description">
+                            Simule sua dívida e entenda quanto você realmente
+                            pagará ao final. Conhecimento é o primeiro passo
+                            para sair do vermelho.
+                        </p>
                     </div>
 
-                    <h1 class="hero-title">Descubra o peso real dos juros</h1>
+                    <article class="simulador-card">
+                        <header class="simulador-header">
+                            <svg
+                                class="simulador-icon"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                            >
+                                <path
+                                    d="M10 2L12 8L18 10L12 12L10 18L8 12L2 10L8 8L10 2Z"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                            <h2 class="simulador-title">
+                                Configure sua simulação
+                            </h2>
+                        </header>
 
-                    <p class="hero-description">
-                        Simule sua dívida e entenda quanto você realmente pagará
-                        ao final. Conhecimento é o primeiro passo para sair do
-                        vermelho.
-                    </p>
+                        <form class="simulador-form" id="simuladorForm">
+                            <div
+                                class="mode-toggle-wrap mode-toggle-wrap--in-form"
+                            >
+                                <div
+                                    class="mode-toggle"
+                                    role="tablist"
+                                    aria-label="Selecione o simulador"
+                                >
+                                    <button
+                                        type="button"
+                                        class="mode-toggle-btn active"
+                                        role="tab"
+                                        aria-selected="true"
+                                        aria-controls="panelJuros"
+                                        data-mode="juros"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M10 2L12 8L18 10L12 12L10 18L8 12L2 10L8 8L10 2Z"
+                                                fill="currentColor"
+                                            />
+                                        </svg>
+                                        Calculadora de Juros
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="mode-toggle-btn"
+                                        role="tab"
+                                        aria-selected="false"
+                                        aria-controls="panelInvest"
+                                        data-mode="invest"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M2 14l5-5 3 3 5-6 3 3"
+                                                stroke="currentColor"
+                                                stroke-width="1.8"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        Simulador de Investimentos
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Tipo de dívida</label>
+                                <div
+                                    class="button-group"
+                                    role="group"
+                                    aria-label="Tipo de dívida"
+                                >
+                                    <button
+                                        type="button"
+                                        class="debt-type-btn active"
+                                        data-debt-type="cartao"
+                                        data-default-rate="14.5"
+                                        aria-pressed="true"
+                                    >
+                                        <svg
+                                            class="btn-icon"
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                        >
+                                            <rect
+                                                x="2"
+                                                y="4"
+                                                width="16"
+                                                height="12"
+                                                rx="2"
+                                                fill="currentColor"
+                                            />
+                                        </svg>
+                                        <span>Cartão de Crédito</span>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="debt-type-btn"
+                                        data-debt-type="emprestimo"
+                                        data-default-rate="8.5"
+                                        aria-pressed="false"
+                                    >
+                                        <svg
+                                            class="btn-icon"
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                        >
+                                            <circle
+                                                cx="10"
+                                                cy="10"
+                                                r="8"
+                                                fill="currentColor"
+                                            />
+                                        </svg>
+                                        <span>Empréstimo</span>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="debt-type-btn"
+                                        data-debt-type="cheque"
+                                        data-default-rate="8.0"
+                                        aria-pressed="false"
+                                    >
+                                        <svg
+                                            class="btn-icon"
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                        >
+                                            <rect
+                                                x="2"
+                                                y="6"
+                                                width="16"
+                                                height="8"
+                                                rx="1"
+                                                fill="currentColor"
+                                            />
+                                        </svg>
+                                        <span>Cheque Especial</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="valorDivida" class="form-label"
+                                    >Valor da dívida</label
+                                >
+                                <div class="input-wrapper">
+                                    <input
+                                        type="text"
+                                        id="valorDivida"
+                                        class="form-input"
+                                        placeholder="R$ 0,00"
+                                        data-currency
+                                        aria-describedby="valorHelp"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-label-row">
+                                    <label for="taxaJuros" class="form-label"
+                                        >Taxa de juros mensal</label
+                                    >
+                                    <output
+                                        class="taxa-value"
+                                        id="taxaValue"
+                                        for="taxaJuros"
+                                        >14.5%</output
+                                    >
+                                </div>
+                                <div class="slider-wrapper">
+                                    <input
+                                        type="range"
+                                        id="taxaJuros"
+                                        class="form-range"
+                                        min="0.5"
+                                        max="30"
+                                        step="0.1"
+                                        value="14.5"
+                                        aria-valuemin="0.5"
+                                        aria-valuemax="30"
+                                        aria-valuenow="14.5"
+                                        aria-label="Taxa de juros mensal"
+                                    />
+                                </div>
+                                <small class="help-text" id="taxaHelp">
+                                    Taxa padrão para
+                                    <span id="debtTypeText"
+                                        >Cartão de Crédito</span
+                                    >:
+                                    <span id="defaultRateText">14.5%</span> a.m.
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-label-row">
+                                    <label for="periodo" class="form-label"
+                                        >Período</label
+                                    >
+                                    <output
+                                        class="periodo-value"
+                                        id="periodoValue"
+                                        for="periodo"
+                                        >12 meses</output
+                                    >
+                                </div>
+                                <div class="slider-wrapper">
+                                    <input
+                                        type="range"
+                                        id="periodo"
+                                        class="form-range"
+                                        min="1"
+                                        max="60"
+                                        step="1"
+                                        value="12"
+                                        aria-valuemin="1"
+                                        aria-valuemax="60"
+                                        aria-valuenow="12"
+                                        aria-label="Período em meses"
+                                    />
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-submit">
+                                Simular Dívida
+                            </button>
+                        </form>
+                    </article>
                 </div>
 
-                <!-- Card do Simulador -->
-                <article class="simulador-card">
-                    <header class="simulador-header">
-                        <svg
-                            class="simulador-icon"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M10 2L12 8L18 10L12 12L10 18L8 12L2 10L8 8L10 2Z"
-                                fill="currentColor"
-                            />
-                        </svg>
-                        <h2 class="simulador-title">Configure sua simulação</h2>
-                    </header>
+                <!-- ================================================
+                     PAINEL INVESTIMENTOS
+                ================================================ -->
+                <div
+                    class="calc-panel calc-panel--hidden"
+                    id="panelInvest"
+                    role="tabpanel"
+                    aria-labelledby="btnModeInvest"
+                >
+                    <div class="hero-content">
+                        <div class="hero-badge hero-badge--green">
+                            <svg
+                                class="badge-icon"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M2 10l4-4 3 3 5-6"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                            <span>Simulador de Investimentos</span>
+                        </div>
+                        <h1 class="hero-title hero-title--green">
+                            Faça seu dinheiro trabalhar por você
+                        </h1>
+                        <p class="hero-description">
+                            Simule o crescimento do seu patrimônio com juros
+                            compostos a seu favor. Veja o poder dos aportes
+                            mensais ao longo do tempo.
+                        </p>
+                    </div>
 
-                    <form class="simulador-form" id="simuladorForm">
-                        <!-- Tipo de Dívida -->
-                        <div class="form-group">
-                            <label class="form-label">Tipo de dívida</label>
+                    <article class="simulador-card">
+                        <header class="simulador-header">
+                            <svg
+                                class="simulador-icon simulador-icon--green"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                            >
+                                <path
+                                    d="M2 14l5-5 3 3 5-6 3 3"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                            <h2 class="simulador-title">
+                                Configure seu investimento
+                            </h2>
+                        </header>
+
+                        <form class="simulador-form" id="investForm">
                             <div
-                                class="button-group"
-                                role="group"
-                                aria-label="Tipo de dívida"
+                                class="mode-toggle-wrap mode-toggle-wrap--in-form"
                             >
-                                <button
-                                    type="button"
-                                    class="debt-type-btn active"
-                                    data-debt-type="cartao"
-                                    data-default-rate="14.5"
-                                    aria-pressed="true"
+                                <div
+                                    class="mode-toggle"
+                                    role="tablist"
+                                    aria-label="Selecione o simulador"
                                 >
-                                    <svg
-                                        class="btn-icon"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 20 20"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
+                                    <button
+                                        type="button"
+                                        class="mode-toggle-btn"
+                                        role="tab"
+                                        aria-selected="false"
+                                        aria-controls="panelJuros"
+                                        data-mode="juros"
                                     >
-                                        <rect
-                                            x="2"
-                                            y="4"
+                                        <svg
                                             width="16"
-                                            height="12"
-                                            rx="2"
-                                            fill="currentColor"
-                                        />
-                                    </svg>
-                                    <span>Cartão de Crédito</span>
-                                </button>
-
-                                <button
-                                    type="button"
-                                    class="debt-type-btn"
-                                    data-debt-type="emprestimo"
-                                    data-default-rate="8.5"
-                                    aria-pressed="false"
-                                >
-                                    <svg
-                                        class="btn-icon"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 20 20"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
+                                            height="16"
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M10 2L12 8L18 10L12 12L10 18L8 12L2 10L8 8L10 2Z"
+                                                fill="currentColor"
+                                            />
+                                        </svg>
+                                        Calculadora de Juros
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="mode-toggle-btn active"
+                                        role="tab"
+                                        aria-selected="true"
+                                        aria-controls="panelInvest"
+                                        data-mode="invest"
                                     >
-                                        <circle
-                                            cx="10"
-                                            cy="10"
-                                            r="8"
-                                            fill="currentColor"
-                                        />
-                                    </svg>
-                                    <span>Empréstimo</span>
-                                </button>
-
-                                <button
-                                    type="button"
-                                    class="debt-type-btn"
-                                    data-debt-type="cheque"
-                                    data-default-rate="12.0"
-                                    aria-pressed="false"
-                                >
-                                    <svg
-                                        class="btn-icon"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 20 20"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <rect
-                                            x="2"
-                                            y="6"
+                                        <svg
                                             width="16"
-                                            height="8"
-                                            rx="1"
-                                            fill="currentColor"
-                                        />
-                                    </svg>
-                                    <span>Cheque Especial</span>
-                                </button>
+                                            height="16"
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M2 14l5-5 3 3 5-6 3 3"
+                                                stroke="currentColor"
+                                                stroke-width="1.8"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        Simulador de Investimentos
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Valor da Dívida -->
-                        <div class="form-group">
-                            <label for="valorDivida" class="form-label"
-                                >Valor da dívida</label
+                            <div class="form-group">
+                                <label for="investValor" class="form-label"
+                                    >Valor inicial</label
+                                >
+                                <div class="input-wrapper">
+                                    <input
+                                        type="text"
+                                        id="investValor"
+                                        class="form-input"
+                                        placeholder="R$ 0,00"
+                                        autocomplete="off"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="investAporte" class="form-label"
+                                    >Aporte mensal</label
+                                >
+                                <div class="input-wrapper">
+                                    <input
+                                        type="text"
+                                        id="investAporte"
+                                        class="form-input"
+                                        placeholder="R$ 0,00"
+                                        autocomplete="off"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-label-row">
+                                    <label for="investTaxa" class="form-label"
+                                        >Rentabilidade mensal</label
+                                    >
+                                    <output
+                                        class="taxa-value taxa-value--green"
+                                        id="investTaxaValue"
+                                        >1.0%</output
+                                    >
+                                </div>
+                                <div class="slider-wrapper">
+                                    <input
+                                        type="range"
+                                        id="investTaxa"
+                                        class="form-range form-range--green"
+                                        min="0.1"
+                                        max="5"
+                                        step="0.1"
+                                        value="1.0"
+                                    />
+                                </div>
+                                <div class="invest-presets">
+                                    <button
+                                        type="button"
+                                        class="invest-preset"
+                                        data-taxa="0.83"
+                                    >
+                                        Tesouro Selic
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="invest-preset active"
+                                        data-taxa="1.0"
+                                    >
+                                        CDB 120%
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="invest-preset"
+                                        data-taxa="1.4"
+                                    >
+                                        FII médio
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="invest-preset"
+                                        data-taxa="1.8"
+                                    >
+                                        Renda Variável
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-label-row">
+                                    <label
+                                        for="investPeriodo"
+                                        class="form-label"
+                                        >Período</label
+                                    >
+                                    <output
+                                        class="periodo-value"
+                                        id="investPeriodoValue"
+                                        >24 meses</output
+                                    >
+                                </div>
+                                <div class="slider-wrapper">
+                                    <input
+                                        type="range"
+                                        id="investPeriodo"
+                                        class="form-range form-range--green"
+                                        min="1"
+                                        max="360"
+                                        step="1"
+                                        value="24"
+                                        aria-label="Período em meses"
+                                    />
+                                </div>
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="btn-submit btn-submit--green"
                             >
-                            <div class="input-wrapper">
-                                <input
-                                    type="text"
-                                    id="valorDivida"
-                                    class="form-input"
-                                    placeholder="R$ 0,00"
-                                    data-currency
-                                    aria-describedby="valorHelp"
-                                />
-                            </div>
-                        </div>
-
-                        <!-- Taxa de Juros -->
-                        <div class="form-group">
-                            <div class="form-label-row">
-                                <label for="taxaJuros" class="form-label"
-                                    >Taxa de juros mensal</label
-                                >
-                                <output
-                                    class="taxa-value"
-                                    id="taxaValue"
-                                    for="taxaJuros"
-                                    >14.5%</output
-                                >
-                            </div>
-
-                            <div class="slider-wrapper">
-                                <input
-                                    type="range"
-                                    id="taxaJuros"
-                                    class="form-range"
-                                    min="0.5"
-                                    max="30"
-                                    step="0.1"
-                                    value="14.5"
-                                    aria-valuemin="0.5"
-                                    aria-valuemax="30"
-                                    aria-valuenow="14.5"
-                                    aria-label="Taxa de juros mensal"
-                                />
-                            </div>
-
-                            <small class="help-text" id="taxaHelp">
-                                Taxa padrão para
-                                <span id="debtTypeText">Cartão de Crédito</span
-                                >: <span id="defaultRateText">14.5%</span> a.m.
-                            </small>
-                        </div>
-
-                        <!-- Período -->
-                        <div class="form-group">
-                            <div class="form-label-row">
-                                <label for="periodo" class="form-label"
-                                    >Período</label
-                                >
-                                <output
-                                    class="periodo-value"
-                                    id="periodoValue"
-                                    for="periodo"
-                                    >12 meses</output
-                                >
-                            </div>
-
-                            <div class="slider-wrapper">
-                                <input
-                                    type="range"
-                                    id="periodo"
-                                    class="form-range"
-                                    min="1"
-                                    max="60"
-                                    step="1"
-                                    value="12"
-                                    aria-valuemin="1"
-                                    aria-valuemax="60"
-                                    aria-valuenow="12"
-                                    aria-label="Período em meses"
-                                />
-                            </div>
-                        </div>
-
-                        <!-- Botão Simular -->
-                        <button type="submit" class="btn-submit">
-                            Simular Dívida
-                        </button>
-                    </form>
-                </article>
+                                Calcular crescimento
+                            </button>
+                        </form>
+                    </article>
+                </div>
             </section>
 
-            <!-- Seção de Resultados -->
+            <!-- ============================================================
+                 RESULTADOS — JUROS
+            ============================================================ -->
             <section
                 class="results-section"
                 id="resultsSection"
@@ -265,7 +561,6 @@
                 aria-live="polite"
             >
                 <div class="results-container">
-                    <!-- Alerta Crítico -->
                     <div
                         class="alert-critical"
                         id="alertCritical"
@@ -280,7 +575,6 @@
                     </div>
 
                     <div class="results-layout">
-                        <!-- Gráfico de Evolução -->
                         <article class="chart-card">
                             <header class="chart-header">
                                 <h3 class="chart-title">
@@ -292,14 +586,12 @@
                                     id="debtChart"
                                     aria-label="Gráfico de evolução da dívida ao longo dos meses"
                                 ></canvas>
-                                <!-- Placeholder para gráfico dinâmico via JavaScript -->
                                 <p class="chart-placeholder">
                                     O gráfico será gerado após a simulação
                                 </p>
                             </div>
                         </article>
 
-                        <!-- Cards de Estatísticas -->
                         <aside class="stats-cards">
                             <div class="stat-card" data-stat="original">
                                 <svg
@@ -308,7 +600,6 @@
                                     height="16"
                                     viewBox="0 0 16 16"
                                     fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <circle
                                         cx="8"
@@ -323,7 +614,6 @@
                                     >R$ 0,00</strong
                                 >
                             </div>
-
                             <div
                                 class="stat-card stat-card-warning"
                                 data-stat="total"
@@ -334,7 +624,6 @@
                                     height="16"
                                     viewBox="0 0 16 16"
                                     fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path
                                         d="M8 2L14 14H2L8 2Z"
@@ -348,7 +637,6 @@
                                     >R$ 0,00</strong
                                 >
                             </div>
-
                             <div
                                 class="stat-card stat-card-danger"
                                 data-stat="juros"
@@ -359,7 +647,6 @@
                                     height="16"
                                     viewBox="0 0 16 16"
                                     fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <rect
                                         x="3"
@@ -376,7 +663,6 @@
                                     >R$ 0,00</strong
                                 >
                             </div>
-
                             <div
                                 class="stat-card stat-card-danger"
                                 data-stat="percentual"
@@ -387,7 +673,6 @@
                                     height="16"
                                     viewBox="0 0 16 16"
                                     fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path
                                         d="M4 4L12 12M4 12L12 4"
@@ -407,7 +692,6 @@
                         </aside>
                     </div>
 
-                    <!-- Card Educativo -->
                     <article class="education-card" data-debt-type="cartao">
                         <header class="education-header">
                             <h3 class="education-title" id="educationTitle">
@@ -423,9 +707,7 @@
                                 mais cara do mercado. Quando você paga apenas o
                                 mínimo da fatura, o restante entra no crédito
                                 rotativo, com taxas que podem ultrapassar 400%
-                                ao ano. Os juros são compostos, ou seja, você
-                                paga juros sobre juros, fazendo a dívida crescer
-                                exponencialmente.
+                                ao ano.
                             </p>
                             <div class="education-alert" role="alert">
                                 <p id="educationTip">
@@ -438,6 +720,366 @@
                             </div>
                         </div>
                     </article>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SEÇÃO VIDA LIVRE DE JUROS
+            ============================================================ -->
+            <section
+                class="free-section"
+                id="freeSection"
+                style="display: none"
+            >
+                <div class="free-container">
+                    <header class="free-header">
+                        <div class="free-badge">
+                            <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6L8 0Z"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                            <span>Plano de Ação</span>
+                        </div>
+                        <h2 class="free-title">Como sair das dívidas</h2>
+                        <p class="free-subtitle">
+                            Estratégias comprovadas para quitar suas dívidas
+                            mais rápido e recuperar o controle financeiro.
+                        </p>
+                    </header>
+
+                    <div class="free-grid">
+                        <article class="free-card" data-step="1">
+                            <div class="free-card-icon">
+                                <svg
+                                    width="22"
+                                    height="22"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                    />
+                                    <path
+                                        d="M9 12h6M9 16h4"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                    />
+                                </svg>
+                            </div>
+                            <h3 class="free-card-title">
+                                Liste todas as dívidas
+                            </h3>
+                            <p class="free-card-desc">
+                                Anote credor, saldo devedor, taxa de juros e
+                                parcela mínima de cada dívida. Visibilidade é o
+                                primeiro passo.
+                            </p>
+                            <div class="free-card-tag">Passo 1</div>
+                        </article>
+
+                        <article class="free-card" data-step="2">
+                            <div class="free-card-icon">
+                                <svg
+                                    width="22"
+                                    height="22"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </div>
+                            <h3 class="free-card-title">Método avalanche</h3>
+                            <p class="free-card-desc">
+                                Pague o mínimo em todas e direcione o máximo
+                                para a dívida com
+                                <strong>maior taxa de juros</strong> primeiro.
+                                Economiza mais dinheiro.
+                            </p>
+                            <div class="free-card-tag free-card-tag--green">
+                                Mais eficiente
+                            </div>
+                        </article>
+
+                        <article class="free-card" data-step="3">
+                            <div class="free-card-icon">
+                                <svg
+                                    width="22"
+                                    height="22"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    />
+                                    <path
+                                        d="M12 8v4l3 3"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                    />
+                                </svg>
+                            </div>
+                            <h3 class="free-card-title">Método bola de neve</h3>
+                            <p class="free-card-desc">
+                                Quite primeiro a dívida de
+                                <strong>menor saldo</strong>. Gera motivação
+                                rápida e libera parcelas para atacar as maiores.
+                            </p>
+                            <div class="free-card-tag free-card-tag--yellow">
+                                Mais motivador
+                            </div>
+                        </article>
+
+                        <article class="free-card" data-step="4">
+                            <div class="free-card-icon">
+                                <svg
+                                    width="22"
+                                    height="22"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                    />
+                                </svg>
+                            </div>
+                            <h3 class="free-card-title">Renegocie sempre</h3>
+                            <p class="free-card-desc">
+                                Ligue para os credores e peça redução de taxa ou
+                                desconto à vista. Bancos preferem receber menos
+                                a não receber nada.
+                            </p>
+                            <div class="free-card-tag">Passo 4</div>
+                        </article>
+
+                        <article class="free-card" data-step="5">
+                            <div class="free-card-icon">
+                                <svg
+                                    width="22"
+                                    height="22"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M8 7h12m0 0l-4-4m4 4l-4 4M16 17H4m0 0l4 4m-4-4l4-4"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </div>
+                            <h3 class="free-card-title">
+                                Portabilidade de crédito
+                            </h3>
+                            <p class="free-card-desc">
+                                Transfira dívidas do rotativo (14%+ ao mês) para
+                                empréstimo pessoal (3–6% ao mês) em outro banco.
+                                Legal e muito mais barato.
+                            </p>
+                            <div class="free-card-tag free-card-tag--green">
+                                Economize muito
+                            </div>
+                        </article>
+
+                        <article class="free-card" data-step="6">
+                            <div class="free-card-icon">
+                                <svg
+                                    width="22"
+                                    height="22"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    />
+                                </svg>
+                            </div>
+                            <h3 class="free-card-title">Reserva paralela</h3>
+                            <p class="free-card-desc">
+                                Guarde pelo menos R$ 50–100 por mês mesmo
+                                durante o pagamento. Evita que imprevistos criem
+                                novas dívidas.
+                            </p>
+                            <div class="free-card-tag">Proteção</div>
+                        </article>
+                    </div>
+
+                    <div class="free-alert">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                        >
+                            <path
+                                d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 4v4m0 4h.01"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                        <p>
+                            <strong>Lembre-se:</strong> o gráfico acima mostra o
+                            que acontece se você <em>não pagar nada</em>. Com
+                            pagamentos regulares, a dívida cai muito mais
+                            rápido. Use as estratégias acima para acelerar.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 RESULTADOS — INVESTIMENTOS
+            ============================================================ -->
+            <section
+                class="invest-results-section"
+                id="investResultsSection"
+                style="display: none"
+                aria-live="polite"
+            >
+                <div class="results-container">
+                    <div class="invest-summary">
+                        <div class="invest-stat">
+                            <span class="invest-stat-label"
+                                >Total investido</span
+                            >
+                            <strong
+                                class="invest-stat-value"
+                                id="investTotalAportado"
+                                >R$ 0,00</strong
+                            >
+                        </div>
+                        <div class="invest-stat invest-stat--highlight">
+                            <span class="invest-stat-label"
+                                >Patrimônio final</span
+                            >
+                            <strong
+                                class="invest-stat-value invest-stat-value--green"
+                                id="investPatrimonio"
+                                >R$ 0,00</strong
+                            >
+                        </div>
+                        <div class="invest-stat">
+                            <span class="invest-stat-label"
+                                >Rendimento total</span
+                            >
+                            <strong
+                                class="invest-stat-value invest-stat-value--green"
+                                id="investRendimento"
+                                >R$ 0,00</strong
+                            >
+                        </div>
+                        <div class="invest-stat">
+                            <span class="invest-stat-label"
+                                >Rentabilidade no período</span
+                            >
+                            <strong
+                                class="invest-stat-value invest-stat-value--green"
+                                id="investTaxaPeriodo"
+                                >0%</strong
+                            >
+                        </div>
+                    </div>
+
+                    <div class="results-layout">
+                        <article class="chart-card">
+                            <div class="chart-header">
+                                <h3 class="chart-title">
+                                    Crescimento do Patrimônio
+                                </h3>
+                                <div class="invest-chart-legend">
+                                    <span class="legend-item legend-item--green"
+                                        >Patrimônio</span
+                                    >
+                                    <span class="legend-item legend-item--gray"
+                                        >Total investido</span
+                                    >
+                                </div>
+                            </div>
+                            <div
+                                class="chart-container"
+                                id="investChartContainer"
+                            >
+                                <canvas
+                                    id="investChart"
+                                    aria-label="Gráfico de crescimento do patrimônio"
+                                ></canvas>
+                            </div>
+                        </article>
+
+                        <aside class="stats-cards">
+                            <div class="invest-compare-card">
+                                <h3 class="invest-compare-title">
+                                    Dívida × Investimento
+                                </h3>
+                                <p class="invest-compare-desc">
+                                    No mesmo período, enquanto a dívida cresce
+                                    contra você, o investimento cresce a seu
+                                    favor.
+                                </p>
+                                <div class="invest-compare-grid">
+                                    <div
+                                        class="invest-compare-item invest-compare-item--red"
+                                    >
+                                        <span class="compare-label"
+                                            >Dívida (sem pagar)</span
+                                        >
+                                        <strong
+                                            class="compare-value"
+                                            id="compareDebito"
+                                            >—</strong
+                                        >
+                                        <span class="compare-sub"
+                                            >montante após o período</span
+                                        >
+                                    </div>
+                                    <div class="invest-compare-vs">×</div>
+                                    <div
+                                        class="invest-compare-item invest-compare-item--green"
+                                    >
+                                        <span class="compare-label"
+                                            >Investimento</span
+                                        >
+                                        <strong
+                                            class="compare-value"
+                                            id="compareInvest"
+                                            >—</strong
+                                        >
+                                        <span class="compare-sub"
+                                            >patrimônio após o período</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
                 </div>
             </section>
         </main>
