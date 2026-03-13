@@ -21,8 +21,7 @@ body {
     padding: 0 20px;
 }
 
-/* === ANIMAÇÃO DE ENTRADA AO SCROLLAR === */
-/* JS adiciona .will-animate antes de observar, evitando flash de conteúdo invisível */
+
 .will-animate {
 
     opacity: 0;
@@ -38,7 +37,7 @@ body {
 
 }
 
-/* Delay escalonado para grupos de cards dentro de grids */
+
 .stats-grid .will-animate:nth-child(2),
 .cursos-grid .will-animate:nth-child(2) {
      transition-delay: 0.1s; 
@@ -52,14 +51,18 @@ body {
 .cursos-grid .will-animate:nth-child(4) { 
     transition-delay: 0.3s; 
 }
-.cursos-grid .will-animate:nth-child(5) { transition-delay: 0.4s; }
-.cursos-grid .will-animate:nth-child(6) { transition-delay: 0.5s; }
+.cursos-grid .will-animate:nth-child(5) {
+     transition-delay: 0.4s; 
+    }
+.cursos-grid .will-animate:nth-child(6) {
+     transition-delay: 0.5s; 
+    }
 
 /* === SEÇÕES COM SCROLL SNAP === */
 /* Aplique .snap-section nas seções principais do HTML */
 .snap-section {
     scroll-snap-align: start;
-    scroll-snap-stop: normal; /* "normal" = não prende, só guia */
+    scroll-snap-stop: normal; 
 }
 
 /* HERO */
@@ -113,8 +116,12 @@ body {
 }
 
 @keyframes heroEntrada {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { opacity: 0;
+         transform: translateY(30px);
+         }
+    to   { opacity: 1; 
+        transform: translateY(0);
+     }
 }
 
 .hero-text h1 {
@@ -125,129 +132,130 @@ body {
 }
 
 /* PERFIL */
+/* === SEÇÃO PERFIL === */
 .perfil-secao {
     padding: 80px 10%;
-    font-family: "Inter", sans-serif;
-    scroll-snap-align: start;
+    background: #f0f4f8;
 }
 
-.titulo-perfil {
-    font-family: "Montserrat", sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #332d2d;
-}
-
-/* Card Branco Superior */
+/* Card principal — fundo gradiente */
 .card-perfil-status {
-    background: #fff;
+    background: linear-gradient(135deg, #1aa7d5 0%, #59bda3 100%);
     border-radius: 20px;
-    padding: 50px 60px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid #f0f0f0;
-    margin-bottom: 40px;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
+    padding: 40px;
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 12px 40px rgba(26, 167, 213, 0.3);
+}
+
+/* Círculos decorativos de fundo */
+.card-perfil-status::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+}
+.card-perfil-status::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: 60px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
 }
 
 .perfil-info-topo {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
-.highlight-blue {
-    color: #1889ae;
-    font-weight: 700;
-}
-
-.perfil-score-badge {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.tag-iniciante {
-    background-color: #59bda3;
+.perfil-info-topo p {
+    font-size: 13px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: white;
-    padding: 8px 25px;
-    border-radius: 30px;
-    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Badge de pontuação */
+.perfil-score-badge {
+    background: rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 16px 28px;
+    text-align: center;
+    backdrop-filter: blur(4px);
 }
 
 .score-numero {
-    font-size: 24px;
-    font-weight: 600;
-    color: #333;
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    display: block;
 }
 
-/* Barra de Progresso */
+.tag-iniciante {
+    font-size: 26px;
+    font-weight: 800;
+    color: white;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    display: block;
+}
+
+/* Barra de progresso sobre fundo gradiente */
+
+/* Barra visível sobre o gradiente */
 .barra-progresso-container {
-    background-color: #cacaca;
-    height: 12px;
+    background: rgba(255,255,255,0.3);
+    height: 14px;
     border-radius: 20px;
-    width: 100%;
-    overflow: hidden;
+    margin-top: 8px;
 }
 
 .barra-progresso-fill {
     height: 100%;
-    background: linear-gradient(90deg, #1aa7d5, #59bda3);
+    background: white;
     border-radius: 20px;
     width: 0%;
     transition: width 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
+    box-shadow: 0 0 10px rgba(255,255,255,0.6); 
 }
 
-.barra-progresso-fill.animate {
-    width: var(--target-width, 45%);
-}
-
-/* Card de Evolução */
+/* Card branco — layout lado a lado */
 .card-evolucao {
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f0f0f0;
-    display: flex;
+    background: white;
+    border-radius: 16px;
+    padding: 32px 36px;
+    border: 1px solid #e8edf2;
+    display: flex;                    /* lado a lado */
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+    gap: 24px;
 }
 
-.lista-metas-curta {
-    list-style: none;
-    margin-top: 15px;
-}
-
-.lista-metas-curta li::before {
-    content: "•";
-    color: #000;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-}
-
-.evolucao-acao {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 20px;
-    max-width: 400px;
-}
-
+/* Botão com estilo correto */
 .btn-recomenda-perfil {
     background-color: #59bda3;
     color: white;
     border: none;
-    padding: 15px 35px;
+    padding: 14px 28px;
     border-radius: 12px;
     font-weight: 700;
+    font-size: 15px;
     cursor: pointer;
+    white-space: nowrap;
     transition: background 0.3s, transform 0.2s;
 }
 
@@ -256,10 +264,57 @@ body {
     transform: scale(1.04);
 }
 
+/* Texto do lado direito */
+.evolucao-acao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    max-width: 300px;
+}
+
 .status-aprendizado {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
     text-align: right;
+    line-height: 1.5;
+}
+
+/* Lista com números circulares */
+.lista-metas-curta {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.lista-metas-curta li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+.lista-metas-curta li::before {
+    content: counter(lista);
+    counter-increment: lista;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e1f5ee;
+    color: #0f6e56;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.lista-metas-curta {
+    counter-reset: lista;
 }
 
 .banner-final-cta {
@@ -405,7 +460,7 @@ body {
 }
 
 .stat-card {
-    background: #fff;
+    background: #1c9a8d;
     border-radius: 12px;
     padding: 40px 20px;
     text-align: center;

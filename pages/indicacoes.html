@@ -54,46 +54,52 @@
             </section>
 
             <!-- PERFIL -->
-            <section class="perfil-secao">
-                <div class="container-perfil">
-                    <h2 class="titulo-perfil">Seu perfil</h2>
+           <section class="perfil-secao">
+    <div class="container-perfil">
+        <h2 class="titulo-perfil">Seu perfil</h2>
 
-                    <div class="card-perfil-status">
-                        <div class="perfil-info-topo">
-                            <p>
-                                Seu perfil
-                                <span class="highlight-blue">financeiro:</span>
-                            </p>
-                            
-
-                        <div class="barra-progresso-container">
-                            <div class="barra-progresso-fill" style="--target-width: 45%"></div>
-                        </div>
-                    </div>
-
-                    <div class="card-evolucao">
-                        <div class="evolucao-texto">
-                            <h3 class="highlight-blue">Foco de Evolução:</h3>
-                            <ul class="lista-metas-curta">
-                                <li>Anotar gastos por 7 dias</li>
-                                <li>Ajustar um hábito financeiro</li>
-                                <li>Criar reserva inicial</li>
-                            </ul>
-                        </div>
-
-                        <div class="evolucao-acao">
-                            <button class="btn-recomenda-perfil">
-                                Recomendações →
-                            </button>
-                            <p class="status-aprendizado">
-                                <span class="emoji-lampada">💡</span>
-                                continue aprendendo sobre controle de gastos e
-                                reserva de emergencia.
-                            </p>
-                        </div>
-                    </div>
+        <!-- Card gradiente -->
+        <div class="card-perfil-status">
+            <div class="perfil-info-topo">
+                <div>
+                    <p>Seu perfil financeiro:</p>
+                    <span class="tag-iniciante">Iniciante</span>
                 </div>
-            </section>
+                <div class="perfil-score-badge">
+                    <span class="score-numero">45</span>
+                    <span style="font-size:13px; color:white; opacity:0.8;">de 100 pts</span>
+                </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; font-size:13px; color:white; opacity:0.9; margin-bottom:8px;">
+                <span>Progresso</span>
+                <span>45%</span>
+            </div>
+            <div class="barra-progresso-container">
+                <div class="barra-progresso-fill" style="--target-width: 45%"></div>
+            </div>
+        </div>
+
+        <!-- Card branco -->
+        <div class="card-evolucao">
+            <div class="evolucao-texto">
+                <h3 class="highlight-blue">Foco de Evolução:</h3>
+                <ul class="lista-metas-curta">
+                    <li>Anotar gastos por 7 dias</li>
+                    <li>Ajustar um hábito financeiro</li>
+                    <li>Criar reserva inicial</li>
+                </ul>
+            </div>
+            <div class="evolucao-acao">
+                <button class="btn-recomenda-perfil">Recomendações →</button>
+                <p class="status-aprendizado">
+                    💡 continue aprendendo sobre controle de gastos e reserva de emergência.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
 
             <!-- RECOMENDADOS -->
           <section class="recomendados">
@@ -248,24 +254,48 @@
 
         <footer-componente></footer-componente>
 
-         <script>
-          const banner = document.querySelector('.banner-final-cta');
-          const btnCta = document.querySelector('.btn-cta-verde');
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
 
-          if (banner && btnCta) {
-            const observer = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  btnCta.classList.remove('hide');
-                } else {
-                  btnCta.classList.add('hide');
-                }
-              });
-            }, { threshold: 0.05 });
+    
+    const banner = document.querySelector('.banner-final-cta');
+    const titulo = document.querySelector('.banner-titulo');
+    const subtitulo = document.querySelector('.banner-subtitulo');
+    const btnCta = document.querySelector('.btn-cta-verde');
+    const statusInfo = document.querySelector('.banner-status-info');
 
-            observer.observe(banner);
-          }
-        </script>
+    
+    [titulo, subtitulo, btnCta, statusInfo].forEach(el => {
+      if (!el) return;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(50px)';
+      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    });
+
+    
+    const bannerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delays = [0, 0.2, 0.45, 0.6]; // titulo, subtitulo, botão, status
+          [titulo, subtitulo, btnCta, statusInfo].forEach((el, i) => {
+            if (!el) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, delays[i] * 1000);
+          });
+
+          bannerObserver.unobserve(entry.target); 
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (banner) bannerObserver.observe(banner);
+
+  });
+</script>
+        
+
    
     </body>
 </html>
