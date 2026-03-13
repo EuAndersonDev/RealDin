@@ -1,498 +1,615 @@
-// ==================== CALCULADORA DE JUROS ====================
-// Script para gerenciar o simulador de juros compostos
+// ==========================================
+// CALCULADORA-JUROS.JS — RealDin
+// Simulador de Dívidas + Simulador de Investimentos
+// com toggle entre os dois modos
+// ==========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    initSimulador();
+    initModeToggle();
+    initSimuladorJuros();
+    initSimuladorInvest();
 });
 
-let lastChartData = null;
-let chartResizeBound = false;
+// ============================================================
+// TOGGLE DE MODO
+// ============================================================
+function initModeToggle() {
+    const modeButtons = document.querySelectorAll('.mode-toggle-btn[data-mode]');
+    const panelJuros = document.getElementById('panelJuros');
+    const panelInvest = document.getElementById('panelInvest');
+    const hero = document.getElementById('heroSection');
 
-function initSimulador() {
-    // Elementos do formulário
+    // IDs das seções exclusivas de cada modo
+    const sectionsJuros = ['resultsSection', 'freeSection'];
+    const sectionsInvest = ['investResultsSection'];
+
+    if (!modeButtons.length || !panelJuros || !panelInvest || !hero) return;
+
+    function showMode(mode) {
+        const isJuros = mode === 'juros';
+
+        // Botões (sincroniza todos os toggles presentes na tela)
+        modeButtons.forEach((btn) => {
+            const isActive = btn.dataset.mode === mode;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', String(isActive));
+        });
+
+        // Painéis — alterna com animação CSS
+        if (isJuros) {
+            panelInvest.classList.add('calc-panel--hidden');
+            panelJuros.classList.remove('calc-panel--hidden');
+        } else {
+            panelJuros.classList.add('calc-panel--hidden');
+            panelInvest.classList.remove('calc-panel--hidden');
+        }
+
+        // Cor de fundo do hero
+        hero.classList.toggle('mode-invest', !isJuros);
+
+        // Mostra/esconde seções conforme o modo ativo
+        // wasVisible = 'true' significa que o usuário já rodou uma simulação naquele modo
+        sectionsJuros.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.style.display = isJuros && el.dataset.wasVisible === 'true' ? 'block' : 'none';
+        });
+        sectionsInvest.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.style.display = !isJuros && el.dataset.wasVisible === 'true' ? 'block' : 'none';
+        });
+
+        hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    modeButtons.forEach((btn) => {
+        btn.addEventListener('click', () => showMode(btn.dataset.mode));
+    });
+}
+
+// ============================================================
+// UTILITÁRIOS COMPARTILHADOS
+// ============================================================
+function formatarMoeda(valor) {
+    return Number(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
+function formatCompactCurrency(value) {
+    const v = Number(value) || 0;
+    if (v >= 1_000_000) return `R$ ${(v / 1_000_000).toFixed(1)}M`;
+    if (v >= 1_000) return `R$ ${(v / 1_000).toFixed(0)}k`;
+    return `R$ ${v.toFixed(0)}`;
+}
+
+function formatPeriodo(meses) {
+    if (meses < 12) return `${meses} ${meses === 1 ? 'mês' : 'meses'}`;
+    const anos = Math.floor(meses / 12);
+    const resto = meses % 12;
+    const aStr = `${anos} ${anos === 1 ? 'ano' : 'anos'}`;
+    return resto > 0 ? `${aStr} e ${resto} ${resto === 1 ? 'mês' : 'meses'}` : aStr;
+}
+
+function bindCurrencyInput(input) {
+    if (!input) return;
+    input.addEventListener('input', (e) => {
+        const raw = e.target.value.replace(/\D/g, '');
+        if (!raw.length) { e.target.value = ''; return; }
+        e.target.value = (parseInt(raw) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    });
+    input.addEventListener('focus', (e) => {
+        if (e.target.value === 'R$ 0,00' || e.target.value === '') e.target.value = '';
+    });
+}
+
+function parseCurrency(str) {
+    const raw = (str || '').replace(/\D/g, '');
+    return raw.length ? parseInt(raw) / 100 : 0;
+}
+
+function updateRangeProgress(slider) {
+    const min = parseFloat(slider.min);
+    const max = parseFloat(slider.max);
+    const val = parseFloat(slider.value);
+    const pct = ((val - min) / (max - min)) * 100;
+    slider.style.setProperty('--range-progress', `${pct}%`);
+}
+
+// ============================================================
+// SIMULADOR DE JUROS (DÍVIDAS)
+// ============================================================
+let lastDebtChartData = null;
+let debtChartResizeBound = false;
+
+function initSimuladorJuros() {
     const debtTypeButtons = document.querySelectorAll('.debt-type-btn');
     const valorInput = document.getElementById('valorDivida');
     const taxaSlider = document.getElementById('taxaJuros');
-    const taxaValue = document.getElementById('taxaValue');
+    const taxaValueEl = document.getElementById('taxaValue');
     const periodoSlider = document.getElementById('periodo');
-    const periodoValue = document.getElementById('periodoValue');
+    const periodoValueEl = document.getElementById('periodoValue');
     const form = document.getElementById('simuladorForm');
     const debtTypeText = document.getElementById('debtTypeText');
     const defaultRateText = document.getElementById('defaultRateText');
 
-    // Estado atual
+    if (!form) return;
+
     let currentDebtType = 'cartao';
 
-    // ==================== BOTÕES DE TIPO DE DÍVIDA ====================
-    debtTypeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active de todos os botões
-            debtTypeButtons.forEach(btn => {
-                btn.classList.remove('active');
-                btn.setAttribute('aria-pressed', 'false');
-            });
-
-            // Adiciona active no botão clicado
-            button.classList.add('active');
-            button.setAttribute('aria-pressed', 'true');
-
-            // Atualiza tipo de dívida atual
-            currentDebtType = button.dataset.debtType;
-            const defaultRate = button.dataset.defaultRate;
-
-            // Atualiza taxa padrão
-            taxaSlider.value = defaultRate;
-            updateTaxaDisplay(defaultRate);
+    // Botões de tipo de dívida
+    debtTypeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            debtTypeButtons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+            btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
+            currentDebtType = btn.dataset.debtType;
+            const rate = btn.dataset.defaultRate;
+            taxaSlider.value = rate;
+            taxaValueEl.textContent = `${parseFloat(rate).toFixed(1)}%`;
+            taxaSlider.setAttribute('aria-valuenow', rate);
             updateRangeProgress(taxaSlider);
-
-            // Atualiza texto informativo
-            const debtTypeNames = {
-                cartao: 'Cartão de Crédito',
-                emprestimo: 'Empréstimo',
-                cheque: 'Cheque Especial'
-            };
-
-            debtTypeText.textContent = debtTypeNames[currentDebtType];
-            defaultRateText.textContent = `${defaultRate}%`;
+            const names = { cartao: 'Cartão de Crédito', emprestimo: 'Empréstimo', cheque: 'Cheque Especial' };
+            if (debtTypeText) debtTypeText.textContent = names[currentDebtType];
+            if (defaultRateText) defaultRateText.textContent = `${rate}%`;
         });
     });
 
-    // ==================== FORMATAÇÃO DE MOEDA ====================
-    if (valorInput) {
-        valorInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
+    // Input moeda
+    bindCurrencyInput(valorInput);
 
-            if (value.length === 0) {
-                e.target.value = '';
-                return;
-            }
-
-            // Converte para número
-            const numValue = parseInt(value) / 100;
-
-            // Formata como moeda brasileira
-            e.target.value = numValue.toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-            });
-        });
-
-        valorInput.addEventListener('focus', (e) => {
-            if (e.target.value === 'R$ 0,00' || e.target.value === '') {
-                e.target.value = '';
-            }
-        });
-    }
-
-    // ==================== SLIDER DE TAXA ====================
+    // Slider taxa
     if (taxaSlider) {
-        taxaSlider.addEventListener('input', (e) => {
-            updateTaxaDisplay(e.target.value);
+        taxaSlider.addEventListener('input', () => {
+            taxaValueEl.textContent = `${parseFloat(taxaSlider.value).toFixed(1)}%`;
+            taxaSlider.setAttribute('aria-valuenow', taxaSlider.value);
             updateRangeProgress(taxaSlider);
         });
-
-        // Inicializa progresso
         updateRangeProgress(taxaSlider);
     }
 
-    function updateTaxaDisplay(value) {
-        const formattedValue = parseFloat(value).toFixed(1);
-        taxaValue.textContent = `${formattedValue}%`;
-        taxaSlider.setAttribute('aria-valuenow', value);
-    }
-
-    // ==================== SLIDER DE PERÍODO ====================
+    // Slider período
     if (periodoSlider) {
-        periodoSlider.addEventListener('input', (e) => {
-            updatePeriodoDisplay(e.target.value);
+        periodoSlider.addEventListener('input', () => {
+            const m = parseInt(periodoSlider.value);
+            periodoValueEl.textContent = `${m} ${m === 1 ? 'mês' : 'meses'}`;
+            periodoSlider.setAttribute('aria-valuenow', m);
             updateRangeProgress(periodoSlider);
         });
-
-        // Inicializa progresso
         updateRangeProgress(periodoSlider);
     }
 
-    function updatePeriodoDisplay(value) {
-        const meses = parseInt(value);
-        periodoValue.textContent = `${meses} ${meses === 1 ? 'mês' : 'meses'}`;
-        periodoSlider.setAttribute('aria-valuenow', value);
-    }
+    // Submit
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const valor = parseCurrency(valorInput.value);
+        const taxa = parseFloat(taxaSlider.value) / 100;
+        const periodo = parseInt(periodoSlider.value);
 
-    // ==================== ATUALIZAR PROGRESSO DO RANGE ====================
-    function updateRangeProgress(slider) {
-        const min = parseFloat(slider.min);
-        const max = parseFloat(slider.max);
-        const value = parseFloat(slider.value);
-        const percentage = ((value - min) / (max - min)) * 100;
+        if (!valor || valor <= 0) {
+            if (typeof Toast !== 'undefined') Toast.show('Por favor, insira um valor válido para a dívida.', 'warning');
+            valorInput.focus();
+            return;
+        }
 
-        slider.style.setProperty('--range-progress', `${percentage}%`);
-    }
-
-    // ==================== SUBMISSÃO DO FORMULÁRIO ====================
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Obter valores
-            const valorString = valorInput.value.replace(/\D/g, '');
-            const valor = parseInt(valorString) / 100;
-            const taxa = parseFloat(taxaSlider.value) / 100; // Convertendo para decimal
-            const periodo = parseInt(periodoSlider.value);
-
-            // Validações
-            if (!valor || valor <= 0) {
-                Toast.show('Por favor, insira um valor válido para a dívida.', 'warning');
-                valorInput.focus();
-                return;
-            }
-
-            // Calcular juros compostos
-            const resultado = calcularJurosCompostos(valor, taxa, periodo);
-
-            // Exibir resultado na seção de resultados
-            exibirResultado(resultado, currentDebtType);
-
-            // Scroll suave até os resultados
-            document.getElementById('resultsSection').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        });
-    }
+        const resultado = calcularJurosCompostos(valor, taxa, periodo);
+        exibirResultadoJuros(resultado, currentDebtType);
+        document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 }
 
-// ==================== CÁLCULO DE JUROS COMPOSTOS ====================
+// Cálculo de juros compostos
 function calcularJurosCompostos(valorInicial, taxaMensal, meses) {
     const montanteFinal = valorInicial * Math.pow(1 + taxaMensal, meses);
     const jurosTotal = montanteFinal - valorInicial;
-    const taxaEfetiva = ((montanteFinal / valorInicial - 1) * 100);
+    // CORRIGIDO: taxa anual equivalente usada nos alertas (não varia com o prazo)
+    const taxaAnualEquivalente = (Math.pow(1 + taxaMensal, 12) - 1) * 100;
+    // Taxa do período — exibida no card "Juros / Principal"
+    const taxaPeriodo = ((montanteFinal / valorInicial) - 1) * 100;
 
     return {
         valorInicial,
         taxaMensal: taxaMensal * 100,
+        taxaAnualEquivalente,
+        taxaPeriodo,
         meses,
         montanteFinal,
         jurosTotal,
-        taxaEfetiva,
-        parcelas: gerarParcelas(valorInicial, taxaMensal, meses)
+        parcelas: gerarParcelasJuros(valorInicial, taxaMensal, meses)
     };
 }
 
-// ==================== GERAR PARCELAS ====================
-function gerarParcelas(valorInicial, taxaMensal, meses) {
+function gerarParcelasJuros(valorInicial, taxaMensal, meses) {
     const parcelas = [];
-    let saldoDevedor = valorInicial;
-
+    let saldo = valorInicial;
     for (let i = 1; i <= meses; i++) {
-        const juros = saldoDevedor * taxaMensal;
-        const saldoAnterior = saldoDevedor;
-        saldoDevedor = saldoDevedor + juros;
-
-        parcelas.push({
-            mes: i,
-            saldoAnterior,
-            juros,
-            saldoAtual: saldoDevedor
-        });
+        const juros = saldo * taxaMensal;
+        const anterior = saldo;
+        saldo += juros;
+        parcelas.push({ mes: i, saldoAnterior: anterior, juros, saldoAtual: saldo });
     }
-
     return parcelas;
 }
 
-// ==================== EXIBIR RESULTADO ====================
-function exibirResultado(resultado, debtType) {
-    // Log para debug
-    console.log('=== SIMULAÇÃO DE DÍVIDA ===');
-    console.log(resultado);
-    console.table(resultado.parcelas);
-
-    // Mostrar seção de resultados
+function exibirResultadoJuros(resultado, debtType) {
     const resultsSection = document.getElementById('resultsSection');
-    resultsSection.style.display = 'block';
+    const freeSection = document.getElementById('freeSection');
 
-    // Atualizar valores dos cards
+    resultsSection.style.display = 'block';
+    resultsSection.dataset.wasVisible = 'true';
+    freeSection.style.display = 'block';
+    freeSection.dataset.wasVisible = 'true';
+
     document.getElementById('valorOriginal').textContent = formatarMoeda(resultado.valorInicial);
     document.getElementById('montanteTotal').textContent = formatarMoeda(resultado.montanteFinal);
     document.getElementById('totalJuros').textContent = formatarMoeda(resultado.jurosTotal);
-    document.getElementById('percentualJuros').textContent = `${resultado.taxaEfetiva.toFixed(2)}%`;
+    document.getElementById('percentualJuros').textContent = `${resultado.taxaPeriodo.toFixed(2)}%`;
 
-    // Atualizar severidade do alerta baseado na taxa efetiva
+    // Alertas baseados na taxa ANUAL equivalente (corrigido)
     const alertCritical = document.getElementById('alertCritical');
     const alertMessage = alertCritical.querySelector('.alert-message');
+    const taxa = resultado.taxaAnualEquivalente;
 
-    if (resultado.taxaEfetiva > 300) {
+    alertCritical.removeAttribute('style');
+    alertMessage.removeAttribute('style');
+
+    if (taxa > 200) {
         alertCritical.dataset.severity = 'critical';
-        alertMessage.innerHTML = `
-            <strong>ALERTA CRÍTICO!</strong> Os juros estão consumindo seu dinheiro rapidamente.
-            Busque ajuda financeira urgente e renegocie sua dívida!
-        `;
-    } else if (resultado.taxaEfetiva > 150) {
+        alertMessage.innerHTML = `<strong>ALERTA CRÍTICO!</strong> Taxa equivalente a ${taxa.toFixed(0)}% ao ano. Os juros estão consumindo seu dinheiro rapidamente. Renegocie urgente!`;
+    } else if (taxa > 100) {
         alertCritical.dataset.severity = 'high';
-        alertMessage.innerHTML = `
-            <strong>ATENÇÃO!</strong> A taxa de juros está muito alta.
-            Considere renegociar sua dívida ou buscar alternativas com taxas menores.
-        `;
-    } else if (resultado.taxaEfetiva > 50) {
+        alertMessage.innerHTML = `<strong>ATENÇÃO!</strong> Taxa equivalente a ${taxa.toFixed(0)}% ao ano. Considere renegociar ou buscar alternativas com taxas menores.`;
+    } else if (taxa > 30) {
         alertCritical.dataset.severity = 'medium';
         alertCritical.style.backgroundColor = 'rgba(245, 158, 11, 0.1)';
         alertCritical.style.borderColor = 'rgba(245, 158, 11, 0.3)';
         alertMessage.style.color = '#d97706';
-        alertMessage.innerHTML = `
-            <strong>CUIDADO!</strong> Os juros vão aumentar consideravelmente sua dívida.
-            Tente pagar o quanto antes para evitar juros ainda maiores.
-        `;
+        alertMessage.innerHTML = `<strong>CUIDADO!</strong> Taxa equivalente a ${taxa.toFixed(0)}% ao ano. Tente pagar o quanto antes para evitar o crescimento da dívida.`;
     } else {
         alertCritical.dataset.severity = 'low';
         alertCritical.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
         alertCritical.style.borderColor = 'rgba(34, 197, 94, 0.3)';
         alertMessage.style.color = '#16a34a';
-        alertMessage.innerHTML = `
-            <strong>Taxa Moderada</strong> Os juros estão em um patamar controlável.
-            Mantenha os pagamentos em dia para evitar o crescimento da dívida.
-        `;
+        alertMessage.innerHTML = `<strong>Taxa Moderada.</strong> Equivalente a ${taxa.toFixed(0)}% ao ano. Mantenha os pagamentos em dia.`;
     }
 
-    // Atualizar conteúdo educativo baseado no tipo de dívida
     updateEducationContent(debtType);
+    generateDebtChart(resultado.parcelas);
 
-    // Gerar gráfico (placeholder - será implementado com Chart.js ou similar)
-    generateChart(resultado.parcelas);
-
-    // Salvar no localStorage para uso futuro
-    localStorage.setItem('ultimaSimulacao', JSON.stringify({
-        ...resultado,
-        debtType,
-        timestamp: new Date().toISOString()
-    }));
+    // Salva para o comparativo de investimentos
+    try {
+        localStorage.setItem('ultimaSimulacao', JSON.stringify({
+            ...resultado, debtType, timestamp: new Date().toISOString()
+        }));
+    } catch (_) { }
 }
 
-// ==================== FORMATAÇÃO ====================
-function formatarMoeda(valor) {
-    return valor.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-    });
-}
-
-// ==================== EXPORTAR FUNÇÕES (para uso futuro) ====================
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        calcularJurosCompostos,
-        gerarParcelas,
-        formatarMoeda
-    };
-}
-
-// ==================== ATUALIZAR CONTEÚDO EDUCATIVO ====================
 function updateEducationContent(debtType) {
-    const educationTitle = document.getElementById('educationTitle');
-    const educationDescription = document.getElementById('educationDescription');
-    const educationTip = document.getElementById('educationTip');
-    const educationCard = document.querySelector('.education-card');
+    const titleEl = document.getElementById('educationTitle');
+    const descEl = document.getElementById('educationDescription');
+    const tipEl = document.getElementById('educationTip');
+    const card = document.querySelector('.education-card');
+    if (!titleEl) return;
 
-    educationCard.dataset.debtType = debtType;
-
+    card.dataset.debtType = debtType;
     const content = {
         cartao: {
             title: 'Cartão de Crédito — Juros Rotativos',
-            description: 'O rotativo do cartão de crédito é a modalidade mais cara do mercado. Quando você paga apenas o mínimo da fatura, o restante entra no crédito rotativo, com taxas que podem ultrapassar 400% ao ano. Os juros são compostos, ou seja, você paga juros sobre juros, fazendo a dívida crescer exponencialmente.',
+            description: 'O rotativo do cartão de crédito é a modalidade mais cara do mercado. Quando você paga apenas o mínimo da fatura, o restante entra no crédito rotativo, com taxas que podem ultrapassar 400% ao ano. Os juros são compostos — você paga juros sobre juros, fazendo a dívida crescer exponencialmente.',
             tip: '⚠️ O cartão de crédito tem os maiores juros do mercado! Sempre que possível, pague a fatura integralmente. Se não conseguir, busque um empréstimo pessoal para quitar o rotativo — a taxa será muito menor.'
         },
         emprestimo: {
             title: 'Empréstimo Pessoal — Juros Menores',
-            description: 'O empréstimo pessoal geralmente possui taxas menores que o cartão de crédito, mas ainda assim pode ser caro dependendo da instituição. É importante comparar as taxas entre diferentes bancos e financeiras antes de contratar. Lembre-se que quanto maior o prazo, mais juros você pagará no total.',
-            tip: '💡 Compare as taxas! Bancos digitais costumam oferecer taxas mais competitivas. Considere pagar parcelas maiores quando possível para reduzir o montante total de juros.'
+            description: 'O empréstimo pessoal geralmente possui taxas menores que o cartão de crédito, mas ainda assim pode ser caro dependendo da instituição. Sempre compare as taxas entre diferentes bancos antes de contratar. Quanto maior o prazo, mais juros você pagará no total.',
+            tip: '💡 Compare as taxas! Bancos digitais costumam oferecer condições mais competitivas. Considere pagar parcelas maiores quando possível para reduzir o total de juros.'
         },
         cheque: {
             title: 'Cheque Especial — Emergencial Apenas',
-            description: 'O cheque especial deve ser usado apenas em emergências. As taxas são extremamente altas e os juros são cobrados diariamente sobre o valor utilizado. É uma das formas mais caras de crédito, perdendo apenas para o rotativo do cartão. Evite ao máximo usar esse recurso.',
+            description: 'O cheque especial deve ser usado apenas em emergências absolutas. As taxas são extremamente altas e os juros são cobrados diariamente. O Banco Central limita a taxa máxima em 8% ao mês, mas isso ainda representa quase 150% ao ano.',
             tip: '🚨 Use apenas em emergências! Se já está usando, procure regularizar o quanto antes. Considere migrar a dívida para um empréstimo pessoal com taxa menor ou negociar diretamente com o banco.'
         }
     };
 
-    const selected = content[debtType] || content.cartao;
-    educationTitle.textContent = selected.title;
-    educationDescription.textContent = selected.description;
-    educationTip.textContent = selected.tip;
+    const s = content[debtType] || content.cartao;
+    titleEl.textContent = s.title;
+    descEl.textContent = s.description;
+    tipEl.textContent = s.tip;
 }
 
-// ==================== GERAR GRÁFICO ====================
-function generateChart(parcelas) {
-    const chartContainer = document.getElementById('chartContainer');
+// Gráfico de dívida (canvas manual)
+function generateDebtChart(parcelas) {
+    const container = document.getElementById('chartContainer');
     const canvas = document.getElementById('debtChart');
-    const placeholder = chartContainer.querySelector('.chart-placeholder');
+    const placeholder = container?.querySelector('.chart-placeholder');
+    if (!canvas || !container) return;
 
-    if (!canvas || !chartContainer) {
-        return;
-    }
-
-    lastChartData = parcelas;
-
-    if (placeholder) {
-        placeholder.style.display = 'none';
-    }
-
+    lastDebtChartData = parcelas;
+    if (placeholder) placeholder.style.display = 'none';
     canvas.style.display = 'block';
 
     const draw = () => {
         const ctx = canvas.getContext('2d');
-
-        if (!ctx) {
-            return;
-        }
-
+        if (!ctx) return;
         const dpr = window.devicePixelRatio || 1;
-        const width = Math.max(320, chartContainer.clientWidth - 8);
-        const height = Math.max(220, chartContainer.clientHeight - 8);
+        const width = Math.max(320, container.clientWidth - 8);
+        const height = Math.max(220, container.clientHeight - 8);
 
         canvas.width = Math.floor(width * dpr);
         canvas.height = Math.floor(height * dpr);
         canvas.style.width = `${width}px`;
         canvas.style.height = `${height}px`;
-
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         ctx.clearRect(0, 0, width, height);
+        if (!parcelas.length) return;
 
-        if (!parcelas.length) {
-            return;
-        }
+        const pad = { top: 20, right: 20, bottom: 40, left: 65 };
+        const chartW = width - pad.left - pad.right;
+        const chartH = height - pad.top - pad.bottom;
+        const values = parcelas.map(p => p.saldoAtual);
+        const maxVal = Math.max(...values) * 1.1;
 
-        const padding = { top: 20, right: 20, bottom: 40, left: 65 };
-        const chartW = width - padding.left - padding.right;
-        const chartH = height - padding.top - padding.bottom;
+        const xFn = i => parcelas.length === 1 ? pad.left + chartW / 2 : pad.left + (i / (parcelas.length - 1)) * chartW;
+        const yFn = v => pad.top + chartH - (v / (maxVal || 1)) * chartH;
 
-        const values = parcelas.map((p) => p.saldoAtual);
-        const maxValue = Math.max(...values) * 1.1;
-        const minValue = 0;
-
-        const x = (idx) => {
-            if (parcelas.length === 1) {
-                return padding.left + chartW / 2;
-            }
-            return padding.left + (idx / (parcelas.length - 1)) * chartW;
-        };
-
-        const y = (value) => {
-            const normalized = (value - minValue) / (maxValue - minValue || 1);
-            return padding.top + chartH - normalized * chartH;
-        };
-
-        // Grid horizontal + labels do eixo Y
-        const yTicks = 5;
-        ctx.strokeStyle = '#e5e7eb';
-        ctx.fillStyle = '#676f7e';
-        ctx.font = '12px Inter, sans-serif';
-
-        for (let i = 0; i <= yTicks; i += 1) {
-            const ratio = i / yTicks;
-            const yPos = padding.top + chartH - ratio * chartH;
-            const val = minValue + ratio * (maxValue - minValue);
-
-            ctx.beginPath();
-            ctx.moveTo(padding.left, yPos);
-            ctx.lineTo(width - padding.right, yPos);
-            ctx.stroke();
-
-            ctx.fillText(formatCompactCurrency(val), 8, yPos + 4);
+        // Grid Y
+        ctx.strokeStyle = '#e5e7eb'; ctx.fillStyle = '#9ca3af'; ctx.font = '11px Inter,sans-serif';
+        for (let i = 0; i <= 5; i++) {
+            const r = i / 5; const yp = pad.top + chartH - r * chartH;
+            ctx.beginPath(); ctx.moveTo(pad.left, yp); ctx.lineTo(width - pad.right, yp); ctx.stroke();
+            ctx.fillText(formatCompactCurrency(r * maxVal), 8, yp + 4);
         }
 
         // Eixo X
-        ctx.strokeStyle = '#9ca3af';
-        ctx.beginPath();
-        ctx.moveTo(padding.left, padding.top + chartH);
-        ctx.lineTo(width - padding.right, padding.top + chartH);
-        ctx.stroke();
+        ctx.strokeStyle = '#9ca3af'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(pad.left, pad.top + chartH); ctx.lineTo(width - pad.right, pad.top + chartH); ctx.stroke();
+        const step = Math.ceil(parcelas.length / 6); ctx.fillStyle = '#9ca3af';
+        for (let i = 0; i < parcelas.length; i += step) ctx.fillText(`${parcelas[i].mes}`, xFn(i) - 6, height - 14);
+        if ((parcelas.length - 1) % step !== 0) ctx.fillText(`${parcelas[parcelas.length - 1].mes}`, xFn(parcelas.length - 1) - 6, height - 14);
 
-        // Labels do eixo X (meses)
-        const step = Math.ceil(parcelas.length / 6);
-        ctx.fillStyle = '#676f7e';
-        for (let i = 0; i < parcelas.length; i += step) {
-            const xPos = x(i);
-            ctx.fillText(`${parcelas[i].mes}`, xPos - 6, height - 14);
-        }
-        if ((parcelas.length - 1) % step !== 0) {
-            const lastIdx = parcelas.length - 1;
-            ctx.fillText(`${parcelas[lastIdx].mes}`, x(lastIdx) - 6, height - 14);
-        }
-
-        // Área sob a curva
-        const gradient = ctx.createLinearGradient(0, padding.top, 0, padding.top + chartH);
-        gradient.addColorStop(0, 'rgba(232, 85, 48, 0.30)');
-        gradient.addColorStop(1, 'rgba(232, 85, 48, 0.03)');
-
-        ctx.beginPath();
-        ctx.moveTo(x(0), y(values[0]));
-        for (let i = 1; i < values.length; i += 1) {
-            ctx.lineTo(x(i), y(values[i]));
-        }
-        ctx.lineTo(x(values.length - 1), padding.top + chartH);
-        ctx.lineTo(x(0), padding.top + chartH);
-        ctx.closePath();
-        ctx.fillStyle = gradient;
-        ctx.fill();
+        // Área preenchida
+        const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + chartH);
+        grad.addColorStop(0, 'rgba(232,85,48,0.28)'); grad.addColorStop(1, 'rgba(232,85,48,0.03)');
+        ctx.beginPath(); ctx.moveTo(xFn(0), yFn(values[0]));
+        for (let i = 1; i < values.length; i++) ctx.lineTo(xFn(i), yFn(values[i]));
+        ctx.lineTo(xFn(values.length - 1), pad.top + chartH); ctx.lineTo(xFn(0), pad.top + chartH);
+        ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
 
         // Linha principal
-        ctx.beginPath();
-        ctx.moveTo(x(0), y(values[0]));
-        for (let i = 1; i < values.length; i += 1) {
-            ctx.lineTo(x(i), y(values[i]));
-        }
-        ctx.strokeStyle = '#e85530';
-        ctx.lineWidth = 2.5;
-        ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(xFn(0), yFn(values[0]));
+        for (let i = 1; i < values.length; i++) ctx.lineTo(xFn(i), yFn(values[i]));
+        ctx.strokeStyle = '#e85530'; ctx.lineWidth = 2.5; ctx.stroke();
 
         // Pontos de destaque
-        const markStep = Math.max(1, Math.floor(values.length / 8));
-        for (let i = 0; i < values.length; i += markStep) {
-            ctx.beginPath();
-            ctx.arc(x(i), y(values[i]), 3.5, 0, 2 * Math.PI);
-            ctx.fillStyle = '#e85530';
-            ctx.fill();
+        const ms = Math.max(1, Math.floor(values.length / 8));
+        for (let i = 0; i < values.length; i += ms) {
+            ctx.beginPath(); ctx.arc(xFn(i), yFn(values[i]), 3.5, 0, 2 * Math.PI); ctx.fillStyle = '#e85530'; ctx.fill();
         }
+        const last = values.length - 1;
+        ctx.beginPath(); ctx.arc(xFn(last), yFn(values[last]), 5, 0, 2 * Math.PI); ctx.fillStyle = '#177f72'; ctx.fill();
 
-        // Destacar último ponto
-        const lastIndex = values.length - 1;
-        ctx.beginPath();
-        ctx.arc(x(lastIndex), y(values[lastIndex]), 5, 0, 2 * Math.PI);
-        ctx.fillStyle = '#177f72';
-        ctx.fill();
-
-        // Títulos dos eixos
-        ctx.fillStyle = '#676f7e';
-        ctx.font = '600 12px Inter, sans-serif';
+        // Labels eixos
+        ctx.fillStyle = '#9ca3af'; ctx.font = '600 11px Inter,sans-serif';
         ctx.fillText('Meses', width / 2 - 20, height - 2);
-
-        ctx.save();
-        ctx.translate(14, height / 2 + 15);
-        ctx.rotate(-Math.PI / 2);
-        ctx.fillText('Saldo devedor', 0, 0);
-        ctx.restore();
+        ctx.save(); ctx.translate(13, height / 2 + 15); ctx.rotate(-Math.PI / 2); ctx.fillText('Saldo devedor', 0, 0); ctx.restore();
     };
 
     draw();
 
-    if (!chartResizeBound) {
-        window.addEventListener('resize', () => {
-            if (lastChartData) {
-                generateChart(lastChartData);
-            }
-        });
-        chartResizeBound = true;
+    if (!debtChartResizeBound) {
+        window.addEventListener('resize', () => { if (lastDebtChartData) generateDebtChart(lastDebtChartData); });
+        debtChartResizeBound = true;
     }
-
-    return;
 }
 
-function formatCompactCurrency(value) {
-    const v = Number(value) || 0;
+// ============================================================
+// SIMULADOR DE INVESTIMENTOS
+// ============================================================
+let lastInvestChartData = null;
+let investChartResizeBound = false;
 
-    if (v >= 1000000) {
-        return `R$ ${(v / 1000000).toFixed(1)}M`;
+function initSimuladorInvest() {
+    const valorInput = document.getElementById('investValor');
+    const aporteInput = document.getElementById('investAporte');
+    const taxaSlider = document.getElementById('investTaxa');
+    const taxaOutput = document.getElementById('investTaxaValue');
+    const periodoSlider = document.getElementById('investPeriodo');
+    const periodoOutput = document.getElementById('investPeriodoValue');
+    const presetBtns = document.querySelectorAll('.invest-preset');
+    const form = document.getElementById('investForm');
+
+    if (!form) return;
+
+    bindCurrencyInput(valorInput);
+    bindCurrencyInput(aporteInput);
+
+    // Slider taxa
+    if (taxaSlider) {
+        taxaSlider.addEventListener('input', () => {
+            taxaOutput.textContent = `${parseFloat(taxaSlider.value).toFixed(1)}%`;
+            updateRangeProgress(taxaSlider);
+            presetBtns.forEach(b => b.classList.remove('active'));
+        });
+        updateRangeProgress(taxaSlider);
     }
 
-    if (v >= 1000) {
-        return `R$ ${(v / 1000).toFixed(0)}k`;
+    // Slider período
+    if (periodoSlider) {
+        periodoSlider.addEventListener('input', () => {
+            periodoOutput.textContent = formatPeriodo(parseInt(periodoSlider.value));
+            updateRangeProgress(periodoSlider);
+        });
+        updateRangeProgress(periodoSlider);
     }
 
-    return `R$ ${v.toFixed(0)}`;
+    // Presets de rentabilidade
+    presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            presetBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            taxaSlider.value = btn.dataset.taxa;
+            taxaOutput.textContent = `${parseFloat(btn.dataset.taxa).toFixed(1)}%`;
+            updateRangeProgress(taxaSlider);
+        });
+    });
+
+    // Submit
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const valorInicial = parseCurrency(valorInput.value);
+        const aporteMensal = parseCurrency(aporteInput.value);
+        const taxaMensal = parseFloat(taxaSlider.value) / 100;
+        const meses = parseInt(periodoSlider.value);
+
+        if (valorInicial <= 0 && aporteMensal <= 0) {
+            if (typeof Toast !== 'undefined') Toast.show('Insira um valor inicial ou aporte mensal.', 'warning');
+            return;
+        }
+
+        const resultado = calcularInvestimento(valorInicial, aporteMensal, taxaMensal, meses);
+        exibirResultadoInvest(resultado);
+        document.getElementById('investResultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+}
+
+// Cálculo: M = PV*(1+i)^n + PMT * [((1+i)^n - 1) / i]
+function calcularInvestimento(valorInicial, aporteMensal, taxaMensal, meses) {
+    const pontos = [];
+    let patrimonio = valorInicial;
+    let totalAportado = valorInicial;
+
+    for (let mes = 1; mes <= meses; mes++) {
+        patrimonio = patrimonio * (1 + taxaMensal) + aporteMensal;
+        totalAportado += aporteMensal;
+        pontos.push({ mes, patrimonio, totalAportado, rendimento: patrimonio - totalAportado });
+    }
+
+    const taxaPeriodo = totalAportado > 0 ? ((patrimonio / totalAportado) - 1) * 100 : 0;
+
+    return {
+        valorInicial, aporteMensal, taxaMensal, meses,
+        patrimonioFinal: patrimonio,
+        totalAportado,
+        rendimentoTotal: patrimonio - totalAportado,
+        taxaPeriodo,
+        pontos
+    };
+}
+
+function exibirResultadoInvest(resultado) {
+    const section = document.getElementById('investResultsSection');
+    section.style.display = 'block';
+    section.dataset.wasVisible = 'true';
+
+    document.getElementById('investTotalAportado').textContent = formatarMoeda(resultado.totalAportado);
+    document.getElementById('investPatrimonio').textContent = formatarMoeda(resultado.patrimonioFinal);
+    document.getElementById('investRendimento').textContent = formatarMoeda(resultado.rendimentoTotal);
+    document.getElementById('investTaxaPeriodo').textContent = `+${resultado.taxaPeriodo.toFixed(1)}%`;
+
+    // Comparativo com última simulação de dívida
+    try {
+        const ultima = JSON.parse(localStorage.getItem('ultimaSimulacao'));
+        document.getElementById('compareDebito').textContent =
+            ultima?.montanteFinal ? formatarMoeda(ultima.montanteFinal) : '—';
+    } catch (_) {
+        document.getElementById('compareDebito').textContent = '—';
+    }
+    document.getElementById('compareInvest').textContent = formatarMoeda(resultado.patrimonioFinal);
+
+    lastInvestChartData = resultado.pontos;
+    generateInvestChart(resultado.pontos);
+}
+
+// Gráfico de investimento (canvas manual)
+function generateInvestChart(pontos) {
+    const container = document.getElementById('investChartContainer');
+    const canvas = document.getElementById('investChart');
+    if (!canvas || !container) return;
+
+    lastInvestChartData = pontos;
+    canvas.style.display = 'block';
+
+    const draw = () => {
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        const dpr = window.devicePixelRatio || 1;
+        const width = Math.max(280, container.clientWidth - 4);
+        const height = 280;
+
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, width, height);
+        if (!pontos.length) return;
+
+        const pad = { top: 20, right: 20, bottom: 38, left: 65 };
+        const chartW = width - pad.left - pad.right;
+        const chartH = height - pad.top - pad.bottom;
+        const maxVal = Math.max(...pontos.map(p => p.patrimonio)) * 1.08;
+
+        const xFn = i => pad.left + (i / (pontos.length - 1 || 1)) * chartW;
+        const yFn = v => pad.top + chartH - (v / (maxVal || 1)) * chartH;
+
+        // Grid Y
+        ctx.strokeStyle = '#e5e7eb'; ctx.fillStyle = '#9ca3af'; ctx.font = '11px Inter,sans-serif';
+        for (let i = 0; i <= 5; i++) {
+            const r = i / 5; const yp = pad.top + chartH - r * chartH;
+            ctx.beginPath(); ctx.moveTo(pad.left, yp); ctx.lineTo(width - pad.right, yp); ctx.stroke();
+            ctx.fillText(formatCompactCurrency(r * maxVal), 8, yp + 4);
+        }
+
+        // Eixo X
+        ctx.strokeStyle = '#9ca3af'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(pad.left, pad.top + chartH); ctx.lineTo(width - pad.right, pad.top + chartH); ctx.stroke();
+        const step = Math.ceil(pontos.length / 6); ctx.fillStyle = '#9ca3af';
+        for (let i = 0; i < pontos.length; i += step) ctx.fillText(`${pontos[i].mes}`, xFn(i) - 6, height - 8);
+
+        // Área cinza (total aportado)
+        ctx.beginPath(); ctx.moveTo(xFn(0), yFn(pontos[0].totalAportado));
+        for (let i = 1; i < pontos.length; i++) ctx.lineTo(xFn(i), yFn(pontos[i].totalAportado));
+        ctx.lineTo(xFn(pontos.length - 1), pad.top + chartH); ctx.lineTo(xFn(0), pad.top + chartH);
+        ctx.closePath(); ctx.fillStyle = 'rgba(209,213,219,0.4)'; ctx.fill();
+
+        // Área verde (patrimônio)
+        const gradG = ctx.createLinearGradient(0, pad.top, 0, pad.top + chartH);
+        gradG.addColorStop(0, 'rgba(10,158,136,0.28)'); gradG.addColorStop(1, 'rgba(10,158,136,0.03)');
+        ctx.beginPath(); ctx.moveTo(xFn(0), yFn(pontos[0].patrimonio));
+        for (let i = 1; i < pontos.length; i++) ctx.lineTo(xFn(i), yFn(pontos[i].patrimonio));
+        ctx.lineTo(xFn(pontos.length - 1), pad.top + chartH); ctx.lineTo(xFn(0), pad.top + chartH);
+        ctx.closePath(); ctx.fillStyle = gradG; ctx.fill();
+
+        // Linha cinza tracejada (aportado)
+        ctx.setLineDash([4, 3]);
+        ctx.beginPath(); ctx.moveTo(xFn(0), yFn(pontos[0].totalAportado));
+        for (let i = 1; i < pontos.length; i++) ctx.lineTo(xFn(i), yFn(pontos[i].totalAportado));
+        ctx.strokeStyle = '#9ca3af'; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Linha verde sólida (patrimônio)
+        ctx.beginPath(); ctx.moveTo(xFn(0), yFn(pontos[0].patrimonio));
+        for (let i = 1; i < pontos.length; i++) ctx.lineTo(xFn(i), yFn(pontos[i].patrimonio));
+        ctx.strokeStyle = '#0a9e88'; ctx.lineWidth = 2.5; ctx.stroke();
+
+        // Último ponto
+        const last = pontos.length - 1;
+        ctx.beginPath(); ctx.arc(xFn(last), yFn(pontos[last].patrimonio), 5, 0, 2 * Math.PI);
+        ctx.fillStyle = '#0a9e88'; ctx.fill();
+
+        // Labels eixos
+        ctx.fillStyle = '#9ca3af'; ctx.font = '600 11px Inter,sans-serif';
+        ctx.fillText('Meses', width / 2 - 20, height - 1);
+        ctx.save(); ctx.translate(13, height / 2 + 20); ctx.rotate(-Math.PI / 2); ctx.fillText('Patrimônio', 0, 0); ctx.restore();
+    };
+
+    draw();
+
+    if (!investChartResizeBound) {
+        window.addEventListener('resize', () => { if (lastInvestChartData) generateInvestChart(lastInvestChartData); });
+        investChartResizeBound = true;
+    }
+}
+
+// Exportar para testes
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { calcularJurosCompostos, calcularInvestimento, formatarMoeda };
 }
