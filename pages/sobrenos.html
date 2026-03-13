@@ -31,106 +31,122 @@
         <script src="/js/main.js" defer></script>
         <title>Sobre Nós</title>
     </head>
-    <body>
+    <body class="sobre-nos-page">
         <!-- Header -->
         <header-componente pagina="sobre"></header-componente>
 
         <!-- Conteudo Principal -->
-        <main>
+        <main id="conteudo-principal" aria-label="Conteudo principal da pagina Sobre Nos">
             <!-- Hero -->
-            <section id="hero" class="parallax" data-speed="0.12">
+            <section
+                id="hero"
+                class="parallax about-section"
+                data-speed="0.12"
+                aria-labelledby="hero-titulo"
+            >
                 <div id="hero-texto" class="parallax-content" data-speed="0.08">
-                    <h1>Você já conhece a historia da <span>RealDin?</span></h1>
-                    <p>Dinheiro real, Decisões reais</p>
+                    <span class="section-eyebrow">Sobre a RealDin</span>
+                    <h1 id="hero-titulo">
+                        Conheca a historia da <span>RealDin</span>
+                    </h1>
+                    <p>
+                        Tecnologia financeira com linguagem simples, leitura clara
+                        e decisoes acessiveis para mais pessoas.
+                    </p>
                 </div>
 
                 <div id="hero-image" data-speed="0.2">
-                    <img src="/assets/imgs/Logo.svg" alt="" />
+                    <img
+                        src="/assets/imgs/Logo.svg"
+                        alt="Logotipo da RealDin em destaque na secao inicial"
+                    />
                 </div>
             </section>
 
-            <section id="historia">
+            <section id="historia" class="about-section" aria-labelledby="historia-titulo">
                 <div id="conteudo-historia">
                     <div id="historia-texto">
-                        <h1>Nossa História</h1>
-                        <br />
+                        <span class="section-eyebrow">Nossa historia</span>
+                        <h2 id="historia-titulo">Educacao financeira mais proxima do dia a dia</h2>
                         <p>
-                            O RealDin nasceu da necessidade <br />
-                            de simplificar o controle financeiro <br />
-                            pessoal e empresarial.
+                            O RealDin nasceu da necessidade de simplificar o
+                            controle financeiro pessoal e empresarial, sem jargao
+                            tecnico e com uma navegacao facil de acompanhar.
                         </p>
                         <p>
-                            Em um mundo onde o gerenciamento de finanças
-                            <br />pode ser complexo e confuso, nossa missão é
-                            tornar esse processo intuitivo e acessível para
-                            todos.
+                            Em um mundo onde o gerenciamento de financas pode ser
+                            complexo e confuso, nossa missao e transformar esse
+                            processo em uma experiencia intuitiva, acessivel e
+                            confiavel para todos.
                         </p>
                     </div>
 
                     <div id="historia-image">
                         <img
                             src="/assets/imgs/TeamCollaboration-AboutUs.png"
-                            alt=""
+                            alt="Equipe colaborando em frente a um quadro durante um planejamento"
                         />
                     </div>
                 </div>
             </section>
 
             <!-- Seção nossa missão,visão e valores -->
-            <section id="mvvv">
+            <section id="mvvv" class="about-section" aria-labelledby="mvv-titulo-principal">
                 <div id="mvv-titulo">
-                    <h1>Nosso MVV</h1>
+                    <span class="section-eyebrow">Pilares da empresa</span>
+                    <h2 id="mvv-titulo-principal">Missao, visao e valores com leitura objetiva</h2>
                 </div>
                 <div id="conteudo-mvv">
-                    <div id="card-missao">
-                        <img src="/assets/icons/sobreNos/IconAlvo.svg" alt="" />
-                        <h1>Missão</h1>
+                    <article id="card-missao" class="mvv-card" aria-labelledby="titulo-missao">
+                        <img src="/assets/icons/sobreNos/IconAlvo.svg" alt="Icone representando foco e objetivo" />
+                        <h3 id="titulo-missao">Missao</h3>
                         <p>
-                            Cada funcionalidade é pensada para facilitar <br />a
-                            vida do usuário, com interfaces intuitivas e
-                            <br />experiências fluidas.
+                            Cada funcionalidade e pensada para facilitar a vida
+                            do usuario com interfaces intuitivas, linguagem direta
+                            e experiencia consistente.
                         </p>
-                    </div>
-                    <div id="card-visao">
+                    </article>
+                    <article id="card-visao" class="mvv-card" aria-labelledby="titulo-visao">
                         <img
                             src="/assets/icons/sobreNos/LampadaAzul.svg"
-                            alt=""
+                            alt="Icone representando inovacao e novas ideias"
                         />
-                        <h1>Visão</h1>
+                        <h3 id="titulo-visao">Visao</h3>
                         <p>
-                            Estamos sempre buscando novas <br />tecnologias e
-                            metodologias para oferecer as <br />melhores
-                            soluções do mercado.
+                            Buscamos tecnologias e metodologias que tragam mais
+                            clareza, autonomia e seguranca para as decisoes
+                            financeiras.
                         </p>
-                    </div>
-                    <div id="card-valores">
+                    </article>
+                    <article id="card-valores" class="mvv-card" aria-labelledby="titulo-valores">
                         <img
                             src="/assets/icons/sobreNos/CoracaoVerde.svg"
-                            alt=""
+                            alt="Icone representando cuidado e confianca"
                         />
-                        <h1>Valores</h1>
+                        <h3 id="titulo-valores">Valores</h3>
                         <p>
-                            Construímos relações baseadas em <br />confiança,
-                            com comunicação clara e <br />honesta em todos os
-                            aspectos.
+                            Construimos relacoes baseadas em confianca,
+                            comunicacao clara, honestidade e respeito ao ritmo de
+                            cada usuario.
                         </p>
-                    </div>
+                    </article>
                 </div>
             </section>
 
             <!-- Seção Equipe -->
-            <section id="equipe">
+            <section id="equipe" class="about-section" aria-labelledby="equipe-titulo">
                 <div id="conteudo-equipe">
                     <div id="texto-equipe">
                         <img
                             src="/assets/icons/sobreNos/IconLikedinRoxo.svg"
-                            alt=""
+                            alt="Icone ilustrativo de conexoes profissionais"
                         />
-                        <h1>Nossa equipe</h1>
+                        <span class="section-eyebrow">Quem faz a RealDin</span>
+                        <h2 id="equipe-titulo">Nossa equipe</h2>
                         <p>
-                            Conheça os talentos por trás do RealDin. Uma equipe
-                            dedicada, criativa e <br />comprometida em entregar
-                            o melhor produto.
+                            Conheca os talentos por tras da RealDin. Uma equipe
+                            dedicada, criativa e comprometida em entregar um
+                            produto claro, humano e util.
                         </p>
                     </div>
 
@@ -149,6 +165,7 @@
                                     <a
                                         href="https://www.linkedin.com/in/euandersonreis/"
                                         class="social linkedin"
+                                        aria-label="Abrir LinkedIn de Anderson"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Linkedin.svg"
@@ -158,6 +175,7 @@
                                     <a
                                         href="https://github.com/EuAndersonDev"
                                         class="social github"
+                                        aria-label="Abrir GitHub de Anderson"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Github.svg"
@@ -181,6 +199,7 @@
                                     <a
                                         href="https://www.linkedin.com/in/jaiane-d-5897802b5/"
                                         class="social linkedin"
+                                        aria-label="Abrir LinkedIn de Jaiane"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Linkedin.svg"
@@ -190,6 +209,7 @@
                                     <a
                                         href="https://github.com/jaiane-soares"
                                         class="social github"
+                                        aria-label="Abrir GitHub de Jaiane"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Github.svg"
@@ -213,6 +233,7 @@
                                     <a
                                         href="https://www.linkedin.com/in/jo%C3%A3o-pedro-pereira-ramos-9089973a3/"
                                         class="social linkedin"
+                                        aria-label="Abrir LinkedIn de Joao Pedro"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Linkedin.svg"
@@ -222,6 +243,7 @@
                                     <a
                                         href="https://github.com/Joao2007Pedro/"
                                         class="social github"
+                                        aria-label="Abrir GitHub de Joao Pedro"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Github.svg"
@@ -245,6 +267,7 @@
                                     <a
                                         href="https://www.linkedin.com/in/joão-victor-santos-de-medeiros-936b9536b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                                         class="social linkedin"
+                                        aria-label="Abrir LinkedIn de Joao Victor"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Linkedin.svg"
@@ -254,6 +277,7 @@
                                     <a
                                         href="https://github.com/joaovictorsanmed-dev"
                                         class="social github"
+                                        aria-label="Abrir GitHub de Joao Victor"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Github.svg"
@@ -277,6 +301,7 @@
                                     <a
                                         href="https://www.linkedin.com/in/kauê-rodrigues-de-sousa-ba62b33b6/"
                                         class="social linkedin"
+                                        aria-label="Abrir LinkedIn de Kaue"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Linkedin.svg"
@@ -286,6 +311,7 @@
                                     <a
                                         href="https://github.com/kauesousa1"
                                         class="social github"
+                                        aria-label="Abrir GitHub de Kaue"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Github.svg"
@@ -309,6 +335,7 @@
                                     <a
                                         href="https://www.linkedin.com/in/ugussousa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                                         class="social linkedin"
+                                        aria-label="Abrir LinkedIn de Luiz Gustavo"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Linkedin.svg"
@@ -318,6 +345,7 @@
                                     <a
                                         href="https://github.com/ugussousa-a11y/Exercicios_PROA"
                                         class="social github"
+                                        aria-label="Abrir GitHub de Luiz Gustavo"
                                     >
                                         <img
                                             src="/assets/icons/sobreNos/Github.svg"
