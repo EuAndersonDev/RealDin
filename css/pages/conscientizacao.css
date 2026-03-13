@@ -373,11 +373,12 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 15px;
 }
 
 .card_topo {
-    width: 650px;
-    height: 250px;
+    width: 680px;
+    height: 270px;
     background-color: #a1902e00;
     margin-left: 45px;
     border-radius: 10px;
