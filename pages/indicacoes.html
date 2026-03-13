@@ -64,11 +64,7 @@
                                 Seu perfil
                                 <span class="highlight-blue">financeiro:</span>
                             </p>
-                            <div class="perfil-score-badge">
-                                <span class="tag-iniciante">Iniciante</span>
-                                <span class="score-numero">45/100</span>
-                            </div>
-                        </div>
+                            
 
                         <div class="barra-progresso-container">
                             <div class="barra-progresso-fill" style="--target-width: 45%"></div>
@@ -134,32 +130,23 @@
             <!--Banner -->
 
             <section class="banner-final-cta">
-                <div class="banner-container-botao">
-                    <button class="btn-cta-verde">
-                        começar agora gratuitamente
-                    </button>
-
-                    <p class="banner-status-info">
-                        100% online • 100% gratuito • Sem enrolação
-                    </p>
-                </div>
-            </section>
-
-            <section class="stats-container">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="icon-placeholder">
-                            <img
-                                src="/assets/icons/indicacoes/Acelerador.svg"
-                                alt="Ícone Endividamento"
-                            />
-                        </div>
-                        <p>
-                            <strong>70% dos brasileiros</strong> estão
-                            endividados.
-                        </p>
-                    </div>
-
+    <div class="banner-container-botao">
+        <h2 class="banner-titulo">
+            Você trabalha o mês inteiro...<br>
+            mas o dinheiro nunca sobra?
+        </h2>
+        <p class="banner-subtitulo">
+            O problema não é o quanto você ganha.<br>
+            É o quanto você não aprendeu <strong>sobre dinheiro.</strong>
+        </p>
+        <button class="btn-cta-verde">
+            começar agora gratuitamente
+        </button>
+        <p class="banner-status-info">
+            100% online • 100% gratuito • Sem enrolação
+        </p>
+    </div>
+</section>
                     <div class="stat-card">
                         <div class="icon-placeholder">
                             <img
@@ -220,7 +207,7 @@
             </div>
             <p>Aprenda a gerar renda extra e transformar conhecimento em dinheiro.</p>
             <span class="course-level">Empreendedorismo</span>
-            <a href="https://www.sebrae.com.br/sites/PortalSebrae/cursosonline" target="_blank" rel="noopener noreferrer" class="btn-acessar">Acessar Curso</a>
+            <a href="https://www.sebrae.com.br/sites/PortalSebrae/cursosonline" rel="noopener noreferrer" class="btn-acessar">Acessar Curso</a>
         </article>
 
         <article class="course-card">
@@ -232,7 +219,7 @@
 
             <p>Curso gratuito de finanças pessoais com foco em orçamento e planejamento.</p>
             <span class="course-level">Finanças Pessoais</span>
-            <a href="https://www.primecursos.com.br/financas-pessoais/" target="_blank" rel="noopener noreferrer" class="btn-acessar">Acessar Curso</a>
+            <a href="https://www.primecursos.com.br/financas-pessoais/"  class="btn-acessar">Acessar Curso</a>
         </article>
 
         <article class="course-card">
@@ -260,6 +247,25 @@
         </main>
 
         <footer-componente></footer-componente>
+
+         <script>
+          const banner = document.querySelector('.banner-final-cta');
+          const btnCta = document.querySelector('.btn-cta-verde');
+
+          if (banner && btnCta) {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  btnCta.classList.remove('hide');
+                } else {
+                  btnCta.classList.add('hide');
+                }
+              });
+            }, { threshold: 0.05 });
+
+            observer.observe(banner);
+          }
+        </script>
    
     </body>
 </html>

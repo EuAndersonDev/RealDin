@@ -7,8 +7,9 @@
 /* === SCROLL SUAVE GLOBAL === */
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity; /* "proximity" = snap suave, sem prender demais */
-}
+    scroll-snap-type: y proximity;
+     }
+
 
 body {
     overflow-x: hidden;
@@ -23,24 +24,34 @@ body {
 /* === ANIMAÇÃO DE ENTRADA AO SCROLLAR === */
 /* JS adiciona .will-animate antes de observar, evitando flash de conteúdo invisível */
 .will-animate {
+
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s ease, transform 0.7s ease;
+
 }
 
 .will-animate.visible {
+
     opacity: 1;
     transform: translateY(0);
+
 }
 
 /* Delay escalonado para grupos de cards dentro de grids */
 .stats-grid .will-animate:nth-child(2),
-.cursos-grid .will-animate:nth-child(2) { transition-delay: 0.1s; }
+.cursos-grid .will-animate:nth-child(2) {
+     transition-delay: 0.1s; 
+    }
 
 .stats-grid .will-animate:nth-child(3),
-.cursos-grid .will-animate:nth-child(3) { transition-delay: 0.2s; }
+.cursos-grid .will-animate:nth-child(3) {
+     transition-delay: 0.2s; 
+    }
 
-.cursos-grid .will-animate:nth-child(4) { transition-delay: 0.3s; }
+.cursos-grid .will-animate:nth-child(4) { 
+    transition-delay: 0.3s; 
+}
 .cursos-grid .will-animate:nth-child(5) { transition-delay: 0.4s; }
 .cursos-grid .will-animate:nth-child(6) { transition-delay: 0.5s; }
 
@@ -69,6 +80,7 @@ body {
 
     scroll-snap-align: start;
 }
+
 
 .hero::after {
     content: "";
@@ -250,6 +262,54 @@ body {
     text-align: right;
 }
 
+.banner-final-cta {
+    position: relative;
+    width: 100%;
+    margin: 40px auto;
+    height: 1024px;
+
+    background-image: url(/assets/imgs/imgPreocupado.svg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: flex-end;  
+    justify-content: flex-start;
+    padding-bottom: 80px;   
+    padding-left: 8%;
+}
+
+.banner-container-botao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 520px;
+}
+
+.banner-titulo {
+    color: #ffffff;
+    font-size: 42px;        
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.banner-subtitulo {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.btn-cta-verde.hide {
+    opacity: 0;
+    pointer-events: none; 
+}
+
 /* LIVROS */
 .recomendados {
     padding: 100px 0;
@@ -275,29 +335,30 @@ body {
 
 /* CTA */
 .banner-final-cta {
-    width: 100%;
-    margin: 40px auto;
     height: 1024px;
-
-    background-image: url(/assets/imgs/HomemPreocupado.svg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Parallax no desktop */
-    border-radius: 15px;
-
-    display: flex;
     align-items: flex-end;
-    justify-content: flex-start;
-    padding-bottom: 80px;
+    padding-bottom: 120px;   /* aumenta para descer mais o conteúdo */
     padding-left: 8%;
-
-    scroll-snap-align: start;
 }
 
+.banner-titulo {
+    font-size: 70px;         /* título bem grande */
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+.banner-subtitulo {
+    font-size: 18px;
+    margin-bottom: 32px;
+}
 .banner-container-botao {
+    position: relative;      
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 16px;
+    max-width: 480px;        
 }
 
 .btn-cta-verde {
@@ -504,26 +565,6 @@ body {
     font-weight: bold;
 }
 
-/* === SCRIPT INLINE SUGERIDO (cole no final do <body>) ===
-<script>
-  // 1. Animação fade-in-up via IntersectionObserver
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-        // Para barra de progresso
-        const barra = el.target.querySelector('.barra-progresso-fill');
-        if (barra) barra.classList.add('animate');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.fade-in-up, .card-perfil-status, .card-evolucao, .stat-card, .course-card')
-    .forEach(el => { el.classList.add('fade-in-up'); observer.observe(el); });
-</script>
-*/
-
-/* RESPONSIVO */
 @media (max-width: 1024px) {
     .hero { padding: 56px 0; }
 
@@ -533,13 +574,23 @@ body {
         gap: 28px;
     }
 
-    .hero-img { display: flex; justify-content: center; }
+    .hero-img { 
+        display: flex;
+         justify-content: center;
+         }
 
-    .perfil-secao { padding: 32px 24px; }
+    .perfil-secao { 
+        padding: 32px 24px;
+     }
 
-    .card-evolucao { flex-direction: column; gap: 24px; }
+    .card-evolucao { 
+        flex-direction: column; 
+        gap: 24px; 
+    }
 
-    .evolucao-acao { align-items: flex-start; max-width: 100%; }
+    .evolucao-acao { align-items: flex-start;
+         max-width: 100%;
+         }
 
     .status-aprendizado { text-align: left; }
 
@@ -551,19 +602,31 @@ body {
         background-attachment: scroll; /* Remove parallax no mobile */
     }
 
-    .hero { background-attachment: scroll; }
+    .hero { 
+        background-attachment: scroll;
+     }
 
-    .stats-container { margin-top: 64px; }
+    .stats-container {
+         margin-top: 64px;
+         }
 
-    .stats-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+    .stats-grid {
+         grid-template-columns: repeat(2, minmax(220px, 1fr));
+         }
 
-    .cursos-container { padding: 20px 24px; }
+    .cursos-container {
+         padding: 20px 24px;
+         }
 
-    .cursos-grid { grid-template-columns: repeat(2, minmax(260px, 1fr)); }
+    .cursos-grid {
+         grid-template-columns: repeat(2, minmax(260px, 1fr));
+         }
 }
 
 @media (max-width: 768px) {
-    .container { padding: 0 16px; }
+    .container { 
+        padding: 0 16px; 
+    }
 
     .hero { padding: 42px 0; }
 
