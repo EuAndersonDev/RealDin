@@ -59,7 +59,7 @@ body {
     }
 
 /* === SEÇÕES COM SCROLL SNAP === */
-/* Aplique .snap-section nas seções principais do HTML */
+
 .snap-section {
     scroll-snap-align: start;
     scroll-snap-stop: normal; 
@@ -111,7 +111,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
 
-    /* Animação de entrada do hero (roda uma vez ao carregar) */
+    /* Animação de entrada do hero  */
     animation: heroEntrada 0.9s ease both;
 }
 
@@ -132,39 +132,46 @@ body {
 }
 
 /* PERFIL */
-/* === SEÇÃO PERFIL === */
+
 .perfil-secao {
     padding: 80px 10%;
-    background: #f0f4f8;
+    background: white; /* remove o cinza desconexo */
 }
 
-/* Card principal — fundo gradiente */
+.titulo-perfil {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 24px;
+}
+
+/* Card gradiente — mais compacto e preenchido */
 .card-perfil-status {
     background: linear-gradient(135deg, #1aa7d5 0%, #59bda3 100%);
-    border-radius: 20px;
-    padding: 40px;
-    margin-bottom: 20px;
-    color: rgb(255, 255, 255);
+    border-radius: 24px;
+    padding: 40px 48px;
+    margin-bottom: 16px;
+    color: white;
     position: relative;
     overflow: hidden;
     border: none;
-    box-shadow: 0 12px 40px rgba(26, 167, 213, 0.3);
+    box-shadow: 0 16px 48px rgba(26, 167, 213, 0.35);
 }
 
-/* Círculos decorativos de fundo */
 .card-perfil-status::before {
     content: '';
     position: absolute;
-    top: -40px; right: -40px;
-    width: 200px; height: 200px;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.08);
 }
+
 .card-perfil-status::after {
     content: '';
     position: absolute;
-    bottom: -60px; right: 60px;
-    width: 140px; height: 140px;
+    bottom: -40px; left: 30%;
+    width: 200px; height: 200px;
     border-radius: 50%;
     background: rgba(255,255,255,0.05);
 }
@@ -172,56 +179,64 @@ body {
 .perfil-info-topo {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 28px;
+    align-items: center; /* centraliza verticalmente */
+    margin-bottom: 32px;
     flex-wrap: wrap;
     gap: 16px;
 }
 
 .perfil-info-topo p {
-    font-size: 13px;
-    opacity: 0.85;
+    font-size: 12px;
+    opacity: 0.8;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: white;
-    margin-bottom: 4px;
-}
-
-/* Badge de pontuação */
-.perfil-score-badge {
-    background: rgba(255,255,255,0.2);
-    border-radius: 16px;
-    padding: 16px 28px;
-    text-align: center;
-    backdrop-filter: blur(4px);
-}
-
-.score-numero {
-    font-size: 36px;
-    font-weight: 800;
-    color: white;
-    line-height: 1;
-    display: block;
+    margin-bottom: 6px;
 }
 
 .tag-iniciante {
-    font-size: 26px;
-    font-weight: 800;
+    font-size: 42px; /* bem grande */
+    font-weight: 900;
     color: white;
     background: none;
     padding: 0;
     border-radius: 0;
     display: block;
+    letter-spacing: -1px;
 }
 
-/* Barra de progresso sobre fundo gradiente */
-
-/* Barra visível sobre o gradiente */
-.barra-progresso-container {
-    background: rgba(255,255,255,0.3);
-    height: 14px;
+/* Badge de pontuação */
+.perfil-score-badge {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
     border-radius: 20px;
-    margin-top: 8px;
+    padding: 20px 36px;
+    text-align: center;
+}
+
+.score-numero {
+    font-size: 52px;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    display: block;
+    letter-spacing: -2px;
+}
+
+.perfil-score-badge span:last-child {
+    font-size: 13px;
+    opacity: 0.75;
+    color: white;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Barra de progresso */
+.barra-progresso-container {
+    background: rgba(255,255,255,0.25);
+    height: 12px;
+    border-radius: 20px;
+    margin-top: 0;
 }
 
 .barra-progresso-fill {
@@ -230,54 +245,112 @@ body {
     border-radius: 20px;
     width: 0%;
     transition: width 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
-    box-shadow: 0 0 10px rgba(255,255,255,0.6); 
+    box-shadow: 0 0 14px rgba(255,255,255,0.7);
 }
 
-/* Card branco — layout lado a lado */
+.barra-progresso-fill.animate {
+    width: var(--target-width, 45%);
+}
+
+/* Label Progresso / % */
+.perfil-progresso-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Card de evolução com borda de destaque */
 .card-evolucao {
     background: white;
-    border-radius: 16px;
-    padding: 32px 36px;
+    border-radius: 20px;
+    padding: 36px 40px;
     border: 1px solid #e8edf2;
-    display: flex;                    /* lado a lado */
+    border-left: 5px solid #59bda3; /* destaque lateral */
+    display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
 
-/* Botão com estilo correto */
-.btn-recomenda-perfil {
-    background-color: #59bda3;
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 12px;
-    font-weight: 700;
+.highlight-blue {
+    color: #1889ae;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.lista-metas-curta {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 0;
+    counter-reset: lista;
+}
+
+.lista-metas-curta li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-size: 15px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background 0.3s, transform 0.2s;
+    color: #333;
+    font-weight: 500;
 }
 
-.btn-recomenda-perfil:hover {
-    background-color: #48a68d;
-    transform: scale(1.04);
+.lista-metas-curta li::before {
+    content: counter(lista);
+    counter-increment: lista;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #e1f5ee;
+    color: #0f6e56;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Texto do lado direito */
 .evolucao-acao {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 12px;
-    max-width: 300px;
+    gap: 14px;
+    min-width: 220px;
+   
+}
+
+.btn-recomenda-perfil {
+    background: linear-gradient(135deg, #1aa7d5, #59bda3);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 6px 20px rgba(89, 189, 163, 0.4);
+}
+
+.btn-recomenda-perfil:hover {
+    opacity: 0.9;
+    transform: scale(1.04);
 }
 
 .status-aprendizado {
     font-size: 13px;
-    color: #666;
+    color: #888;
     text-align: right;
-    line-height: 1.5;
+    line-height: 1.6;
+    max-width: 240px;
 }
 
 /* Lista com números circulares */
@@ -321,7 +394,8 @@ body {
     position: relative;
     width: 100%;
     margin: 40px auto;
-    height: 1024px;
+    min-height: 100vh;       
+    height: auto;            /* cresce conforme o conteúdo */
 
     background-image: url(/assets/imgs/imgPreocupado.svg);
     background-size: cover;
@@ -330,10 +404,26 @@ body {
     border-radius: 15px;
 
     display: flex;
-    align-items: flex-end;  
+    align-items: flex-end;
     justify-content: flex-start;
-    padding-bottom: 80px;   
-    padding-left: 8%;
+    padding: 0 8% 80px 8%;   /* espaço nas laterais e embaixo */
+}
+
+.banner-titulo {
+    font-size: clamp(36px, 5vw, 64px); /* cresce com a tela mas não estoura */
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+    color: white;
+}
+
+.banner-subtitulo {
+    font-size: clamp(15px, 1.5vw, 20px);
+    margin-bottom: 32px;
+    color: white;
+    opacity: 0.95;
+    line-height: 1.6;
 }
 
 .banner-container-botao {
@@ -341,23 +431,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-width: 520px;
-}
-
-.banner-titulo {
-    color: #ffffff;
-    font-size: 42px;        
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 12px;
-}
-
-.banner-subtitulo {
-    color: #ffffff;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    opacity: 0.9;
+    max-width: 560px;
 }
 
 .btn-cta-verde.hide {
@@ -460,7 +534,7 @@ body {
 }
 
 .stat-card {
-    background: #1c9a8d;
+    background: linear-gradient(135deg, #1aa7d5, #59bda3);
     border-radius: 12px;
     padding: 40px 20px;
     text-align: center;
