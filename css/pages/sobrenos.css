@@ -9,10 +9,10 @@ main {
    Hero
    =========================== */
 #hero {
-    background-image: url(/assets/imgs/sobrenos-hero.png);
+    background-image: url(/assets/imgs/fashionable-man-woman-posing-together.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center 10%;
     width: 100%;
     height: 800px;
     display: flex;
@@ -44,7 +44,7 @@ main {
     color: #FFF;
     text-align: center;
     font-family: Inter;
-    font-size: 64px;
+    font-size: 68px;
     font-style: normal;
     font-weight: 600;
     line-height: 88px;
@@ -54,20 +54,20 @@ main {
     color: #FFF;
     background-clip: text;
     font-family: Inter;
-    font-size: 64px;
+    font-size: 68px;
     font-style: normal;
     font-weight: 600;
     line-height: 88px;
 }
 
 #titulo-hero span {
-    background: linear-gradient(107deg, #fae007 0%, #19AED9 100%);
+    background: linear-gradient(107deg, #fae007 0%, #4cd919 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Inter;
-    font-size: 64px;
-    font-style: normal;
+    font-size: 74px;
+    font-style: italic;
     font-weight: 600;
     line-height: 88px;
 }
