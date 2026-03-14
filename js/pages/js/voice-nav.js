@@ -1,34 +1,50 @@
-const COMANDOS = [
+const COMANDOS_VOZ = [
+    // --- COMANDOS DE NAVEGAÇÃO GLOBAL ---
     {
-      frases: ['recomendações', 'ver recomendações', 'meu perfil'],
-      acao: () => document.querySelector('.btn-recomenda-perfil')?.click(),
+        frases: ['ir para o início', 'página inicial', 'home'],
+        acao: () => window.location.href = '/index.html'
     },
     {
-      frases: ['começar', 'começar agora', 'quero começar'],
-      acao: () => document.querySelector('.btn-cta-verde')?.click(),
+        frases: ['entrar', 'fazer login', 'ir para login'],
+        acao: () => window.location.href = '/pages/login.html'
     },
     {
-      frases: ['cursos', 'ver cursos', 'mostrar cursos'],
-      acao: () => document.querySelector('.cursos-container')
-                    ?.scrollIntoView({ behavior: 'smooth' }),
+        frases: ['cadastrar', 'registrar', 'criar conta'],
+        acao: () => window.location.href = '/pages/register.html'
     },
     {
-      frases: ['livros', 'ver livros', 'recomendados'],
-      acao: () => document.querySelector('.recomendados')
-                    ?.scrollIntoView({ behavior: 'smooth' }),
-    },
-    {
-      frases: ['início', 'voltar ao início', 'topo'],
-      acao: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
-    },
-    {
-      frases: ['perfil', 'meu perfil', 'ver perfil'],
-      acao: () => document.querySelector('.perfil-secao')
-                    ?.scrollIntoView({ behavior: 'smooth' }),
+        frases: ['sobre nós', 'quem somos'],
+        acao: () => window.location.href = '/pages/sobrenos.html'
     },
 
-    
-  ];
+    // --- COMANDOS DE ROLAGEM  ---
+    {
+        frases: ['subir', 'topo', 'início da página'],
+        acao: () => window.scrollTo({ top: 0, behavior: 'smooth' })
+    },
+    {
+        frases: ['descer', 'rolar para baixo', 'próximo'],
+        acao: () => window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' })
+    },
+
+    // --- COMANDOS CONTEXTUAIS  ---
+    {
+        frases: ['recomendações', 'ver recomendações', 'meu perfil'],
+        acao: () => document.querySelector('.btn-recomenda-perfil')?.click()
+    },
+    {
+        frases: ['começar', 'começar agora', 'quero começar'],
+        acao: () => document.querySelector('.btn-cta-verde, .btn-fazer-teste')?.click()
+    },
+    {
+        frases: ['cursos', 'ver cursos'],
+        acao: () => document.querySelector('.cursos-container')?.scrollIntoView({ behavior: 'smooth' })
+    },
+    {
+        frases: ['quiz', 'iniciar quiz'],
+        acao: () => document.querySelector('.btn-iniciar-quiz')?.click()
+    }
+];
 
   
   const SpeechRecognition =
