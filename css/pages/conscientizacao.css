@@ -720,6 +720,10 @@ main {
 #bancos {
     background-color: #c2c2c2;
     height: 1024px;
+    top: 20%;
+}
+#dentro{
+    margin-top: -180px;
 }
 
 #bancos h1 {
@@ -738,6 +742,11 @@ main {
     margin-top: 50px;
     font-size: 20px;
 }
+
+#muitas p{
+    font-size: 30px;
+}
+
 
 #bancos2 {
     display: flex;
@@ -852,7 +861,7 @@ main {
 }
 
 #simule {
-    height: 700px;
+    height: 600px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -906,4 +915,65 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+/* juros agiotagem */
+
+#backimg{
+    position: relative;
+    width: 100%;
+}
+
+#teimg img{
+    width: 100%;
+    display: block;
+    
+}
+
+#texto200{
+    position: absolute;
+    text-align: left;
+    color: white;
+    font-size: 40px;
+    /* max-width: 600px;
+    line-height: 1.4; */
+    margin-top: 15%;
+    left: 40%;
+    font-family: "Inter", sans-serif;
+    text-shadow: 1px 1px 2px #000000;   
+}
+#texto100 {
+    position: absolute;
+    color: yellow;
+    font-size: 60px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    left: 40%;
+    font-family: "Inter", sans-serif;
+    margin-top: 10%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+
+#texto300 {
+    position: absolute;
+    width: 50%;
+    margin-top: 25%;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-family: "Inter", sans-serif;
+    left: 40%;
+    text-shadow: 1px 1px 2px #000000;
+}
+#graficopng {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    margin-top: -20%;
+    left: 40%;
+}
+
+#grafico2 {
+    border-radius: 20px ;
 }
