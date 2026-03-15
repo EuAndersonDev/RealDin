@@ -7,8 +7,9 @@
 /* === SCROLL SUAVE GLOBAL === */
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity; /* "proximity" = snap suave, sem prender demais */
-}
+    scroll-snap-type: y proximity;
+     }
+
 
 body {
     overflow-x: hidden;
@@ -20,35 +21,48 @@ body {
     padding: 0 20px;
 }
 
-/* === ANIMAÇÃO DE ENTRADA AO SCROLLAR === */
-/* JS adiciona .will-animate antes de observar, evitando flash de conteúdo invisível */
+
 .will-animate {
+
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s ease, transform 0.7s ease;
+
 }
 
 .will-animate.visible {
+
     opacity: 1;
     transform: translateY(0);
+
 }
 
-/* Delay escalonado para grupos de cards dentro de grids */
+
 .stats-grid .will-animate:nth-child(2),
-.cursos-grid .will-animate:nth-child(2) { transition-delay: 0.1s; }
+.cursos-grid .will-animate:nth-child(2) {
+     transition-delay: 0.1s; 
+    }
 
 .stats-grid .will-animate:nth-child(3),
-.cursos-grid .will-animate:nth-child(3) { transition-delay: 0.2s; }
+.cursos-grid .will-animate:nth-child(3) {
+     transition-delay: 0.2s; 
+    }
 
-.cursos-grid .will-animate:nth-child(4) { transition-delay: 0.3s; }
-.cursos-grid .will-animate:nth-child(5) { transition-delay: 0.4s; }
-.cursos-grid .will-animate:nth-child(6) { transition-delay: 0.5s; }
+.cursos-grid .will-animate:nth-child(4) { 
+    transition-delay: 0.3s; 
+}
+.cursos-grid .will-animate:nth-child(5) {
+     transition-delay: 0.4s; 
+    }
+.cursos-grid .will-animate:nth-child(6) {
+     transition-delay: 0.5s; 
+    }
 
 /* === SEÇÕES COM SCROLL SNAP === */
-/* Aplique .snap-section nas seções principais do HTML */
+
 .snap-section {
     scroll-snap-align: start;
-    scroll-snap-stop: normal; /* "normal" = não prende, só guia */
+    scroll-snap-stop: normal; 
 }
 
 /* HERO */
@@ -69,6 +83,7 @@ body {
 
     scroll-snap-align: start;
 }
+
 
 .hero::after {
     content: "";
@@ -96,13 +111,17 @@ body {
     max-width: 800px;
     margin: 0 auto;
 
-    /* Animação de entrada do hero (roda uma vez ao carregar) */
+    /* Animação de entrada do hero  */
     animation: heroEntrada 0.9s ease both;
 }
 
 @keyframes heroEntrada {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { opacity: 0;
+         transform: translateY(30px);
+         }
+    to   { opacity: 1; 
+        transform: translateY(0);
+     }
 }
 
 .hero-text h1 {
@@ -113,141 +132,311 @@ body {
 }
 
 /* PERFIL */
+
 .perfil-secao {
     padding: 80px 10%;
-    font-family: "Inter", sans-serif;
-    scroll-snap-align: start;
+    background: white; /* remove o cinza desconexo */
 }
 
 .titulo-perfil {
-    font-family: "Montserrat", sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #332d2d;
+    font-size: 36px;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 24px;
 }
 
-/* Card Branco Superior */
+/* Card gradiente — mais compacto e preenchido */
 .card-perfil-status {
-    background: #fff;
-    border-radius: 20px;
-    padding: 50px 60px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid #f0f0f0;
-    margin-bottom: 40px;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
+    background: linear-gradient(135deg, #1aa7d5 0%, #59bda3 100%);
+    border-radius: 24px;
+    padding: 40px 48px;
+    margin-bottom: 16px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 16px 48px rgba(26, 167, 213, 0.35);
+}
+
+.card-perfil-status::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+}
+
+.card-perfil-status::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
 }
 
 .perfil-info-topo {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: center; /* centraliza verticalmente */
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
-.highlight-blue {
-    color: #1889ae;
-    font-weight: 700;
-}
-
-.perfil-score-badge {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.perfil-info-topo p {
+    font-size: 12px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 6px;
 }
 
 .tag-iniciante {
-    background-color: #59bda3;
+    font-size: 42px; /* bem grande */
+    font-weight: 900;
     color: white;
-    padding: 8px 25px;
-    border-radius: 30px;
-    font-weight: 600;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    display: block;
+    letter-spacing: -1px;
+}
+
+/* Badge de pontuação */
+.perfil-score-badge {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 20px 36px;
+    text-align: center;
 }
 
 .score-numero {
-    font-size: 24px;
-    font-weight: 600;
-    color: #333;
+    font-size: 52px;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    display: block;
+    letter-spacing: -2px;
 }
 
-/* Barra de Progresso */
+.perfil-score-badge span:last-child {
+    font-size: 13px;
+    opacity: 0.75;
+    color: white;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Barra de progresso */
 .barra-progresso-container {
-    background-color: #cacaca;
+    background: rgba(255,255,255,0.25);
     height: 12px;
     border-radius: 20px;
-    width: 100%;
-    overflow: hidden;
+    margin-top: 0;
 }
 
 .barra-progresso-fill {
     height: 100%;
-    background: linear-gradient(90deg, #1aa7d5, #59bda3);
+    background: white;
     border-radius: 20px;
     width: 0%;
     transition: width 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
+    box-shadow: 0 0 14px rgba(255,255,255,0.7);
 }
 
 .barra-progresso-fill.animate {
     width: var(--target-width, 45%);
 }
 
-/* Card de Evolução */
-.card-evolucao {
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f0f0f0;
+/* Label Progresso / % */
+.perfil-progresso-label {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Card de evolução com borda de destaque */
+.card-evolucao {
+    background: white;
+    border-radius: 20px;
+    padding: 36px 40px;
+    border: 1px solid #e8edf2;
+    border-left: 5px solid #59bda3; /* destaque lateral */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+.highlight-blue {
+    color: #1889ae;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    display: block;
 }
 
 .lista-metas-curta {
     list-style: none;
-    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 0;
+    counter-reset: lista;
+}
+
+.lista-metas-curta li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
 }
 
 .lista-metas-curta li::before {
-    content: "•";
-    color: #000;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
+    content: counter(lista);
+    counter-increment: lista;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #e1f5ee;
+    color: #0f6e56;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .evolucao-acao {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 20px;
-    max-width: 400px;
+    gap: 14px;
+    min-width: 220px;
+   
 }
 
 .btn-recomenda-perfil {
-    background-color: #59bda3;
+    background: linear-gradient(135deg, #1aa7d5, #59bda3);
     color: white;
     border: none;
-    padding: 15px 35px;
-    border-radius: 12px;
+    padding: 16px 32px;
+    border-radius: 14px;
     font-weight: 700;
+    font-size: 15px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    white-space: nowrap;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 6px 20px rgba(89, 189, 163, 0.4);
 }
 
 .btn-recomenda-perfil:hover {
-    background-color: #48a68d;
+    opacity: 0.9;
     transform: scale(1.04);
 }
 
 .status-aprendizado {
-    font-size: 14px;
-    color: #666;
+    font-size: 13px;
+    color: #888;
     text-align: right;
+    line-height: 1.6;
+    max-width: 240px;
+}
+
+/* Lista com números circulares */
+.lista-metas-curta {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.lista-metas-curta li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+.lista-metas-curta li::before {
+    content: counter(lista);
+    counter-increment: lista;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e1f5ee;
+    color: #0f6e56;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.lista-metas-curta {
+    counter-reset: lista;
+}
+
+.banner-final-cta {
+    position: relative;
+    width: 100%;
+    margin: 40px auto;
+    min-height: 100vh;       
+    height: auto;            /* cresce conforme o conteúdo */
+
+    background-image: url(/assets/imgs/imgPreocupado.svg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 8% 80px 8%;   /* espaço nas laterais e embaixo */
+}
+
+.banner-titulo {
+    font-size: clamp(36px, 5vw, 64px); /* cresce com a tela mas não estoura */
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+    color: white;
+}
+
+.banner-subtitulo {
+    font-size: clamp(15px, 1.5vw, 20px);
+    margin-bottom: 32px;
+    color: white;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+.banner-container-botao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 560px;
+}
+
+.btn-cta-verde.hide {
+    opacity: 0;
+    pointer-events: none; 
 }
 
 /* LIVROS */
@@ -275,29 +464,30 @@ body {
 
 /* CTA */
 .banner-final-cta {
-    width: 100%;
-    margin: 40px auto;
     height: 1024px;
-
-    background-image: url(/assets/imgs/HomemPreocupado.svg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Parallax no desktop */
-    border-radius: 15px;
-
-    display: flex;
     align-items: flex-end;
-    justify-content: flex-start;
-    padding-bottom: 80px;
+    padding-bottom: 120px;   /* aumenta para descer mais o conteúdo */
     padding-left: 8%;
-
-    scroll-snap-align: start;
 }
 
+.banner-titulo {
+    font-size: 70px;         /* título bem grande */
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+.banner-subtitulo {
+    font-size: 18px;
+    margin-bottom: 32px;
+}
 .banner-container-botao {
+    position: relative;      
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 16px;
+    max-width: 480px;        
 }
 
 .btn-cta-verde {
@@ -344,7 +534,7 @@ body {
 }
 
 .stat-card {
-    background: #fff;
+    background: linear-gradient(135deg, #1aa7d5, #59bda3);
     border-radius: 12px;
     padding: 40px 20px;
     text-align: center;
@@ -504,26 +694,6 @@ body {
     font-weight: bold;
 }
 
-/* === SCRIPT INLINE SUGERIDO (cole no final do <body>) ===
-<script>
-  // 1. Animação fade-in-up via IntersectionObserver
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-        // Para barra de progresso
-        const barra = el.target.querySelector('.barra-progresso-fill');
-        if (barra) barra.classList.add('animate');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.fade-in-up, .card-perfil-status, .card-evolucao, .stat-card, .course-card')
-    .forEach(el => { el.classList.add('fade-in-up'); observer.observe(el); });
-</script>
-*/
-
-/* RESPONSIVO */
 @media (max-width: 1024px) {
     .hero { padding: 56px 0; }
 
@@ -533,13 +703,23 @@ body {
         gap: 28px;
     }
 
-    .hero-img { display: flex; justify-content: center; }
+    .hero-img { 
+        display: flex;
+         justify-content: center;
+         }
 
-    .perfil-secao { padding: 32px 24px; }
+    .perfil-secao { 
+        padding: 32px 24px;
+     }
 
-    .card-evolucao { flex-direction: column; gap: 24px; }
+    .card-evolucao { 
+        flex-direction: column; 
+        gap: 24px; 
+    }
 
-    .evolucao-acao { align-items: flex-start; max-width: 100%; }
+    .evolucao-acao { align-items: flex-start;
+         max-width: 100%;
+         }
 
     .status-aprendizado { text-align: left; }
 
@@ -551,19 +731,31 @@ body {
         background-attachment: scroll; /* Remove parallax no mobile */
     }
 
-    .hero { background-attachment: scroll; }
+    .hero { 
+        background-attachment: scroll;
+     }
 
-    .stats-container { margin-top: 64px; }
+    .stats-container {
+         margin-top: 64px;
+         }
 
-    .stats-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+    .stats-grid {
+         grid-template-columns: repeat(2, minmax(220px, 1fr));
+         }
 
-    .cursos-container { padding: 20px 24px; }
+    .cursos-container {
+         padding: 20px 24px;
+         }
 
-    .cursos-grid { grid-template-columns: repeat(2, minmax(260px, 1fr)); }
+    .cursos-grid {
+         grid-template-columns: repeat(2, minmax(260px, 1fr));
+         }
 }
 
 @media (max-width: 768px) {
-    .container { padding: 0 16px; }
+    .container { 
+        padding: 0 16px; 
+    }
 
     .hero { padding: 42px 0; }
 
