@@ -720,6 +720,10 @@ main {
 #bancos {
     background-color: #c2c2c2;
     height: 1024px;
+    top: 20%;
+}
+#dentro{
+    margin-top: -180px;
 }
 
 #bancos h1 {
@@ -739,6 +743,11 @@ main {
     font-size: 20px;
 }
 
+#muitas p{
+    font-size: 30px;
+}
+
+
 #bancos2 {
     display: flex;
     flex-direction: row;
@@ -756,17 +765,22 @@ main {
 }
 
 .bank {
-    background-color: white;
-    width: 280px;
-    min-height: 400px;
-    border-radius: 15px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+  background-color: white;
+  width: 300px;
+  min-height: 400px;
+  border-radius: 15px;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+
 }
 
 .header-card {
@@ -775,10 +789,12 @@ main {
     align-items: center;
     gap: 12px;
     width: 100%;
+    
 }
 
 .header-card p {
     text-align: center;
+    
 }
 
 .fundo-icone {
@@ -789,11 +805,6 @@ main {
     justify-content: center;
     align-items: center;
     flex-shrink: 0; /* Impede o ícone de amassar */
-}
-
-.imabank {
-    width: 24px;
-    height: 24px;
 }
 
 .nome-banco {
@@ -819,8 +830,16 @@ main {
     color: #6b7280;
     margin: 0;
     line-height: 1.5;
-    width: 100%;
-    margin-left: 20px;
+    width: auto;
+    padding-left: 20px;
+    height: auto;
+    text-align: left !important;
+    
+}
+
+#descricao2 {
+    display: flex;
+    text-align: left;
 }
 
 /* Botão */
@@ -839,4 +858,122 @@ main {
 
 .btn-veja-mais:hover {
     background-color: #facc15;
+}
+
+#simule {
+    height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#card7 {
+     background: linear-gradient(
+        112.62deg,
+        var(--gradient-start),
+        var(--gradient-end)
+    );
+    height: 200px;
+    width: 70%;
+    align-items: center;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 40px;
+    justify-content: space-around;
+}
+
+#simuladorr {
+    font-weight: 700;
+    font-size: 30px;
+
+}
+#dividass {
+    text-align: center;
+}
+
+#botao {
+    background-color: yellow;
+    width: 30%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#textos {
+   text-align: left;
+}
+
+.fotos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* juros agiotagem */
+
+#backimg{
+    position: relative;
+    width: 100%;
+}
+
+#teimg img{
+    width: 100%;
+    display: block;
+    
+}
+
+#texto200{
+    position: absolute;
+    text-align: left;
+    color: white;
+    font-size: 40px;
+    /* max-width: 600px;
+    line-height: 1.4; */
+    margin-top: 15%;
+    left: 40%;
+    font-family: "Inter", sans-serif;
+    text-shadow: 1px 1px 2px #000000;   
+}
+#texto100 {
+    position: absolute;
+    color: yellow;
+    font-size: 60px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    left: 40%;
+    font-family: "Inter", sans-serif;
+    margin-top: 10%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+
+#texto300 {
+    position: absolute;
+    width: 50%;
+    margin-top: 25%;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-family: "Inter", sans-serif;
+    left: 40%;
+    text-shadow: 1px 1px 2px #000000;
+}
+#graficopng {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    margin-top: -20%;
+    left: 40%;
+}
+
+#grafico2 {
+    border-radius: 20px ;
 }
