@@ -20,7 +20,7 @@
 // ============================================================
 const AGENT_CONFIG = {
     // -- Chave Groq (tier gratuito, 500k tokens/dia) --
-    apiKey: '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',
+    apiKey: '',
 
     model: 'llama-3.3-70b-versatile',
     temperature: 0.72,
