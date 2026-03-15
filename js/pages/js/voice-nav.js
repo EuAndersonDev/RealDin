@@ -1,7 +1,7 @@
 const COMANDOS_VOZ = [
     // --- COMANDOS DE NAVEGAÇÃO GLOBAL ---
     {
-        frases: ['ir para o início', 'página inicial', 'home'],
+        frases: ['ir para o início', 'página inicial', 'inicio', 'home'],
         acao: () => window.location.href = '/index.html'
     },
     {
@@ -15,6 +15,23 @@ const COMANDOS_VOZ = [
     {
         frases: ['sobre nós', 'quem somos'],
         acao: () => window.location.href = '/pages/sobrenos.html'
+    },
+     {
+        frases: ['resultados', 'resultado'],
+        acao: () => window.location.href = '/pages/resultado.html'
+    },
+     {
+        frases: ['quiz'],
+        acao: () => window.location.href = '/pages/quiz.html'
+    },
+     {
+        frases: ['indicações', 'indicação'],
+        acao: () => window.location.href = '/pages/indicacoes.html'
+    },
+
+     {
+        frases: ['conscientização'],
+        acao: () => window.location.href = '/pages/conscientizacao.html'
     },
 
     // --- COMANDOS DE ROLAGEM  ---
@@ -136,7 +153,7 @@ const COMANDOS_VOZ = [
 
       falarFeedback(`"${dito}"`);
 
-      const match = COMANDOS.find(cmd =>
+      const match = COMANDOS_VOZ.find(cmd =>
         cmd.frases.some(f => dito.includes(f))
       );
 
