@@ -13,7 +13,7 @@ main {
    HERO — fundo escuro com gradiente
 ============================================ */
 #hero {
-    background: linear-gradient(135deg, #0f0b1e 0%, #0d2233 60%, #0b1a2e 100%);
+    background: linear-gradient(135deg, #261e42 0%, #0d2233 60%, #02162f 100%);
     width: 100%;
     min-height: calc(100vh - var(--header-offset));
     height: 1000px;
@@ -69,7 +69,7 @@ main {
     margin: 10px;
     position: relative;
     z-index: 1;
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+
 }
 
 #hero span {
@@ -207,7 +207,7 @@ p {
 
 #paragrafo-CTA {
     text-align: left;
-    font-size: 24px;
+    font-size: 32px;
     font-family: Inter;
     font-weight: 400;
     color: #6a6a6a;
@@ -289,7 +289,7 @@ p {
     margin: 0 0 10px;
     color: #1a1a1a;
     font-family: Inter;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.2px;
@@ -298,9 +298,9 @@ p {
 .card p {
     margin: 0;
     padding: 0;
-    color: #6a7183;
+    color: #000000;
     font-family: Inter;
-    font-size: 1.08rem;
+    font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.65;
     flex: 1;

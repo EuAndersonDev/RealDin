@@ -1,8 +1,33 @@
 class Header extends HTMLElement {
+    obterCaminhoAsset(caminhoAsset) {
+        const caminhoAtual = window.location.pathname;
+        const estaEmPaginaInterna = caminhoAtual.includes('/pages/');
+
+        return estaEmPaginaInterna ? `../${caminhoAsset}` : caminhoAsset;
+    }
+
+    configurarFallbackLogo() {
+        const logo = this.querySelector('#logo img');
+
+        if (!logo) {
+            return;
+        }
+
+        logo.addEventListener('error', () => {
+            if (logo.dataset.fallbackAplicado === 'true') {
+                return;
+            }
+
+            logo.dataset.fallbackAplicado = 'true';
+            logo.src = '/assets/imgs/Logo.svg';
+        });
+    }
+
     connectedCallback() {
         const paginaAtual = this.getAttribute('pagina');
         const auth = this.obterAuthState();
         const isAuthenticated = auth.isAuthenticated;
+        const caminhoLogo = this.obterCaminhoAsset('assets/imgs/Logo.svg');
 
         this.innerHTML = `
             <div id="menu-overlay"></div>
@@ -10,7 +35,7 @@ class Header extends HTMLElement {
                 <nav id="topo">
                     <section id="logo">
                         <a href="/index.html">
-                            <img src="/assets/imgs/Logo.svg" alt="Logo">
+                            <img src="${caminhoLogo}" alt="Logo">
                         </a>
                     </section>
 
@@ -51,6 +76,8 @@ class Header extends HTMLElement {
         const menuContainer = this.querySelector("#menu-container");
         const overlay = this.querySelector("#menu-overlay");
 
+        this.configurarFallbackLogo();
+
         // Toggle do menu hambúrguer
         botaoMenu.addEventListener("click", () => {
             menuContainer.classList.toggle("ativo");
@@ -66,7 +93,7 @@ class Header extends HTMLElement {
         });
 
         // Fechar menu ao clicar em qualquer link (incluindo botões de login/register)
-        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register, #usuario-toggle, #confirmar-logout");
+        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register, #usuario-toggle, #confirmar-logout, #usuario-dropdown a");
         todosLinks.forEach(link => {
             link.addEventListener("click", () => {
                 menuContainer.classList.remove("ativo");
@@ -100,6 +127,7 @@ class Header extends HTMLElement {
                     ${primeiroNome}
                 </button>
                 <div id="usuario-dropdown" class="fechado" role="menu" aria-hidden="true">
+                    <a href="/pages/chatbot.html" class="usuario-chatbot-link" role="menuitem">Chatbot</a>
                     <p>Logout</p>
                     <button id="confirmar-logout" type="button">Fazer logout</button>
                 </div>
