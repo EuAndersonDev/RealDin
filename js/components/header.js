@@ -10,7 +10,7 @@ class Header extends HTMLElement {
                 <nav id="topo">
                     <section id="logo">
                         <a href="/index.html">
-                            <img src="/assets/imgs/logo.svg" alt="Logo">
+                            <img src="/assets/imgs/Logo.svg" alt="Logo">
                         </a>
                     </section>
 

@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Foto de perfil padrao">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1F4D3A"/>
+      <stop offset="100%" stop-color="#2E6D52"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <circle cx="256" cy="188" r="96" fill="#F2D0B1"/>
+  <path d="M92 422c15-90 84-150 164-150s149 60 164 150" fill="#E8B98F"/>
+  <path d="M132 434c0-72 56-122 124-122s124 50 124 122" fill="#FFFFFF" fill-opacity="0.95"/>
+  <path d="M170 168c0-52 38-92 86-92s86 40 86 92c0 13-2 25-7 37-18-9-43-23-58-42-15 18-44 34-93 44-9-11-14-24-14-39z" fill="#233026"/>
+</svg>
