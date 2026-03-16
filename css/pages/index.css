@@ -1131,6 +1131,16 @@ button a {
    Responsividade - Mobile
    =========================== */
 @media (max-width: 768px) {
+    #hero {
+        min-height: auto;
+        background: linear-gradient(135deg, #0f5f55 0%, #2b9c89 100%);
+    }
+
+    #hero-bg,
+    #hero-overlay {
+        display: none;
+    }
+
     #conteudo-hero,
     #conteudo-situacoes,
     #conteudo-video,
