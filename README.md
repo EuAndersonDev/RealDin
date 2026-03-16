@@ -1,3 +1,5 @@
+
+```
 # 💰 RealDin: Educação Financeira para a Realidade Brasileira
 
 > **"Acordando jovens adultos para a liberdade financeira através da consciência e tecnologia."**
@@ -38,9 +40,9 @@ Mantemos uma estrutura organizada para facilitar a escalabilidade e manutenção
 ```text
 📁 RealDin/
 │
-├── 📁 assets/ # Ícones, ilustrações e logos (SVG/PNG)
-│    └── 📁 imgs/               # Imagens do projeto em PNG
-│    └── 📁 icons/              # Icones em SvG
+├── 📁 assets/                  # Ícones, ilustrações e logos (SVG/PNG)
+│   └── 📁 imgs/                # Imagens do projeto em PNG
+│   └── 📁 icons/               # Icones em SVG
 ├── 📁 css/                     # Estilização Modular
 │   ├── 📄 global.css           # Reset, Variáveis e Tipografia
 │   ├── 📁 components/          # Header, Footer e UI Patterns
@@ -59,7 +61,7 @@ Mantemos uma estrutura organizada para facilitar a escalabilidade e manutenção
 │   ├── 📄 simulador-juros.html
 │   └── (outras telas...)
 │
-└── 📄 index.html               # Home Page (Entry Point)
+└── 📄 index.html                # Home Page (Entry Point)
 
 ```
 
@@ -67,9 +69,9 @@ Mantemos uma estrutura organizada para facilitar a escalabilidade e manutenção
 
 ## 🔗 Links Úteis
 
-* **Protótipo Figma:** [Acesse o Design](https://www.figma.com/design/uSDxm2OT0j91rQcwE2fcdX/GRUPO-UC1?node-id=567-7&t=GayhJ1auLnmrxosq-1)
-* **Apresentação do Pitch:** [Canva Link]([https://www.google.com/search?q=https://canva.com.br](https://www.figma.com/make/S3AmiQrysGlwvv0dqDSErQ/Apresenta%C3%A7%C3%A3o-Visual-RealDin?t=9a72dqcnvIWNbNVA-1))
-* **Deploy em Produção:** [RealDin.vercel.app](https://www.google.com/search?q=https://RealDin.vercel.app)
+* **Protótipo Figma:** [Acesse o Design](https://www.google.com/search?q=https://www.figma.com/design/uSDxm2OT0j91rQcwE2fcdX/GRUPO-UC1%3Fnode-id%3D567-7)
+* **Apresentação do Pitch:** [Apresentação Visual](https://www.google.com/search?q=https://www.figma.com/make/S3AmiQrysGlwvv0dqDSErQ/Apresenta%25C3%25A7%25C3%25A3o-Visual-RealDin)
+* **Deploy em Produção:** [realdin.vercel.app](https://www.google.com/search?q=https://RealDin.vercel.app)
 
 ---
 
@@ -79,12 +81,12 @@ Nosso time é composto por 6 desenvolvedores focados em transformar a realidade 
 
 | Nome | Função | LinkedIn |
 | --- | --- | --- |
-| **Dev 01** | [linkedin.com/in/dev1]([https://www.google.com/search?q=%23](https://www.linkedin.com/in/euandersonreis/)) |
-| **Dev 02** | [linkedin.com/in/dev2]([https://www.google.com/search?q=%23](https://www.linkedin.com/in/jaiane-d-5897802b5/)) |
-| **Dev 03** | [linkedin.com/in/dev3]([https://www.google.com/search?q=%23](https://www.linkedin.com/in/jo%C3%A3o-pedro-pereira-ramos-9089973a3/)) |
-| **Dev 04** | [linkedin.com/in/dev4]([https://www.google.com/search?q=%23](https://www.linkedin.com/in/joão-victor-santos-de-medeiros-936b9536b?utm_source=share_via&utm_content=profile&utm_medium=member_android)) |
-| **Dev 05** | [linkedin.com/in/dev5]([https://www.google.com/search?q=%23](https://www.linkedin.com/in/kauê-rodrigues-de-sousa-ba62b33b6/)) |
-| **Dev 06** | [linkedin.com/in/dev6]([https://www.google.com/search?q=%23](https://www.linkedin.com/in/ugussousa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)) |
+| **Anderson Reis** | Fullstack Developer | [linkedin.com/in/euandersonreis](https://www.linkedin.com/in/euandersonreis/) |
+| **Jaiane D.** | Frontend Developer | [linkedin.com/in/jaiane-d](https://www.linkedin.com/in/jaiane-d-5897802b5/) |
+| **João Pedro Pereira** | Frontend Developer | [linkedin.com/in/joao-pedro](https://www.linkedin.com/in/jo%C3%A3o-pedro-pereira-ramos-9089973a3/) |
+| **João Victor Santos** | Backend Developer | [linkedin.com/in/joao-victor](https://www.google.com/search?q=https://www.linkedin.com/in/jo%C3%A3o-victor-santos-de-medeiros-936b9536b/) |
+| **Kauê Rodrigues** | Frontend Developer | [linkedin.com/in/kaue-rodrigues](https://www.linkedin.com/in/kauê-rodrigues-de-sousa-ba62b33b6/) |
+| **Ugus Sousa** | Backend Developer | [linkedin.com/in/ugussousa](https://www.google.com/search?q=https://www.linkedin.com/in/ugussousa/) |
 
 ---
 
@@ -97,3 +99,4 @@ Nosso time é composto por 6 desenvolvedores focados em transformar a realidade 
 ---
 
 *Este projeto é parte de uma iniciativa educacional para o grupo-5 de UC-1, turma 1 JAVA, PROA primeiro semestre 2026.*
+```
