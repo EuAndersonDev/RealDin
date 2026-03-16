@@ -157,6 +157,13 @@ button a {
 
     #hero-content h1 {
         max-width: 100%;
+        font-size: 52px;
+        line-height: 1.1;
+    }
+
+    #hero-content p {
+        font-size: 22px;
+        line-height: 1.5;
     }
 }
 
@@ -1131,6 +1138,16 @@ button a {
    Responsividade - Mobile
    =========================== */
 @media (max-width: 768px) {
+    #hero {
+        min-height: auto;
+        background: linear-gradient(135deg, #0f5f55 0%, #2b9c89 100%);
+    }
+
+    #hero-bg,
+    #hero-overlay {
+        display: none;
+    }
+
     #conteudo-hero,
     #conteudo-situacoes,
     #conteudo-video,
@@ -1184,6 +1201,16 @@ button a {
         font-size: 17px;
         line-height: 26px;
         margin: 8px 0;
+    }
+
+    #hero-content h1 {
+        font-size: 40px;
+        line-height: 1.1;
+    }
+
+    #hero-content p {
+        font-size: 18px;
+        line-height: 1.5;
     }
 
     #hero-image,
@@ -1318,6 +1345,16 @@ button a {
 }
 
 @media (max-width: 480px) {
+    #hero-content h1 {
+        font-size: 30px;
+        line-height: 1.15;
+    }
+
+    #hero-content p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
     #conteudo-hero h1,
     #conteudo-hero span,
     #video-titulo h1,

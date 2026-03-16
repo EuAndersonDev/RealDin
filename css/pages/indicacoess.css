@@ -98,7 +98,8 @@ body {
 
 .hero-grid {
     max-width: 1400px;
-    height: 700px;
+    min-height: 500px;
+    height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -125,9 +126,8 @@ body {
 }
 
 .hero-text h1 {
-    height: 50vh;
     font-size: 60px;
-    line-height: 1.0;
+    line-height: 1.1;
     text-align: left;
 }
 
@@ -759,7 +759,11 @@ body {
 
     .hero { padding: 42px 0; }
 
-    .hero-text h1 { font-size: 1.7rem; line-height: 1.25; }
+    .hero-text h1 { font-size: 1.7rem; line-height: 1.25; height: auto; }
+
+    .tag-iniciante { font-size: 1.8rem; letter-spacing: 0; }
+
+    .score-numero { font-size: 2rem; }
 
     .btn-primary { width: 100%; max-width: 320px; }
 
@@ -783,7 +787,9 @@ body {
         min-height: clamp(260px, 82vw, 360px);
         height: auto;
         padding: 16px 14px;
-        align-items: flex-end;
+        align-items: center;
+        justify-content: center;
+        background-color: #0f5f55; /* fallback quando a imagem não carrega */
         background-image:
             linear-gradient(90deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.12) 40%, rgba(0,0,0,0) 70%),
             url(/assets/imgs/HomemPreocupado.svg);
@@ -791,7 +797,7 @@ body {
         background-attachment: scroll;
     }
 
-    .banner-container-botao { width: min(100%, 360px); gap: 14px; }
+    .banner-container-botao { width: min(100%, 360px); gap: 14px; text-align: center; align-items: center; }
 
     .btn-cta-verde { width: 100%; text-align: center; font-size: 1rem; padding: 14px 18px; }
 
@@ -807,11 +813,20 @@ body {
 @media (max-width: 480px) {
     .hero-text h1 { font-size: 1.45rem; }
 
+    .tag-iniciante { font-size: 1.3rem; }
+
+    .score-numero { font-size: 1.6rem; }
+
     .banner-final-cta {
         min-height: 240px;
         padding: 12px;
+        background-color: #0f5f55; /* fallback quando a imagem não carrega */
         background-position: 68% center;
+        align-items: center;
+        justify-content: center;
     }
+
+    .banner-titulo, .banner-subtitulo, .banner-status-info { text-align: center; }
 
     .banner-status-info { font-size: 0.8rem; line-height: 1.4; }
 
