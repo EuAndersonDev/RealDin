@@ -177,47 +177,97 @@
                 </p>
             </section>
 
-            <section id="relatos">
-                <div class="depoimentos">
-                    <div class="fotos">
-                        <img
-                            src="/assets/icons/conscientizacao/IconLetraB.svg"
-                            alt=""
-                        />
-                        <h3>Mariana S.</h3>
-                    </div>
-                    <span>29 anos</span>
-                    <p>
-                        "Tudo começou com uma pequena reforma... A bola de neve
-                        foi rápida."
-                    </p>
-                </div>
+            <section id="relatos" aria-labelledby="relatos-titulo">
+                <div class="relatos-shell">
+                    <div class="relatos-topbar">
+                        <div>
+                            <p class="relatos-kicker">Depoimentos</p>
+                            <h2 id="relatos-titulo">Histórias que começam pequenas e viram uma bola de neve</h2>
+                        </div>
 
-                <div class="depoimentos">
-                    <div class="fotos">
-                        <img
-                            src="/assets/icons/conscientizacao/IconLetraD.svg"
-                            alt=""
-                        />
-                        <h3>Adriana G.</h3>
+                        <div class="relatos-controls" aria-label="Navegação do carrossel de depoimentos">
+                            <button class="relatos-control" type="button" data-carousel-prev aria-label="Mostrar depoimentos anteriores">‹</button>
+                            <button class="relatos-control" type="button" data-carousel-next aria-label="Mostrar próximos depoimentos">›</button>
+                        </div>
                     </div>
-                    <span>37 anos</span>
-                    <p>"Sendo sincera, hoje é mais sobreviver do que viver."</p>
-                </div>
 
-                <div class="depoimentos">
-                    <div class="fotos">
-                        <img
-                            src="/assets/icons/conscientizacao/IconLetraM.svg"
-                            alt=""
-                        />
-                        <h3>Daianne J.</h3>
+                    <div class="relatos-viewport" tabindex="0">
+                        <div class="relatos-track">
+                            <article class="depoimento-card">
+                                <div class="depoimento-card__head">
+                                    <img src="/assets/icons/conscientizacao/IconLetraB.svg" alt="Avatar ilustrado de Mariana S." />
+                                    <div>
+                                        <h3>Mariana S.</h3>
+                                        <span>29 anos</span>
+                                    </div>
+                                </div>
+                                <p class="depoimento-card__quote">"Tudo começou com uma pequena reforma. O parcelamento parecia caber no bolso, mas juntei cartão, empréstimo e atrasos. Quando percebi, estava pagando juros para manter uma vida que eu já não conseguia bancar."</p>
+                                <p class="depoimento-card__tag">Cartão e obra sem reserva</p>
+                            </article>
+
+                            <article class="depoimento-card">
+                                <div class="depoimento-card__head">
+                                    <img src="/assets/icons/conscientizacao/IconLetraD.svg" alt="Avatar ilustrado de Adriana G." />
+                                    <div>
+                                        <h3>Adriana G.</h3>
+                                        <span>37 anos</span>
+                                    </div>
+                                </div>
+                                <p class="depoimento-card__quote">"Eu usava o limite da conta como se fosse extensão do salário. No começo parecia solução, depois virou rotina. Hoje eu sei que cheque especial nunca foi ajuda: era um buraco caro disfarçado de facilidade."</p>
+                                <p class="depoimento-card__tag">Cheque especial recorrente</p>
+                            </article>
+
+                            <article class="depoimento-card">
+                                <div class="depoimento-card__head">
+                                    <img src="/assets/icons/conscientizacao/IconLetraM.svg" alt="Avatar ilustrado de Daianne J." />
+                                    <div>
+                                        <h3>Daianne J.</h3>
+                                        <span>44 anos</span>
+                                    </div>
+                                </div>
+                                <p class="depoimento-card__quote">"Comecei a trabalhar cedo, mas nunca aprendi a organizar o que eu ganhava. Sempre entrava dinheiro e saía mais rápido ainda. O problema não era só ganhar pouco, era não enxergar para onde tudo estava indo."</p>
+                                <p class="depoimento-card__tag">Falta de planejamento mensal</p>
+                            </article>
+
+                            <article class="depoimento-card">
+                                <div class="depoimento-card__head">
+                                    <img src="/assets/icons/conscientizacao/IconLetraB.svg" alt="Avatar ilustrado de Bruno C." />
+                                    <div>
+                                        <h3>Bruno C.</h3>
+                                        <span>32 anos</span>
+                                    </div>
+                                </div>
+                                <p class="depoimento-card__quote">"Aceitei um empréstimo pelo aplicativo em menos de cinco minutos. Era fácil demais. Difícil foi conviver depois com parcelas altas por dois anos por causa de uma decisão feita no impulso."</p>
+                                <p class="depoimento-card__tag">Empréstimo contratado no impulso</p>
+                            </article>
+
+                            <article class="depoimento-card">
+                                <div class="depoimento-card__head">
+                                    <img src="/assets/icons/conscientizacao/IconLetraD.svg" alt="Avatar ilustrado de Denise R." />
+                                    <div>
+                                        <h3>Denise R.</h3>
+                                        <span>41 anos</span>
+                                    </div>
+                                </div>
+                                <p class="depoimento-card__quote">"Eu parcelei fatura achando que estava respirando, mas só adiei o problema. Quando somei o total pago, vi que a pressa me custou muito mais do que eu imaginava."</p>
+                                <p class="depoimento-card__tag">Parcelamento de fatura</p>
+                            </article>
+
+                            <article class="depoimento-card">
+                                <div class="depoimento-card__head">
+                                    <img src="/assets/icons/conscientizacao/IconLetraM.svg" alt="Avatar ilustrado de Marcelo T." />
+                                    <div>
+                                        <h3>Marcelo T.</h3>
+                                        <span>35 anos</span>
+                                    </div>
+                                </div>
+                                <p class="depoimento-card__quote">"Eu dizia que merecia pequenas recompensas depois de semanas pesadas. O problema é que essas pequenas compras viraram hábito, e hábito no crédito vira dívida antes de você notar."</p>
+                                <p class="depoimento-card__tag">Compras por recompensa emocional</p>
+                            </article>
+                        </div>
                     </div>
-                    <span>44 anos</span>
-                    <p>
-                        "Eu comecei a trabalhar cedo, mas nunca aprendi a
-                        organizar o que eu ganhava."
-                    </p>
+
+                    <div class="relatos-indicators" aria-label="Indicadores do carrossel"></div>
                 </div>
             </section>
 

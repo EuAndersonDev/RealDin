@@ -248,12 +248,6 @@ main {
   line-height: 1.4;
 }
 
-@media (max-width: 700px) {
-  #apostas { padding: 60px 24px; }
-  .apostas-cards { flex-direction: column; }
-}
-
-
 #guia {
     position: relative;
     width: 100%;
@@ -313,58 +307,165 @@ main {
 #relatos {
     background-color: white;
     width: 100%;
-    height: auto;
-    margin-top: 30px;
+    padding: 0 72px 72px;
+}
+
+.relatos-shell {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 36px;
+    border-radius: 32px;
+    background: linear-gradient(145deg, #f7fffd 0%, #eef8ff 100%);
+    border: 1px solid #dbeafe;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.relatos-topbar {
     display: flex;
-    justify-content: center;
-    gap: 40px;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
 }
 
-
-.depoimentos {
-    background-color: white;
-    width: 20%;
-    height: 300px;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: left;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    border: 1px solid #dcdcdc;
-    padding-top: 30px;
-    transition: ease all 0.5s;
-    margin-bottom: 50px;
+.relatos-kicker {
+    color: #06766e;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.82rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
 }
 
-.depoimentos img {
-    border-radius: 50%;
-    background-color: black;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
+.relatos-topbar h2 {
+    font-size: clamp(2rem, 3vw, 3.1rem);
+    color: #111827;
+    line-height: 1.1;
+    max-width: 760px;
 }
 
-.depoimentos:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
-    transition: ease all 0.5s;
+.relatos-controls {
+    display: flex;
+    gap: 0.75rem;
 }
 
-.depoimentos h3 {
-    margin: 40px;
+.relatos-control {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.relatos-control:hover {
+    transform: translateY(-2px);
+    background: #ecfeff;
+    border-color: #67e8f9;
+}
+
+.relatos-control:disabled {
+    opacity: 0.45;
+    cursor: default;
+    transform: none;
+}
+
+.relatos-viewport {
+    overflow: hidden;
+}
+
+.relatos-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 48px) / 3);
+    gap: 24px;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.depoimento-card {
+    min-height: 320px;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.depoimento-card__head {
     display: flex;
     align-items: center;
-    flex-direction: row;
+    gap: 0.95rem;
 }
 
-.depoimentos span {
-    color: gray;
-    font-size: 14px;
+.depoimento-card__head img {
+    border-radius: 50%;
+    background-color: #0f172a;
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
-.depoimentos p {
-    margin-top: 15px;
+.depoimento-card__head h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #111827;
+}
+
+.depoimento-card__head span {
+    display: block;
+    margin-top: 0.2rem;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.depoimento-card__quote {
+    color: #374151;
+    font-size: 1.02rem;
+    line-height: 1.72;
     font-style: italic;
+    flex: 1;
+}
+
+.depoimento-card__tag {
+    align-self: flex-start;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: #ecfeff;
+    color: #0f766e;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.relatos-indicators {
+    margin-top: 1.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.55rem;
+}
+
+.relatos-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    border: none;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.relatos-indicator.is-active {
+    background: #14b8a6;
+    transform: scale(1.15);
 }
 
  /* ----------------------
@@ -468,11 +569,6 @@ main {
     font-size: 30px;
     line-height: 1.65;
     padding-left: 64px;
-}
-
-@media (max-width: 700px) {
-    #educacao { padding: 60px 24px; }
-    .secao-cards-linha { flex-direction: column; }
 }
 
 /* ----------------------
@@ -961,22 +1057,525 @@ main {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .bank-modal[open]::backdrop,
-    .bank-modal[data-closing="true"]::backdrop,
-    .bank-modal[open] .bank-modal__surface,
-    .bank-modal[data-closing="true"] .bank-modal__surface {
-        animation: none;
-    }
+cardcta-component {
+    width: 100%;
+    max-width: 1240px;
+    margin-top: 80px;
+    padding: 0 40px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
+/* ============================================================
+   RESPONSIVIDADE — conscientizacao.css
+   Breakpoints: 1100px | 768px | 680px | 480px
+   ============================================================ */
+
+/* ── 1100px ── Tablets grandes / laptops pequenos ── */
 @media (max-width: 1100px) {
+
+    /* HERO */
+    #hero {
+        height: auto;
+        padding: 100px 20px 80px;
+    }
+
+    .container {
+        margin-top: 60px;
+    }
+
+    .hero-title,
+    .hero-subtitle {
+        font-size: 70px;
+    }
+
+    .btn-aprenda {
+        font-size: 22px;
+        padding: 28px 36px;
+        margin-top: 60px;
+    }
+
+    /* CRÉDITO */
+    #credito {
+        height: auto;
+        padding: 60px 40px;
+    }
+
+    .credito-label {
+        margin-top: 40px;
+        font-size: 22px;
+    }
+
+    .credito-title {
+        font-size: 52px;
+    }
+
+    .credito-desc {
+        font-size: 22px;
+    }
+
+    .cards {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-top: 50px;
+    }
+
+    .card {
+        width: calc(50% - 12px);
+        height: auto;
+    }
+
+    .card h3 {
+        font-size: 28px;
+    }
+
+    .card p {
+        font-size: 18px;
+    }
+
+    /* APOSTAS */
+    #apostas {
+        padding: 50px 40px;
+    }
+
+    .apostas-headline {
+        font-size: clamp(28px, 3.5vw, 50px);
+    }
+
+    /* GUIA */
+    .cards6 {
+        width: 90%;
+        font-size: 22px;
+        height: auto;
+        min-height: 100px;
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .cards6 p {
+        width: auto;
+        font-size: 20px;
+    }
+
+    /* DÍVIDAS */
+    #dividas h1 {
+        font-size: 46px;
+    }
+
+    #dividas p {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    /* RELATOS — já tem regras, reforçando */
+    #relatos {
+        padding: 0 32px 56px;
+    }
+
+    .relatos-shell {
+        padding: 28px;
+    }
+
+    .relatos-track {
+        grid-auto-columns: calc((100% - 24px) / 2);
+    }
+
+    /* EDUCAÇÃO */
+    #educacao {
+        padding: 60px 40px;
+    }
+
+    .card-icon h3 {
+        font-size: 26px;
+    }
+
+    .card_topo p {
+        font-size: 20px;
+        padding-left: 40px;
+    }
+
+    /* AGIOTA */
+    #bloco-texto h1 {
+        font-size: 46px;
+    }
+
+    #bloco-texto p {
+        font-size: 24px;
+    }
+
+    /* JUROS ALTOS */
+    #juros-altos {
+        gap: 2.5rem;
+        padding: 3rem 6%;
+    }
+
+    .juros-titulo {
+        font-size: 3rem;
+    }
+
+    .juros-descricao {
+        font-size: 1.25rem;
+    }
+
+    /* BANCOS */
+    #bancos {
+        padding: 4rem 1.5rem 5rem;
+    }
+
     .bancos-grid {
         grid-template-columns: repeat(2, minmax(260px, 1fr));
     }
 }
 
+
+/* ── 768px ── Tablets retrato / phablets ── */
+@media (max-width: 768px) {
+
+    /* HERO */
+    #hero {
+        padding: 80px 20px 60px;
+    }
+
+    .container {
+        margin-top: 40px;
+    }
+
+    .hero-title,
+    .hero-subtitle {
+        font-size: 52px;
+    }
+
+    .overlay {
+        font-size: 16px;
+    }
+
+    .btn-aprenda {
+        font-size: 18px;
+        padding: 22px 28px;
+        margin-top: 40px;
+    }
+
+    /* CRÉDITO */
+    #credito {
+        padding: 50px 24px;
+    }
+
+    .credito-title {
+        font-size: 40px;
+    }
+
+    .credito-desc {
+        font-size: 18px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+    }
+
+    .card h3 {
+        font-size: 24px;
+        width: 100%;
+    }
+
+    .card p {
+        font-size: 16px;
+        width: 100%;
+    }
+
+    /* APOSTAS */
+    #apostas {
+        padding: 40px 24px;
+    }
+
+    /* GUIA */
+    #guia {
+        padding: 20px 0;
+    }
+
+    .cards6 {
+        width: 88%;
+        font-size: 18px;
+        padding: 16px 20px;
+        border-radius: 14px;
+        margin: 14px auto;
+        gap: 12px;
+    }
+
+    .cards6 img {
+        width: 52px;
+        margin-left: 0;
+        flex-shrink: 0;
+    }
+
+    .cards6 p {
+        font-size: 17px;
+        margin-left: 0;
+    }
+
+    /* DÍVIDAS */
+    #dividas {
+        padding: 40px 20px;
+    }
+
+    #dividas h1 {
+        font-size: 36px;
+    }
+
+    #dividas p {
+        font-size: 16px;
+    }
+
+    /* EDUCAÇÃO */
+    #educacao {
+        padding: 50px 24px;
+    }
+
+    .educacao-titulo {
+        font-size: clamp(28px, 5vw, 48px);
+    }
+
+    .educacao-desc {
+        font-size: 17px;
+    }
+
+    .secao-cards-linha {
+        flex-direction: column;
+    }
+
+    .card_topo {
+        width: 100%;
+    }
+
+    .card-icon h3 {
+        font-size: 22px;
+    }
+
+    .card_topo p {
+        font-size: 17px;
+        padding-left: 32px;
+    }
+
+    /* AGIOTA */
+    #conteudo-agiota {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #conteudo-agiota > img {
+        width: 100%;
+        max-height: 320px;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    #bloco-texto {
+        position: static;
+        transform: none;
+        width: 100%;
+        background: #111;
+        padding: 30px 24px;
+        gap: 16px;
+        left: auto;
+        top: auto;
+    }
+
+    #bloco-texto h1 {
+        font-size: 32px;
+    }
+
+    #bloco-texto p {
+        font-size: 17px;
+    }
+
+    .canva-embed-container {
+        width: 95%;
+    }
+
+    /* JUROS ALTOS */
+    #juros-altos {
+        flex-direction: column;
+        padding: 3rem 5%;
+        min-height: auto;
+        gap: 2rem;
+    }
+
+    .juros-titulo {
+        font-size: 2.4rem;
+    }
+
+    .juros-descricao,
+    .juros-explicacao {
+        font-size: 1.1rem;
+    }
+
+    .juros-stats {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .card-estatistica {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: 140px;
+        padding: 1.25rem;
+    }
+
+    .numero {
+        font-size: 2.8rem;
+    }
+
+    .card-estatistica p {
+        font-size: 0.95rem;
+    }
+
+    /* BANCOS */
+    #bancos {
+        padding: 3.5rem 1.25rem 4rem;
+    }
+
+    .bancos-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+    }
+}
+
+
+/* ── 680px ── Celulares grandes ── */
 @media (max-width: 680px) {
+
+    /* HERO */
+    .hero-title,
+    .hero-subtitle {
+        font-size: 38px;
+    }
+
+    .btn-aprenda {
+        font-size: 16px;
+        padding: 18px 24px;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    /* CRÉDITO */
+    .credito-label {
+        font-size: 14px;
+        margin-top: 32px;
+    }
+
+    .credito-title {
+        font-size: 30px;
+    }
+
+    .credito-desc {
+        font-size: 15px;
+    }
+
+    /* GUIA */
+    .cards6 {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        align-items: center;
+        padding: 24px 16px;
+        width: 90%;
+    }
+
+    .cards6 img {
+        margin: 0 auto 8px;
+    }
+
+    .cards6 p {
+        text-align: center;
+        margin-left: 0;
+        font-size: 15px;
+    }
+
+    /* DÍVIDAS */
+    #dividas h1 {
+        font-size: 28px;
+    }
+
+    #dividas p {
+        font-size: 14px;
+    }
+
+    /* RELATOS */
+    #relatos {
+        padding: 0 16px 44px;
+    }
+
+    .relatos-shell {
+        padding: 22px 16px;
+        border-radius: 24px;
+    }
+
+    .relatos-topbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .relatos-topbar h2 {
+        font-size: 1.55rem;
+    }
+
+    .relatos-controls {
+        justify-content: flex-end;
+    }
+
+    .relatos-track {
+        grid-auto-columns: 100%;
+    }
+
+    .depoimento-card {
+        min-height: 0;
+    }
+
+    /* EDUCAÇÃO */
+    .card-icon h3 {
+        font-size: 18px;
+    }
+
+    .card_topo p {
+        font-size: 15px;
+        padding-left: 0;
+    }
+
+    /* AGIOTA */
+    #bloco-texto h1 {
+        font-size: 26px;
+    }
+
+    #bloco-texto p {
+        font-size: 15px;
+    }
+
+    /* JUROS ALTOS */
+    .juros-titulo {
+        font-size: 2rem;
+    }
+
+    .juros-stats {
+        flex-direction: column;
+    }
+
+    .card-estatistica {
+        flex: unset;
+        width: 100%;
+    }
+
+    /* BANCOS */
     #bancos {
         padding: 4rem 1.25rem 4.5rem;
         gap: 1.5rem;
@@ -985,6 +1584,7 @@ main {
     .bancos-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        max-width: 100%;
     }
 
     .bank-card {
@@ -1012,13 +1612,178 @@ main {
     }
 }
 
-cardcta-component {
-    width: 100%;
-    max-width: 1240px;
-    margin-top: 80px;
-    padding: 0 40px;
-    display: block;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+
+/* ── 480px ── Celulares pequenos ── */
+@media (max-width: 480px) {
+
+    /* HERO */
+    #hero {
+        padding: 60px 16px 50px;
+    }
+
+    .overlay {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .hero-title,
+    .hero-subtitle {
+        font-size: 28px;
+    }
+
+    .btn-aprenda {
+        font-size: 14px;
+        padding: 16px 20px;
+        margin-top: 30px;
+    }
+
+    /* CRÉDITO */
+    #credito {
+        padding: 40px 16px;
+    }
+
+    .credito-title {
+        font-size: 24px;
+    }
+
+    .credito-desc {
+        font-size: 14px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    /* APOSTAS */
+    #apostas {
+        padding: 30px 16px;
+    }
+
+    .apostas-headline {
+        font-size: clamp(22px, 6vw, 32px);
+    }
+
+    .apostas-desc {
+        font-size: 15px;
+    }
+
+    /* GUIA */
+    .cards6 {
+        width: 95%;
+        margin: 10px auto;
+        padding: 18px 12px;
+    }
+
+    .cards6 img {
+        width: 44px;
+    }
+
+    .cards6 p {
+        font-size: 14px;
+    }
+
+    /* DÍVIDAS */
+    #dividas h1 {
+        font-size: 24px;
+    }
+
+    /* EDUCAÇÃO */
+    #educacao {
+        padding: 40px 16px;
+    }
+
+    .educacao-titulo {
+        font-size: clamp(22px, 6.5vw, 36px);
+    }
+
+    .educacao-desc {
+        font-size: 15px;
+    }
+
+    .card-icon img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .card-icon h3 {
+        font-size: 16px;
+    }
+
+    .card_topo p {
+        font-size: 14px;
+    }
+
+    /* AGIOTA */
+    #bloco-texto {
+        padding: 24px 16px;
+    }
+
+    #bloco-texto h1 {
+        font-size: 22px;
+    }
+
+    #bloco-texto p {
+        font-size: 14px;
+    }
+
+    #graficopng {
+        padding: 30px 12px;
+    }
+
+    .canva-embed-container {
+        width: 100%;
+    }
+
+    /* JUROS ALTOS */
+    #juros-altos {
+        padding: 2.5rem 4%;
+    }
+
+    .juros-titulo {
+        font-size: 1.65rem;
+    }
+
+    .juros-descricao {
+        font-size: 1rem;
+    }
+
+    .juros-explicacao {
+        font-size: 1rem;
+    }
+
+    .alerta-dica {
+        font-size: 0.95rem;
+        padding: 1rem;
+    }
+
+    .numero {
+        font-size: 2.4rem;
+    }
+
+    /* BANCOS */
+    .bancos-intro h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .bancos-subtitulo {
+        font-size: 0.95rem;
+    }
+
+    /* MODAL */
+    .bank-modal {
+        max-width: 96vw;
+    }
+
+    .bank-modal__title {
+        font-size: 1.2rem;
+    }
+
+    .bank-modal__description,
+    .bank-modal__list {
+        font-size: 0.93rem;
+    }
 }

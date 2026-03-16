@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+    initBankModal();
+    initTestimonialsCarousel();
+});
+
+function initBankModal() {
     const modal = document.getElementById("bank-modal");
     const CLOSE_ANIMATION_MS = 170;
 
@@ -105,9 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    closeButton?.addEventListener("click", () => {
-        closeModalWithAnimation();
-    });
+    closeButton?.addEventListener("click", closeModalWithAnimation);
 
     modal.addEventListener("click", (event) => {
         if (event.target === modal) {
@@ -121,4 +124,115 @@ document.addEventListener("DOMContentLoaded", () => {
             closeModalWithAnimation();
         }
     });
-});
+}
+
+function initTestimonialsCarousel() {
+    const viewport = document.querySelector(".relatos-viewport");
+    const track = document.querySelector(".relatos-track");
+    const prevButton = document.querySelector("[data-carousel-prev]");
+    const nextButton = document.querySelector("[data-carousel-next]");
+    const indicators = document.querySelector(".relatos-indicators");
+
+    if (!viewport || !track || !prevButton || !nextButton || !indicators) {
+        return;
+    }
+
+    const cards = Array.from(track.children);
+    let pageIndex = 0;
+    let totalPages = 1;
+    let dots = [];
+
+    function getVisibleCards() {
+        if (window.innerWidth <= 680) {
+            return 1;
+        }
+
+        if (window.innerWidth <= 1100) {
+            return 2;
+        }
+
+        return 3;
+    }
+
+    function getGap() {
+        const styles = window.getComputedStyle(track);
+        const gapValue = styles.columnGap || styles.gap || "0";
+        return Number.parseFloat(gapValue) || 0;
+    }
+
+    function buildIndicators() {
+        indicators.innerHTML = "";
+        dots = [];
+
+        for (let index = 0; index < totalPages; index += 1) {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "relatos-indicator";
+            dot.setAttribute("aria-label", `Ir para o grupo de depoimentos ${index + 1}`);
+            dot.addEventListener("click", () => {
+                pageIndex = index;
+                updateCarousel();
+            });
+            indicators.appendChild(dot);
+            dots.push(dot);
+        }
+    }
+
+    function updateControls() {
+        prevButton.disabled = pageIndex === 0;
+        nextButton.disabled = pageIndex >= totalPages - 1;
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("is-active", index === pageIndex);
+            dot.setAttribute("aria-current", index === pageIndex ? "true" : "false");
+        });
+    }
+
+    function updateCarousel() {
+        const visibleCards = getVisibleCards();
+        const cardWidth = cards[0]?.getBoundingClientRect().width || viewport.clientWidth;
+        const offset = pageIndex * visibleCards * (cardWidth + getGap());
+
+        track.style.transform = `translateX(-${offset}px)`;
+        updateControls();
+    }
+
+    function recalculate() {
+        const visibleCards = getVisibleCards();
+        totalPages = Math.max(1, Math.ceil(cards.length / visibleCards));
+        pageIndex = Math.min(pageIndex, totalPages - 1);
+        buildIndicators();
+        updateCarousel();
+    }
+
+    prevButton.addEventListener("click", () => {
+        if (pageIndex === 0) {
+            return;
+        }
+
+        pageIndex -= 1;
+        updateCarousel();
+    });
+
+    nextButton.addEventListener("click", () => {
+        if (pageIndex >= totalPages - 1) {
+            return;
+        }
+
+        pageIndex += 1;
+        updateCarousel();
+    });
+
+    viewport.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+            prevButton.click();
+        }
+
+        if (event.key === "ArrowRight") {
+            nextButton.click();
+        }
+    });
+
+    window.addEventListener("resize", recalculate, { passive: true });
+    recalculate();
+}
