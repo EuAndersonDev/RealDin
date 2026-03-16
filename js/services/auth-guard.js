@@ -7,7 +7,8 @@ const AuthGuard = (() => {
 
     function isProtectedPath(pathname) {
         return [
-            '/pages/indicacoes.html'
+            '/pages/indicacoes.html',
+            '/pages/chatbot.html'
         ].includes(pathname);
     }
 

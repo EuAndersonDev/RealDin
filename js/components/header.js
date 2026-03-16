@@ -1,4 +1,43 @@
 class Header extends HTMLElement {
+    clearChatHistoryOnLogout() {
+        const currentUser = this.obterUsuarioAtual();
+        const userIdentifier = currentUser?.email || currentUser?.id || 'anonimo';
+        const perUserKey = `rd_chat_history:${userIdentifier}`;
+        const legacyKey = 'rd_chat_history';
+        const storages = [window.localStorage, window.sessionStorage];
+
+        storages.forEach((storage) => {
+            try {
+                storage.removeItem(perUserKey);
+                storage.removeItem(legacyKey);
+            } catch (error) {
+                // Ignora erro de storage para não bloquear o logout.
+            }
+        });
+    }
+
+    obterEstadoPersistido() {
+        const storages = [window.localStorage, window.sessionStorage];
+
+        for (const storage of storages) {
+            try {
+                const estadoSalvo = storage.getItem('realdin.auth');
+                if (!estadoSalvo) {
+                    continue;
+                }
+
+                return {
+                    state: JSON.parse(estadoSalvo),
+                    storage,
+                };
+            } catch (error) {
+                // Ignora erro e tenta o próximo storage.
+            }
+        }
+
+        return { state: null, storage: null };
+    }
+
     obterCaminhoAsset(caminhoAsset) {
         const caminhoAtual = window.location.pathname;
         const estaEmPaginaInterna = caminhoAtual.includes('/pages/');
@@ -141,12 +180,13 @@ class Header extends HTMLElement {
         }
 
         try {
-            const estadoSalvo = sessionStorage.getItem('realdin.auth');
-            if (!estadoSalvo) {
+            const persisted = this.obterEstadoPersistido();
+
+            if (!persisted.state) {
                 return null;
             }
 
-            const estado = JSON.parse(estadoSalvo);
+            const estado = persisted.state;
             return estado?.auth?.currentUser || null;
         } catch (error) {
             return null;
@@ -160,19 +200,19 @@ class Header extends HTMLElement {
         }
 
         try {
-            const estadoSalvo = sessionStorage.getItem('realdin.auth');
-            if (!estadoSalvo) {
+            const persisted = this.obterEstadoPersistido();
+            if (!persisted.state || !persisted.storage) {
                 return;
             }
 
-            const estado = JSON.parse(estadoSalvo);
+            const estado = persisted.state;
             estado.auth = {
                 isAuthenticated: false,
                 currentUser: null,
                 lastLoginAt: null
             };
 
-            sessionStorage.setItem('realdin.auth', JSON.stringify(estado));
+            persisted.storage.setItem('realdin.auth', JSON.stringify(estado));
         } catch (error) {
             console.error('[Header] Erro ao limpar sessão do usuário.', error);
         }
@@ -216,6 +256,7 @@ class Header extends HTMLElement {
         });
 
         botaoLogout.addEventListener('click', () => {
+            this.clearChatHistoryOnLogout();
             this.limparSessaoUsuario();
 
             if (window.Toast?.show) {

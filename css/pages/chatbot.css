@@ -123,8 +123,8 @@
 
 .chat-hero-desc {
     font-family: 'DM Sans', var(--font-text);
-    font-size: clamp(0.875rem, 2vw, 1.05rem);
-    color: rgba(255,255,255,0.78);
+    font-size: clamp(0.875rem, 2vw, 1.5rem);
+    color: rgba(255,255,255);
     max-width: 520px;
     line-height: 1.7;
     margin: 0;
@@ -146,7 +146,7 @@
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 9999px;
     font-family: 'DM Sans', var(--font-text);
-    font-size: 0.78rem;
+    font-size: 1rem;
     font-weight: 500;
     color: rgba(255,255,255,0.88);
     cursor: pointer;

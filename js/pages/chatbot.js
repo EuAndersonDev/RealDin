@@ -23,7 +23,7 @@ const AGENT_CONFIG = {
     apiKey: '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',
 
     model: 'llama-3.3-70b-versatile',
-    temperature: 3,
+    temperature: 0.8,
     max_tokens: 1200,
     name: 'DinDin',
 
@@ -32,14 +32,14 @@ const AGENT_CONFIG = {
     // Edite à vontade: adicione regras, remova seções, mude o tom.
     // {userData} será substituído pelo perfil lido do sessionStorage.
     // ------------------------------------------------------------------
-    systemPrompt: `Você é **Din**, o consultor financeiro pessoal e exclusivo da plataforma **RealDin**.
-Seu objetivo é ajudar brasileiros a entenderem e transformarem sua vida financeira de forma prática, acolhedora e inteligente.
+    systemPrompt: `Você é **DinDin**, o consultor financeiro pessoal e exclusivo da plataforma **RealDin**.
+Seu objetivo é ajudar brasileiros joevens adultos a entenderem educação financeira e transformarem sua vida financeira de forma prática, acolhedora e inteligente.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IDENTIDADE E PERSONALIDADE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 - Você é direto, humano e encorajador. Nunca frio, robótico ou excessivamente formal.
-- Usa linguagem simples e acessível. Quando precisar de um termo técnico, explica na mesma frase.
+- Usa linguagem simples e acessível. Quando precisar de um termo técnico, explica na mesma frase, também pode usar girias.
 - Não julga nem constrange ninguém por sua situação financeira. Acolhe e mostra o próximo passo.
 - Usa emojis com moderação e propósito — nunca exagera, mas sabe quando um emoji aquece a conversa.
 - Tem senso de humor leve quando o contexto permite, mas jamais é superficial em assuntos sérios.
@@ -119,6 +119,31 @@ const PROFILE_KEYS = [
     // { key: 'sua_chave',     label: 'Seu rótulo'                     },
 ];
 
+const CHAT_HISTORY_KEY_PREFIX = 'rd_chat_history';
+
+function getStorageItem(key) {
+    const localValue = localStorage.getItem(key);
+    if (localValue) {
+        return localValue;
+    }
+
+    return sessionStorage.getItem(key);
+}
+
+function getCurrentUser() {
+    if (window.SessionService?.getCurrentUser) {
+        return window.SessionService.getCurrentUser();
+    }
+
+    return null;
+}
+
+function getChatHistoryStorageKey() {
+    const user = getCurrentUser();
+    const userIdentifier = user?.email || user?.id || 'anonimo';
+    return `${CHAT_HISTORY_KEY_PREFIX}:${userIdentifier}`;
+}
+
 // ============================================================
 // ESTADO GLOBAL
 // ============================================================
@@ -129,6 +154,10 @@ let isLoading = false;
 // INICIALIZAÇÃO
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
+    if (window.AuthGuard?.requireAuth && !window.AuthGuard.requireAuth()) {
+        return;
+    }
+
     loadProfileFromStorage();
     initChatInput();
     initSuggestionChips();
@@ -144,9 +173,37 @@ function loadProfileFromStorage() {
     const userData = {};
     let hasData = false;
 
+    const currentUser = getCurrentUser();
+    const quiz = window.SessionService?.getQuizState ? window.SessionService.getQuizState() : null;
+
+    if (currentUser) {
+        const fullName = currentUser.fullName || `${currentUser.firstName || ''} ${currentUser.lastName || ''}`.trim();
+        const firstName = currentUser.firstName || (fullName ? fullName.split(' ')[0] : null);
+
+        if (firstName) {
+            userData['Nome'] = firstName;
+            hasData = true;
+        }
+
+        if (currentUser.email) {
+            userData['E-mail'] = currentUser.email;
+            hasData = true;
+        }
+    }
+
+    if (quiz?.resultProfile) {
+        userData['Perfil financeiro'] = quiz.resultProfile;
+        hasData = true;
+    }
+
     PROFILE_KEYS.forEach(({ key, label }) => {
-        const value = sessionStorage.getItem(key) || localStorage.getItem(key);
-        if (value) { userData[label] = value; hasData = true; }
+        const value = getStorageItem(key);
+        if (!value || userData[label]) {
+            return;
+        }
+
+        userData[label] = value;
+        hasData = true;
     });
 
     renderSidebarProfile(userData, hasData);
@@ -183,10 +240,27 @@ function renderSidebarProfile(userData, hasData) {
 
 function buildUserDataString() {
     const lines = [];
+
+    const currentUser = getCurrentUser();
+    const quiz = window.SessionService?.getQuizState ? window.SessionService.getQuizState() : null;
+
+    if (currentUser?.firstName) {
+        lines.push(`- Nome: ${currentUser.firstName}`);
+    }
+
+    if (currentUser?.email) {
+        lines.push(`- E-mail: ${currentUser.email}`);
+    }
+
+    if (quiz?.resultProfile) {
+        lines.push(`- Perfil financeiro: ${quiz.resultProfile}`);
+    }
+
     PROFILE_KEYS.forEach(({ key, label }) => {
-        const v = sessionStorage.getItem(key) || localStorage.getItem(key);
+        const v = getStorageItem(key);
         if (v) lines.push(`- ${label}: ${v}`);
     });
+
     return lines.length ? lines.join('\n') : 'Nenhum dado de perfil disponível ainda. Pergunte ao usuário de forma natural para personalizar a conversa.';
 }
 
@@ -212,6 +286,7 @@ function initClearChat() {
     if (!btn) return;
     btn.addEventListener('click', () => {
         conversationHistory = [];
+        localStorage.removeItem(getChatHistoryStorageKey());
         sessionStorage.removeItem('rd_chat_history');
         const el = document.getElementById('chatMessages');
         if (el) { el.innerHTML = ''; renderWelcome(); }
@@ -242,13 +317,15 @@ function renderWelcome() {
 // ============================================================
 function saveConversationHistory() {
     try {
-        sessionStorage.setItem('rd_chat_history', JSON.stringify(conversationHistory.slice(-30)));
+        const serialized = JSON.stringify(conversationHistory.slice(-30));
+        localStorage.setItem(getChatHistoryStorageKey(), serialized);
+        sessionStorage.setItem('rd_chat_history', serialized);
     } catch (_) { }
 }
 
 function loadConversationHistory() {
     try {
-        const saved = sessionStorage.getItem('rd_chat_history');
+        const saved = localStorage.getItem(getChatHistoryStorageKey()) || sessionStorage.getItem('rd_chat_history');
         if (!saved) return;
         const history = JSON.parse(saved);
         if (!Array.isArray(history) || !history.length) return;
@@ -392,7 +469,7 @@ function appendMessage(role, content, animate = true) {
     const avatar = document.createElement('div');
     avatar.className = 'message-avatar';
     if (msgRole === 'user') {
-        const n = sessionStorage.getItem('rd_nome') || localStorage.getItem('rd_nome');
+        const n = getCurrentUser()?.firstName || getStorageItem('rd_nome');
         avatar.textContent = n ? n[0].toUpperCase() : 'V';
     } else {
         avatar.innerHTML = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none">
