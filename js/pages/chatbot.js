@@ -20,12 +20,12 @@
 // ============================================================
 const AGENT_CONFIG = {
     // -- Chave Groq (tier gratuito, 500k tokens/dia) --
-    apiKey: '',
+    apiKey: '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',
 
     model: 'llama-3.3-70b-versatile',
-    temperature: 0.72,
+    temperature: 3,
     max_tokens: 1200,
-    name: 'Din',
+    name: 'DinDin',
 
     // ------------------------------------------------------------------
     // SYSTEM PROMPT — aqui você "treina" o agente.

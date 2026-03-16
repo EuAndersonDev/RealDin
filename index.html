@@ -22,6 +22,7 @@
         <script src="./js/components/header.js"></script>
         <script src="./js/components/footer.js"></script>
         <script src="./js/components/toast.js"></script>
+        <script src="./js/services/forms.js" defer></script>
         <script src="./js/main.js" defer></script>
         <script src="/js/pages/js/voice-nav.js" defer></script>
         <link
@@ -503,20 +504,34 @@
                     <form id="contato-formulario" class="formulario">
                         <div id="contato-linha" class="linha">
                             <div class="campo">
-                                <label>Nome</label>
-                                <input type="text" placeholder="Seu nome" />
+                                <label for="contato-nome">Nome</label>
+                                <input
+                                    type="text"
+                                    id="contato-nome"
+                                    name="name"
+                                    placeholder="Seu nome"
+                                    required
+                                />
                             </div>
                             <div class="campo">
-                                <label>Email</label>
+                                <label for="contato-email-input">Email</label>
                                 <input
                                     type="email"
+                                    id="contato-email-input"
+                                    name="email"
                                     placeholder="seu@email.com"
+                                    required
                                 />
                             </div>
                         </div>
                         <div class="campo">
-                            <label>Mensagem</label>
-                            <textarea placeholder="Sua mensagem..."></textarea>
+                            <label for="contato-mensagem">Mensagem</label>
+                            <textarea
+                                id="contato-mensagem"
+                                name="message"
+                                placeholder="Sua mensagem..."
+                                required
+                            ></textarea>
                         </div>
                         <button type="submit">Enviar</button>
                     </form>
