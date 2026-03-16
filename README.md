@@ -1,5 +1,3 @@
-
-```
 # 💰 RealDin: Educação Financeira para a Realidade Brasileira
 
 > **"Acordando jovens adultos para a liberdade financeira através da consciência e tecnologia."**
@@ -99,4 +97,3 @@ Nosso time é composto por 6 desenvolvedores focados em transformar a realidade 
 ---
 
 *Este projeto é parte de uma iniciativa educacional para o grupo-5 de UC-1, turma 1 JAVA, PROA primeiro semestre 2026.*
-```
