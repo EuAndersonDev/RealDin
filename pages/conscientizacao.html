@@ -23,6 +23,7 @@
         <script src="/js/components/toast.js"></script>
         <script src="/js/components/cardCta.js"></script>
         <script src="/js/main.js" defer></script>
+        <script src="/js/pages/conscientizacao.js" defer></script>
         <script src="/js/pages/js/voice-nav.js" defer></script>
 
         <title>Conscientização</title>
@@ -419,7 +420,7 @@
             </div>
 
             <div class="bancos-grid">
-                <article class="bank-card">
+                <article class="bank-card" data-bank-key="agibank">
                     <div class="card-header">
                         <div class="fundo-icone" aria-hidden="true">⚠</div>
                         <h3 class="nome-banco">AgiBank</h3>
@@ -428,10 +429,10 @@
                         <h4 class="subtitulo">Juros de Crédito Pessoal e Rotativo</h4>
                         <p class="descricao">O juro aqui costuma ser o topo da tabela do BC, chegando a ultrapassar os 15% ao mês em certas linhas.</p>
                     </div>
-                    <button class="btn-veja-mais">Veja mais</button>
+                    <button class="btn-veja-mais" type="button">Veja mais</button>
                 </article>
 
-                <article class="bank-card">
+                <article class="bank-card" data-bank-key="crefisa">
                     <div class="card-header">
                         <div class="fundo-icone icon-yellow" aria-hidden="true">⚠</div>
                         <h3 class="nome-banco">Crefisa</h3>
@@ -440,10 +441,10 @@
                         <h4 class="subtitulo">Empréstimo Pessoal (extremo risco)</h4>
                         <p class="descricao">Famosa por emprestar para quem ninguém mais quer, mas cobra um preço caríssimo por esse risco.</p>
                     </div>
-                    <button class="btn-veja-mais">Veja mais</button>
+                    <button class="btn-veja-mais" type="button">Veja mais</button>
                 </article>
 
-                <article class="bank-card">
+                <article class="bank-card" data-bank-key="santander">
                     <div class="card-header">
                         <div class="fundo-icone icon-blue" aria-hidden="true">⚠</div>
                         <h3 class="nome-banco">Santander</h3>
@@ -452,10 +453,10 @@
                         <h4 class="subtitulo">Tarifas de Serviço e Cheque Especial</h4>
                         <p class="descricao">Historicamente um dos bancos com pacotes de conta mais caros e juros altos no cheque especial.</p>
                     </div>
-                    <button class="btn-veja-mais">Veja mais</button>
+                    <button class="btn-veja-mais" type="button">Veja mais</button>
                 </article>
 
-                <article class="bank-card">
+                <article class="bank-card" data-bank-key="c6bank">
                     <div class="card-header">
                         <div class="fundo-icone icon-gray" aria-hidden="true">⚠</div>
                         <h3 class="nome-banco">C6 Bank</h3>
@@ -464,10 +465,28 @@
                         <h4 class="subtitulo">Novas Tarifas e Juros de Cartão</h4>
                         <p class="descricao">Entrou no ranking pelo "combo": juros altos no rotativo e a implementação agressiva de taxas de manutenção.</p>
                     </div>
-                    <button class="btn-veja-mais">Veja mais</button>
+                    <button class="btn-veja-mais" type="button">Veja mais</button>
                 </article>
             </div>
         </section>
+
+        <dialog id="bank-modal" class="bank-modal" aria-labelledby="bank-modal-title">
+            <article class="bank-modal__surface">
+                <button
+                    class="bank-modal__close"
+                    type="button"
+                    aria-label="Fechar detalhes do banco"
+                >
+                    ×
+                </button>
+                <p class="bank-modal__eyebrow">Detalhes</p>
+                <h3 id="bank-modal-title" class="bank-modal__title"></h3>
+                <p class="bank-modal__subtitle"></p>
+                <p class="bank-modal__description"></p>
+                <h4 class="bank-modal__label">Atenção antes de contratar</h4>
+                <ul class="bank-modal__list"></ul>
+            </article>
+        </dialog>
 
             <cardcta-component></cardcta-component>
 
