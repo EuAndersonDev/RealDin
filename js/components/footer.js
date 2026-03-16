@@ -33,7 +33,7 @@ class Footer extends HTMLElement {
             </div>
             <div class="coluna-links">
               <span class="titulo-coluna">Legal</span>
-              <a href="#">Termos de uso</a>
+              <a href="/pages/termos-de-uso.html">Termos de uso</a>
             </div>
           </div>
 

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('[Resultado] Página carregada, preparando renderização do perfil.');
     const session = window.SessionService;
+    const IMAGEM_FIXA_PERFIL_USER = '../assets/icons/resultados/Porco.svg';
     const perfis = {
         Poupador: {
             descricao: 'Você é cauteloso e disciplinado: pensa antes de gastar e prioriza a segurança financeira. Essa consistência é um ativo valioso, mas o excesso de cautela pode fazer seu dinheiro perder para a inflação. Guardar é o primeiro passo — o próximo é fazer o dinheiro trabalhar por você. Invista a disciplina que já tem em uma estratégia de crescimento.',
@@ -209,8 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         titulo.textContent = perfilFinal;
         descricao.textContent = dadosPerfil.descricao;
-        imagem.src = dadosPerfil.imagem;
-        imagem.alt = `Perfil ${perfilFinal}`;
+        imagem.src = IMAGEM_FIXA_PERFIL_USER;
+        imagem.alt = 'Foto de perfil do usuario';
 
         renderizarXray(listaXray, dadosPerfil.xray);
         renderizarAcoes(dadosPerfil);

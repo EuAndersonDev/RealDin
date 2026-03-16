@@ -1,8 +1,72 @@
 class Header extends HTMLElement {
+    clearChatHistoryOnLogout() {
+        const currentUser = this.obterUsuarioAtual();
+        const userIdentifier = currentUser?.email || currentUser?.id || 'anonimo';
+        const perUserKey = `rd_chat_history:${userIdentifier}`;
+        const legacyKey = 'rd_chat_history';
+        const storages = [window.localStorage, window.sessionStorage];
+
+        storages.forEach((storage) => {
+            try {
+                storage.removeItem(perUserKey);
+                storage.removeItem(legacyKey);
+            } catch (error) {
+                // Ignora erro de storage para não bloquear o logout.
+            }
+        });
+    }
+
+    obterEstadoPersistido() {
+        const storages = [window.localStorage, window.sessionStorage];
+
+        for (const storage of storages) {
+            try {
+                const estadoSalvo = storage.getItem('realdin.auth');
+                if (!estadoSalvo) {
+                    continue;
+                }
+
+                return {
+                    state: JSON.parse(estadoSalvo),
+                    storage,
+                };
+            } catch (error) {
+                // Ignora erro e tenta o próximo storage.
+            }
+        }
+
+        return { state: null, storage: null };
+    }
+
+    obterCaminhoAsset(caminhoAsset) {
+        const caminhoAtual = window.location.pathname;
+        const estaEmPaginaInterna = caminhoAtual.includes('/pages/');
+
+        return estaEmPaginaInterna ? `../${caminhoAsset}` : caminhoAsset;
+    }
+
+    configurarFallbackLogo() {
+        const logo = this.querySelector('#logo img');
+
+        if (!logo) {
+            return;
+        }
+
+        logo.addEventListener('error', () => {
+            if (logo.dataset.fallbackAplicado === 'true') {
+                return;
+            }
+
+            logo.dataset.fallbackAplicado = 'true';
+            logo.src = '/assets/imgs/Logo.svg';
+        });
+    }
+
     connectedCallback() {
         const paginaAtual = this.getAttribute('pagina');
         const auth = this.obterAuthState();
         const isAuthenticated = auth.isAuthenticated;
+        const caminhoLogo = this.obterCaminhoAsset('assets/imgs/Logo.svg');
 
         this.innerHTML = `
             <div id="menu-overlay"></div>
@@ -10,7 +74,7 @@ class Header extends HTMLElement {
                 <nav id="topo">
                     <section id="logo">
                         <a href="/index.html">
-                            <img src="/assets/imgs/logo.svg" alt="Logo">
+                            <img src="${caminhoLogo}" alt="Logo">
                         </a>
                     </section>
 
@@ -51,6 +115,8 @@ class Header extends HTMLElement {
         const menuContainer = this.querySelector("#menu-container");
         const overlay = this.querySelector("#menu-overlay");
 
+        this.configurarFallbackLogo();
+
         // Toggle do menu hambúrguer
         botaoMenu.addEventListener("click", () => {
             menuContainer.classList.toggle("ativo");
@@ -66,7 +132,7 @@ class Header extends HTMLElement {
         });
 
         // Fechar menu ao clicar em qualquer link (incluindo botões de login/register)
-        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register, #usuario-toggle, #confirmar-logout");
+        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register, #usuario-toggle, #confirmar-logout, #usuario-dropdown a");
         todosLinks.forEach(link => {
             link.addEventListener("click", () => {
                 menuContainer.classList.remove("ativo");
@@ -100,6 +166,7 @@ class Header extends HTMLElement {
                     ${primeiroNome}
                 </button>
                 <div id="usuario-dropdown" class="fechado" role="menu" aria-hidden="true">
+                    <a href="/pages/chatbot.html" class="usuario-chatbot-link" role="menuitem">Chatbot</a>
                     <p>Logout</p>
                     <button id="confirmar-logout" type="button">Fazer logout</button>
                 </div>
@@ -113,12 +180,13 @@ class Header extends HTMLElement {
         }
 
         try {
-            const estadoSalvo = sessionStorage.getItem('realdin.auth');
-            if (!estadoSalvo) {
+            const persisted = this.obterEstadoPersistido();
+
+            if (!persisted.state) {
                 return null;
             }
 
-            const estado = JSON.parse(estadoSalvo);
+            const estado = persisted.state;
             return estado?.auth?.currentUser || null;
         } catch (error) {
             return null;
@@ -132,19 +200,19 @@ class Header extends HTMLElement {
         }
 
         try {
-            const estadoSalvo = sessionStorage.getItem('realdin.auth');
-            if (!estadoSalvo) {
+            const persisted = this.obterEstadoPersistido();
+            if (!persisted.state || !persisted.storage) {
                 return;
             }
 
-            const estado = JSON.parse(estadoSalvo);
+            const estado = persisted.state;
             estado.auth = {
                 isAuthenticated: false,
                 currentUser: null,
                 lastLoginAt: null
             };
 
-            sessionStorage.setItem('realdin.auth', JSON.stringify(estado));
+            persisted.storage.setItem('realdin.auth', JSON.stringify(estado));
         } catch (error) {
             console.error('[Header] Erro ao limpar sessão do usuário.', error);
         }
@@ -188,6 +256,7 @@ class Header extends HTMLElement {
         });
 
         botaoLogout.addEventListener('click', () => {
+            this.clearChatHistoryOnLogout();
             this.limparSessaoUsuario();
 
             if (window.Toast?.show) {

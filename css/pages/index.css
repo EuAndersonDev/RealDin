@@ -685,7 +685,7 @@ button a {
 
 #objetivos .card p {
     margin: 0;
-    font-size: clamp(1.08rem, 0.98rem + 0.28vw, 1.22rem);
+    font-size: clamp(1.08rem, 0.98rem + 0.35vw, 1.55rem);
     color: #24323b;
     line-height: 1.75;
     font-weight: 500;

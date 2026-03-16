@@ -22,8 +22,9 @@
         <script src="./js/components/header.js"></script>
         <script src="./js/components/footer.js"></script>
         <script src="./js/components/toast.js"></script>
+        <script src="./js/services/forms.js" defer></script>
         <script src="./js/main.js" defer></script>
-        <script src= "/js/pages/js/voice-nav.js" defer></script>
+        <script src="/js/pages/js/voice-nav.js" defer></script>
         <link
             rel="icon"
             type="image/png"
@@ -112,7 +113,7 @@
                         <iframe
                             width="560"
                             height="315"
-                            src="https://www.youtube.com/embed/HSIwTde_gJM?si=Vmt_htwyERjCBhiO"
+                            src="https://www.youtube.com/embed/7p358uShDeE?si=7NDAdzfJP6fbaGdr"
                             title="YouTube video player"
                             frameborder="0"
                             allow="
@@ -146,9 +147,12 @@
                         </button>
                     </div>
                     <div id="secao-imagem">
-                        <img src="/assets/icons/telaPrincipal/celular-quiz.svg" alt="" />
+                        <img
+                            src="/assets/icons/telaPrincipal/celular-quiz.svg"
+                            alt=""
+                        />
+                    </div>
                 </div>
-
             </section>
 
             <!--Seção Informativa - Reserva Importância -->
@@ -173,63 +177,270 @@
             </section>
 
             <!--Seção Informativa - Reserva & Objetivos -->
-            <section id="objetivos" aria-labelledby="objetivos-heading" aria-describedby="objetivos-descricao">
+            <section
+                id="objetivos"
+                aria-labelledby="objetivos-heading"
+                aria-describedby="objetivos-descricao"
+            >
                 <div id="conteudo-objetivos">
                     <div id="objetivos-titulo">
                         <h1 id="objetivos-heading">
-                         Imprevistos acontecem. Esteja preparado.
+                            Imprevistos acontecem. Esteja preparado.
                         </h1>
                     </div>
                     <div class="container-card" role="list">
-
-                        <article class="card" role="listitem" aria-labelledby="objetivo-card-1-title">
+                        <article
+                            class="card"
+                            role="listitem"
+                            aria-labelledby="objetivo-card-1-title"
+                        >
                             <div class="card-header">
-                                <div class="icon-placeholder" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-warning-icon lucide-message-circle-warning" focusable="false"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
-                                <h3 id="objetivo-card-1-title">Imprevistos acontecem</h3>
+                                <div
+                                    class="icon-placeholder"
+                                    aria-hidden="true"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-message-circle-warning-icon lucide-message-circle-warning"
+                                        focusable="false"
+                                    >
+                                        <path
+                                            d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+                                        />
+                                        <path d="M12 8v4" />
+                                        <path d="M12 16h.01" />
+                                    </svg>
+                                </div>
+                                <h3 id="objetivo-card-1-title">
+                                    Imprevistos acontecem
+                                </h3>
                             </div>
-                                <p>Um gasto inesperado pode surgir a qualquer momento.</p>
-                            </article>
+                            <p>
+                                Um gasto inesperado pode surgir a qualquer
+                                momento.
+                            </p>
+                        </article>
 
-                        <article class="card" role="listitem" aria-labelledby="objetivo-card-2-title">
+                        <article
+                            class="card"
+                            role="listitem"
+                            aria-labelledby="objetivo-card-2-title"
+                        >
                             <div class="card-header">
-                                <div class="icon-placeholder" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-down-icon lucide-trending-down" focusable="false"><path d="M16 17h6v-6"/><path d="m22 17-8.5-8.5-5 5L2 7"/></svg></div>
-                                <h3 id="objetivo-card-2-title">Sem reserva vira dívida</h3>
+                                <div
+                                    class="icon-placeholder"
+                                    aria-hidden="true"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-trending-down-icon lucide-trending-down"
+                                        focusable="false"
+                                    >
+                                        <path d="M16 17h6v-6" />
+                                        <path d="m22 17-8.5-8.5-5 5L2 7" />
+                                    </svg>
+                                </div>
+                                <h3 id="objetivo-card-2-title">
+                                    Sem reserva vira dívida
+                                </h3>
                             </div>
-                                <p>Muita gente recorre a empréstimos ou cartão de crédito.</p>
+                            <p>
+                                Muita gente recorre a empréstimos ou cartão de
+                                crédito.
+                            </p>
                         </article>
 
-                        <article class="card" role="listitem" aria-labelledby="objetivo-card-3-title">
+                        <article
+                            class="card"
+                            role="listitem"
+                            aria-labelledby="objetivo-card-3-title"
+                        >
                             <div class="card-header">
-                                <div class="icon-placeholder" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-siren-icon lucide-siren" focusable="false"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg></div>
-                                    <h3 id="objetivo-card-3-title">Emergências custam caro</h3>
+                                <div
+                                    class="icon-placeholder"
+                                    aria-hidden="true"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-siren-icon lucide-siren"
+                                        focusable="false"
+                                    >
+                                        <path d="M7 18v-6a5 5 0 1 1 10 0v6" />
+                                        <path
+                                            d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"
+                                        />
+                                        <path d="M21 12h1" />
+                                        <path d="M18.5 4.5 18 5" />
+                                        <path d="M2 12h1" />
+                                        <path d="M12 2v1" />
+                                        <path d="m4.929 4.929.707.707" />
+                                        <path d="M12 12v6" />
+                                    </svg>
                                 </div>
-                                <p>Problemas de saúde, casa ou carro podem surgir de repente.</p>
+                                <h3 id="objetivo-card-3-title">
+                                    Emergências custam caro
+                                </h3>
+                            </div>
+                            <p>
+                                Problemas de saúde, casa ou carro podem surgir
+                                de repente.
+                            </p>
                         </article>
 
-                        <article class="card" role="listitem" aria-labelledby="objetivo-card-4-title">
+                        <article
+                            class="card"
+                            role="listitem"
+                            aria-labelledby="objetivo-card-4-title"
+                        >
                             <div class="card-header">
-                                <div class="icon-placeholder" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-icon lucide-shield" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
-                                    <h3 id="objetivo-card-4-title">Ter reserva traz segurança</h3>
+                                <div
+                                    class="icon-placeholder"
+                                    aria-hidden="true"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-shield-icon lucide-shield"
+                                        focusable="false"
+                                    >
+                                        <path
+                                            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                                        />
+                                    </svg>
                                 </div>
-                                    <p>Você consegue lidar com problemas sem entrar em pânico.</p>
+                                <h3 id="objetivo-card-4-title">
+                                    Ter reserva traz segurança
+                                </h3>
+                            </div>
+                            <p>
+                                Você consegue lidar com problemas sem entrar em
+                                pânico.
+                            </p>
                         </article>
 
-                        <article class="card" role="listitem" aria-labelledby="objetivo-card-5-title">
+                        <article
+                            class="card"
+                            role="listitem"
+                            aria-labelledby="objetivo-card-5-title"
+                        >
                             <div class="card-header">
-                                <div class="icon-placeholder" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-piggy-bank-icon lucide-piggy-bank" focusable="false"><path d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"/><path d="M16 10h.01"/><path d="M2 8v1a2 2 0 0 0 2 2h1"/></svg></div>
-                                    <h3 id="objetivo-card-5-title">Pequenos valores ajudam</h3>
+                                <div
+                                    class="icon-placeholder"
+                                    aria-hidden="true"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-piggy-bank-icon lucide-piggy-bank"
+                                        focusable="false"
+                                    >
+                                        <path
+                                            d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"
+                                        />
+                                        <path d="M16 10h.01" />
+                                        <path d="M2 8v1a2 2 0 0 0 2 2h1" />
+                                    </svg>
                                 </div>
-                                    <p>Guardar um pouco todo mês já faz diferença no futuro.</p>
+                                <h3 id="objetivo-card-5-title">
+                                    Pequenos valores ajudam
+                                </h3>
+                            </div>
+                            <p>
+                                Guardar um pouco todo mês já faz diferença no
+                                futuro.
+                            </p>
                         </article>
 
-                        <article class="card" role="listitem" aria-labelledby="objetivo-card-6-title">
+                        <article
+                            class="card"
+                            role="listitem"
+                            aria-labelledby="objetivo-card-6-title"
+                        >
                             <div class="card-header">
-                                <div class="icon-placeholder" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-icon lucide-brain" focusable="false"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg></div>
-                                    <h3 id="objetivo-card-6-title">Evite decisões por desespero</h3>
+                                <div
+                                    class="icon-placeholder"
+                                    aria-hidden="true"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-brain-icon lucide-brain"
+                                        focusable="false"
+                                    >
+                                        <path d="M12 18V5" />
+                                        <path
+                                            d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"
+                                        />
+                                        <path
+                                            d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"
+                                        />
+                                        <path
+                                            d="M17.997 5.125a4 4 0 0 1 2.526 5.77"
+                                        />
+                                        <path d="M18 18a4 4 0 0 0 2-7.464" />
+                                        <path
+                                            d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"
+                                        />
+                                        <path d="M6 18a4 4 0 0 1-2-7.464" />
+                                        <path
+                                            d="M6.003 5.125a4 4 0 0 0-2.526 5.77"
+                                        />
+                                    </svg>
                                 </div>
-                                    <p>Sem dinheiro guardado, escolhas ruins parecem a única saída.</p>
+                                <h3 id="objetivo-card-6-title">
+                                    Evite decisões por desespero
+                                </h3>
+                            </div>
+                            <p>
+                                Sem dinheiro guardado, escolhas ruins parecem a
+                                única saída.
+                            </p>
                         </article>
-
                     </div>
                 </div>
             </section>
@@ -238,16 +449,17 @@
             <section id="divida">
                 <div id="conteudo-divida">
                     <div id="divida-titulo">
-                    <h1>Decisões dos 18 que<br>afetam os 25</h1>
-                    <p>Decisões financeiras aos 18–25 anos têm impacto por muitos anos.</p>
+                        <h1>Decisões dos 18 que<br />afetam os 25</h1>
+                        <p>
+                            Decisões financeiras aos 18–25 anos têm impacto por
+                            muitos anos.
+                        </p>
                     </div>
                     <div id="divida-imagem">
-                    <img src="/assets/imgs/pilha.jpg" alt="" />
+                        <img src="/assets/imgs/pilha.jpg" alt="" />
                     </div>
                 </div>
             </section>
-
-
 
             <!--Seção Forms -->
             <section id="contato" class="contato">
@@ -292,20 +504,34 @@
                     <form id="contato-formulario" class="formulario">
                         <div id="contato-linha" class="linha">
                             <div class="campo">
-                                <label>Nome</label>
-                                <input type="text" placeholder="Seu nome" />
+                                <label for="contato-nome">Nome</label>
+                                <input
+                                    type="text"
+                                    id="contato-nome"
+                                    name="name"
+                                    placeholder="Seu nome"
+                                    required
+                                />
                             </div>
                             <div class="campo">
-                                <label>Email</label>
+                                <label for="contato-email-input">Email</label>
                                 <input
                                     type="email"
+                                    id="contato-email-input"
+                                    name="email"
                                     placeholder="seu@email.com"
+                                    required
                                 />
                             </div>
                         </div>
                         <div class="campo">
-                            <label>Mensagem</label>
-                            <textarea placeholder="Sua mensagem..."></textarea>
+                            <label for="contato-mensagem">Mensagem</label>
+                            <textarea
+                                id="contato-mensagem"
+                                name="message"
+                                placeholder="Sua mensagem..."
+                                required
+                            ></textarea>
                         </div>
                         <button type="submit">Enviar</button>
                     </form>
@@ -318,16 +544,15 @@
 
         <!-- VLibras -->
         <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
         </div>
 
         <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
         <script>
-        new window.VLibras.Widget("https://vlibras.gov.br/app");
+            new window.VLibras.Widget("https://vlibras.gov.br/app");
         </script>
-
     </body>
 </html>

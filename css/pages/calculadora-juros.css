@@ -920,7 +920,7 @@
 .invest-summary {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
     max-width: 1440px;
     margin: 0 auto 2rem;
 }
@@ -928,11 +928,11 @@
 .invest-stat {
     background: #fff;
     border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 1.125rem 1rem;
+    border-radius: 18px;
+    padding: 1.6875rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.6rem;
     box-shadow: 0 1px 3px rgba(19, 23, 32, 0.04);
     transition:
         transform 0.18s,
@@ -947,14 +947,14 @@
     border-left: 4px solid #0a9e88;
 }
 .invest-stat-label {
-    font-size: 0.68rem;
+    font-size: 1.02rem;
     font-weight: 500;
     color: #9ca3af;
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
 .invest-stat-value {
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     font-weight: 700;
     color: #131720;
 }

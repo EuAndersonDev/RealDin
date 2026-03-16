@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/global.css" />
+        <link rel="stylesheet" href="/css/components/header.css" />
+        <link rel="stylesheet" href="/css/components/footer.css" />
+        <link rel="stylesheet" href="/css/pages/chatbot.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/imgs/LogoHead.png"
+            width="50"
+            height="50"
+        />
+        <script src="/js/services/session/session.js" defer></script>
+        <script src="/js/services/auth-context.js" defer></script>
+        <script src="/js/services/auth-guard.js" defer></script>
+        <script src="/js/components/header.js"></script>
+        <script src="/js/components/footer.js"></script>
+        <script src="/js/pages/chatbot.js" defer></script>
+        <title>Consultor IA — RealDin</title>
+    </head>
+    <body>
+        <header-componente pagina="chat"></header-componente>
+
+        <main class="chat-main">
+            <!-- ================================================
+             HERO
+        ================================================ -->
+            <section class="chat-hero">
+                <div class="chat-hero-bg">
+                    <div class="chat-hero-orb chat-hero-orb--1"></div>
+                    <div class="chat-hero-orb chat-hero-orb--2"></div>
+                    <div class="chat-hero-grid"></div>
+                </div>
+
+                <div class="chat-hero-content">
+                    <div class="chat-hero-badge">
+                        <span class="chat-hero-badge-dot"></span>
+                        <span>IA online</span>
+                    </div>
+
+                    <h1 class="chat-hero-title">
+                        Consultor <em>Financeiro</em> IA
+                    </h1>
+
+                    <p class="chat-hero-desc">
+                        Converse com seu assistente financeiro pessoal. Ele
+                        conhece seu perfil e está pronto para te ajudar com
+                        dívidas, investimentos e educação financeira.
+                    </p>
+
+                    <!-- Chips de sugestão rápida -->
+                    <div class="chat-suggestions" id="chatSuggestions">
+                        <button
+                            class="suggestion-chip"
+                            data-msg="Qual é o meu perfil financeiro e o que isso significa?"
+                        >
+                            📊 Meu perfil
+                        </button>
+                        <button
+                            class="suggestion-chip"
+                            data-msg="Como posso sair das dívidas mais rápido? Me dê um plano prático."
+                        >
+                            💸 Sair das dívidas
+                        </button>
+                        <button
+                            class="suggestion-chip"
+                            data-msg="Por onde começo a investir com pouco dinheiro?"
+                        >
+                            📈 Começar a investir
+                        </button>
+                        <button
+                            class="suggestion-chip"
+                            data-msg="O que é o método avalanche e como aplicar no meu caso?"
+                        >
+                            ⚡ Método Avalanche
+                        </button>
+                        <button
+                            class="suggestion-chip"
+                            data-msg="Qual a diferença entre CDB, Tesouro Direto e Poupança?"
+                        >
+                            🏦 CDB vs Tesouro
+                        </button>
+                        <button
+                            class="suggestion-chip"
+                            data-msg="Crie um plano de ação financeiro personalizado para mim."
+                        >
+                            🗺️ Plano de ação
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================
+             WORKSPACE
+        ================================================ -->
+            <section class="chat-workspace">
+                <!-- Sidebar -->
+                <aside class="chat-sidebar" id="chatSidebar">
+                    <div class="sidebar-header">
+                        <h2 class="sidebar-title">Seu perfil</h2>
+                        <button
+                            class="sidebar-toggle"
+                            id="sidebarToggle"
+                            aria-label="Recolher painel"
+                        >
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M10 4L6 8l4 4"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Usuário -->
+                    <div class="sidebar-user" id="sidebarUser">
+                        <div class="sidebar-avatar" id="sidebarAvatar">?</div>
+                        <div>
+                            <p class="sidebar-user-name" id="sidebarName">
+                                Carregando...
+                            </p>
+                            <p class="sidebar-user-sub" id="sidebarPerfil">—</p>
+                        </div>
+                    </div>
+
+                    <!-- Dados do perfil (preenchidos via JS com sessionStorage) -->
+                    <div class="sidebar-data" id="sidebarData">
+                        <div class="sidebar-empty">
+                            <svg
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                />
+                                <path
+                                    d="M12 8v4m0 4h.01"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                            <p>Nenhum dado encontrado no perfil.</p>
+                            <p class="sidebar-empty-sub">
+                                Faça o quiz financeiro para personalizar seu
+                                consultor.
+                            </p>
+                            <a
+                                href="/pages/sobrequiz.html"
+                                class="sidebar-quiz-link"
+                                >Fazer quiz →</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Limpar conversa -->
+                    <button
+                        class="sidebar-clear-btn"
+                        id="clearChatBtn"
+                        type="button"
+                    >
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                        >
+                            <path
+                                d="M2 4h12M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1M12 4v9a1 1 0 01-1 1H5a1 1 0 01-1-1V4"
+                                stroke="currentColor"
+                                stroke-width="1.4"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                        Limpar conversa
+                    </button>
+                </aside>
+
+                <!-- Área de chat -->
+                <div class="chat-area" id="chatArea">
+                    <!-- Mensagens -->
+                    <div
+                        class="chat-messages"
+                        id="chatMessages"
+                        role="log"
+                        aria-live="polite"
+                        aria-label="Conversa com Din"
+                    >
+                        <!-- Boas-vindas (substituído pelo histórico se existir) -->
+                        <div class="chat-welcome" id="chatWelcome">
+                            <div class="welcome-icon">
+                                <svg
+                                    width="32"
+                                    height="32"
+                                    viewBox="0 0 32 32"
+                                    fill="none"
+                                >
+                                    <circle
+                                        cx="16"
+                                        cy="16"
+                                        r="15"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        opacity="0.3"
+                                    />
+                                    <path
+                                        d="M16 6l2.5 7.5L26 16l-7.5 2.5L16 26l-2.5-7.5L6 16l7.5-2.5L16 6z"
+                                        fill="currentColor"
+                                        opacity="0.9"
+                                    />
+                                </svg>
+                            </div>
+                            <h3 class="welcome-title">
+                                Olá! Sou o DinDin, seu assistente financeiro.
+                            </h3>
+                            <p class="welcome-desc">
+                                Use os atalhos acima ou escreva sua dúvida.
+                                Tenho acesso ao seu perfil e posso ajudar com um
+                                plano personalizado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Indicador de digitação -->
+                    <div class="chat-typing" id="chatTyping" aria-hidden="true">
+                        <div class="typing-avatar">
+                            <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M8 1l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                        </div>
+                        <div class="typing-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <!-- Input -->
+                    <form
+                        class="chat-input-form"
+                        id="chatInputForm"
+                        autocomplete="off"
+                    >
+                        <div class="chat-input-wrap">
+                            <textarea
+                                id="chatInput"
+                                class="chat-input"
+                                placeholder="Pergunte sobre seu perfil, dívidas, investimentos..."
+                                rows="1"
+                                maxlength="2000"
+                                aria-label="Mensagem para o Din"
+                            ></textarea>
+                            <div class="chat-input-actions">
+                                <span class="chat-char-count" id="charCount"
+                                    >0/2000</span
+                                >
+                                <button
+                                    type="submit"
+                                    class="chat-send-btn"
+                                    id="chatSendBtn"
+                                    aria-label="Enviar mensagem"
+                                >
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 20 20"
+                                        fill="none"
+                                    >
+                                        <path
+                                            d="M18 10L2 4l4 6-4 6 16-6z"
+                                            fill="currentColor"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="chat-disclaimer">
+                            Respostas geradas por IA. Não substituem orientação
+                            de um especialista financeiro.
+                        </p>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+    </body>
+</html>

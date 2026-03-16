@@ -1,16 +1,38 @@
 const AuthContext = (() => {
+    const STORAGE_KEY = 'realdin.auth';
+
+    function readStoredState() {
+        const storages = [window.localStorage, window.sessionStorage];
+
+        for (const storage of storages) {
+            try {
+                const raw = storage.getItem(STORAGE_KEY);
+                if (!raw) {
+                    continue;
+                }
+
+                const parsed = JSON.parse(raw);
+                return parsed;
+            } catch (error) {
+                // Ignora parsing/storage errors e tenta o próximo storage.
+            }
+        }
+
+        return null;
+    }
+
     function getAuthState() {
         if (window.SessionService?.getCurrentSession) {
             return window.SessionService.getCurrentSession();
         }
 
         try {
-            const raw = sessionStorage.getItem('realdin.auth');
-            if (!raw) {
+            const parsed = readStoredState();
+
+            if (!parsed) {
                 return { isAuthenticated: false, currentUser: null, lastLoginAt: null };
             }
 
-            const parsed = JSON.parse(raw);
             return parsed?.auth || { isAuthenticated: false, currentUser: null, lastLoginAt: null };
         } catch (error) {
             return { isAuthenticated: false, currentUser: null, lastLoginAt: null };
