@@ -42,9 +42,9 @@
         </div>
 
         <div class="main">
-            <button class="enviar" id="btn-proximo">
-                <div class="prxima-pergunta">Próxima Pergunta</div>
-            </button>
+            <b class="o-que" id="pergunta-texto"
+                >O que é uma reserva de emergência?</b
+            >
             <div class="e" id="opcao-E" data-perfil="">
                 <div class="background">
                     <div class="e2">E</div>
@@ -86,23 +86,22 @@
                     Dinheiro guardado para viagens
                 </div>
             </div>
-            <b class="o-que" id="pergunta-texto"
-                >O que é uma reserva de emergência?</b
-            >
+            <button class="enviar" id="btn-proximo">
+                <div class="prxima-pergunta">Próxima Pergunta</div>
+            </button>
         </div>
 
         <!-- VLibras -->
         <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
         </div>
 
         <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
         <script>
-        new window.VLibras.Widget("https://vlibras.gov.br/app");
+            new window.VLibras.Widget("https://vlibras.gov.br/app");
         </script>
-        
     </body>
 </html>
