@@ -367,7 +367,17 @@ function updateEducationContent(debtType) {
     tipEl.textContent = s.tip;
 }
 
-// Gráfico de dívida (canvas manual)
+// ============================================================
+// GRÁFICO DE DÍVIDA — CUSTO ACUMULADO (canvas manual)
+//
+// Antes: plotava saldoAtual (curva decrescente — confuso para o usuário)
+// Agora: plota custo acumulado mês a mês com duas áreas empilhadas:
+//   Área cinza (baixo) = principal acumulado pago
+//   Área vermelha (cima) = juros acumulados pagos
+//
+// A curva total cresce da esquerda para a direita, chegando ao
+// montante final (PMT × n), tornando o "peso dos juros" visível.
+// ============================================================
 function generateDebtChart(parcelas) {
     const container = document.getElementById('chartContainer');
     const canvas = document.getElementById('debtChart');
@@ -393,21 +403,36 @@ function generateDebtChart(parcelas) {
         ctx.clearRect(0, 0, width, height);
         if (!parcelas.length) return;
 
-        const pad = { top: 20, right: 20, bottom: 40, left: 65 };
+        const pad = { top: 24, right: 20, bottom: 40, left: 65 };
         const chartW = width - pad.left - pad.right;
         const chartH = height - pad.top - pad.bottom;
 
-        // Usa saldoAnterior[0] como pico (valor original da dívida)
-        const values = parcelas.map(p => p.saldoAtual);
-        const maxVal = parcelas[0].saldoAnterior * 1.1;  // topo = valor inicial + 10% de margem
+        // Acumula principal pago e juros pagos mês a mês
+        let acumPrincipal = 0;
+        let acumJuros = 0;
+        const pontos = parcelas.map(p => {
+            acumPrincipal += p.amortizacao;
+            acumJuros += p.juros;
+            return {
+                mes: p.mes,
+                principal: acumPrincipal,           // área cinza (base)
+                total: acumPrincipal + acumJuros // área vermelha (topo)
+            };
+        });
 
-        const xFn = i => parcelas.length === 1 ? pad.left + chartW / 2 : pad.left + (i / (parcelas.length - 1)) * chartW;
+        const maxVal = pontos[pontos.length - 1].total * 1.08;
+        const n = pontos.length;
+
+        const xFn = i => n === 1 ? pad.left + chartW / 2 : pad.left + (i / (n - 1)) * chartW;
         const yFn = v => pad.top + chartH - (v / (maxVal || 1)) * chartH;
 
         // Grid Y
-        ctx.strokeStyle = '#e5e7eb'; ctx.fillStyle = '#9ca3af'; ctx.font = '11px Inter,sans-serif';
+        ctx.strokeStyle = '#e5e7eb';
+        ctx.fillStyle = '#9ca3af';
+        ctx.font = '11px Inter,sans-serif';
         for (let i = 0; i <= 5; i++) {
-            const r = i / 5; const yp = pad.top + chartH - r * chartH;
+            const r = i / 5;
+            const yp = pad.top + chartH - r * chartH;
             ctx.beginPath(); ctx.moveTo(pad.left, yp); ctx.lineTo(width - pad.right, yp); ctx.stroke();
             ctx.fillText(formatCompactCurrency(r * maxVal), 8, yp + 4);
         }
@@ -415,35 +440,75 @@ function generateDebtChart(parcelas) {
         // Eixo X
         ctx.strokeStyle = '#9ca3af'; ctx.lineWidth = 1;
         ctx.beginPath(); ctx.moveTo(pad.left, pad.top + chartH); ctx.lineTo(width - pad.right, pad.top + chartH); ctx.stroke();
-        const step = Math.ceil(parcelas.length / 6); ctx.fillStyle = '#9ca3af';
-        for (let i = 0; i < parcelas.length; i += step) ctx.fillText(`${parcelas[i].mes}`, xFn(i) - 6, height - 14);
-        if ((parcelas.length - 1) % step !== 0) ctx.fillText(`${parcelas[parcelas.length - 1].mes}`, xFn(parcelas.length - 1) - 6, height - 14);
+        const step = Math.ceil(n / 6);
+        ctx.fillStyle = '#9ca3af';
+        for (let i = 0; i < n; i += step) ctx.fillText(`${pontos[i].mes}`, xFn(i) - 6, height - 14);
+        if ((n - 1) % step !== 0) ctx.fillText(`${pontos[n - 1].mes}`, xFn(n - 1) - 6, height - 14);
 
-        // Área preenchida
-        const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + chartH);
-        grad.addColorStop(0, 'rgba(232,85,48,0.28)'); grad.addColorStop(1, 'rgba(232,85,48,0.03)');
-        ctx.beginPath(); ctx.moveTo(xFn(0), yFn(values[0]));
-        for (let i = 1; i < values.length; i++) ctx.lineTo(xFn(i), yFn(values[i]));
-        ctx.lineTo(xFn(values.length - 1), pad.top + chartH); ctx.lineTo(xFn(0), pad.top + chartH);
-        ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+        // ── Área cinza: principal acumulado (base) ──────────────
+        ctx.beginPath();
+        ctx.moveTo(xFn(0), yFn(pontos[0].principal));
+        for (let i = 1; i < n; i++) ctx.lineTo(xFn(i), yFn(pontos[i].principal));
+        ctx.lineTo(xFn(n - 1), pad.top + chartH);
+        ctx.lineTo(xFn(0), pad.top + chartH);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(156,163,175,0.35)';
+        ctx.fill();
 
-        // Linha principal
-        ctx.beginPath(); ctx.moveTo(xFn(0), yFn(values[0]));
-        for (let i = 1; i < values.length; i++) ctx.lineTo(xFn(i), yFn(values[i]));
+        // ── Área vermelha: juros acumulados (empilhada sobre o principal) ──
+        const gradR = ctx.createLinearGradient(0, pad.top, 0, pad.top + chartH);
+        gradR.addColorStop(0, 'rgba(232,85,48,0.45)');
+        gradR.addColorStop(1, 'rgba(232,85,48,0.08)');
+        ctx.beginPath();
+        ctx.moveTo(xFn(0), yFn(pontos[0].total));
+        for (let i = 1; i < n; i++) ctx.lineTo(xFn(i), yFn(pontos[i].total));
+        // desce até a linha do principal (base da área vermelha)
+        for (let i = n - 1; i >= 0; i--) ctx.lineTo(xFn(i), yFn(pontos[i].principal));
+        ctx.closePath();
+        ctx.fillStyle = gradR;
+        ctx.fill();
+
+        // ── Linha: total acumulado (topo) ────────────────────────
+        ctx.beginPath();
+        ctx.moveTo(xFn(0), yFn(pontos[0].total));
+        for (let i = 1; i < n; i++) ctx.lineTo(xFn(i), yFn(pontos[i].total));
         ctx.strokeStyle = '#e85530'; ctx.lineWidth = 2.5; ctx.stroke();
 
-        // Pontos de destaque
-        const ms = Math.max(1, Math.floor(values.length / 8));
-        for (let i = 0; i < values.length; i += ms) {
-            ctx.beginPath(); ctx.arc(xFn(i), yFn(values[i]), 3.5, 0, 2 * Math.PI); ctx.fillStyle = '#e85530'; ctx.fill();
-        }
-        const last = values.length - 1;
-        ctx.beginPath(); ctx.arc(xFn(last), yFn(values[last]), 5, 0, 2 * Math.PI); ctx.fillStyle = '#177f72'; ctx.fill();
+        // ── Linha tracejada: principal acumulado ─────────────────
+        ctx.setLineDash([4, 3]);
+        ctx.beginPath();
+        ctx.moveTo(xFn(0), yFn(pontos[0].principal));
+        for (let i = 1; i < n; i++) ctx.lineTo(xFn(i), yFn(pontos[i].principal));
+        ctx.strokeStyle = '#9ca3af'; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.setLineDash([]);
 
-        // Labels eixos
+        // ── Ponto final destacado ────────────────────────────────
+        const last = n - 1;
+        ctx.beginPath();
+        ctx.arc(xFn(last), yFn(pontos[last].total), 5, 0, 2 * Math.PI);
+        ctx.fillStyle = '#e85530'; ctx.fill();
+
+        // ── Labels dos eixos ─────────────────────────────────────
         ctx.fillStyle = '#9ca3af'; ctx.font = '600 11px Inter,sans-serif';
         ctx.fillText('Meses', width / 2 - 20, height - 2);
-        ctx.save(); ctx.translate(13, height / 2 + 15); ctx.rotate(-Math.PI / 2); ctx.fillText('Saldo devedor', 0, 0); ctx.restore();
+        ctx.save();
+        ctx.translate(13, height / 2 + 30);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText('Total pago', 0, 0);
+        ctx.restore();
+
+        // ── Legenda inline ───────────────────────────────────────
+        const lx = pad.left + 8;
+        const ly = pad.top + 10;
+        ctx.fillStyle = 'rgba(232,85,48,0.5)';
+        ctx.fillRect(lx, ly - 8, 12, 10);
+        ctx.fillStyle = '#9ca3af'; ctx.font = '10px Inter,sans-serif';
+        ctx.fillText('Juros', lx + 16, ly);
+
+        ctx.fillStyle = 'rgba(156,163,175,0.5)';
+        ctx.fillRect(lx + 56, ly - 8, 12, 10);
+        ctx.fillStyle = '#9ca3af';
+        ctx.fillText('Principal', lx + 72, ly);
     };
 
     draw();
