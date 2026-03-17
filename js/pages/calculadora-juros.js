@@ -2,6 +2,13 @@
 // CALCULADORA-JUROS.JS — RealDin
 // Simulador de Dívidas + Simulador de Investimentos
 // com toggle entre os dois modos
+//
+// CORREÇÃO APLICADA (2025):
+//   - Simulador de Juros migrado para Tabela Price
+//     (amortização padrão do mercado brasileiro)
+//   - gerarParcelasJuros: saldo agora DECRESCE mês a mês
+//   - calcularJurosCompostos: montanteFinal = total desembolsado (PMT × n)
+//   - taxaPeriodo: (jurosTotal / principal) × 100 — percentual real
 // ==========================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -197,14 +204,33 @@ function initSimuladorJuros() {
     });
 }
 
-// Cálculo de juros compostos
+// ============================================================
+// CÁLCULO DE JUROS — TABELA PRICE (CORRIGIDO)
+//
+// Antes: saldo crescia exponencialmente sem nunca ser pago
+//        (equivalia a um devedor que jamais faz nenhum pagamento)
+//
+// Agora: parcela fixa mensal (PMT) abate juros + amortização do principal
+//        Fórmula Price: PMT = PV × [i(1+i)^n] / [(1+i)^n − 1]
+//        O saldo devedor decresce a cada mês até zerar no último período.
+// ============================================================
 function calcularJurosCompostos(valorInicial, taxaMensal, meses) {
-    const montanteFinal = valorInicial * Math.pow(1 + taxaMensal, meses);
-    const jurosTotal = montanteFinal - valorInicial;
-    // CORRIGIDO: taxa anual equivalente usada nos alertas (não varia com o prazo)
+    const fator = Math.pow(1 + taxaMensal, meses);
+
+    // Parcela fixa mensal (Tabela Price)
+    // Caso borda: taxa zero → divisão simples do principal
+    const parcelaFixa = taxaMensal === 0
+        ? valorInicial / meses
+        : valorInicial * (taxaMensal * fator) / (fator - 1);
+
+    const totalPago = parcelaFixa * meses;          // total desembolsado pelo devedor
+    const jurosTotal = totalPago - valorInicial;      // custo real do crédito
+
+    // Taxa anual equivalente — base para os alertas de severidade (independe do prazo)
     const taxaAnualEquivalente = (Math.pow(1 + taxaMensal, 12) - 1) * 100;
-    // Taxa do período — exibida no card "Juros / Principal"
-    const taxaPeriodo = ((montanteFinal / valorInicial) - 1) * 100;
+
+    // Percentual de juros sobre o principal: quanto a mais o devedor paga
+    const taxaPeriodo = (jurosTotal / valorInicial) * 100;
 
     return {
         valorInicial,
@@ -212,21 +238,47 @@ function calcularJurosCompostos(valorInicial, taxaMensal, meses) {
         taxaAnualEquivalente,
         taxaPeriodo,
         meses,
-        montanteFinal,
+        montanteFinal: totalPago,   // mantido com o mesmo nome para compatibilidade com o restante do código
         jurosTotal,
-        parcelas: gerarParcelasJuros(valorInicial, taxaMensal, meses)
+        parcelaFixa,
+        parcelas: gerarParcelasJuros(valorInicial, taxaMensal, meses, parcelaFixa)
     };
 }
 
-function gerarParcelasJuros(valorInicial, taxaMensal, meses) {
+// ============================================================
+// TABELA PRICE MÊS A MÊS
+//
+// Antes: saldo += juros  → curva sempre crescente (errado)
+// Agora: saldo -= amortização  → curva decrescente até zero (correto)
+//
+// Cada parcela fixa é composta por:
+//   juros       = saldo_devedor_atual × taxa_mensal
+//   amortização = parcela_fixa − juros
+//   novo_saldo  = saldo_anterior − amortização
+//
+// No início do contrato os juros dominam a parcela;
+// no final, a amortização domina — padrão Price.
+// ============================================================
+function gerarParcelasJuros(valorInicial, taxaMensal, meses, parcelaFixa) {
     const parcelas = [];
     let saldo = valorInicial;
+
     for (let i = 1; i <= meses; i++) {
-        const juros = saldo * taxaMensal;
-        const anterior = saldo;
-        saldo += juros;
-        parcelas.push({ mes: i, saldoAnterior: anterior, juros, saldoAtual: saldo });
+        const juros = saldo * taxaMensal;           // juros do mês (sobre saldo atual)
+        const amortizacao = parcelaFixa - juros;          // capital abatido nesta parcela
+        const saldoAnterior = saldo;
+        saldo = Math.max(0, saldo - amortizacao);         // saldo devedor após pagamento
+
+        parcelas.push({
+            mes: i,
+            saldoAnterior,
+            juros,
+            amortizacao,
+            parcelaFixa,
+            saldoAtual: saldo                            // usado pelo gráfico (curva decrescente)
+        });
     }
+
     return parcelas;
 }
 
@@ -244,7 +296,7 @@ function exibirResultadoJuros(resultado, debtType) {
     document.getElementById('totalJuros').textContent = formatarMoeda(resultado.jurosTotal);
     document.getElementById('percentualJuros').textContent = `${resultado.taxaPeriodo.toFixed(2)}%`;
 
-    // Alertas baseados na taxa ANUAL equivalente (corrigido)
+    // Alertas baseados na taxa ANUAL equivalente (independente do prazo)
     const alertCritical = document.getElementById('alertCritical');
     const alertMessage = alertCritical.querySelector('.alert-message');
     const taxa = resultado.taxaAnualEquivalente;
@@ -344,8 +396,10 @@ function generateDebtChart(parcelas) {
         const pad = { top: 20, right: 20, bottom: 40, left: 65 };
         const chartW = width - pad.left - pad.right;
         const chartH = height - pad.top - pad.bottom;
+
+        // Usa saldoAnterior[0] como pico (valor original da dívida)
         const values = parcelas.map(p => p.saldoAtual);
-        const maxVal = Math.max(...values) * 1.1;
+        const maxVal = parcelas[0].saldoAnterior * 1.1;  // topo = valor inicial + 10% de margem
 
         const xFn = i => parcelas.length === 1 ? pad.left + chartW / 2 : pad.left + (i / (parcelas.length - 1)) * chartW;
         const yFn = v => pad.top + chartH - (v / (maxVal || 1)) * chartH;
