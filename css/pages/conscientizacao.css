@@ -94,39 +94,40 @@ main {
 .cards {
     margin-top: 80px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 20px;
     width: 100%;
-    height: 400px;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 30px;
 }
 
 .card {
     width: 23%;
-    height: 500px;
+    height: 420px;
     background: white;
-    padding: 30px;
+    padding: 22px;
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 8px 10px rgba(0, 0, 0, 0.06);
     text-align: left;
 }
 
 .card img {
-    width: 50px;
-    margin-bottom: 20px;
+    width: 42px;
+    margin-bottom: 14px;
 }
 
 .card h3 {
     margin: 0 0 10px 0;
-    font-size: 40px;
+    font-size: 30px;
     width: 80%;
 }
 
 .card p {
     color: #666;
-    font-size: 25px;
+    font-size: 20px;
     line-height: 1.5;
     width: 90%;
 }
@@ -469,8 +470,8 @@ main {
 }
 
  /* ----------------------
-        Educação 
-    ---------------------- */ 
+        Educação
+    ---------------------- */
 
 #educacao {
     width: 100%;
@@ -572,7 +573,7 @@ main {
 }
 
 /* ----------------------
-        Juros Agiotagem 
+        Juros Agiotagem
     ---------------------- */
 
 #agiota {
@@ -820,7 +821,7 @@ main {
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     border: 1px solid #e8e8e8;
-    
+
     display: flex;
     flex-direction: column;
     text-align: left;
