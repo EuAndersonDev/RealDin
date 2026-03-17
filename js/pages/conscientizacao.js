@@ -1,7 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+    initHeroScrollButton();
     initBankModal();
     initTestimonialsCarousel();
 });
+
+function initHeroScrollButton() {
+    const heroButton = document.querySelector(".btn-aprenda");
+    const nextSection = document.getElementById("credito");
+
+    if (!heroButton || !nextSection) {
+        return;
+    }
+
+    heroButton.addEventListener("click", () => {
+        nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+}
 
 function initBankModal() {
     const modal = document.getElementById("bank-modal");
