@@ -132,7 +132,7 @@ class Header extends HTMLElement {
         });
 
         // Fechar menu ao clicar em qualquer link (incluindo botões de login/register)
-        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register, #usuario-toggle, #confirmar-logout, #usuario-dropdown a");
+        const todosLinks = this.querySelectorAll("#links a, .botao-login, .botao-register, #confirmar-logout, #usuario-dropdown a");
         todosLinks.forEach(link => {
             link.addEventListener("click", () => {
                 menuContainer.classList.remove("ativo");
